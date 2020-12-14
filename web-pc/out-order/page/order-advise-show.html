@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我的建议</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<!--bootstrap插件-->
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+	<!--加载等待插件-->
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+	<!--pc公共-->
+	<link rel="stylesheet" type="text/css" href="../../../css/base.css">
+
+	<!-- pc端样式统一风格，一般都写在base.css中即可，本页特殊设置写在本页即可  -->
+	<style>
+		html,body{height:100%;}
+		body {
+			/* filter:progid:DXImageTransform.Microsoft.gradient(enabled='ture',GradientType='1',StartColorStr=#85000000,EndColorstr=#85000000); */ 
+			background-color:#fae1c3;
+			color:#333;
+		
+		}
+		/* 五星评价 start */
+		.pc-advise {
+		 
+		}
+		
+		.pc-advise .bb2 {
+			border-bottom: 1px solid #bbb;
+		}
+		.pc-advise .mgt16 {
+			margin-top: 16px;
+		}
+		.pc-advise .a-row {
+			font-size: 18px;
+		    color: #333;
+		    height: 50px;
+		    line-height: 50px;
+            margin-left: 34px;
+    		margin-right: 50px;
+		}
+		.pc-advise .row-left {
+			float: left;
+			/* width:36%; */
+			/* margin-left: 36px; */
+		}
+		.pc-advise .row-right{
+			float: right;
+			/* margin-right: 36px; */
+			color: #a0a0a0;
+		}
+		.pc-advise .row-right .ratyWidth {
+			width: 160px;
+		}
+		.pc-advise .row-right .fontWidth {
+			width: 60px;
+		}
+		.pc-advise .row-right img{ 
+			height: 24px;
+			width: 24px;
+			margin-top: -6px;
+		}
+		/* 五星评价 end */
+		
+		.pc-advise .a-textarea {
+		    height: 200px;
+		    width: 401px;
+		    line-height: 120%;
+		    font-size: 18px;
+		    color: #000;
+		    padding: 20px;
+		    margin: 16px 50px 20px 34px;
+		    border: 0px solid #fff;
+		}
+		
+		.pc-advise .btn-group {
+		
+		}
+		
+		.pc-advise .btn-group .btt{
+			display: block;
+	        font-size: 20px;
+		    width: 120px;
+		    height: 50px;
+		    text-align: center;
+		    line-height: 50px;
+		    /* margin: 0 20px; */
+		}
+		
+		.pc-advise .btn-group .assessReset{
+	        border: 1px solid #bbb;
+		    color: #bbb;
+		    margin-left: 185px;
+		    margin-right: 10px;
+		    text-decoration: none;
+		}
+		
+		.pc-advise .btn-group .adviseSubmit{
+		   border: 1px solid #f3780c;
+		    color: #f3780c;
+		    text-decoration: none;
+		}
+		.pc-advise .btn-group .assessReset:hover {
+			color: #6e6e6e;
+		}
+		
+		.pc-advise .btn-group .adviseSubmit:hover {
+			color: #dc3f02;
+		}
+		/*---增加评价部分--strat-- */
+		.z_evaluation{
+			width:100%;
+			height:50px;
+			/* background-color:#f2f2f2; */
+		}
+		.z_veap{
+			width:100%;
+			height:100%;
+			margin:auto;
+			text-align:center;
+			font-size:20px;
+			color: #333;
+			filter:progid:DXImageTransform.Microsoft.gradient(enabled='ture',GradientType='1',StartColorStr=#85000000,EndColorstr=#85000000);
+			/* background-color:rgba(0,0,0,0.85); */
+		}
+		.z_veapsp1{
+			float:left;
+			width:20%;
+			margin-left:5%;
+			height:2px;
+			background-color:#d6d6d6;
+			margin-top:25px;
+		}
+		.z_veapsp3{
+			float:left;
+			width:20%;
+			height:2px;
+			background-color:#d6d6d6;
+			margin-top:25px;
+		}
+		.z_veapsp2{
+			float:left;
+			width: 100%;
+			text-align:center;
+			font-size:20px;
+			color: #333;
+			line-height:50px;
+		}
+		
+		/*---增加评价部分--end-- */
+	</style>
+</head>
+
+<body>
+
+	<div class="pc-advise">
+		<div class="z_evaluation">
+			<div class="z_veap">
+				<p class="z_veapsp2">感谢您留下的宝贵意见，期待下次为您服务！</p>
+			</div>
+		</div>
+
+		<form  id="submitForm">
+			<textarea class="a-textarea bg-grey" id="comment" name="comment" readonly>无内容</textarea>
+		</form>
+
+	</div>
+
+	<!-- 核心插件 start-->
+
+	<!--[if lt IE 9]>
+	<script>
+	(function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();</script>
+	<script src="../../../js/plugins/respond.min.js"></script>
+	<script src="../../../js/plugins/echarts/js/html5shiv.js"></script>
+	<script src="../../../js/plugins/excanvas.min.js"></script>
+	<![endif]-->
+
+	<!--bootstrap-->
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- layer 弹出层 -->
+	<script type="text/javascript" src="../../../js/plugins/layui/layer/layer.js"></script>
+
+	<!-- 表单  -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery.form.js"></script>
+
+	<!-- 表单验证 -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/messages_zh.min.js"></script>
+
+	<!-- 加载等待插件 -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+
+	<!--公共部分-->
+	<script type="text/javascript" src="../../../js/common/common.js"></script>
+	<script type="text/javascript" src="../../../js/common/util.js"></script>
+
+	<!-- 核心插件 end-->
+
+	<!--自己-->
+	<script type="text/javascript" src="../js/order-advise-show.js"></script>
+
+</body>
+</html>

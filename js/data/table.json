@@ -1,0 +1,71 @@
+{
+  "total": 101,
+  "rows": [
+    {
+      "PMENUID": 246,
+      "CAPTION": "任务管理",
+      "ROW_ID": 41,
+      "MENUID": 1462
+    },
+    {
+      "PMENUID": 1462,
+      "CAPTION": "主机数据库配置",
+      "ROW_ID": 42,
+      "MENUID": 1463,
+      "URL": "http://132.80.241.211:8088/manage/host-db-config.do"
+    },
+    {
+      "PMENUID": 1462,
+      "CAPTION": "参数管理",
+      "ROW_ID": 43,
+      "MENUID": 1464,
+      "URL": "http://132.80.241.211:8088/manage/parameter-manager.do"
+    },
+    {
+      "PMENUID": 1462,
+      "CAPTION": "任务配置",
+      "ROW_ID": 44,
+      "MENUID": 1465,
+      "URL": "http://132.80.241.211:8088/manage/task-config-page.do"
+    },
+    {
+      "PMENUID": 246,
+      "CAPTION": "流程管理",
+      "ROW_ID": 45,
+      "MENUID": 1466
+    },
+    {
+      "PMENUID": 1466,
+      "CAPTION": "流程定义",
+      "ROW_ID": 46,
+      "MENUID": 1467,
+      "URL": "http://132.80.241.211:8088/process/process-list.do"
+    },
+    {
+      "PMENUID": 246,
+      "CAPTION": "流程监控测试",
+      "ROW_ID": 47,
+      "MENUID": 1469
+    },
+    {
+      "PMENUID": 1469,
+      "CAPTION": "实时测试",
+      "ROW_ID": 48,
+      "MENUID": 1470,
+      "URL": "http://132.80.241.211:8088/process/process-test.do"
+    },
+    {
+      "PMENUID": 1469,
+      "CAPTION": "流程监控",
+      "ROW_ID": 49,
+      "MENUID": 1471,
+      "URL": "http://132.80.241.211:8088/support/flow-view.do"
+    },
+    {
+      "PMENUID": 246,
+      "CAPTION": "事件管理",
+      "ROW_ID": 50,
+      "MENUID": 1472
+    }
+  ]
+}

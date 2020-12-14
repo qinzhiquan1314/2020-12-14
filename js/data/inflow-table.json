@@ -1,0 +1,55 @@
+{
+  "total": 101,
+  "rows": [
+    {
+      "createDate": "2018年1月26日 14:23:12",
+      "sysCode": "订单中心",
+      "jobName": "竣工审核",
+      "staffName": "林宽",
+      "staffTel":18600000000,
+      "endDate":"2018年1月26日 14:25:12",
+      "jobState":"已成功",
+      "jobAction":" "
+    },
+    {
+      "createDate": "2018年1月25日 14:23:12",
+      "sysCode": "掌上运维",
+      "jobName": "外线施工",
+      "staffName": "葛文",
+      "staffTel":18600000002,
+      "endDate":"2018年1月25日 14:25:12",
+      "jobState":"已成功",
+      "jobAction":"  "
+    },
+    {
+      "createDate": "2018年1月24日 14:23:12",
+      "sysCode": "IOM",
+      "jobName": "工单分配",
+      "staffName": "孙畅",
+      "staffTel":18600000004,
+      "endDate":"2018年1月24日 14:25:12",
+      "jobState":"已成功",
+      "jobAction":" " 
+    },
+    {
+      "createDate": "2018年1月23日 14:23:12",
+      "sysCode": "受理",
+      "jobName": "业务受理",
+      "staffName": "王林",
+      "staffTel":18600000006,
+      "endDate":"2018年1月23日 14:25:12",
+      "jobState":"已成功",
+      "jobAction":"  "
+    },
+    {
+      "createDate": "2018年1月22日 14:23:12",
+      "sysCode": "订单中心",
+      "jobName": "订单受理",
+      "staffName": "李兴明",
+      "staffTel":18600000008,
+      "endDate":"2018年1月22日 14:25:12",
+      "jobState":"已成功",
+      "jobAction":"  "
+    }
+  ]
+}

@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>订单实时查询</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<!--插件-->
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+	<!--加载等待插件-->
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+	<!--swiper3轮播-->
+	<link rel="stylesheet" href="../../../js/plugins/swiper/swiper-3.4.2.min.css" />
+	<!--手机公共-->
+	<link rel="stylesheet" type="text/css" href="../../css/web-base.css">
+	<!--自己-->
+	<link rel="stylesheet" type="text/css" href="../css/order-assess.css">
+
+	<!--【手机端专享】自适应必须放head里-->
+	<script type="text/javascript" src="../../js/init.js"></script>
+	<style>
+		.a-textarea {
+			width: 80%;
+			margin: 1.5rem 10% 0;
+		}
+		.mgl{
+			margin-left: 2px;
+		}
+
+		.z_veapsp1{
+			width: 2rem;
+		}
+		.assessHeader {
+			position: relative;
+			width: 70%;
+			margin: 0 15% 50px;
+		}
+		.assessHeader li {
+			float: left;
+		}
+		.assessHeader img {
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			margin: 0 2px;
+
+		}
+		.assessHeader-li {
+			color: #333;
+			font-size: 12px;
+			width: 100%;
+
+		}
+		.assessHeader-li-img {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		.assessHeader-li .assessHeader-li-txt {
+			margin-top: 10px;
+			letter-spacing :0.2rem;
+			padding-left: 8px;
+			position: absolute;
+		}
+		.assessConheader {
+			font-size: 14px;
+			color: #333;
+			margin: 35px 15% 0;
+		}
+		.assessCon {
+			width: 70%;
+			margin: 10px 15% 15px;
+		}
+		.assessCon-header{
+			position: relative;
+			padding-left: 19px;
+			color: #333;
+			font-size: 14px;
+			/*letter-spacing :0.1rem;*/
+
+		}
+		.assessCon-header img{
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			top: 5px;
+			left: 1px;
+		}
+		.assessCon-garden {
+			/*float: right;*/
+			font-size: 12px;
+			text-align: right;
+			padding-right: 2px;
+
+		}
+		.assessCon-con {
+			margin-top: 2px;
+			margin-left: 1px;
+
+		}
+		.assessCon-con {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+		.assessCon-con img{
+			width: 15px;
+			height: 15px;
+		}
+		.btn_search {
+			background-color: #7F7F7F;
+		}
+		.relte {
+			position: relative;
+		}
+		.assessHeader-li-txt1{
+			top: 15px;
+			left: -10px;
+		}
+		.assessHeader-li-txt2{
+			top: 15px;
+			left: 1px;
+		}
+		.assessHeader-li-txt3{
+			top: 15px;
+			left: 8px;
+		}
+		/*答题样式*/
+		/*---新需求评价部分---- */
+		.ques {
+			width: 71%;
+			margin: 0 auto 1rem;
+			color: #333;
+			font-size: 1.5rem;
+			line-height: 2rem;
+			letter-spacing: 1px;
+		}
+		.marbtm{
+			margin-bottom: 5rem;
+		}
+		.proposalBox{
+			heighgt:100%;
+			margin:0 6rem;
+			color:#666;
+		}
+
+		.servicePerSpan{
+			background:url(../../../images/update/1.png) no-repeat 0 50%;
+			width: 1.8rem;
+			height: 1.8rem;
+			display: inline-block;
+			background-size: 100% 100%;
+			float:left;
+			cursor:pointer;
+		}
+		.main{
+			background:url(../../../images/update/2.png) no-repeat 0 50%;
+			background-size: 100% 100%;
+		}
+
+		.servicePer{
+			/* height: 2rem; */
+			line-height: 1.5rem;
+			margin: 0 15% 0.5rem;
+		}
+		.servicePer>p{
+			font-size:14px;
+			float:left;
+			margin-bottom: 0.5rem;
+		}
+
+		.serviceList {
+			width:100%;
+			margin:0 2rem;
+			display:block;
+			/* float:left; */
+		}
+		.Spanshow{
+			display:none;
+		}
+		.serviceList>li{
+			line-height:2rem;
+		}
+		.loadLens{
+			width:24rem;
+			height: 2rem;
+			line-height: 2rem;
+			font-size: 1.6rem;
+			padding-left:1.8rem;
+		}
+
+		.labcheckBox{
+			background: url(../../../images/update/4.png) no-repeat 0px 2px;
+			padding-left: 1.6rem;
+			font-size: 13px;
+			line-height: 1.8rem;
+			cursor: pointer;
+			margin-bottom: 0.5rem;
+		}
+		.checkBox{
+			background: url(../../../images/update/3.png) no-repeat 0px 2px;
+			/* background-size: 100% 100%; */
+		}
+
+		label{
+			font-weight:normal;
+			margin-bottom:0;
+		}
+		input[type='checkbox']{
+			display: none;
+		}
+
+		.disNone{
+			display:none;
+		}
+		.disBlock{
+			display:block;
+		}
+		/*增加评价短信验证*/
+		.messageInfo  {
+			margin:0 auto;
+			margin-top:0.8rem;
+			width: 29rem;
+			color:red;
+			font-size: 1.2rem;
+		}
+		.getCode{
+			margin:0 auto;
+			width: 29rem;
+			backgroud-color:red;
+			/* display:none; */
+		}
+		.codeButton{
+			position: absolute;
+			right:0.1rem;
+			top:0.1rem;
+			color:#FFFFFF;
+			padding:0.6rem 1rem;
+			border-radius: 0.25rem;
+			font-size:1.2rem;
+			background-color:#f7b135;
+			z-index: 10;
+		}
+		.codeInput{
+			width:100%;
+			height: 3.1rem;
+			font-size: 1.2rem;
+			/*border:1 px solid;*/
+			border-radius:0.5rem;
+			padding:1rem;
+
+		}
+		.txtaD {
+			width: 80%;
+			font-size: 14px;
+			line-height: 20px;
+			margin: 0 10%;
+		}
+		#comment {
+			/* background-color:#ccc */
+		}
+		.assessSubmitcurr {
+			border: 1px solid #f3780c !important;
+			color: #fff;
+			background-color: #f3780c !important;
+		}
+		.z_num {
+			right: 4rem;
+			bottom:0.5rem;
+		}
+		textarea:disabled{
+			opacity: 1;
+			background-color: #ededed !important;
+		}
+		.a-textarea {
+			border-radius: 5px;
+		}
+		.a-textarea:focus {outline: none;}
+		.assessType{
+			padding-bottom: 5px;
+		}
+		.btnload {
+            border-radius: 5px;
+            font-weight: 100;
+            cursor: pointer;
+            /* display: inline-block; */
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        .btnload-primary {
+            color: #000;
+            text-shadow: 0 1px rgba(0,0,0,.1);
+            /* background-color: #DCDCDC ;
+            width: 150px ;
+            height: 180px; */
+			margin: 10px auto;
+			text-align: center;
+        }
+        .btnload-success {
+            color: #fff;
+            text-shadow: 0 1px rgba(0,0,0,.1);
+            background-color: #f3780c ;
+			width: 60px;
+            margin: auto;
+			text-align: center;
+        }
+		.gallery{
+			margin: 10px;
+			display: flex;
+            background: #fff;
+		}
+         .gallery .img-item{
+              position: relative;
+          }
+          .gallery .img-item .delete{
+              position: absolute;
+              display: block;
+              width: 10px;
+              height:10px;
+              color: #fff;
+              background: rgba(0,0,0,0.7);
+              line-height: 5px;
+              text-align: center;
+              border-radius: 50%;
+              top: 5px;
+              right: 5px;
+              cursor: pointer;
+          }
+          .img{
+            width: 45px;
+            margin: 5px;
+          }
+		  .onupload{
+			width: 80%;
+			margin: auto;
+		  }
+		  .choice{
+			text-align: center;
+			margin: auto;
+			width: 130px;
+   			background-color: #fff;
+    		padding: 10px;
+			color: #A9A9A9;
+		  }
+		  #cover{ 
+			position:fixed;
+			left:0px;
+			top:0px;
+			background:rgba(0, 0, 0, 0.8);
+			width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+			height:100%;
+			filter:alpha(opacity=60);  /*设置透明度为60%*/
+			opacity:0.8;  /*非IE浏览器下设置透明度为60%*/
+			display:none; 
+			z-Index:999;  
+		  }
+		#modal{ 
+			position: fixed;
+			width: 200px;
+			height: 100px;
+			border-radius: 10px;
+			display: none;
+			top: 40%;
+			left: 25%;
+			background-color: #fff;
+			cursor: pointer;
+			z-Index: 9999;
+		}
+		#close{
+            text-align: center;
+			padding: 10px;
+			font-size: 16px;
+			/* display: flex; */
+		}
+		#camera{
+			padding: 10px; 
+            border-bottom: 1px solid  #f3780c ;
+		}
+		#camerafile{
+			padding: 10px; 	
+		}
+	</style>
+
+</head>
+
+<body onload="bodyLoad()"><!--  监听广告 -->
+<!-- 标题 start -->
+<header class="txc">
+	<div class="cl fl" onclick="goBack()"><i class="glyphicon glyphicon-chevron-left"></i></div>
+	<!-- <div class="crr fr"><a href="javascript:;" class="assessSubmit">发布</a></div> -->
+	<div class="cr fr">&nbsp;</div>
+	<div class="cc">订单评价</div>
+</header>
+<!-- 标题 end -->
+<section>
+	<div class="z_evaluation">
+		<div class="z_veap">
+			<div class="z_veapsp1"><div><!-- 横线 --></div></div>
+			<div class="z_veapsp2 font-space-2px">满意度示意图</div>
+			<div class="z_veapsp1"><div><!-- 横线 --></div></div>
+		</div>
+	</div>
+	<form id="submitForm" style="margin-bottom: 20px">
+		<ul class="assessHeader clearfix">
+			<li class="assessHeader-li">
+				<div class="assessHeader-li-img">
+						<span class="relte">
+							<img src="../../images/order/star_yellow.png" alt="" style="margin-left: 0px">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<span class="assessHeader-li-txt assessHeader-li-txt1">不满意</span>
+						</span>
+					<span class="relte">
+							<img src="../../images/order/star_yellow.png" alt="">
+						    <img src="../../images/order/star_yellow.png" alt="">
+							<span class="assessHeader-li-txt assessHeader-li-txt2">一般</span>
+						</span>
+					<span class="relte">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="" style="margin-right: 0px">
+							<span class="assessHeader-li-txt assessHeader-li-txt3">满意</span>
+					</span>
+				</div>
+				<input type="hidden" id="extLevel-star" name="extLevel4" value="1">
+				<input type="hidden" id="PextLevel-star" name="extLevel5" value="2">
+			</li>
+		</ul>
+		<!--<div class="assessConheader">尊敬的客户，感谢使用联通宽带，请对我们的宽带上门服务进行评价。</div>-->
+		<div class="assessCon">
+			<div class="assessType"><h4>（一）服务评价</h4></div>
+			<div class="assessCon-header clearfix">
+				<img src="../../images/order/round.png" alt="">
+				尊敬的客户，感谢您使用北京联通业务，请对我们的上门服务进行评价
+				<!-- 尊敬的客户，感谢使用联通宽带，请对我们的宽带上门服务进行评价。 -->
+			</div>
+			<div class="assessCon-garden" id="doorService-star" ></div>
+			<ul class="assessCon-con" id="doorService">
+				<li data-star="1"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li data-star="2"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li data-star="3"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li data-star="4"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+				<li data-star="5"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+				<li data-star="6"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+				<li data-star="7"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li data-star="8"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li data-star="9"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li data-star="10"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+			</ul>
+		</div>
+		<!--q2-->
+		<div class="servicePer disNone" id="q2">
+			<!--<span class="servicePerSpan"></span>
+			<p class="">请您选择不满意的原因。</p>-->
+			<div class="assessCon-header" style="padding-bottom: 5px">
+				<img src="../../images/order/round.png" alt="">
+				<span>请您选择不满意的原因。</span>
+			</div>
+			<ul class="serviceList" id="q2List">
+				<li class="singleSelection_details">
+					<label class="labcheckBox"><input type="checkbox" name="serviceStaff"  value='0'/>上门前没有及时联系</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceStaff"  value='1'/>没有按时上门</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceStaff"  value='2'/>安装调试时间过长</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceStaff"  value='3'/>安装人员服务态度不好</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceStaff"  value='4'/>安装人员操作不熟练</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceStaff"  value='5'/>安装人员服装不整洁、未穿鞋套、未清理安装垃圾</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceStaff"  value='6'/>没有进行必要的使用指导和操作提示</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceStaff"  value='7'/>安装人员没有为您检查家内线和路由器是否支持高速</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceStaff"  value='8'/>其他（请注明）</label>
+				</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<!-- q3 -->
+		<div class="servicePer disNone" id="q3">
+			<!--<span class="servicePerSpan"></span>
+			<p class="">请您选择有待改进的方面。</p>-->
+			<div class="assessCon-header" style="padding-bottom: 5px">
+				<img src="../../images/order/round.png" alt="">
+				<span>请您选择有待改进的方面。</span>
+			</div>
+			<ul class="serviceList"  id="q3List">
+				<li class="singleSelection_details">
+					<label class="labcheckBox"><input type="checkbox" name="serviceHall"  value='0'/>联系不够及时</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHall"  value='1'/>上门服务不准时</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHall"  value='2'/>安装调试时间稍长</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHall"  value='3'/>安装人员服务态度待改进</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHall"  value='4'/>安装人员操作技能待提升</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHall"  value='5'/>安装人员服装不整洁、未穿鞋套、安装垃圾清理不彻底</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHall"  value='6'/>希望提供更详细的使用指导和操作提示</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHall"  value='7'/>安装人员未认真为您检查家内线和路由器是否支持高速</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHall"  value='8'/>其他（请注明）</label>
+				</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<!-- q4 -->
+		<div class="servicePer disNone" id="q4">
+			<!--<span class="servicePerSpan"></span>
+			<p class="">请您选择较满意的原因。</p>-->
+			<div class="assessCon-header" style="padding-bottom: 5px">
+				<img src="../../images/order/round.png" alt="">
+				<span>请您选择较满意的原因。</span>
+			</div>
+			<ul class="serviceList"  id="q4List">
+				<li class="singleSelection_details">
+					<label class="labcheckBox"><input type="checkbox" name="serviceHotline"  value='0'/>及时联系</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHotline"  value='1'/>按时上门</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHotline"  value='2'/>安装时间短、一次安装完毕</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHotline"  value='3'/>安装人员服务态度好</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHotline"  value='4'/>安装人员操作技能好</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHotline"  value='5'/>安装人员服装整洁、穿鞋套、安装后清理环境</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHotline"  value='6'/>提供了详细的使用指导和操作提示</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHotline"  value='7'/>安装人员认真为您检查家内线和路由器是否支持高速</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="serviceHotline"  value='8' />其他（请注明）</label>
+				</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="ps-relative txc disNone" id="Stxc-txt" >
+			<textarea  class="a-textarea" disabled id="serviceComment" name="serviceComment" placeholder="亲，您的鼓励是我们用心服务的最大动力！&#13;&#10;(文字输入上限为100字)" onkeyup="countWord()">
+			</textarea>
+			<span class="z_num ps-absolute"><span id="serviceTextNum">0</span>/100</span>
+		</div>
+		<div class="assessCon">
+			<div class="assessType"><h4>（二）产品评价</h4></div>
+			<div class="assessCon-header clearfix">
+				<img src="../../images/order/round.png" alt="" >
+				尊敬的客户，感谢您使用北京联通业务，请对我们的产品进行评价。
+			</div>
+			<div class="assessCon-garden" id="PdoorService-star" ></div>
+			<ul class="assessCon-con" id="PdoorService">
+				<li class="pstar" data-Pstar="1"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li class="pstar" data-Pstar="2"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li class="pstar" data-Pstar="3"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li class="pstar" data-Pstar="4"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+				<li class="pstar" data-Pstar="5"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+				<li class="pstar" data-Pstar="6"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+				<li class="pstar" data-Pstar="7"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li class="pstar" data-Pstar="8"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li class="pstar" data-Pstar="9"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				<li data-Pstar="10"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+			</ul>
+		</div>
+		<div class="servicePer disNone" id="Pq2">
+			<!--<span class="servicePerSpan"></span>-->
+			<div class="assessCon-header" style="padding-bottom: 5px">
+				<img src="../../images/order/round.png" alt="">
+				<span>请您选择不满意的原因。</span>
+			</div>
+			<ul class="serviceList" id="Pq2List">
+				<li class="singleSelection_details">
+					<label class="labcheckBox"><input type="checkbox" name="productStaff"  value='0'/>产品内容、结构设计不合理</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productStaff"  value='1'/>产品套餐资费水平过高</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productStaff"  value='2'/>产品套餐比移动/电信性价比低</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productStaff"  value='3'/>套餐变更、合约变更规则不合理</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productStaff"  value='4'/>营销活动宣传不到位</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productStaff"  value='5'/>办理产品/套餐时人员服务不用心</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productStaff"  value='6'/>办理产品/套餐时未做必要提示或指导</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productStaff"  value='7'/>其他（请注明）</label>
+				</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<!-- q3 -->
+		<div class="servicePer disNone" id="Pq3">
+			<div class="assessCon-header"  style="padding-bottom: 5px">
+				<img src="../../images/order/round.png" alt="">
+				<span>请您选择有待改进的方面。</span>
+			</div>
+			<!--<span class="servicePerSpan"></span>
+			<p class="">请您选择有待改进的方面。</p>-->
+			<ul class="serviceList"  id="Pq3List">
+				<li class="singleSelection_details">
+					<label class="labcheckBox"><input type="checkbox" name="productHall"  value='0'/>产品内容、结构设计待改进</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHall"  value='1'/>产品套餐资费水平待改进</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHall"  value='2'/>产品套餐比移动/电信性价比待提高</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHall"  value='3'/>希望套餐变更、合约变更规则更加合理</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHall"  value='4'/>营销活动宣传需改善</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHall"  value='5'/>希望办理产品/套餐时人员服务更加用心</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHall"  value='6'/>希望办理产品/套餐时加强必要提示或指导</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHall"  value='7'/>其他（请注明）</label>
+				</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<!-- q4 -->
+		<div class="servicePer disNone" id="Pq4">
+			<div class="assessCon-header"  style="padding-bottom: 5px">
+				<img src="../../images/order/round.png" alt="">
+				<span>请您选择较满意的原因。</span>
+			</div>
+			<!--<span class="servicePerSpan"></span>
+			<p class="">请您选择较满意的原因。</p>-->
+			<ul class="serviceList"  id="Pq4List">
+				<li class="singleSelection_details">
+					<label class="labcheckBox"><input type="checkbox" name="productHotline"  value='0'/>产品内容、结构设计合理</label>
+					<br/> 
+					<label class="labcheckBox"><input type="checkbox" name="productHotline"  value='1'/>产品套餐资费水平合理</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHotline"  value='2'/>产品套餐比移动/电信性价比高</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHotline"  value='3'/>套餐变更、合约变更规则合理</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHotline"  value='4'/>营销活动宣传到位</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHotline"  value='5'/>办理产品/套餐时人员服务用心到位</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHotline"  value='6'/>办理产品/套餐时进行了必要提示或指导</label>
+					<br/>
+					<label class="labcheckBox"><input type="checkbox" name="productHotline"  value='7' />其他（请注明）</label>
+				</li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+		<div class="ps-relative txc disNone" id="Ptxc-txt">
+			<textarea  class="a-textarea" disabled id="productComment" name="productComment" placeholder="亲，您的鼓励是我们用心服务的最大动力！&#13;&#10;(文字输入上限为100字)" onkeyup="countWord()">
+			</textarea>
+			<span class="z_num ps-absolute"><span id="productTextNum">0</span>/100</span>
+		</div>
+		<div class="assessCon">
+			<div class="assessCon-header clearfix">
+				<img src="../../images/order/round.png" alt="" >
+				<span>评价分享</span>
+				<div id="productName"> 冰淇淋套餐</div>
+			</div>
+			
+		</div>
+		<div class="ps-relative txc " id="txc-txt">
+				<textarea class="a-textarea"  id="comment" name="comment" placeholder="亲，您的鼓励是我们用心服务的最大动力！&#13;&#10;(文字输入上限为100字)" onkeyup="countWord()">
+				</textarea>
+			<span class="z_num ps-absolute"><span id="textNum">0</span>/100</span>
+		</div>
+		<div class="onupload ">
+			<form action="" id="formdata" name="formdata" enctype="multipart/form-data">
+				<div id="upload" class="btnload btnload-primary">
+					<div class="choice">
+						<img src="../../../images/order/flow/camera.png" alt="">
+						<p>添加图片</p>
+						<p>(最多5张)</p>
+					</div>
+				</div>
+				<input id="file" type="file"  multiple='multiple'  accept="image/*" style="display:none" >
+				<div class="gallery" id="gallery"></div>
+				<!-- <div class="btnload btnload-success" id="uploadImg" style="display:none">上传</div>capture='camera' -->
+			</form>
+		</div>
+		<div class="txtaD disNone">感谢您的参与，我的百倍用心，愿您10分满意！祝您健康平安。【中国联通】</div>
+		<div class="a-btn-group marbtm">
+			<button type="button" class="btn btn_search assessSubmit" id="doorService_submit_btn" type="button">请评价</button>
+		</div>
+	</form>
+	<!-- <div id="cover"></div>
+	<div id="modal">
+		<div id="close">
+			<div id="camera">打开相机</div>
+			<div id="camerafile">打开相册</div>
+		</div>
+	</div> -->
+</section>
+
+<!-- 广告 bottom start -->
+<div class="advert-bottom width100 opacity-0" id="lunbo"><!--dp-none position-fiexd opacity-0-->
+	<!-- <i class="glyphicon glyphicon-remove"></i> -->
+	<!-- <img src="../../images/order/sj-bottom.png"/> -->
+	<div class="swiper-container swiper-containerA">
+		<div id="swiper-wrapperA" class="swiper-wrapper">
+			<!-- <div class="swiper-slide"><img src="../../images/banner/1.jpg"/></div> -->
+		</div>
+		<div class="swiper-pagination swiper-paginationA"></div>
+	</div>
+	<div class="rect"></div>
+</div>
+<!-- 广告 bottom end -->
+
+
+<!-- 手机核心插件 start -->
+<!--[if lt IE 9]>
+<script>
+	(function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();
+</script>
+<script src="../../../js/plugins/respond.min.js"></script>
+<script src="../../../js/plugins/echarts/js/html5shiv.js"></script>
+<script src="../../../js/plugins/excanvas.min.js"></script>
+<![endif]-->
+
+<!--bootstrap-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+<!--bootstrap table-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script><!--控制导出按钮-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script><!--控制导出功能-->
+
+<!-- swiper3轮播 -->
+<script type="text/javascript" src="../../../js/plugins/swiper/swiper-3.4.2.min.js"></script>
+
+<!-- layer 弹出层 -->
+<script type="text/javascript" src="../../../js/plugins/layui/layer/mobile/layer.js"></script>
+
+<!-- 表单  -->
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery.form.js"></script>
+
+<!-- 表单验证 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/messages_zh.min.js"></script>
+
+<!-- 五角星评价 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery.raty.min.js"></script>
+
+<!-- 加载等待插件 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+
+<!--公共部分-->
+<script type="text/javascript" src="../../../js/common/common.js"></script>
+<script type="text/javascript" src="../../../js/common/util.js"></script>
+<!--【手机端专享】-->
+<script type="text/javascript" src="../../js/web-util.js"></script>
+
+<!-- 手机核心插件 end -->
+
+<!--自己-->
+<script type="text/javascript" src="../js/order-assess.js"></script>
+<script>
+	//展开收起
+	/*var servicePer = document.getElementsByClassName("servicePer");
+	for(var i = 0; i < servicePer.length; i++) {
+		servicePer[i].onclick = function() {
+			$(this).find("span").toggleClass("main");
+			$(this).find("ul").toggleClass("Spanshow");
+		}
+	}*/
+	//多选按钮样式添加
+	$('#q2List').on('click','.labcheckBox',function(event){
+		event.stopPropagation();
+		event.preventDefault();
+		if(!$(this).hasClass('checkBox')){
+			$(this).addClass('checkBox')
+			$(this).find('input').prop('checked','checked')
+		}else{
+			$(this).removeClass('checkBox')
+			$(this).find('input').removeAttr('checked','checked')
+		}
+		if($('#q3List input').eq(8).prop('checked')){
+			$('#serviceComment').removeAttr('disabled')
+			$('#serviceComment').css('background-color','#fff')
+		}else {
+			$('#serviceComment').attr('disabled','disabled')
+			$('#serviceComment').css('background-color','#ededed')
+			$('#serviceComment').val('')
+		}
+	})
+	$('#q3List').on('click','.labcheckBox',function(event){
+		event.stopPropagation();
+		event.preventDefault();
+		if(!$(this).hasClass('checkBox')){
+			$(this).addClass('checkBox')
+			$(this).find('input').prop('checked','checked')
+		}else{
+			$(this).removeClass('checkBox')
+			$(this).find('input').removeAttr('checked','checked')
+		}
+		if($('#q3List input').eq(8).prop('checked')){
+			$('#serviceComment').removeAttr('disabled')
+			$('#serviceComment').css('background-color','#fff')
+		}else {
+			$('#serviceComment').attr('disabled','disabled')
+			$('#serviceComment').css('background-color','#ededed')
+			$('#serviceComment').val('')
+
+
+		}
+	})
+	$('#q4List').on('click','.labcheckBox',function(event){
+		event.stopPropagation();
+		event.preventDefault();
+
+		if(!$(this).hasClass('checkBox')){
+			$(this).addClass('checkBox')
+			$(this).find('input').prop('checked','checked')
+		}else{
+			$(this).removeClass('checkBox')
+			$(this).find('input').removeAttr('checked','checked')
+		}
+		if($('#q4List input').eq(8).prop('checked')){
+			$('#serviceComment').removeAttr('disabled')
+			$('#serviceComment').css('background-color','#fff')
+		}else {
+			$('#serviceComment').attr('disabled','disabled')
+			$('#serviceComment').css('background-color','#ededed')
+			$('#serviceComment').val('')
+
+		}
+	})
+	// q2-q4逻辑处理
+	var doorService_num
+	$("#doorService li").on("click",function(){
+		$(this).html(current).prevAll("li").html(current).end().nextAll().html(onCurrent);
+		$(this).attr("class","current").siblings().removeClass("current");
+		$('#extLevel-star').val($(this).attr("data-star"))
+		$('#Stxc-txt').addClass('disBlock').removeClass('disNone')
+		$('.txtaD').addClass('disBlock').removeClass('disNone')
+		$('.onupload').addClass('disBlock').removeClass('disNone')
+		$('#lunbo').addClass('disNone')
+		doorService_num = $(this).attr("data-star")
+		$('#serviceComment').attr('disabled','disabled')
+		$('#serviceComment').css('background-color','#ccc')
+		$('#serviceComment').val('')
+		if($(this).attr('data-star') <= 6){
+			$('#doorService-star').text('不满意')
+			//$('#q2').addClass('disBlock').removeClass('disNone').siblings('.servicePer').addClass('disNone').removeClass('disBlock')
+			$('#q2').addClass('disBlock').removeClass('disNone')
+			$('#q3').addClass('disNone').removeClass('disBlock')
+			$('#q4').addClass('disNone').removeClass('disBlock')
+			$('#q4List input').eq(8).removeAttr('checked')
+			$('#q4List .labcheckBox').eq(8).removeClass('checkBox')
+			$('#q3List input').eq(8).removeAttr('checked')
+			$('#q3List .labcheckBox').eq(8).removeClass('checkBox')
+		}
+		else if( $(this).attr('data-star') > 6 && $(this).attr('data-star') <= 8){
+			$('#doorService-star').text('一般')
+			//$('#q3').addClass('disBlock').removeClass('disNone').siblings('.servicePer').addClass('disNone').removeClass('disBlock')
+			$('#q2').addClass('disNone').removeClass('disBlock')
+			$('#q3').addClass('disBlock').removeClass('disNone')
+			$('#q4').addClass('disNone').removeClass('disBlock')
+			$('#q2List input').eq(8).removeAttr('checked')
+			$('#q2List .labcheckBox').eq(8).removeClass('checkBox')
+			$('#q4List input').eq(8).removeAttr('checked')
+			$('#q4List .labcheckBox').eq(8).removeClass('checkBox')
+		}
+		else if( $(this).attr('data-star') > 8 ){
+			$('#doorService-star').text('满意')
+			//$('#q4').addClass('disBlock').removeClass('disNone').siblings('.servicePer').addClass('disNone').removeClass('disBlock')
+			$('#q2').addClass('disNone').removeClass('disBlock')
+			$('#q3').addClass('disNone').removeClass('disBlock')
+			$('#q4').addClass('disBlock').removeClass('disNone')
+			$('#q3List input').eq(8).removeAttr('checked')
+			$('#q3List .labcheckBox').eq(8).removeClass('checkBox')
+			$('#q2List input').eq(8).removeAttr('checked')
+			$('#q2List .labcheckBox').eq(8).removeClass('checkBox')
+		}
+		if($("#doorService li").hasClass('current')){
+			$('#doorService_submit_btn').text('提交评价')
+			$('#doorService_submit_btn').addClass('assessSubmitcurr')
+		}
+	})
+//产品服务
+$('#Pq2List').on('click','.labcheckBox',function(event){
+		event.stopPropagation();
+		event.preventDefault();
+		if(!$(this).hasClass('checkBox')){
+			$(this).addClass('checkBox')
+			$(this).find('input').prop('checked','checked')
+		}else{
+			$(this).removeClass('checkBox')
+			$(this).find('input').removeAttr('checked','checked')
+		}
+		if($('#Pq2List input').eq(7).prop('checked')){
+			$('#productComment ').removeAttr('disabled')
+			$('#productComment ').css('background-color','#fff')
+		}else {
+			$('#productComment ').attr('disabled','disabled')
+			$('#productComment ').css('background-color','#ededed')
+			$('#productComment ').val('')
+
+		}
+	})
+	$('#Pq3List').on('click','.labcheckBox',function(event){
+		event.stopPropagation();
+		event.preventDefault();
+		if(!$(this).hasClass('checkBox')){
+			$(this).addClass('checkBox')
+			$(this).find('input').prop('checked','checked')
+		}else{
+			$(this).removeClass('checkBox')
+			$(this).find('input').removeAttr('checked','checked')
+		}
+		if($('#Pq3List input').eq(7).prop('checked')){
+			$('#productComment ').removeAttr('disabled')
+			$('#productComment ').css('background-color','#fff')
+		}else {
+			$('#productComment ').attr('disabled','disabled')
+			$('#productComment ').css('background-color','#ededed')
+			$('#productComment ').val('')
+
+
+		}
+	})
+	$('#Pq4List').on('click','.labcheckBox',function(event){
+		event.stopPropagation();
+		// event.preventDefault();
+		if(!$(this).hasClass('checkBox')){
+			$(this).addClass('checkBox')
+			$(this).find('input').prop('checked','checked')
+			event.preventDefault();
+		}else{
+			$(this).removeClass('checkBox')
+			$(this).find('input').removeAttr('checked','checked')
+			event.preventDefault();
+		}
+		if($('#Pq4List input').eq(7).prop('checked')){
+			$('#productComment ').removeAttr('disabled')
+			$('#productComment ').css('background-color','#fff')
+		}else {
+			$('#productComment ').attr('disabled','disabled')
+			$('#productComment ').css('background-color','#ededed')
+			$('#productComment ').val('')
+
+		}
+	})
+	// Pq2-Pq4逻辑处理
+	var PdoorService_num
+	$("#PdoorService li").on("click",function(){	
+		$(this).html(current).prevAll("li").html(current).end().nextAll().html(onCurrent);
+		$(this).attr("class","current").siblings().removeClass("current");
+		$('#PextLevel-star').val($(this).attr("data-Pstar"))
+		$('#Ptxc-txt').addClass('disBlock').removeClass('disNone')
+		$('.onupload').addClass('disBlock').removeClass('disNone')
+		$('#lunbo').addClass('disNone')
+		$('.txtaD').addClass('disBlock').removeClass('disNone')
+		PdoorService_num = $(this).attr("data-Pstar")
+		$('#productComment ').attr('disabled','disabled')
+		$('#productComment ').css('background-color','#ccc')
+		$('#productComment ').val('')
+		
+		if($(this).attr('data-Pstar') <= 6){
+			
+			$('#PdoorService-star').text('不满意')
+			//$('#Pq2').addClass('disBlock').removeClass('disNone').siblings('.servicePer').addClass('disNone').removeClass('disBlock')
+			$('#Pq2').addClass('disBlock').removeClass('disNone')
+			$('#Pq3').addClass('disNone').removeClass('disBlock')
+			$('#Pq4').addClass('disNone').removeClass('disBlock')
+			$('#Pq4List input').eq(7).removeAttr('checked')
+			$('#Pq4List .labcheckBox').removeClass('checkBox')
+			$('#Pq4List .labcheckBox').eq(7).removeClass('checkBox')
+			$('#Pq3List input').eq(7).removeAttr('checked')
+			$('#Pq3List .labcheckBox').removeClass('checkBox')
+			$('#Pq3List .labcheckBox').eq(7).removeClass('checkBox')
+		}
+		else if( $(this).attr('data-Pstar') > 6 && $(this).attr('data-Pstar') <= 8){
+			$('#PdoorService-star').text('一般')
+			//$('#Pq3').addClass('disBlock').removeClass('disNone').siblings('.servicePer').addClass('disNone').removeClass('disBlock')
+			$('#Pq2').addClass('disNone').removeClass('disBlock')
+			$('#Pq3').addClass('disBlock').removeClass('disNone')
+			$('#Pq4').addClass('disNone').removeClass('disBlock')
+			$('#Pq2List .labcheckBox').removeClass('checkBox')
+			$('#Pq4List .labcheckBox').removeClass('checkBox')
+			$('#Pq2List input').eq(7).removeAttr('checked')
+			$('#Pq2List .labcheckBox').eq(7).removeClass('checkBox')
+			$('#Pq4List input').eq(7).removeAttr('checked')
+			$('#Pq4List .labcheckBox').eq(7).removeClass('checkBox')
+		}
+		else if( $(this).attr('data-Pstar') > 8 ){
+			$('#PdoorService-star').text('满意')
+			//$('#Pq4').addClass('disBlock').removeClass('disNone').siblings('.servicePer').addClass('disNone').removeClass('disBlock')
+			$('#Pq2').addClass('disNone').removeClass('disBlock')
+			$('#Pq3').addClass('disNone').removeClass('disBlock')
+			$('#Pq4').addClass('disBlock').removeClass('disNone')
+			$('#Pq2List .labcheckBox').removeClass('checkBox')
+			$('#Pq3List .labcheckBox').removeClass('checkBox')
+			$('#Pq3List input').eq(7).removeAttr('checked')
+			$('#Pq3List .labcheckBox').eq(7).removeClass('checkBox')
+			$('#Pq2List input').eq(7).removeAttr('checked')
+			$('#Pq2List .labcheckBox').eq(7).removeClass('checkBox')
+		}
+		if($("#PdoorService li").hasClass('current')){
+			$('#doorService_submit_btn').text('提交评价')
+			$('#doorService_submit_btn').addClass('assessSubmitcurr')
+		}
+	})
+</script>
+</body>
+</html>

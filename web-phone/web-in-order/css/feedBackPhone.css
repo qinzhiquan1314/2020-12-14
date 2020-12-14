@@ -1,0 +1,267 @@
+
+.searchBack{
+    background: #F6F6F6;
+    width: auto;
+    height: 5rem;
+}
+
+.p-input-group{
+    height: 4rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 6rem;
+    line-height: 5rem;
+}
+
+.p-input-group .group-text {
+    height: 4rem;
+    width: 100%;
+    border: 0px solid #fff;
+}
+
+.p-input-group .group-text input[type='text'] {
+    height:100%;
+    width: 100%;
+    padding-left: 5.6rem; /* 112px; */
+    padding-right: 0.5rem; /* 10px; */
+    background-color: #fff;
+    border-radius: 0.7rem; /* 14px; */
+    border: none;
+    font-size: 1.5rem;
+    color: #555;
+
+}
+
+.p-input-group .bg2 {
+    background: url(../images/search.png) no-repeat 9% 50%;
+    background-size: 1.5rem; /* 43px; */
+}
+
+.refuse{
+    font-size: 1.4rem;
+    color: #666666;
+    position: relative;
+    top: -2.5rem;
+    right: 1.3rem;
+}
+
+.ulWord{
+    position: relative;
+    font-size: 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #F6F6F6;
+    height: 3rem;
+    padding-top: 0.5rem;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.block{
+    margin-top: 1rem;
+    margin-left: 1.2rem;
+    margin-right: 0.3rem;
+}
+
+
+
+.arrow1{
+    position: absolute;
+    top: 1rem;
+    right: 2.7rem;
+}
+
+
+.qusetTitle{
+    margin-left: 3rem;
+    width: auto;
+    font-size: 1.3rem;
+    padding-top: 0.7rem;
+    height: 3rem;
+    border-bottom: 1px solid #F6F6F6;
+    color: #797373;
+}
+
+.messageBtn{
+    margin-top: 6rem;
+    text-align: center;
+}
+
+.messageWord{
+    font-size: 1.1rem;
+    color: white;
+    margin-top: -2.3rem;
+    margin-left: 2rem;
+}
+
+.t1,.t2{
+    color: #CCCCCC;
+    margin-bottom: 2rem;
+}
+
+.phoneDetBack{
+    background-color: white;
+    border-radius: 10px;
+    margin: 1rem 2rem;
+    padding: 1rem 1rem;
+}
+
+.t3{
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    /* margin-top: -3rem; */
+    position: relative;
+    bottom: 2.2rem;
+}
+
+.t4{
+    color: white;
+    font-size: 1.2rem;
+    position: relative;
+    bottom: 2.4rem;
+}
+
+.must{
+    color: red;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-right: 0.2rem;
+}
+
+.divStyle{
+    padding-left: 1.2rem;
+    padding-top: 0.5rem;
+    padding-right: 1.2rem;
+}
+
+.selectBranch {
+    width: 300px;
+    display: inline-block;
+    margin-left: 40px;
+    margin-top:10px;
+}
+
+.f-input-group {
+    height: 3rem;
+    display: inline-block;
+    padding-left: 1rem;
+}
+
+.f-input-group .group-text {
+    height: 3rem;
+    width: 19rem;
+    border: 0px solid #fff;
+}
+
+.f-select {
+    height: 100%;
+    width: 100%;
+    padding-left: 5.6rem;
+    background-color: #FBFBFB!important;
+    border-radius: 0.5rem;
+    padding-left: 0.6rem;
+    font-size: 1.2rem!important;
+    color: #D2D2D2;
+}
+
+.people-text{
+    display: inline-block;
+    height: 3rem;
+    width: 23rem;
+    margin-left: 1rem;
+}
+
+.textAreaDiv{
+    display: inline-block;
+    width: 19.5rem;
+    height: 11rem;
+    margin-left: 1rem;
+}
+
+.place2{
+    position: relative;
+    top: -10rem;
+}
+
+.mask{
+    display: none;
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #B2B2B2;
+    opacity: 0.5;
+}
+
+.alertInfo{
+    display: none;
+    position: fixed;
+    top: 20rem;
+    left: 6rem;
+    bottom: 26rem;
+    right: 6rem;
+    background: white;
+    border-radius: 0.5rem;
+    z-index: 100;
+    border-bottom: 1px solid #828282;
+
+}
+
+.place3{
+    color: #FBA370;
+    font-size: 1.2rem;
+    z-index: 110;
+    margin-top: 2rem;
+}
+
+.pop_style{
+    width: 100%;
+    margin:5% auto;
+}
+
+.modal-dialog {
+    width: 20rem;
+    margin: 20rem auto;
+}
+
+.bootbox-body,.btn-warning,.modal-title{
+    font-size: 1.2rem;
+}
+
+.shanImg2{
+    display: block;
+    width: 180%;
+    height: 100%;
+}
+
+#jobIm2{
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+}
+
+.questionContent img{
+    max-width: 700px;
+    max-height: 900px;
+}
+
+.tempContainer {
+    position: fixed;
+    width: 100%;
+    margin-right: 0px;
+    margin-left: 0px;
+    text-align: center;
+    z-index: 101;
+}
+
+.contacts_text{
+    color: #fa7a07;
+    font-size: 1.5rem;
+    margin-left: 2.0rem;
+    margin-top: 1.5rem;
+}

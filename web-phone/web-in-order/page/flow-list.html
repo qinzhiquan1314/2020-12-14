@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!-- ------手机端对内流转轨迹查询------- -->
+<!-- ------http://127.0.0.1:8092/QueryCenterWeb/web-phone/web-in-order/flow-list.html?orderNum=11------- -->
+<html>
+
+<head>
+    <title>订单实时查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--手机公共-->
+    <link rel="stylesheet" type="text/css" href="../../css/web-base.css">
+    <!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+    <!--自己-->
+    <link rel="stylesheet" type="text/css" href="../css/flow-list.css">
+
+    <!--【手机端专享】自适应必须放head里-->
+    <script type="text/javascript" src="../../js/init.js"></script>
+    <style>
+        .flowtop .t2 .ll3 {
+            float: left;
+            width: 10rem;
+            display: table-cell;
+        }
+        
+        .flowtop .t2 .ll4 {
+            float: left;
+            width: 8rem;
+            display: table-cell;
+        }
+        
+        .show1 {
+            display: block
+        }
+        
+        .hide {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 标题 start -->
+    <header class="txc">
+        <div class="cl fl"><i class="glyphicon glyphicon-chevron-left" onclick="goBack()"></i></div>
+        <div class="cr fr">&nbsp;</div>
+        <div class="cc">流程查询</div>
+    </header>
+    <!-- 标题 end -->
+
+    <!-- start -->
+    <div class="flowtop">
+        <!--<div class="t1 line pd-left-10 ps-relative">
+  				<span class="ps-relative"><img src="../../../web-phone/images/order/flow/f4.png"></img></span>
+  				<span class="circle"></span>
+  				<span class="ft productName">产品名称：</span>
+  			</div>
+  			
+  			<div class="t2 pd-left-10 mg-top-10 ">
+  			    <div class="ll2">
+  					<span class="ft1">NO.</span>
+  					<span class="ft2">宽带/快线/专线：</span>
+  				</div class="rr">
+  				<div class="ft3 accNum"></div>
+  			</div>
+  			<div class="t2 pd-left-10">
+  				<div class="ll">
+  					<span class="ft1">NO.</span>
+  					<span class="ft2">固话:</span>
+  				</div class="rr">
+  				<div class="ft3 teleNum"></div>
+  			</div>
+  			<div class="t2 pd-left-10 mg-bottom-10">
+  				<div class="ll">
+  					<span class="ft1">NO.</span>
+  					<span class="ft2">手机:</span>
+  				</div class="rr">
+  				<div class="ft3 phoneNum"></div>
+  			</div> -->
+        <div class="t1 line pd-left-10 ps-relative productName">
+            <!-- <span class="ps-relative"><img src="../../../web-phone/images/order/flow/f4.png"></img></span> -->
+            <span class="circle"></span>
+            <span class="ft" id='productName'>产品名称：</span>
+        </div>
+        <div class="t2 pd-left-10 mg-top-10 serialNumber">
+            <div class="ll2">
+                <span class="ft1">NO.</span>
+                <span class="ft2">宽带/快线/专线：</span>
+            </div class="rr">
+            <div class="ft3" id='serialNumber'></div>
+        </div>
+        <div class="t2 pd-left-10 teleNum">
+            <div class="ll">
+                <span class="ft1">NO.</span>
+                <span class="ft2">固话:</span>
+            </div class="rr">
+            <div class="ft3" id='teleNum'></div>
+        </div>
+        <div class="t2 pd-left-10 phoneNum">
+            <div class="ll">
+                <span class="ft1">NO.</span>
+                <span class="ft2">手机:</span>
+            </div class="rr">
+            <div class="ft3" id='phoneNum'></div>
+        </div>
+        <div class="t2 pd-left-10 accNum">
+            <div class="ll4">
+                <span class="ft1">NO.</span>
+                <span class="ft2">宽带账号:</span>
+            </div class="rr">
+            <div class="ft3" id="accNum"></div>
+        </div>
+        <div class="t2 pd-left-10 cloudBusinessNum">
+            <div class="ll3">
+                <span class="ft1">NO.</span>
+                <span class="ft2">用户端IP:</span>
+            </div class="rr">
+            <div class="ft3" id="cloudBusinessNum"></div>
+        </div>
+        <div class="t2 pd-left-10 userIp">
+            <div class="ll3">
+                <span class="ft1">NO.</span>
+                <span class="ft2">互联网IP地址:</span>
+            </div class="rr">
+            <div class="ft3" id="userIp"></div>
+        </div>
+        <div class="t2 pd-left-10 interIpAddr">
+            <div class="ll3">
+                <span class="ft1">NO.</span>
+                <span class="ft2">云业务号码:</span>
+            </div class="rr">
+            <div class="ft3" id="interIpAddr"></div>
+        </div>
+        <div class="t2 pd-left-10 accNum">
+            <div class="ll3">
+                <span class="ft1">NO.</span>
+                <span class="ft2">速率:</span>
+            </div class="rr">
+            <div class="ft3" id=""></div>
+        </div>
+    </div>
+    <!-- end -->
+
+    <!--form start -->
+    <section class="txc inflowheader">
+        <form class="form-horizontal" role="form" id="searchForm">
+            <div class="b-input-group">
+                <div class="group-text">
+                    <select class="form-control b-select bg2" id="sysCode" name="sysCode">
+		            <option value="">请选择归属系统</option>
+		            <option value="BLD">天越</option>
+	                <option value="IOM">IOM</option>
+	                <option value="OC">订单中心</option>
+	                <option value="PALM">掌上运维</option>
+                    <option value="CRM">北六ESS</option>
+                    <option value="CBCRM">CBSS</option>
+                    <option value="IO">沃易售(IOM)</option>
+	                <option value="WO">沃易售</option>
+	          </select>
+                </div>
+            </div>
+            <div class="b-input-group">
+                <div class="group-text">
+                    <input id="jobName" name="jobName" class="form-control bg2" type="text" placeholder="请输入环节名称">
+
+                </div>
+            </div>
+            <div class="b-btn-group">
+                <button type="button" class="btn btn_submit submitBtn">查询</button>
+                <button type="button" class="btn btn_reset resetBtn">重置</button>
+            </div>
+        </form>
+    </section>
+    <div class="listArea">
+
+    </div>
+    <section class="fakeParent" id="loader">
+        <div class="fakeloader"></div>
+    </section>
+    <!--form end -->
+
+    <!-- 手机核心插件 start -->
+    <!--[if lt IE 9]>
+	<script>
+	(function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();
+	</script>
+	<script src="../../../js/plugins/respond.min.js"></script>
+	<script src="../../../js/plugins/html5shiv.js"></script>
+	<script src="../../../js/plugins/excanvas.min.js"></script>
+	<![endif]-->
+
+    <!--bootstrap-->
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--bootstrap table-->
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+    <!--控制导出按钮-->
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+    <!--控制导出功能-->
+
+    <!-- layer 弹出层 -->
+    <script type="text/javascript" src="../../../js/plugins/layui/layer/mobile/layer.js"></script>
+
+    <!--公共部分-->
+    <script type="text/javascript" src="../../../js/common/common.js"></script>
+    <script type="text/javascript" src="../../../js/common/util.js"></script>
+    <!--【手机端专享】-->
+    <script type="text/javascript" src="../../js/web-util.js"></script>
+
+    <!-- 加载等待插件 -->
+    <script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+
+    <!-- 手机核心插件 end -->
+
+    <!--自己-->
+    <script type="text/javascript" src="../js/flow-list.js"></script>
+
+</body>
+
+</html>

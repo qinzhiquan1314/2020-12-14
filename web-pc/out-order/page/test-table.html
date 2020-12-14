@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>订单详情</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<!--bootstrap插件-->
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+	<!--swiper轮播-->
+	<link rel="stylesheet" href="../../../js/plugins/swiper2/idangerous.swiper.css" />
+	<!--pc公共-->
+	<link rel="stylesheet" type="text/css" href="../../../css/base.css">
+	<!-- pc端样式统一风格，一般都写在base.css中即可，本页特殊设置写在本页即可  -->
+  </head>
+  <style>
+    	body{background-color: #fbfaf8;}
+  </style>
+  <body onload="bodyLoad(60)"><!-- 监听广告  40+10+10-->
+  	<!-- title start -->
+  	<div class="title_2">
+  		<div class="title_23">订单详情</div>
+  	</div>
+	<!-- title end -->
+	
+	<!-- 主要面板 start -->
+  	<div class="panel_2 sp">
+  		<div class="container" style="width:100%;height:100%;"><!-- style="width:100%;" class里ie不起作用-->				
+			
+            <!-- table start  table-striped   table-bordered -->
+            <div class="tableDiv_2 table-responsive">
+            	<table id="table" class="table table-hover"
+		              data-toggle="table"
+		              data-method="GET"
+		              data-content-type="application/x-www-form-urlencoded"
+		              data-query-params="queryParams"
+		              data-pagination="false"
+		              data-side-pagination="server"
+		              data-page-size="10"
+		              data-page-list="[5, 10, 20, 50 ]"
+		              data-show-refresh="false" 
+		              data-show-toggle="false"
+		              data-show-pagination-switch="false"
+		              data-show-columns="false"
+		              data-search="false"
+		              data-search-align="left"
+		              data-sort-name="orderNum"
+		              data-sort-order="asc"
+		               >
+		           <thead> 
+		           <tr> 	
+		               <th class="text-center" data-field="orderNum2" data-sortable="false" data-formatter="orderTableObj.tdFormatter1" data-events="actionEvents" data-width="120px">订单编号</th>    		                			                																
+		               <th class="text-center" data-field="productName" data-sortable="false">产品名称 </th>
+		               <th class="text-center" data-field="customerName" data-sortable="false">客户名称 </th>
+		              <!-- <th data-field="URL" data-sortable="false" data-visible="false">url</th> -->
+		               <th class="text-center" data-field="addrName" data-sortable="false" data-formatter="orderTableObj.tdFormatter2" data-width="30%">装机地址</th>
+		               <th class="text-center" data-field="ocAcceptDate" data-sortable="false" >下单时间</th>  
+		               <th class="text-center" data-field="statusFlag" data-formatter="orderTableObj.actionFormatter" data-events="actionEvents" data-width="150px">订单状态</th> 
+		           </tr>
+		           </thead>
+		       </table>	
+            </div>
+	        <!-- table end -->
+            
+		</div>
+		
+		<!-- 广告 bottom start -->
+	  	<div class="advert-bottom width100 opacity-0"><!--dp-none position-fiexd opacity-0-->
+	  		<div class="swiper-container swiper-containerA">
+			    <div id="swiper-wrapperA" class="swiper-wrapper">
+			        <!--<div class="swiper-slide"><img src="../../../images/banner/1.png"/></div>-->
+			    </div>
+			    <div class="pagination swiper-paginationA"></div>
+			</div>
+	  	</div>
+	  	<!-- 广告 bottom end -->
+	  	
+  	</div>
+	<!-- 主要面板 end -->   
+	
+	<!-- 核心插件 start-->
+
+	<!--[if lt IE 9]>
+	<script>
+	(function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();
+	</script>
+	<script src="../../../js/plugins/respond.min.js"></script>
+	<script src="../../../js/plugins/echarts/js/html5shiv.js"></script>
+	<script src="../../../js/plugins/excanvas.min.js"></script>
+	<![endif]-->
+			
+	<!--bootstrap-->
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!--bootstrap table-->
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script><!--控制导出按钮-->
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script><!--控制导出功能-->
+	
+	<!-- swiper2 轮播插件 pc用2 , 手机用3 -->
+	<script type="text/javascript" src="../../../js/plugins/swiper2/idangerous.swiper.min.js"></script>
+	
+	<!-- layer 弹出层 -->
+	<script type="text/javascript" src="../../../js/plugins/layui/layer/layer.js"></script>
+	
+	<!-- 表单  -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery.form.js"></script>
+		
+	<!-- 表单验证 -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/messages_zh.min.js"></script>
+	
+	<!--公共部分-->
+	<script type="text/javascript" src="../../../js/common/common.js"></script>
+	<script type="text/javascript" src="../../../js/common/util.js"></script>
+	<!-- 广告 -->
+	<script type="text/javascript" src="../../../js/common/out-advert.js"></script>
+	
+	<!-- 核心插件 end-->  
+	
+	<!--自己-->
+	<script type="text/javascript" src="../js/test-table.js"></script>
+	 
+	 
+	
+  </body>
+</html>

@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+
+/*-------------
+ * 
+ * PC版 
+ * ------------*/
+
+*{padding:0;margin:0;}
+
+body,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,ul,ol,li,form,button,input{
+	padding:0px;margin:0px;
+	border:none;list-style:none;
+	font-weight:normal;
+	/*font-family:'Verdana', 'Microsoft YaHei', sans-serif;*/
+	font-family:'Verdana', 'SimHei', sans-serif;
+}
+body{
+	background-color: #f6f6f6;
+}
+/*字体颜色*/
+.fc-orange {color: #a34700;}
+.fc-grey {color: #a34700;}
+
+
+/* flow start */
+.flowSwrap {
+	position: relative;
+	margin: 20px 40px;
+	/* width:720px; */
+	/* background-color: #fff; */
+}
+
+.flowCell {
+	padding: 25px 0;
+	overflow: hidden;
+	/* position: relative; */
+	z-index: 20;
+	display: table;
+	word-wrap: break-word;
+	table-layout: fixed;
+	width: 100%;
+}
+
+/* PC 端第一个图片放大 */
+.flowCell #img0 {
+	width:40px;
+	height:40px;
+}
+
+.cell-left {
+    width: 190px;
+    padding-right: 28px;
+    text-align: right;
+    display: table-cell; 
+    vertical-align:middle;
+    /*background-color: goldenrod;*/
+}
+.cell-right {
+    padding-left: 32px;
+    text-align: left;
+    display: table-cell;
+    vertical-align:middle;
+    /*background-color:green;*/
+}
+.cell-center {
+    /* height:100px; */
+    width: 55px;
+    display: table-cell;
+    vertical-align:middle;
+    /*background-color: azure;*/
+    overflow: hidden;
+    text-align: center;
+}
+.cell-left .t1 {
+	font-size: 24px;
+}
+.cell-left .t2 {
+	font-size: 18px;
+}
+
+.cell-right .t1_start {
+	font-size: 20px;
+}
+.cell-right .t1 {
+	font-size: 16px;
+}
+.cell-right .t2 {
+	font-size: 14px;
+	margin-top: 2px;
+}
+.cell-right .t2 a {
+	/* color:#fd6b00; */
+	text-decoration: underline;
+}
+.cell-right .t3 {
+	font-size: 12px;
+	color: #434343;
+	margin-top: 5px;
+}
+
+/* 必须设置宽高，画线使用 */
+.cell-center img {
+	width: 30px;
+	height: 31px;
+}
+
+.flow-line {
+	width: 1px;
+	background-color: #a34700;
+	z-index: 10;
+}
+
+/*  flow  end */

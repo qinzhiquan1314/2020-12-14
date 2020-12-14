@@ -1,0 +1,503 @@
+@charset "utf-8";
+
+/**********这里写手机端 需要的公用css**********/
+/* 定义背景色 */
+.z_back{
+	background-color:#ccc;
+}
+html {
+	-webkit-text-size-adjust: 100%;
+	font-size: 20px; /*设置换算单位为20px,不用随便修改影响web-util.js*/
+	overflow-y:auto;
+}
+
+*{padding:0;margin:0;}
+
+body,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,ul,ol,li,form,button,input{
+	padding:0px;margin:0px;
+	border:none;list-style:none;
+	font-weight:normal;
+	/* font-family:'Verdana', 'Microsoft Yahei', sans-serif; */
+	font-family:'Verdana', 'SimHei', sans-serif;
+}
+body{
+	background-color: #f6f6f6;
+}
+a{ text-decoration:none;}
+a:hover {text-decoration: none;}
+ul li{ list-style:none;}
+i,em{ font-style:normal;}
+.clear:after,.row:after{
+	content:".";
+	display:block;
+	height:0; 
+	visibility:hidden;
+	clear:both;
+ } 
+.clear,.row{zoom:1;}
+
+.col10{width:10%; float:left }
+.col90{width:90%; float:left}
+.col20{width:20%;float:left}
+.col80{width:80%;float:left}
+.col33-3{width:33.33333%; float:left}
+.col40{width:40%; float:left}
+.col50{width:50%; float:left}
+.col60{width:60%; float:left;}
+
+.txr{text-align:right;}
+.txl{text-align:left;}
+.txc{text-align:center;}
+
+.fl{float:left;}
+.fr{float:right;}
+
+.width100{width:100%;}
+.height100{height:100%;}
+
+.mgt10{margin-top:0.5rem;}
+.mgb10{margin-bottom:0.5rem;}
+.mgl10{margin-left:0.5rem;}
+.mgr10{margin-right:0.5rem;}
+.mgb40{margin-bottom:2rem;}
+.mgtrbl10{margin:0.5rem;}
+
+.ps-relative{position:relative}
+.ps-absolute{position:absolute}
+.ps-fixed{position:fixed}
+
+.font-space-2px {letter-spacing:0.1rem}
+
+.dp-none{display:none}
+.font-ht{font-family: 'SimHei';}
+.bg-grey{background-color:#eee;}
+.bg-orange {background-color:#f7b135;}
+.font-grey{color:#cfcfcf}
+
+.opacity-0 {  
+	filter:Alpha(Opacity=0);  
+	opacity: 0;
+}
+
+.btn-orange {
+	color: #FFFFFF;
+	background-color: #fa7a07;
+	padding: 0.25rem 0.5rem; /* 5px 10px; */
+}
+
+/**chrome input记录历史数据背景屎黄 修改成白色背景**/
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}
+
+/*返回按钮*/
+.icon-re1{background-image: url('../images/order/return.png');background-position: 0px 0px;width:25px;height:42px;}
+.icon-re2{background-image: url('../images/order/return.png');background-position: 0px -47px;width:25px;height:42px;}
+
+
+/**  header start****/
+header {
+	background-color: #fe9900;
+	height:5rem;
+	line-height: 5rem;
+	/* border-bottom:1px solid #aeaeae; */ /* 线宽不需要变 */
+}
+
+header .cl {
+	width:5rem;
+	font-size: 2rem;
+	color: #fff;
+	cursor: pointer;
+}
+header .cr {
+	width:5rem;
+	font-size: 2rem;
+	color: #fff;
+}
+
+/* 右边按钮*/
+header .crr {
+	width: 5.8rem;
+    font-size: 1.7rem;
+    padding-right: 1.8rem;
+}
+ 
+header .crr a {
+	color:#fff;
+	text-decoration: none;
+}   
+
+header .cc {
+	font-size: 1.7rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: clip;
+	color: #fff;
+}
+
+header .cl:hover {
+	color:#000;
+}
+/**  header end****/
+
+/* 查询输入组合 a类  start */
+.a-input-group {
+    /* margin: 3rem 1.15rem 1.5rem 1.15rem; */ /* 60px 23px 30px 23px; */
+    margin: 0.5rem 1.15rem;
+    background: 000000;
+    /* height: 5rem; */ /* 100px; */
+    /* line-height: 5rem; */ /* 100px; */
+}
+
+.a-input-group .group-text {
+	height: 4rem; /* 100px; */
+	width: 100%;
+	/* font-size: 1.5rem;
+	color: #9d9d9d; */
+	border: 0px solid #fff;
+	line-height: 4rem;
+}
+
+.a-input-group .group-text input[type='text'] {
+	height:100%;
+	width: 100%;
+	padding-left: 6rem; /* 112px; */
+	padding-right: 0.5rem; /* 10px; */
+	background-color: #fff;
+	border-radius: 0.7rem; /* 14px; */
+	border: none;
+	font-size: 1.4rem;
+	color: #555;
+}
+/*对内手机： placeholder 提示文字字体颜色 #bbb*/
+.form-control::-webkit-input-placeholder { /* WebKit browsers */
+color:#bfbfbf;
+}
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+color:#bfbfbf; 
+}
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+color:#bfbfbf; 
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10+ */
+color:#bfbfbf; 
+}
+
+/* 对外手机placeholder 提示文字字体颜色 #bbb*/
+.form-control2::-webkit-input-placeholder { /* WebKit browsers */
+color:#666666;
+}
+.form-control2:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+color:#666666;
+}
+.form-control2::-moz-placeholder { /* Mozilla Firefox 19+ */
+color:#666666;
+}
+.form-control2:-ms-input-placeholder { /* Internet Explorer 10+ */
+color:#666666;
+}
+
+.a-input-group .bg1 {
+	background: url(../images/order/search1.png) no-repeat 9% 50%;
+	background-size: 2.15rem; /* 43px; */
+}
+
+.a-input-group .bg2 {
+	background: url(../images/order/search2.png) no-repeat 9% 50%;
+	background-size: 2.15rem; /* 43px; */
+}
+.a-input-group .bg3 {
+	background: url(../images/order/search3.png) no-repeat 9% 50%;
+	background-size: 2.15rem; /* 43px; */
+}
+.a-input-group .bg4 {
+	background: url(../images/order/search4.png) no-repeat 9% 50%;
+	background-size: 2.15rem; /* 43px; */
+}
+/* 查询输入组合 a类  end */
+
+
+/* 按钮区 a类  start*/
+
+.a-btn-group {
+	 /* 60px 23px 30px 23px; */
+	 height: 4rem; /* 98px; */
+	 margin: 1rem auto;
+	 width: 58%;
+}
+
+.btn_search {
+	width: 100%;
+	height: 100%;
+	font-size: 1.5rem; /* 30px; */
+	color: #fff;
+	font-weight: bolder;
+	background-color: #f7b135; /* #fd6b00; */
+	border-radius: 0.7rem; /* 14px; */
+}
+
+.btn:hover{
+	color:#fff;
+}
+/* 按钮区 a类 end */
+
+/* 查询输入组合 b类 start*/
+.b-input-group {
+    margin: 1.5rem 1.15rem 1.5rem 1.15rem; /* 60px 23px 30px 23px; */
+    background: 000000;
+    height: 5rem; /* 100px; */
+    line-height: 5rem; /* 100px; */
+}
+
+.b-input-group .group-text {
+	height: 5rem; /* 100px; */
+	width: 100%;
+	/* font-size: 1.5rem;
+	color: #9d9d9d; */
+	border: 0px solid #fff;
+}
+
+.b-input-group .group-text input[type='text'] {
+	height:100%;
+	width: 100%;
+	padding-left: 5.6rem; /* 112px; */
+	padding-right: 0.5rem; /* 10px; */
+	background-color: #fff;
+	border-radius: 0.7rem; /* 14px; */
+	border: none;
+	font-size: 1.5rem;
+    color: #555;
+    
+}
+
+.b-input-group .bg2 {
+	background: url(../images/order/search2.png) no-repeat 9% 50%;
+	background-size: 2.15rem; /* 43px; */
+}
+
+
+/* 查询输入组合 b类 end*/
+
+/* 按钮区 b类 start */
+
+.b-btn-group {
+	margin: 1rem 1.15rem 1.5rem 1.15rem;
+	height: 4rem;
+}
+
+.btn_submit {
+	width: 48%;
+    height: 100%;
+    font-size: 1.5rem; /* 30px; */
+    color: #fff;
+    background-color: #f7b135; /* #fd6b00; */
+    border-radius: 0.7rem; /* 14px; */
+	/*! display: block; */
+	float: left;
+}
+
+.btn_reset {
+	width: 48%;
+    height: 100%;
+    font-size: 1.5rem; /* 30px; */
+    color: #fff;
+    background-color: #f7b135; /* #fd6b00; */
+    border-radius: 0.7rem; /* 14px; */
+	/*! display: block; */
+	float: right;
+}
+/* 按钮区 b类 end */
+
+
+/* 下拉框 start */
+.a-select {
+	height: 100%;
+	width: 100%;
+	padding-left: 5.6rem;
+	background-color: #ffffff!important;
+	/* inline-size: 29rem; */
+	border-radius: 0.7rem;
+	padding-left: 5.6rem;
+	border: none;
+	font-size: 1.5rem;
+    color: #555;
+}
+
+.b-select {
+	height: 100%;
+	width: 100%;
+	padding-left: 5.6rem;
+	background-color: #ffffff!important;
+	/* inline-size: 29rem; */
+	border-radius: 0.7rem;
+	padding-left: 5.6rem;
+	border: none;
+	font-size: 1.5rem;
+    color: #555;
+}
+/* 下拉框  end */
+
+/*****广告 start*****/
+.advert-top {
+	background: url(../images/order/sj-top.png) no-repeat;
+	background-size: 100% auto;
+	height: 12.5rem;
+	width:100%;
+	color:#fff;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+.advert-top p:first-child{
+	font-size:2rem;
+    padding-top: 1.5rem;
+}
+.advert-top p:last-child{
+	font-size:1.5rem;
+}
+/*底部广告图片*/
+.advert-bottom img{
+	height:auto;
+	width:100%;
+	margin-top: 1rem;
+}
+/*底部广告图片关闭按钮*/
+.advert-bottom i{
+    position: absolute;
+    right: 0.5rem;
+    top: 1.3rem;
+    color: #fff;
+}
+/*底部广告矩形占位*/
+.advert-bottom .rect{
+	background-color:#fe9900;
+	height:1.5rem;
+}
+/*底部广告整体浮动*/
+.position-fiexd{
+    position: fixed;
+    bottom: 0;
+}
+
+/* swiper3 */
+.swiper-containerA .swiper-pagination {
+	margin-bottom: -0.8rem;
+}
+.swiper-containerA  .swiper-pagination-bullet {
+	width: .5rem;
+	height: .5rem;
+}
+
+
+/*****广告 end*****/
+
+
+/****panel_2 查询-条件组合-改版  start***/
+.panel_2 {
+	margin: 0.5rem 2.4rem 1rem;
+}
+.panel_2 ul li {
+	width: 50%;
+	text-align: center;
+	height: 3rem;
+}
+
+.row_2 {
+	position: relative;
+	padding: 1rem 3%;
+	border-bottom: 0.1rem solid #ddd;
+	border-left: 0.1rem solid #ddd;
+	border-right: 0.1rem solid #ddd;
+	border-radius: 0 0 0.2rem 0.2rem;
+	background-color:  #fff;
+	overflow: hidden;
+	margin-bottom: 2rem;
+	border-top: 0;
+}
+
+.input-group_2 {
+	height: 3.1rem;
+	border: 0;
+	margin: 1.2rem 0;
+}
+.input_2 {
+	width:100%;
+	height: 3.1rem;
+	font-size: 1.2rem;
+	/* color: #666; input设置了inpupt-placeholder样式颜色 */
+	border: none;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	background-color: #f5f5f5;
+}
+
+.panel_2 .info-row {
+    float: right;
+    line-height: 2rem;
+    color: #B0B0B1;
+    font-size: 1rem;
+    /* padding-top: 6px; */
+}
+
+.panel_2 #sendMessage {
+    position: absolute;
+    right: 0.3rem;
+    top: 0.3rem;
+    color: #FFFFFF;
+    padding: 0.6rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    z-index: 10;
+}
+.panel_2 .row_2 hr {
+    margin-bottom: 0;
+    border: 1px solid #ededed;
+    margin-top: 0;
+}
+
+.panel_2 #sendMessage:hover{
+	color:#fff;
+	background-color:#eb6100;
+}
+.panel_2 #sendMessage:focus{
+	color:#fff;
+	outline:none;
+}
+
+/**** 查询-条件组合-改版   end***/
+
+/*** panel_2 tab切换-改版 start ***/
+
+/* 图片不能自适应，所以img放html里面特殊加载
+.panel_2 li.active>a:before {
+	content: url(../images/order/web-li.png);
+	vertical-align:middle;
+  	display:inline-block;
+} */
+
+.panel_2 li>a>img {
+	width:1.7rem;
+	height:1.2rem;
+	margin-bottom: 0.2rem;
+	/* opacity:0; */
+}
+
+.panel_2 .nav-tabs>li>a,
+.panel_2 .nav-tabs>li>a:hover {
+	font-size: 1.3rem;
+	color: #aaaaaa;
+	margin-right:0;
+	padding: 0.7rem;
+}
+
+.panel_2 .nav-tabs>li.active>a, 
+.panel_2 .nav-tabs>li.active>a:focus, 
+.panel_2 .nav-tabs>li.active>a:hover {
+	color: #666666;
+    /* color: #aaaaaa; */
+    cursor: default;
+    background-color: #fff;
+    border: 0.1rem solid #ddd;
+    border-bottom-color: transparent;
+    font-weight: 600;
+}
+/*** panel_2 tab切换-改版 end ***/

@@ -1,0 +1,45 @@
+@charset "utf-8";
+/********对外 手机 订单查询+获取验证码*******/
+
+/* 超链接区 start  */
+
+.a-div {
+	margin: 4.5rem 4.2rem 1.5rem 4.2rem; /* 90px 84px 30px 84px; */
+}
+.a-div .change {
+	font-size: 1.3rem; /* 26px; */
+	color: #ccc;	
+}
+.a-div .change:hover {
+	font-size: 1.3rem; /* 26px; */
+	color: #bb5000;	
+}
+.a-div-tele{
+	margin: 0.5rem 1.2rem 0;
+} 
+.a-div-tele .teleMess {
+	font-size: 1.3rem; /* 26px; */
+	color: #ccc;	
+}
+
+/* 超链接区 end  */
+/* 增加删除功能样式 */
+.deletB{
+	position:relative;
+}
+#jobIm , #jobIm1 ,#jobIm2 ,#jobIm4 ,#jobIm5{
+	display:none;
+	position:absolute;
+	top: 1rem;
+	right:1rem;
+	width: 2rem;
+	height: 2rem;
+}
+.shanImg , .shanImg1 , .shanImg2 ,.shanImg4 ,.shanImg5{
+	display:block;
+	width:100%;
+	height:100%;
+}
+
+
+

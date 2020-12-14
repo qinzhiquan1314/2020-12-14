@@ -1,0 +1,305 @@
+@charset "utf-8";
+
+/* 五星评价 start */
+
+.bb2 {
+	border-bottom: 2px solid #f6f6f6;
+}
+.mgt16 {
+	margin-top: 0.8rem; /* 16px; */
+}
+.a-row {
+	font-size: 1.1rem; /* 30px; */
+	color: #666666;
+	height: 2.5rem; /* 114px; */
+	line-height: 2.5rem;/* 114px; */
+	/* background-color: #efefef; */
+}
+.row-left {
+	float: left;
+	/* width:36%; */
+	margin-left: 4rem; /* 36px; */
+	/* font-weight: 600; */
+}
+.row-right{
+	float: right;
+	margin-right: 4rem; /* 36px; */
+	color: #a0a0a0;
+}
+.row-right .ratyWidth {
+	width: 9.5rem; /* 230px; */
+}
+.row-right .fontWidth {
+	width: 3.7rem; /* 94px; */
+}
+.row-right img{
+	height: 1.2rem; /* 34px; */
+	width: 1.2rem; /* 34px; */
+	margin-top: -0.5rem; /* -6px; */
+}
+/* 五星评价 end */
+
+.a-textarea {
+	height: 17.5rem; /* 350px; */
+	width: 70%;
+	line-height: 150%;
+	font-size: 1.2rem; /* 26px; */
+	color: #323232;
+	padding: 1.3rem; /* 36px; */
+	 /* 0 0 16px 30px; */
+	border: 1px solid #eeeeee;
+	word-break:break-all;
+	word-wrap: break-word;
+	margin: 1.5rem 15% 0;
+}
+/*---增加评价部分--strat-- */
+.z_evaluation{
+	width:100%;
+	height:6.0rem;
+	background-color:#f6f6f6;
+	/* line-height: 6rem; */
+}
+.z_veap{
+	width: 80%;
+	display: table;
+	vertical-align: middle;
+	height:100%;
+	margin:auto;
+	/* text-align:center; */
+	font-size:1.5rem;
+}
+.z_veapsp1{
+	width: 0.8rem;
+	height: 0.1rem;
+	display: table-cell;
+	vertical-align: middle;
+}
+/* 横线 */
+.z_veapsp1>div{
+	width:100%;
+	height:0.1rem;
+	background: #c2c2c2;
+}
+
+.z_veapsp2{
+	width: 2rem;
+	text-align:center;
+	font-size: 1.2rem;
+	color: #666666;
+	display: table-cell;
+	vertical-align: middle;
+}
+.z_btn{
+	width:59%;
+	margin: 0 auto;
+    padding-bottom:2.0rem;
+    padding-top: 1rem;
+}
+#z_btn1{
+	width:100%;
+	height:3.5rem;
+	margin: 0 auto;
+	font-size:1.7rem;
+	color:#fff;
+	font-weight:550;
+	text-align:center;
+	line-height:3.5rem;
+	background-color:#f7b135;
+	border-radius:0.5rem;
+	outline:none;
+	
+}
+.z_num{
+	right: 3.5rem;
+	font-size: 0.8rem;
+	color: #666666;
+	bottom: -1.5rem;
+}
+
+/* 总体评价   */
+.totalEval {
+    height:5rem; /* 设置高度 */
+    background-color: #f6f6f6;
+    text-align: center;
+    display: table;
+    margin: 0 auto 3rem;
+}
+
+.totalEval li{
+	width: 8rem;
+	height: 3.5rem;
+	line-height: 3.5rem;
+	float: left;
+	font-size: 1.4rem;
+	/* font-weight: bolder; */
+	border-radius: 0.6rem;
+	border: 2px solid #eeeeee;
+	letter-spacing: -1px;
+	display: table-cell;
+	margin: 0 0.4rem;
+}
+.evaluateP{
+	width: 7.7rem;
+	height: 3rem;
+    line-height: 3rem;
+	background: #f6f6f6;
+	color:#000;
+}
+.li-on {
+	background-color:#f7b135;
+	color:#fff;
+}
+.li-off {
+	background-color:#fff;
+	color:#333;
+}
+
+.varea{
+	background-color: #efefef;
+	padding: 0.8rem;
+}
+/*---增加评价部分--end-- */
+
+/*---新需求评价部分---- */
+.ques {
+    width: 71%;
+    margin: 0 auto 1rem;
+    color: #333;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: 1px;
+}
+.marbtm{
+	margin-bottom: 5rem;
+}
+.proposalBox{
+	heighgt:100%;
+	margin:0 6rem;
+	color:#666;
+}
+
+.servicePerSpan{
+	background:url(../../../images/update/2.png) no-repeat 0 50%;
+	width: 1.8rem;
+	height: 1.8rem;
+	display: inline-block;
+	background-size: 100% 100%;
+	float:left;
+	cursor:pointer;
+}
+.servicePerSpanP{
+	margin-top: 0.1rem;
+}
+.main{
+	background:url(../../../images/update/1.png) no-repeat 0 50%;
+	background-size: 100% 100%;
+}
+
+.servicePer{
+	height: 2rem;
+ 	line-height: 1.5rem;
+ 	margin-bottom: 0.5rem;
+}
+.servicePer>p{
+	font-size:1.6rem;
+	float:left;
+	margin-bottom: 0.5rem;
+}
+
+.serviceList {
+	width:100%;
+	margin:0 2rem;
+	display:none;
+	float:left;
+}
+.Spanshow{
+	display:block;
+}
+.serviceList>li{
+	line-height:2rem;
+}
+.servicePerSingle{
+	background:url(../../../images/update/6.png) no-repeat 0 50%;
+	width: 1.8rem;
+	height: 1.8rem;
+	display: inline-block;
+	margin-bottom: 0.8rem;
+	background-size: 100% 100%;
+	float:left;
+	cursor: pointer;
+}
+.bcOrange{
+	background:url(../../../images/update/5.png) no-repeat 0 50%;
+	background-size: 100% 100%;
+}
+
+.loadLens{
+	width:24rem;
+	height: 2rem;
+	line-height: 2rem;
+	font-size: 1.6rem;
+	padding-left:1.8rem;
+}
+
+.labcheckBox{
+	background: url(../../../images/update/4.png) no-repeat 0 50%;
+	/* background-size: 100% 100%; */
+	padding-left: 1.6rem;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	cursor: pointer;
+	margin-bottom: 0.5rem;
+}
+.checkBox{
+	background: url(../../../images/update/3.png) no-repeat 0 50%;
+	/* background-size: 100% 100%; */
+}
+
+label{
+	font-weight:normal;
+	margin-bottom:0;
+}
+input[type='checkbox']{
+	display: none;
+}
+
+.disNone{
+	display:none;
+}
+.disBlock{
+	display:block;
+}
+/*增加评价短信验证*/
+.messageInfo  {
+	margin:0 auto;
+	margin-top:0.8rem;
+    width: 29rem;
+    color:red;
+    font-size: 1.2rem;
+}
+.getCode{
+	margin:0 auto;
+	width: 29rem;
+	backgroud-color:red;
+	/* display:none; */
+}
+.codeButton{
+	position: absolute;
+	right:0.1rem;
+	top:0.1rem;
+	color:#FFFFFF;
+	padding:0.6rem 1rem;
+	border-radius: 0.25rem;
+	font-size:1.2rem;
+	background-color:#f7b135;
+	z-index: 10;
+}
+.codeInput{
+	width:100%;
+	height: 3.1rem;
+	font-size: 1.2rem;
+	border:1 px solid;
+	border-radius:0.5rem;
+	padding:1rem;
+	
+}

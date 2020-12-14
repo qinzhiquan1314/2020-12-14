@@ -1,0 +1,122 @@
+/* 筛选条件样式开始 */
+.searchInfo {
+	width: 90%;
+	margin-left: 100px;
+	position: relative;
+}
+.branchSearch,.interNet,.orderSource,.entityCanal{
+	display: inline-block;
+	overflow:hidden;
+	margin-left:97px;
+}
+label {
+	font-size: 16px;
+}
+.branchInfo label{
+	position: absolute;
+	left: 0px;
+	top: 10px;
+}
+.orderInfo label{
+	position: absolute;
+	left: 0px;
+	top: 10px;
+}
+.internet,.entityInfo{
+	display:none;
+}
+.internet label,.entityInfo label{
+	position: absolute;
+	left: 0px;
+	top: 48px;
+}
+.branchSearch li,.orderSource li,.interNet li,.entityCanal li,.businessStyle li{
+	float: left;
+	margin-left:15px;
+	font-size: 16px;
+	margin-top: 10px;
+	padding: 0px 10px;
+	cursor:pointer;
+}
+.searched {
+	color: #ffffff ;
+	background-color:#f39800;
+	border-radius: 8px;
+	padding: 3px 10px;
+}
+.businessInfo  label{
+	margin-top: -10px;
+	padding-top: -10px;
+}
+.businessStyle {
+	display: inline-block;
+	overflow:hidden;
+	margin-left: 28px;
+
+}
+.handleDate label{
+	margin-top:10px;
+	margin-left: 100px;
+}
+.handleDate span{
+	margin-left: 40px;
+	font-weight: normal;
+    font-family: 'Verdana', 'SimHei', sans-serif;
+    font-size:16px;
+}
+.startDate {
+	width: 200px;
+	display: inline-block;
+	position: relative;
+}
+.selectBranch {
+	width: 200px;
+	display: inline-block;
+	margin-left: 55px;
+	margin-top:10px;
+}
+.branchItem,.developItem {
+	display:none;
+}
+.searchExp {
+	display: inline-block;
+	float:right;
+}
+.hisSearch {
+	cursor:pointer;
+}
+/* 筛选条件样式结束 */
+
+/* 表格样式开始 */
+.b-tableDiv table>thead>tr>th {
+	font-weight: 700;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: middle !important;
+}
+.b-tableDiv {
+	margin-top: 50px;
+}
+ .maskLayer {  
+        background-color:#9D9D9D;  
+        width: 100%;  
+        height: 100%;  
+        left: 0;  
+        top: 0;  
+        filter: alpha(opacity=50);  
+        opacity: 0.5;  
+        z-index: 1;  
+        position: absolute;  
+    }  
+   .maskWords {
+   		color: #000000;
+   		position: absolute;
+   		left: 40%;
+   		top: 60%;
+   		font-size:40px;
+   		z-index: 2;
+   }
+   .tableStyle {
+   		height: 300px;
+   		overflow-y: auto;  
+   }

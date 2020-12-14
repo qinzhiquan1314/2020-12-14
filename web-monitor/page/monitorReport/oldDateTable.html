@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>全流程监控总览</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<!--bootstrap插件-->
+<link rel="stylesheet" type="text/css"
+	href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+<!--pc公共-->
+<link rel="stylesheet" type="text/css" href="../../../css/base.css">
+<!--加载等待插件-->
+<link rel="stylesheet" type="text/css"
+	href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/flowChart.css" />
+<link rel="stylesheet" type="text/css" href="../../css/modal.css" />
+<link rel="stylesheet" type="text/css" href="../../css/monitView.css" />
+		<style type="text/css">
+			.b-tableDiv table>thead>tr>th {
+			   font-weight:700;
+			   font-size:12px;
+			   text-align:center;
+			} 
+		   .totalDiv{
+		   margin-top: 10px;
+		   }
+		   .table th, .table td { 
+				text-align: center;
+				vertical-align: middle!important;
+			}
+		</style>
+	</head>
+	<body style="overflow-y: hidden">
+		 <div id="Lcontainer">
+			<!--导航-->
+			<div id="Lnav">
+				<ul class="Lnav">
+					<li class="Lcheck">监控指标日表</li>
+				</ul>
+			</div>
+			
+			<ul class="tables">
+<li class="on">
+	<form action="javascript:;" id="searchForm" class="form-horizontal">
+	 <div class="form-body" style="margin:15px 0px;">
+	  <div class="row">
+	        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+	                  <div class="form-group">
+	                      <label class="col-sm-4 col-md-5 control-label">归属销售线：</label>
+	                      <div class="col-sm-8 col-md-7">
+	                      	 <select class="form-control" id="sysCode" name="sysCode">
+	                          	  <option value="">请选择归属销售线</option>
+	                                    <option value="225">二区</option>
+										<option value="226">三区</option>
+										<option value="211">四区</option>
+										<option value="212">五区</option>
+										<option value="213">七区</option>
+										<option value="214">八区</option>
+										<option value="217">通州</option>
+										<option value="219">昌平</option>
+										<option value="220">大兴</option>
+										<option value="218">顺义</option>
+										<option value="216">房山</option>
+										<option value="223">密云</option>
+										<option value="221">怀柔</option>
+										<option value="215">门头沟</option>
+										<option value="222">平谷</option>
+										<option value="224">延庆</option>
+										<option value="dkhzx">大客户中心</option>
+										<!-- <option value="11a09h">电商部</option> -->
+										<option value="11a0al">市支中心</option>
+										<option value="11a01q">客服中心</option>
+										<option value="227">重通局</option>
+										<!-- <option value="cpzczx">产品支撑中心</option> -->
+										<option value="11a0a1">国际业务中心</option>
+										<option value="11a01r">集团客户</option>
+										<option value="11a01s">电子渠道</option>
+										<!-- <option value="11a03d">导航中心</option>
+										<option value="11a04h">宽带业务中心</option>
+										<option value="11a05l">互联互通部</option>
+										<option value="11a079">产创</option> -->
+										<option value="11a08x">其它</option>
+	                          </select>
+	                      </div>
+	                  </div>
+	          </div>
+	          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+	              <div class="form-group">
+                    <label class="col-sm-4 col-md-5 control-label">查询日期：</label>
+                    <div class="col-sm-8 col-md-7">
+                     	<i class="fa">	
+                   		  	<img onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"  src="../../js/plugins/My97DatePicker/skin/datePicker.gif" style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+               			</i>
+         				<input  type="text" value="" class="form-control" id="searchDate" name="searchDate" style="cursor: pointer;background-color: #fff;" readonly placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+	         		</div>
+	             </div>
+	          </div>
+	          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+	             <div class="form-group">
+		          <div class="text-right">
+		            <button id="searchBtn" type="button" class="btn btn-orange submitBtn">查询</button>
+		            <button  id="exportBtn"  type="button" class="btn btn-orange resetBtn">导出</button>
+		          </div>
+	          	</div>
+	         </div>
+	       </div>   
+	   </div>         
+	</form>
+	 <!-- table start -->
+		      <div class="b-tableDiv table-responsive" style="overflow-y: hidden;height:460px;">
+			      <table id="table" class="table table-striped table-bordered table-hover" >
+			        <thead>
+			          <tr>
+			          	<th data-rowspan="2" style='line-height:30px;' data-field="developSaleDate">日期</th>
+			          	<th data-colspan="3"  class="text-center" >一次预约率</th>
+			          	<th data-colspan="3"  class="text-center" >意向单占比</th>
+			          	<th data-colspan="3"  class="text-center" >意向单转化率</th>
+			          	<th data-colspan="3"  class="text-center" >按时履约率</th>
+			          	<th data-colspan="3"  class="text-center" >评价率</th>
+				      </tr>
+				      <tr>
+					      <th data-field="allByOrderAppoint">工单总量</th>
+							<th data-field="countByOrderAppoint" >一次预约施工工单量</th>
+							<th data-field="rateByOrderAppoint">一次预约率</th>
+							
+							<th data-field="allByOrderIntention">订单总量</th>
+							<th data-field="countByOrderIntention">沃易售意向单订单量</th>
+							<th data-field="rateByOrderIntention">意向单占比</th>
+							
+							<th data-field="allByIntention">沃易售意向单订单量</th>
+							<th data-field="countByIntention">意向单竣工量</th>
+							<th data-field="rateByIntention">意向单转化率</th>
+							
+							<th data-field="allByJobAppoint">上门施工总量</th>
+							<th data-field="countByJobAppoint">按时上门施工总量</th>
+							<th data-field="rateByJobAppoint">按时履约率</th>
+							
+							<th data-field="allBycomment">竣工单量</th>
+							<th data-field="countBycomment">评价工单量</th>
+							<th data-field="rateBycomment">评价率</th>
+				      </tr>
+			        </thead>
+			      </table>
+			  </div>
+		      <!-- table end -->
+		      <div class="totalDiv">总共<span id="totalDate"></span>条记录</div>
+			</li>
+			</ul>
+			</div>
+			
+	</body>
+	<!--bootstrap-->
+	<script type="text/javascript"
+		src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript"
+		src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+	<!--bootstrap table-->
+	<script type="text/javascript"
+		src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+	<script type="text/javascript"
+		src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript"
+		src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+	
+	<!--控制导出按钮-->
+	<script type="text/javascript"
+		src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+	<!--PC 时间插件 My97DatePicker -->
+	<script type="text/javascript"
+		src="../../../js/plugins/My97DatePicker/WdatePicker.js"></script>
+	<!--控制导出功能-->
+	<!--bootstrap paginator-->
+	<script type="text/javascript"
+		src="../../../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+	<script type="text/javascript"
+		src="../../js/plugins/echarts/echarts.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../js/modal.js"></script>
+	<script type="text/javascript" src="../../js/flowChart.js"></script>
+	<script type="text/javascript" src="../../js/dateTable.js"></script>
+</html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>订单评价</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+    <!--pc公共-->
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css">
+    <!-- pc端样式统一风格，一般都写在base.css中即可，本页特殊设置写在本页即可  -->
+    <style>
+        html,body{height:100%;}
+        body {
+            /* filter:progid:DXImageTransform.Microsoft.gradient(enabled='ture',GradientType='1',StartColorStr=#85000000,EndColorstr=#85000000); */
+            background-color: #fae1c3;
+            color: #333;
+            font-family:'SimHei';
+        }
+
+        /* 五星评价 start */
+        .pc-assess {
+
+        }
+
+        .pc-assess .bb2 {
+            border-bottom: 1px solid #bbb;
+        }
+        .pc-assess .mgt16 {
+            margin-top: 16px;
+        }
+        .pc-assess .a-row {
+            font-size: 16px;
+            color: #333;
+            height: 50px;
+            line-height: 50px;
+            margin-left: 35px;
+            margin-right: 38px;
+        }
+        .pc-assess .row-left {
+            float: left;
+            /* width:36%; */
+            /* margin-left: 36px; */
+        }
+        .pc-assess .row-right{
+            float: right;
+            /* margin-right: 36px; */
+            color: #333;
+        }
+        .pc-assess .row-right .ratyWidth {
+            width: 170px;
+        }
+        .pc-assess .row-right .fontWidth {
+            width: 60px;
+        }
+        .pc-assess .row-right img{
+            height: 24px;
+            width: 24px;
+            margin-top: -6px;
+        }
+        /* 五星评价 end */
+
+        .pc-assess .a-textarea {
+            height: 200px;
+            width: 85%;
+            display: table;
+            vertical-align: middle;
+            line-height: 120%;
+            font-size: 18px;
+            color: #323232;
+            padding: 20px;
+            margin: 20px auto;
+            border: 0px solid #fff;
+            border-radius: 5px;
+        }
+
+        .pc-assess .btn-group {
+            margin-top:10px;
+            margin-bottom: 10px;
+        }
+
+        .pc-assess .btn-group .btt{
+            display: block;
+            font-size: 20px;
+            height: 50px;
+            padding: 0 13px;
+            text-align: center;
+            line-height: 50px;
+            /* margin: 0 20px; */
+        }
+
+        /* .pc-assess .btn-group .assessReset{
+            border: 1px solid #666666;
+            color: #333;
+            margin-left: 185px;
+            margin-right: 10px;
+            text-decoration: none;
+         } */
+
+        .assessSubmit{
+            display: block;
+            width: 200px;
+            border: 1px solid #7F7F7F !important;
+            color: #fff;
+            background-color: #7F7F7F !important;
+            text-decoration: none;
+            border-radius: 10px;
+            position: absolute;
+            transform: translateX(73%);
+            margin-top: 20px;
+
+        }
+        .assessSubmitcurr {
+            border: 1px solid #f3780c !important;
+            color: #fff;
+            background-color: #f3780c !important;
+            display: block;
+            width: 200px;
+            text-decoration: none;
+            position: absolute;
+            transform: translateX(73%);
+        }
+        .z_num{
+            right: 53px;
+            font-size: 16px;
+            color: #333;
+            bottom: 0;
+        }
+        /*---增加评价部分--strat-- */
+        .z_evaluation{
+            width:100%;
+            height:50px;
+            /* line-height: 6rem; */
+        }
+        .z_veap{
+            width: 85%;
+            display: table;
+            vertical-align: middle;
+            height: 100%;
+            margin: auto;
+        }
+        .z_veapsp1{
+            width: 16px;
+            height: 2px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        /* 横线 */
+        .z_veapsp1>div{
+            width:100%;
+            height:2px;
+            background: #333;
+        }
+
+        .z_veapsp2{
+            width: 50px;
+            text-align: center;
+            font-size: 20px;
+            color: #333;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        /*改版样式*/
+        .mgl{
+            margin-left: 2px;
+        }
+
+        .z_veapsp1{
+            width: 2rem;
+        }
+        .assessHeader {
+            position: relative;
+            width: 85%;
+            margin: 0 7.5% 60px;
+        }
+        .assessHeader img {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin: 0 10px;
+
+        }
+        .assessHeader-li {
+            color: #333;
+            font-size: 12px;
+        }
+        .assessHeader-li-img {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .assessHeader-li .assessHeader-li-txt {
+            margin-top: 10px;
+            letter-spacing :0.2rem;
+            padding-left: 10px;
+            font-size: 16px;
+            position: absolute;
+        }
+        .assessConheader {
+            width: 70%;
+            font-size: 1rem;
+            line-height: 1.3rem;
+            color: #333;
+            margin: 15px 15% 0;
+            letter-spacing:1px;
+        }
+        .assessCon {
+            width: 85%;
+            margin: 15px 7.5% 20px;
+        }
+        .assessCon-header{
+            position: relative;
+            padding-left: 22px;
+            color: #333;
+            font-size: 1rem;
+            /*letter-spacing :0.1rem;*/
+
+        }
+        .assessCon-header img{
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            top: 5px;
+            left: 2px;
+        }
+        .assessCon-garden {
+            /*float: right;*/
+            font-size: 16px;
+            text-align: right;
+
+        }
+        .assessCon-con {
+            margin-top: 2px;
+            margin-left: 2px;
+
+        }
+        .assessCon-con {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .assessCon-con img{
+            width: 18px;
+            height: 18px;
+        }
+        .btn_search {
+            background-color: #DDDDDD;
+        }
+        .relte {
+            position: relative;
+        }
+        .assessHeader-li-txt1{
+            top: 15px;
+            left: -10px;
+        }
+        .assessHeader-li-txt2{
+            top: 15px;
+            left: 10px;
+        }
+        .assessHeader-li-txt3{
+            top: 15px;
+            left: 20px;
+        }
+        /*答题样式*/
+        .ques {
+            width: 83%;
+            margin: 0 auto 1rem;
+            color: #333;
+            font-size: 20px;
+            line-height: 1.3rem;
+            letter-spacing: 3px;
+        }
+        .proposalBox{
+            heighgt:100%;
+            margin:0 4rem;
+            color:#666;
+        }
+
+        .servicePerSpan{
+            background:url(../../../images/update/1.png) no-repeat 0 50%;
+            width: 1rem;
+            height: 1rem;
+            display: inline-block;
+            background-size: 100% 100%;
+            float:left;
+            cursor:pointer;
+        }
+        .main{
+            background:url(../../../images/update/2.png) no-repeat 0 50%;
+            background-size: 100% 100%;
+        }
+        .servicePer{
+            /*height: 1.3rem;*/
+            line-height: 1rem;
+            margin: 0 7.5%;
+            /*height: 350px;*/
+        }
+        .servicePer>p{
+            font-size:1rem;
+            float:left;
+        }
+
+        .serviceList {
+            width:100%;
+            margin:0 7.5%  0 1rem;
+            font-size:0.8rem;
+            display:block;
+            /*float:left;*/
+        }
+        .Spanshow{
+            display:none;
+        }
+        .serviceList>li{
+            line-height:0.8rem;
+            font-size:1rem;
+        }
+        .labcheckBox{
+            background: url(../../../images/update/4.png) no-repeat 2px 8px;
+            padding-left: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5rem;
+            cursor: pointer;
+        }
+        .checkBox{
+            background: url(../../../images/update/3.png) no-repeat 2px 8px;
+        }
+
+        label{
+            font-weight:normal;
+            margin-bottom:0;
+        }
+        input[type='checkbox']{
+            display: none;
+        }
+        .loadLens{
+            width:15.5rem;
+            height: 1.3rem;
+            line-height: 1rem;
+            font-size: 1rem;
+            padding-left:1rem;
+        }
+        .disNone{
+            display:none;
+        }
+        .disBlock{
+            display:block;
+        }
+        .txtaD {
+            width: 85%;
+            font-size: 0.9rem;
+            line-height: 1.3rem;
+            margin: 0 7.5%;
+        }
+        #comment {
+            /* background-color:#ededed; */
+        }
+        textarea:disabled{
+            opacity: 1;
+            background-color: #ededed !important;
+        }
+        .assessType{
+            padding-bottom: 10px;
+        }
+        .btnload {
+            border-radius: 8px;
+            font-weight: 100;
+            cursor: pointer;
+            /* display: inline-block; */
+            padding: 5px 10px;
+            font-size: 10px;
+            font-family: '微软雅黑'
+        }
+        .btnload-primary {
+            color: #000;
+            text-shadow: 0 1px rgba(0,0,0,.1);
+            background-color: #DCDCDC ;
+            width: 100px;
+            margin: 10px auto;
+            text-align: center;
+        }
+        .btnload-success {
+            color: #fff;
+            text-shadow: 0 1px rgba(0,0,0,.1);
+            background-color: #f3780c ;
+        }
+        .gallery{
+            margin: 10px auto;
+            display: flex;
+            position: relative;
+        }
+        .gallery .img-item{
+            position: relative;
+            flex: none;
+            width: 20%;
+            margin: 10px 0;
+        }
+        .gallery .img-item .delete{
+            position: absolute;
+            display: block;
+            width: 15px;
+            height:15px;
+            color: #fff;
+            background: rgba(0,0,0,0.7);
+            line-height: 15px;
+            text-align: center;
+            border-radius: 50%;
+            top: 0px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .img{
+            width: 90%;
+        }
+        .onupload{
+            margin: 20px 7.5%;
+        }
+        .choice{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="pc-assess">
+    <div class="z_evaluation">
+        <div class="z_veap">
+            <div class="z_veapsp1"><div><!-- 横线 --></div></div>
+            <div class="z_veapsp2 font-space-2px">满意度示意图</div>
+            <div class="z_veapsp1"><div><!-- 横线 --></div></div>
+        </div>
+    </div>
+    <form id="submitForm">
+      <!--  <ul class="assessHeader clearfix">
+            <li class="assessHeader-li">
+                <div class="assessHeader-li-img">
+						<span class="relte">
+							<img src="../../images/order/star_yellow.png" alt="" style="margin-left: 0px">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<span class="assessHeader-li-txt assessHeader-li-txt1">不满意</span>
+						</span>
+                    <span class="relte">
+							<img src="../../images/order/star_yellow.png" alt="">
+						    <img src="../../images/order/star_yellow.png" alt="">
+						</span>
+                    <span class="relte">
+							<img src="../../images/order/star_yellow.png" alt="">
+                        	<span class="assessHeader-li-txt assessHeader-li-txt2" style="left:-20px">及格</span>
+							<img src="../../images/order/star_yellow.png" alt="" style="margin-right: 0px">
+							<span class="assessHeader-li-txt assessHeader-li-txt3">满意</span>
+					</span>
+                </div>
+            </li>
+        </ul>-->
+
+        <div class="assessCon" style="margin-top: auto">
+            <ul class="assessCon-con" style="margin-bottom: 8px;margin-top: -3px">
+                <img src="../../images/order/star_yellow.png" alt="" >
+                <img src="../../images/order/star_yellow.png" alt="" >
+                <img src="../../images/order/star_yellow.png" alt="" >
+                <img src="../../images/order/star_yellow.png" alt=""  >
+                <img src="../../images/order/star_yellow.png" alt=""  >
+                <img src="../../images/order/star_yellow.png" alt=""  >
+                <img src="../../images/order/star_yellow.png" alt="" >
+                <img src="../../images/order/star_yellow.png" alt="" >
+                <img src="../../images/order/star_yellow.png" alt="" >
+                <img src="../../images/order/star_yellow.png" alt="" >
+            </ul>
+            <div class="assessCon-garden"  >
+                <span class="assessHeader-li-txt " style="float: left">不满意</span>
+                <span class="assessHeader-li-txt " >及格</span>
+                <span style="font-size:16px;float:right;margin-left: 40px;margin-right:-10px;">满意</span>
+            </div>
+            <input type="hidden" id="extLevel-star" name="extLevel4" value="10">
+        </div>
+
+
+        <div class="assessCon">
+            <div class="assessCon-header clearfix" style="padding-left: 0px">
+              <!--  <img src="../../images/order/round.png" alt="" >-->
+                尊敬的客户，感谢使用联通业务，请对我们的服务进行评价。
+            </div>
+            <div class="assessCon-garden" id="doorService-star" >满意</div>
+            <ul class="assessCon-con" id="doorService">
+                <li data-star="1"><img src="../../images/order/star_yellow.png" alt="" ></li>
+                <li data-star="2"><img src="../../images/order/star_yellow.png" alt="" ></li>
+                <li data-star="3"><img src="../../images/order/star_yellow.png" alt="" ></li>
+                <li data-star="4"><img src="../../images/order/star_yellow.png" alt=""  ></li>
+                <li data-star="5"><img src="../../images/order/star_yellow.png" alt=""  ></li>
+                <li data-star="6"><img src="../../images/order/star_yellow.png" alt=""  ></li>
+                <li data-star="7"><img src="../../images/order/star_yellow.png" alt="" ></li>
+                <li data-star="8"><img src="../../images/order/star_yellow.png" alt="" ></li>
+                <li data-star="9"><img src="../../images/order/star_yellow.png" alt="" ></li>
+                <li data-star="10"><img src="../../images/order/star_yellow.png" alt="" ></li>
+            </ul>
+        </div>
+        <!--q2-->
+        <div class="servicePer disNone" id="q2">
+            <div class="assessCon-header" style="padding-bottom: 5px">
+                <img src="../../images/order/round.png" alt="">
+                <span>为了提升对您的服务品质，请您填写不满意原因。</span>
+            </div>
+        </div>
+        <div class="ps-relative txc disNone" id="txc-txt" >
+			<textarea  class="a-textarea" id="comment" name="comment" onkeyup="acountWord()">
+			</textarea>
+            <span class="z_num ps-absolute"><span id="textNum">0</span>/100</span>
+        </div>
+        <div class="txtaD disNone">感谢您的参与，我的百倍用心，愿您10分满意！祝您健康平安。【中国联通】</div>
+        <div class="a-btn-group marbtm">
+            <button type="button" class="btn btn_search assessSubmitcurr" id="doorService_submit_btn" type="button" >提交评价</button>
+        </div>
+    </form>
+</div>
+<!-- 核心插件 start-->
+
+<!--[if lt IE 9]>
+<script>
+    (function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();
+</script>
+<script src="../../../js/plugins/respond.min.js"></script>
+<script src="../../../js/plugins/echarts/js/html5shiv.js"></script>
+<script src="../../../js/plugins/excanvas.min.js"></script>
+<![endif]-->
+
+<!--bootstrap-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- layer 弹出层 -->
+<script type="text/javascript" src="../../../js/plugins/layui/layer/layer.js"></script>
+
+<!-- 表单  -->
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery.form.js"></script>
+
+<!-- 表单验证 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/messages_zh.min.js"></script>
+
+<!-- 加载等待插件 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+
+<!-- 五角星评价 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery.raty.min.js"></script>
+
+<!--公共部分-->
+<script type="text/javascript" src="../../../js/common/common.js"></script>
+<script type="text/javascript" src="../../../js/common/util.js"></script>
+
+<!-- 核心插件 end-->
+<!--自己-->
+<script type="text/javascript" src="../js/order-zqza-assess.js"></script>
+<!--<script type="text/javascript" src="../js/order-assess-broadband.js"></script>-->
+<script>
+    function acountWord() {
+        var comment = $('#comment').val();
+            var commentNum = getStringByteLength(comment);
+            $('#textNum').text(Math.ceil(commentNum / 2));//这句是在键盘按下时，实时的显示字数
+            if (commentNum > 200) {
+                $('#textNum').text(100);//长度大于100时0处显示的也只是100
+                //长度大于200时截取钱200个字符
+                var index = 0;
+                for (var i = 0; i < comment.length; i++) {
+                    if (getStringByteLength(comment.substring(0, i)) <= 200)
+                        index = i;
+                }
+                $('#comment').val(comment.substring(0, index));
+        }
+        console.log(comment)
+        if(comment=="")
+        {
+            console.log(333333)
+            $('#doorService_submit_btn').text('请评价')
+            $('#doorService_submit_btn').addClass('assessSubmit').removeClass('assessSubmitcurr')
+        }else if(comment!="")
+        {
+            console.log(666666)
+            $('#doorService_submit_btn').text('提交评价')
+            $('#doorService_submit_btn').addClass('assessSubmitcurr')
+
+        }
+    }
+
+    // q2-q4逻辑处理
+    var doorService_num
+    $("#doorService li").on("click",function(){
+        $(this).html(current).prevAll("li").html(current).end().nextAll().html(onCurrent);
+        $(this).attr("class","current").siblings().removeClass("current");
+        $('#extLevel-star').val($(this).attr("data-star"))
+        $('#textNum').html("0");
+        $('#lunbo').addClass('disNone')
+        doorService_num = $(this).attr("data-star")
+        if($(this).attr('data-star') <= 8){
+            $('#ttt').addClass('disBlock').removeClass('disNone')
+            $('#txc-txt').addClass('disBlock').removeClass('disNone')
+            $('.txtaD').addClass('disBlock').removeClass('disNone')
+            /* $('#comment').attr('disabled','disabled')*/
+            $('#comment').css('background-color','#FFFFFF')
+            $('#comment').val('')
+            var comment = $('#comment').val();
+            $('#doorService-star').text('不满意')
+            $('#q2').addClass('disBlock').removeClass('disNone').siblings('.servicePer').addClass('disNone').removeClass('disBlock')
+            console.log(comment)
+            if(comment=="")
+            {
+                console.log(333333)
+                $(this).attr("class","onCurrent").siblings().removeClass("onCurrent");
+                /*$('#doorService_submit_btn').addClass('onCurrent').removeClass('current')*/
+            }else if(comment!="")
+            {
+                /*        $(this).addClass('current').removeClass('onCurrent')*/
+                /* $('#doorService_submit_btn').text('提交评价')
+                 $('#doorService_submit_btn').addClass('assessSubmitcurr')*/
+                /*  $(this).attr("class","current").siblings().removeClass("current");*/
+                /*$('#doorService_submit_btn').addClass('current').removeClass('onCurrent')*/
+            }
+        }
+        /*  $('#q4List input').eq(8).removeAttr('checked')
+          $('#q4List .labcheckBox').eq(8).removeClass('checkBox')*/
+        /*$('#q3List input').eq(8).removeAttr('checked')
+        $('#q3List .labcheckBox').eq(8).removeClass('checkBox')*/
+
+        else if( $(this).attr('data-star') > 8 && $(this).attr('data-star') <= 9){
+            $('#ttt').addClass('disBlock').removeClass('disNone')
+            $('#q2').addClass('disNone').removeClass('disBlock')
+            $('#txc-txt').addClass('disBlock').removeClass('disNone')
+            $('.txtaD').addClass('disBlock').removeClass('disNone')
+            $('#comment').css('background-color','#FFFFFF')
+            $('#comment').val('')
+            $('#doorService-star').text('及格')
+            $('#q2').addClass('disBlock').removeClass('disNone').siblings('.servicePer').addClass('disNone').removeClass('disBlock')
+            /* $('#q3').addClass('disBlock').removeClass('disNone').siblings('.servicePer').addClass('disNone').removeClass('disBlock')*/
+            /* $('#q2List input').eq(8).removeAttr('checked')
+             $('#q2List .labcheckBox').eq(8).removeClass('checkBox')
+             $('#q4List input').eq(8).removeAttr('checked')
+             $('#q4List .labcheckBox').eq(8).removeClass('checkBox')*/
+        }
+        else if( $(this).attr('data-star') > 9 ){
+            $('#q2').addClass('disNone').removeClass('disBlock')
+            $('#txc-txt').addClass('disNone').removeClass('disBlock')
+            $('.txtaD').addClass('disNone').removeClass('disBlock')
+            $('#doorService-star').text('满意')
+            /* $('#q4').addClass('disBlock').removeClass('disNone').siblings('.servicePer').addClass('disNone').removeClass('disBlock')*/
+            /*  $('#q3List input').eq(8).removeAttr('checked')
+              $('#q3List .labcheckBox').eq(8).removeClass('checkBox')
+              $('#q2List input').eq(8).removeAttr('checked')
+              $('#q2List .labcheckBox').eq(8).removeClass('checkBox')*/
+        }
+        if($("#doorService li").hasClass('current')){
+            $('#doorService_submit_btn').text('提交评价')
+            $('#doorService_submit_btn').addClass('assessSubmitcurr')
+        }
+        else if($("#doorService li").hasClass('onCurrent')){
+            $('#doorService_submit_btn').text('请评价')
+            $('#doorService_submit_btn').addClass('assessSubmit').removeClass('assessSubmitcurr')
+        }
+    })
+
+
+</script>
+</body>
+</html>

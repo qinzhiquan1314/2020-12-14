@@ -1,0 +1,19 @@
+[{
+    "orderType": "营业",
+    "ocAcceptDate": "2018-1-1",
+    "customerName": "张三",
+    "orderNum": 3343455543345,
+    "serialNumber": 199878834,
+    "exAcceptStaffid": 654321,
+    "addrName": "dongsi"
+},
+
+{
+    "orderType": "渠道",
+    "ocAcceptDate": "2018-4-1",
+    "customerName": "王伟",
+    "orderNum": 3343455543345,
+    "serialNumber": 199878834,
+    "exAcceptStaffid": 654321,
+    "addrName": "dongsi"
+}]

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<meta charset="UTF-8" name="format-detection" content="telephone=no">-->
+    <meta name="format-detection" charset="UTF-8" content="telephone=yes"/>
+    <title>联系我们</title>
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+
+    <!--手机公共-->
+    <link rel="stylesheet" type="text/css" href="../../css/web-base.css">
+
+    <link rel="stylesheet" type="text/css" href="../css/order-list.css">
+    <!-- 手机自己 -->
+    <link rel="stylesheet" type="text/css" href="../css/feedBackPhone.css">
+    <style>
+        tr {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        td {
+            font-size: 1.6rem;
+            border: solid black;
+            border-width:0px 1px 1px 0px;
+            height: 3.8rem;
+        }
+
+        table{border:solid black; border-width:1px 0px 0px 1px;}
+
+        .td0 {
+            text-align: center;
+            height: 3.8rem;
+        }
+
+        .td1 {
+            text-align: left;
+        }
+
+        .td2 {
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .show_title {
+            font-size: 2.2rem;
+            margin-left: 2.1rem;
+            margin-top: 1.7rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+        .quetionsTitle{
+            font-size: 2.2rem;
+            margin-left: 2.1rem;
+            margin-top: 1.7rem;
+            margin-bottom: 1rem;
+        }
+
+        body {
+            background-color: #f6f6f6;
+        }
+
+        header {
+            height: 136.109px;
+            width: 980px;
+            line-height: 6.8rem;
+        }
+
+        .td1 {
+            font-weight: normal;
+        }
+
+        .t4 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 1.7rem;
+            position: relative;
+            bottom: 3.4rem;
+        }
+
+        .pis {
+            margin-top: 5rem;
+        }
+
+        .aClass{
+            color: orange;
+            text-decoration: underline;
+        }
+
+        .arrow2{
+            position: relative;
+            top: 1rem;
+            right: 2.7rem;
+        }
+        .font_orange{
+            color: orange;
+        }
+
+        .font_black{
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<header class="txc">
+    <div class="cl fl">
+        <img class="backImg" id="backWechat" alt="" src="../images/back.png">
+        <i>&nbsp;</i>
+    </div>
+    <div class="cr fr">&nbsp;</div>
+    <div class="cc" style="font-size: 47px">在线反馈</div>
+</header>
+<div class="show_title">问题分类</div>
+<!--<div class="text-center">
+    <table id="table" >
+        <tr>
+            <td style="height: 50px;text-align: center" >运营支撑中心/中台支撑中心联系人</td>
+        </tr>
+
+        <tr>
+            <td class="tdSolid td1">整体需求 ：曾文宇 18611105616</td>
+        </tr>
+
+        <tr>
+            <td class="tdSolid td1">数据统计及工号管理 ：邹志华 15611028792</td>
+        </tr>
+
+        <tr>
+            <td class="tdSolid td1">订单实时查询 ：耿<span style="color: #f6f6f6">提</span>琳 15611028095</td>
+        </tr>
+
+        <tr>
+            <td class="tdSolid td1">宽融流程监控 ：王子耀 17600951606</td>
+        </tr>
+
+        <tr>
+            <td class="tdSolid td1">移网流程监控 ：郑实秋 18510088118</td>
+        </tr>
+
+        <tr>
+            <td class="tdSolid td1">政企流程监控 ：王松鸣 18510801530</td>
+        </tr>
+    </table>
+</div>-->
+
+
+<!-- 联系电话-查看 -->
+<!--<div id="phoDetail" class="phoDetail">
+    <div class="close" id="close">×</div>
+    <div class="b-tableDiv table-responsive" style="overflow-y: hidden;overflow-x: hidden;
+        height:400px;width:80%; margin: auto;margin-top: 50px">
+        <table id="table" class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th data-field="branch" class="text-center">分公司</th>
+                <th data-field="contact" class="text-center">联系人</th>
+                <th data-field="phone_num" class="text-center">联系方式</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>-->
+<div class="quetionsTitle font_black" id="t0">
+    沃易售工具使用咨询
+    <img src="../images/openArrow.png" class="fr arrow2">
+</div>
+<div class="text-center hidden" id="div_t0">
+    <table border="2" cellpadding="2" width="90%" style="margin: 30px 2.1rem;">
+        <tr>
+            <td class="td0">问题场景</td>
+            <td class="td0">联系人</td>
+            <td class="td0" style="width: 10rem;">联系电话</td>
+        </tr>
+        <tr class="white">
+            <td class="td2">沃易售工具使用咨询</td>
+            <td class="td2">分公司沃易售负责人</td>
+            <td class="td2"><a class="aClass" title="BRANCH_WO">查看</a></td>
+        </tr>
+    </table>
+</div>
+
+<div class="quetionsTitle font_black" id="t1">
+    宽融订单流转问题
+    <img src="../images/openArrow.png" class="fr arrow2">
+</div>
+<div class="text-center hidden" id="div_t1">
+    <table border="2" cellpadding="2" width="90%" style="margin: 30px 2.1rem;">
+        <tr>
+            <td class="td0">问题场景</td>
+            <td class="td0">联系人</td>
+            <td class="td0" style="width: 10rem;">联系电话</td>
+        </tr>
+        <tr class="white">
+            <td class="td2">沃易售下单失败</td>
+            <td class="td2">分公司沃易售负责人</td>
+            <td class="td2"><a class="aClass" title="BRANCH_WO">查看</a></td>
+        </tr>
+        <tr class="white">
+            <td class="td2">沃易售行销失败</td>
+            <td class="td2">分公司沃易售负责人</td>
+            <td class="td2"><a class="aClass" title="BRANCH_WO">查看</a></td>
+        </tr>
+        <tr class="white">
+            <td class="td2">沃易售下单成功，但<br>超过30分钟未处理</td>
+            <td class="td2">分公司二级中台负责人</td>
+            <td class="td2"><a class="aClass" title="BRANCH_SEC_MID" >查看</a></td>
+        </tr>
+        <tr class="white">
+            <td class="td2">沃易售卡单（交付人<br>员已经行销成功，但<br>沃易售状态一直在行销中）
+            </td>
+            <td class="td2">分公司沃易售负责人</td>
+            <td class="td2"><a class="aClass" title="BRANCH_WO" >查看</a></td>
+        </tr>
+        <tr class="white">
+            <td class="td2">IOM工单外线施工完<br>成，但工单未竣工</td>
+            <td class="td2">分公司二级中台负责人</td>
+            <td class="td2"><a class="aClass" title="BRANCH_SEC_MID" >查看</a></td>
+        </tr>
+        <tr class="white">
+            <td class="td2">订单进入一级中台后，未处理</td>
+            <td class="td2">公司一级中台（订单中心）</td>
+            <td class="td2"><a href="tel:010-85688577" style="text-decoration: underline">85688577</a></td>
+            <!--<td class="td2">码销中台受理<a href="tel:010-66156606" style="text-decoration: underline">66156606</a><br>
+                意向单一级调度<a href="tel:010-66151673" style="text-decoration: underline">66151673</a></td>-->
+        </tr>
+        <tr class="white">
+            <td class="td2">订单退回二级中台后，未处理</td>
+            <td class="td2">分公司二级中台负责人</td>
+            <td class="td2"><a class="aClass" title="BRANCH_SEC_MID" >查看</a></td>
+        </tr>
+        <tr class="white">
+            <td class="td2">宽带退费相关问题</td>
+            <td class="td2">公司一级中台（订单中心）</td>
+            <td class="td2"><a href="tel:010-85688577" style="text-decoration: underline">85688577</a></td>
+            <!--<td class="td2"><a href="tel:010-66151673" style="text-decoration: underline">66151673</a><br>
+            <a href="tel:010-66156606" style="text-decoration: underline">66156606</a></td>-->
+        </tr>
+        <tr class="white">
+            <td class="td2">宽带续趸业务未成功</td>
+            <td class="td2">公司一级中台（订单中心）</td>
+            <td class="td2"><a href="tel:010-85688577" style="text-decoration: underline">85688577</a></td>
+<!--
+            <td class="td2"><a href="tel:010-66156606" style="text-decoration: underline">66156606</a></td>
+-->
+        </tr>
+        <tr class="white">
+            <td class="td2">沃易售“我的交付”模<br>块操作问题</td>
+            <td class="td2">分公司二级中台负责人</td>
+            <td class="td2"><a class="aClass" title="BRANCH_SEC_MID" >查看</a></td>
+        </tr>
+        <tr class="white">
+            <td class="td2">宽带业务规则及产品问题</td>
+            <td class="td2">市场部产品经理</td>
+            <td class="td2"></td>
+        </tr>
+    </table>
+</div>
+
+<div class="quetionsTitle font_black" id="t2">
+    移网订单流转问题
+    <img src="../images/openArrow.png" class="fr arrow2">
+</div>
+<div class="text-center hidden" id="div_t2">
+    <table border="2" cellpadding="2" width="90%" style="margin: 30px 2.1rem;">
+        <tr>
+            <td class="td0">问题场景</td>
+            <td class="td0">联系人</td>
+            <td class="td0">联系电话</td>
+        </tr>
+        <tr>
+            <td class="td2">（沃易售、商城、手<br>网厅等）线上业务订<br>单受理</td>
+            <td class="td2">电商中心王志飞</td>
+            <td class="td2"><a href="tel:17611190028" style="text-decoration: underline">17611190028</a></td>
+        </tr>
+        <tr>
+            <td class="td2">（沃易售、商城、手<br>网厅等）线上业务催<br>单</td>
+            <td class="td2">电商中心王志飞</td>
+            <td class="td2"><a href="tel:17611190028" style="text-decoration: underline">17611190028</a></td>
+        </tr>
+        <tr>
+            <td class="td2">（沃易售、商城、手<br>网厅等）线上业务退<br>单</td>
+            <td class="td2">电商中心王志飞</td>
+            <td class="td2"><a href="tel:17611190028" style="text-decoration: underline">17611190028</a></td>
+        </tr>
+        <tr>
+            <td class="td2">（沃易售、商城、手<br>网厅等）线上业务转<br>派</td>
+            <td class="td2">分公司调度负责人</td>
+            <td class="td2"><a class="aClass" title="BRANCH_PHONE_ORD" >查看</a></td>
+        </tr>
+        <tr>
+            <td class="td2">沃易售系统问题</td>
+            <td class="td2">电商中心闫伟航</td>
+            <td class="td2"><a href="tel:17600980763" style="text-decoration: underline">17600980763</a></td>
+        </tr>
+        <tr>
+            <td class="td2">套餐变更升级相关问<br>题</td>
+            <td class="td2">电商中心王志飞</td>
+            <td class="td2"><a href="tel:17611190028" style="text-decoration: underline">17611190028</a></td>
+        </tr>
+        <tr>
+            <td class="td2">业务规则及产品问题</td>
+            <td class="td2">市场部产品经理</td>
+            <td class="td2"></td>
+        </tr>
+    </table>
+</div>
+
+<div class="quetionsTitle font_black" id="t3">
+    手机终端订单流转问题
+    <img src="../images/openArrow.png" class="fr arrow2">
+</div>
+<div class="text-center hidden" id="div_t3">
+    <table border="2" cellpadding="2" width="90%" style="margin: 30px 2.1rem;">
+        <tr>
+            <td class="td0">问题场景</td>
+            <td class="td0">联系人</td>
+            <td class="td0">联系电话</td>
+        </tr>
+        <tr class="white">
+            <td class="td2">通过沃易售下单裸终端类业务</td>
+            <td class="td2">电商中心王志飞</td>
+            <td class="td2"><a href="tel:17611190028" style="text-decoration: underline">17611190028</a></td>
+        </tr>
+    </table>
+</div>
+
+<div class="quetionsTitle font_black" id="t4">
+    看板中心系统操作问题
+    <img src="../images/openArrow.png" class="fr arrow2">
+</div>
+<div class="text-center hidden" id="div_t4">
+    <table border="2" cellpadding="2" width="90%" style="margin: 30px 2.1rem;">
+        <tr>
+            <td class="td0">问题场景</td>
+            <td class="td0">联系人</td>
+            <td class="td0">联系电话</td>
+        </tr>
+        <tr>
+            <td class="td2">整体需求</td>
+            <td class="td2">运营支撑中心曾文宇</td>
+            <td class="td2"><a href="tel:18611105616" style="text-decoration: underline">18611105616</a></td>
+        </tr>
+        <tr>
+            <td class="td2">数据统计及工号管理</td>
+            <td class="td2">运营支撑中心邹志华</td>
+            <td class="td2"><a href="tel:15611028792" style="text-decoration: underline">15611028792</a></td>
+        </tr>
+        <tr>
+            <td class="td2">订单实时查询</td>
+            <td class="td2">运营支撑中心耿琳</td>
+            <td class="td2"><a href="tel:15611028095" style="text-decoration: underline">15611028095</a></td>
+        </tr>
+        <tr>
+            <td class="td2">宽融流程监控</td>
+            <td class="td2">运营支撑中心王子耀</td>
+            <td class="td2"><a href="tel:17600951606" style="text-decoration: underline">17600951606</a></td>
+        </tr>
+        <tr>
+            <td class="td2">移网流程监控</td>
+            <td class="td2">运营支撑中心王松鸣</td>
+            <td class="td2"><a href="tel:18510801530" style="text-decoration: underline">18510801530</a></td>
+        </tr>
+        <tr>
+            <td class="td2">政企流程监控</td>
+            <td class="td2">运营支撑中心王松鸣</td>
+            <td class="td2"><a href="tel:18510801530" style="text-decoration: underline">18510801530</a></td>
+        </tr>
+    </table>
+</div>
+<div class="txc cursor pis" id="return">
+    <img src="../images/submit.png" style="width: 35%">
+    <div class="t4">返回</div>
+</div>
+</body>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript">
+    /**
+     * 点击联系我们返回按钮，返回在线反馈界面
+     */
+    $("#return").click(function () {
+        window.history.back();
+    });
+
+    /**
+     * 点击问题分类，展示问题列表(标题颜色和箭头变化)
+     */
+    $(document).on("click", ".quetionsTitle", function () {
+        var goal=$(this).attr("id");
+        var id="div_"+goal;
+        if($(this).hasClass("font_black")){
+            $(this).removeClass("font_black").addClass("font_orange");
+        }else {
+            $(this).removeClass("font_orange").addClass("font_black");
+        }
+
+        if($("#"+id+"").hasClass("hidden")){
+            $("#"+id+"").removeClass("hidden").addClass("show");
+            $(this).children().eq(0).attr("src","../images/upArrow.png")
+        }else{
+            $("#"+id+"").removeClass("show").addClass("hidden");
+            $(this).children().eq(0).attr("src","../images/openArrow.png")
+        }
+    });
+
+    /**
+     *跳转联系人信息界面
+     */
+    $(document).on("click", ".aClass", function () {
+        var contects_type = $(this).attr("title");
+        console.log(contects_type);
+        $(location).attr('href', "../page/feedBkContactsDet.html?userName=18510729630&exCode=tmall&" +
+            "callCode=131172ad8ea3875a00eac487df6f3d05" +
+            "&contects_type="+encodeURIComponent(contects_type));
+    });
+
+
+</script>
+</html>

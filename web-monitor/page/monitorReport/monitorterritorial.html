@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>流程监控报表</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!--bootstrap插件-->
+<link rel="stylesheet" type="text/css"
+	href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+<!--pc公共-->
+<link rel="stylesheet" type="text/css" href="../../../css/base.css">
+<!--加载等待插件-->
+<link rel="stylesheet" type="text/css"
+	href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/flowChart.css" />
+<link rel="stylesheet" type="text/css" href="../../css/modal.css" />
+<link rel="stylesheet" type="text/css" href="../../css/monitView.css" />
+<style type="text/css">
+.b-tableDiv table>thead>tr>th {
+	font-weight: 700;
+	font-size: 12px;
+	text-align: center;
+}
+
+.totalDiv {
+	margin-top: 10px;
+}
+
+.table th, .table td {
+	text-align: center;
+	vertical-align: middle !important;
+}
+</style>
+</head>
+<body style="overflow-y: hidden">
+	<div id="Lcontainer">
+		<!--导航-->
+		<div id="Lnav">
+			<ul class="Lnav">
+				<li class="Lcheck" id="Lnav_text">重点监控指标 (发展-月)</li>
+			</ul>
+		</div>
+
+		<!-- 统一的表头格式 归属销售线+日期 -->
+		<div>
+			<form action="javascript:;" id="searchForm" class="form-horizontal">
+				<div class="form-body" style="margin: 15px 0px;">
+					<div class="row">
+						<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-4 col-md-5 control-label">归属销售线：</label>
+								<div class="col-sm-8 col-md-7">
+									<select class="form-control" id="sysCode" name="sysCode">
+										<option value="">请选择归属销售线</option>
+										<option value="225">二区</option>
+										<option value="226">三区</option>
+										<option value="211">四区</option>
+										<option value="212">五区</option>
+										<option value="213">七区</option>
+										<option value="214">八区</option>
+										<option value="217">通州</option>
+										<option value="219">昌平</option>
+										<option value="220">大兴</option>
+										<option value="218">顺义</option>
+										<option value="216">房山</option>
+										<option value="223">密云</option>
+										<option value="221">怀柔</option>
+										<option value="215">门头沟</option>
+										<option value="222">平谷</option>
+										<option value="224">延庆</option>
+										<option value="dkhzx">大客户中心</option>
+										<!-- <option value="11a09h">电商部</option> -->
+										<option value="11a0al">市支中心</option>
+										<option value="11a01q">客服中心</option>
+										<option value="227">重通局</option>
+										<!-- <option value="cpzczx">产品支撑中心</option> -->
+										<option value="11a0a1">国际业务中心</option>
+										<option value="11a01r">集团客户</option>
+										<option value="11a01s">电子渠道</option>
+										<!-- <option value="11a03d">导航中心</option>
+										<option value="11a04h">宽带业务中心</option>
+										<option value="11a05l">互联互通部</option>
+										<option value="11a079">产创</option> -->
+										<option value="11a08x">其它</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-lg-7 col-md-6 col-sm-6 col-xs-12">
+							<div class="form-group">
+								<div class="text-right">
+									<button id="searchBtn" type="button"
+										class="btn btn-orange submitBtn">查询</button>
+									<button id="exportBtn" type="button"
+										class="btn btn-orange resetBtn">导出</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!-- 内容切换 -->
+		<ul class="tables">
+			<!-- 统计表9-重点监控指标 (发展-月) 属地 -->
+			<li id="monitor_development_month">
+				<!-- table start -->
+				<div class="b-tableDiv table-responsive"
+					style="overflow-y: hidden; height: 460px;">
+					<table id="table"
+						class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<th data-rowspan="2" style='line-height: 30px;'
+									data-field="sale_date">日期</th>
+								<th data-colspan="3" class="text-center">一次预约率</th>
+								<th data-colspan="3" class="text-center">意向单占比</th>
+								<th data-colspan="3" class="text-center">意向单预约匹配率</th>
+								<th data-colspan="3" class="text-center">意向单按时履约率</th>
+								<th data-colspan="3" class="text-center">意向单转化率</th>
+								<th data-colspan="3" class="text-center">订单取消率</th>
+							</tr>
+							<tr>
+								<th data-field="iom_work">工单总量</th>
+								<!-- 一次预约施工工单量（分母中的单子IOM中有一次预约时间的单子） -->
+								<th data-field="countByOrderAppoint">一次预约施工工单量</th>
+								<th data-field="rateByOrderAppoint">一次预约率</th>
+
+								<th data-field="allByOrderAppoint">订单总量</th>
+								<!-- 成功抢单量（抢单成功的量） -->
+								<th data-field="countByOrderAppoint">沃易售意向单订单量</th>
+								<th data-field="rateByOrderAppoint">意向单占比</th>
+
+								<!-- 有一次预约意向单量（有一次预约时间的意向单） -->
+								<th data-field="allByOrderAppoint">有一次预约意向单量</th>
+								<!-- 意向单预约时间匹配量（二次预约的日期与一次预约的日期一致，并且时间点在一次预约范围之内，上午：下午：） -->
+								<th data-field="countByOrderAppoint">意向单预约时间匹配量</th>
+								<th data-field="rateByOrderAppoint">意向单预约匹配率</th>
+
+								<!-- 意向单预约上门量（有二次预约时间的意向单总量） -->
+								<th data-field="allByOrderAppoint">意向单预约上门量</th>
+								<!-- 按时上门总量（我已到达时间<"二次预约时间+1.5小时"）-->
+								<th data-field="allByOrderAppoint">按时上门总量</th>
+								<th data-field="countByOrderAppoint">按时履约率</th>
+
+								<th data-field="allByOrderIntention">沃易售意向单订单量</th>
+								<th data-field="countByOrderIntention">转化成工单总量</th>
+								<th data-field="rateByOrderIntention">意向单转化率</th>
+
+								<th data-field="allByOrderIntention">订单中心 + 意向单总量</th>
+								<th data-field="countByOrderIntention">订单中心取消订单数 +意向单取消的订单数</th>
+								<th data-field="rateByOrderIntention">订单取消率</th>
+
+							</tr>
+						</thead>
+					</table>
+				</div> <!-- table end -->
+
+				<div class="totalDiv">
+					总共<span id="totalDate"></span>条记录
+				</div>
+			</li>
+
+
+		</ul>
+
+
+
+	</div>
+
+</body>
+
+
+
+<!--bootstrap-->
+<script type="text/javascript"
+	src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript"
+	src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<!--bootstrap table-->
+<script type="text/javascript"
+	src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript"
+	src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript"
+	src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+
+<!--控制导出按钮-->
+<script type="text/javascript"
+	src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+<!--PC 时间插件 My97DatePicker -->
+<script type="text/javascript"
+	src="../../../js/plugins/My97DatePicker/WdatePicker.js"></script>
+<!--控制导出功能-->
+<!--bootstrap paginator-->
+<script type="text/javascript"
+	src="../../../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script type="text/javascript"
+	src="../../js/plugins/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/modal.js"></script>
+<script type="text/javascript" src="../../js/flowChart.js"></script>
+<!---->
+<!-- 调用查询的js方法中 -->
+<script type="text/javascript"
+	src="../../js/monitorReport/monitorterritorial.js"></script>
+<!--[if lt IE 9]>
+	   <style type="text/css">
+	   .modal_box {
+	       background:transparent;
+	       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7fE7E7E7,endColorstr=#7fE7E7E7);
+	       zoom: 1;
+	   }
+	   .modal_box_chart {
+	       background:transparent;
+	       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7fE7E7E7,endColorstr=#7fE7E7E7);
+	       zoom: 1;
+	   }
+	   </style>
+	<![endif]-->
+<script type="text/javascript">
+	
+</script>
+</html>

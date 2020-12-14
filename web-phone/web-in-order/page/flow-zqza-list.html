@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>订单实时查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--流程展示插件 -->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/flowplugin/css/phone/flowplugin.css">
+    <!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+    <!--swiper3轮播-->
+    <link rel="stylesheet" href="../../../js/plugins/swiper/swiper-3.4.2.min.css" />
+    <!--手机公共-->
+    <link rel="stylesheet" type="text/css" href="../../css/web-base.css">
+    <!--自己-->
+    <link rel="stylesheet" type="text/css" href="../../web-out-order/css/flow-list.css">
+    <link rel="stylesheet" type="text/css" href="../../web-out-order/css/flow-zqza-list.css">
+
+    <!--【手机端专享】自适应必须放head里-->
+    <script type="text/javascript" src="../../js/init.js"></script>
+    <style>
+        .flowtop .t2 .ll3{
+            float: left;
+            width: 10rem;
+            display: table-cell;
+        }
+        .flowtop .t2 .ll4{
+            float: left;
+            width: 8rem;
+            display: table-cell;
+        }
+        .show1{display:block}
+        .hide{display:none}
+    </style>
+</head>
+
+<body onload="bodyLoad()"><!-- 监听广告 -->
+
+<!-- 标题 start -->
+<header class="txc">
+    <div class="cl fl" onclick="tzmessage()"><i class="glyphicon glyphicon-chevron-left"></i></div>
+    <div class="cr fr">&nbsp;</div>
+    <div class="cc">故障处理详情</div>
+</header>
+<!-- 标题 end -->
+
+<section>
+    <!-- start -->
+    <div class="flowtop" >
+      <!--  <div class="t1 line pd-left-10 ps-relative productName" style="display: none" id="frontDesc">
+            <span class="circle"></span>
+          &lt;!&ndash;  <span class="ft" id='productName'>如需上门处理，工程师会与您联系，请您耐心等候</span>&ndash;&gt;
+        </div>-->
+        <div id="con">
+
+        </div>
+    </div>
+    <!-- end -->
+
+    <!--流程展示区 start-->
+    <div class="flowtest fakeParent">
+        <!-- 加载等待 -->
+        <div class="fakeloader"></div>
+    </div>
+    <!--流程展示区 start-->
+</section>
+
+<!-- 广告 bottom start -->
+<div class="advert-bottom width100 opacity-0"><!--dp-none position-fiexd opacity-0-->
+    <!-- <i class="glyphicon glyphicon-remove"></i> -->
+    <!-- <img src="../../images/order/sj-bottom.png"/> -->
+    <div class="swiper-container swiper-containerA">
+        <div id="swiper-wrapperA" class="swiper-wrapper">
+            <!-- <div class="swiper-slide"><img src="../../images/banner/1.jpg"/></div> -->
+        </div>
+        <div class="swiper-pagination swiper-paginationA"></div>
+    </div>
+    <div class="rect"></div>
+</div>
+<!-- 广告 bottom end -->
+
+
+<!-- 手机核心插件 start -->
+<!--[if lt IE 9]>
+<script>
+    (function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();
+</script>
+<script src="../../../js/plugins/respond.min.js"></script>
+<script src="../../../js/plugins/html5shiv.js"></script>
+<script src="../../../js/plugins/excanvas.min.js"></script>
+<![endif]-->
+
+<!--bootstrap-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+<!--bootstrap table-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script><!--控制导出按钮-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script><!--控制导出功能-->
+
+<!-- swiper3轮播 -->
+<script type="text/javascript" src="../../../js/plugins/swiper/swiper-3.4.2.min.js"></script>
+
+<!-- layer 弹出层 -->
+<script type="text/javascript" src="../../../js/plugins/layui/layer/mobile/layer.js"></script>
+<!-- 流程展示插件 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/flowplugin/js/flowplugin.min.js"></script>
+
+<!-- 加载等待插件 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+
+<!--公共部分-->
+<script type="text/javascript" src="../../../js/common/common.js"></script>
+<script type="text/javascript" src="../../../js/common/util.js"></script>
+<!--【手机端专享】-->
+<script type="text/javascript" src="../../js/web-util.js"></script>
+
+<!-- 手机核心插件 end -->
+
+<!--自己-->
+<script type="text/javascript" src="../js/flow-zqza-list.js"></script>
+
+</body>
+</html>

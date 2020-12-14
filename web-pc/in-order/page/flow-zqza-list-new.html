@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- pc端对内流转轨迹  -->
+<!-------http://127.0.0.1:8092/QueryCenterWeb/web-pc/in-order/flow-list.html?orderNum=11------>
+
+<html>
+<head>
+    <title>流程查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--pc公共-->
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css">
+    <!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+
+    <!-- pc端样式统一风格，一般都写在base.css中即可，本页特殊设置写在本页即可  -->
+    <style>
+        .detail_sty{
+            min-height:50px;
+            clear:both;
+            width:100%;
+        }
+        .show{
+            display:block;
+        }
+        .hide{
+            display:none;
+        }
+        html,body{height:100%;}
+    </style>
+
+</head>
+
+<body>
+<div id="headBox">
+    <img class="headImg" src=" ../../../images/order/pc-top.png"  />
+</div>
+<div class="panelB">
+    <div class="container" style="width:100%;"><!-- style="width:100%;" class里ie不起作用-->
+        <!-- title start -->
+        <div class="title">流程查询</div>
+        <div class="detail_sty clearfix"></div>
+        <!-- title end -->
+
+        <!-- search start -->
+        <form action="javascript:;" id="searchForm" class="form-horizontal">
+            <div class="form-body">
+                <div class="text-right">
+                    <button type="submit" class="btn btn-orange processBtn">对外流程</button>
+                </div>
+            </div>
+        </form>
+        <!-- search end -->
+
+        <!-- table start -->
+        <div class="b-tableDiv table-responsive">
+          <!--  <table id="table" class="table table-bordered table-hover table-striped" data-toggle="table">-->
+                <table id="table" class="table table-striped table-bordered table-hover"
+                       data-toggle="table"
+                       data-method="post"
+                       data-content-type="application/x-www-form-urlencoded"
+                       data-query-params="queryParams"
+                       data-pagination="false"
+                       data-side-pagination="server"
+                       data-page-size="10"
+                       data-page-list="[5, 10, 20, 50 ]"
+                       data-show-refresh="false"
+                       data-show-toggle="false"
+                       data-show-pagination-switch="false"
+                       data-show-columns="false"
+                       data-search="false"
+                       data-search-align="left"
+                       data-sort-name="orderNum"
+                       data-sort-order="asc"
+                >
+                <thead>
+                <tr>
+                    <th class="text-center" data-field="createDate" data-sortable="false" data-formatter="orderListObj.dateFormatter">环节时间</th>
+                   <!-- <th class="text-center" data-field="fromsys" data-sortable="false" data-formatter="orderListObj.sysFormatter">归属系统</th>-->
+                    <th class="text-center" data-field="state" data-sortable="false"  data-formatter="orderListObj.stateFormatter">状态 </th>
+                    <th class="text-center" data-field="jobName" data-sortable="false" data-formatter="orderListObj.jobnameFormatter">环节描述</th>
+                    <th class="text-center" data-field="remark" data-sortable="false" data-formatter="orderListObj.remarkFormatter">备注</th>
+                </tr>
+                </thead>
+                    <tbody id="tbody1">
+                    </tbody>
+            </table>
+        </div>
+        <div class="text-right">
+            <button type="button" class="btn btn-orange gobackBtn">返回上一页</button>
+        </div>
+        </div>
+        <!-- table end -->
+    </div>
+</div>
+
+
+
+<!-- 核心插件 start-->
+
+<!--[if lt IE 9]>
+<script>
+    (function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();
+</script>
+<script src="../../../js/plugins/respond.min.js"></script>
+<script src="../../../js/plugins/html5shiv.js"></script>
+<script src="../../../js/plugins/excanvas.min.js"></script>
+<![endif]-->
+
+<!--bootstrap-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+<!--bootstrap table-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script><!--控制导出按钮-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script><!--控制导出功能-->
+
+<!--bootstrap paginator-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+
+<!-- layer 弹出层 -->
+<script type="text/javascript" src="../../../js/plugins/layui/layer/layer.js"></script>
+
+<!-- 表单  -->
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery.form.js"></script>
+
+<!-- 表单验证 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/messages_zh.min.js"></script>
+<!-- 流程展示插件 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/flowplugin/js/flowplugin.min.js"></script>
+
+<!-- 五角星评价 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/jquery.raty.min.js"></script>
+
+<!--PC 时间插件 My97DatePicker -->
+<script type="text/javascript" src="../../../js/plugins/My97DatePicker/WdatePicker.js" ></script>
+
+<!--公共部分-->
+<script type="text/javascript" src="../../../js/common/common.js"></script>
+<script type="text/javascript" src="../../../js/common/util.js"></script>
+
+<!-- 加载等待插件 -->
+<script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+
+<!-- 核心插件 end-->
+
+<!--自己-->
+<script type="text/javascript" src="../js/flow-zqza-list-new.js"></script>
+
+</body>
+</html>

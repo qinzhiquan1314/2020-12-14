@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>分公司考核通报表</title>
+    <meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<!--bootstrap插件-->
+	<link rel="stylesheet" type="text/css"
+		href="../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+	<!--pc公共-->
+	<link rel="stylesheet" type="text/css" href="../css/base.css">
+	<link rel="stylesheet" type="text/css" href="../css/flowChart.css" />
+	<link rel="stylesheet" type="text/css" href="../css/assessmentReport.css" />
+	<style type="text/css">
+		.bacImg{
+		     background: #fff url(../js/plugins/My97DatePicker/skin/datePicker.gif) no-repeat 170px 5px;
+			 display: inline-block;
+		}
+		.selectInfo {
+		     margin-left:100px;
+		     margin-top:20px;
+		     position:relative;
+		}
+	   #color-input-red +label{
+		    width: 20px;
+		    height: 20px;
+		    cursor: pointer;
+		    position: absolute;
+		    background-color: #f2f2f2;
+		    border: 1px solid #f39800;
+		    top: 17px;
+    		left: 620px;
+		}
+	    #color-input-red:checked +label::before{
+	         display: block;
+	         content: "\2714";
+	         text-align:center;
+	         font-size:16px;
+	         color:#fa7a07;
+			 
+	   }
+	   input[type=checkbox]{
+		 visibility: hidden;
+	   }
+	   .chooseBranch{
+	   		width: 200px;
+		    display: inline-block;
+		    margin:10px 20px 0px 20px;
+		    cursor: pointer;
+	   }
+	   .mleft20{
+	   		margin-left:20px;
+	   }
+	   .searchExport{
+	   		float:right;
+	   		margin-top:9px;
+	   }
+	   .cursorstyle {
+	   		cursor: pointer;
+		   display: inline-block !important;
+	   }
+	   .hide {
+	   		display:none;
+	   }
+	   .show{
+	   		display:block;
+	   }
+	</style>
+</head>
+<body style="overflow-y: hidden">
+		<!--导航-->
+		<div id="Lcontainer">
+		<div id="Lnav">
+			<ul class="Lnav" style="width:163%">
+				<li class="Lcheck" id="Lnav_text">分公司考核通报表</li>
+			</ul>
+		</div>
+        	<div class="selectInfo">
+        	    <label>销售线:</label>
+        		<div class="chooseBranch">
+        			<select class="form-control cursorstyle" id="selectBranch" name="sysCode">
+										<option value="">请选择归属销售线</option>
+										<option value="all">全部</option>
+										<option value="225">二区</option>
+										<option value="226">三区</option>
+										<option value="211">四区</option>
+										<option value="212">五区</option>
+										<option value="213">七区</option>
+										<option value="214">八区</option>
+										<option value="216">房山</option>
+										<option value="217">通州</option>
+										<option value="218">顺义</option>
+										<option value="219">昌平</option>
+										<option value="220">大兴</option>
+										<option value="215">门头沟</optino>
+										<option value="221">怀柔</option>
+										<option value="223">密云</option>
+										<option value="224">延庆</option>
+										<option value="222">平谷</option>
+										<option value="ds">电商自有</option>
+										<option value="dswl">恒宇</option>
+										<option value="dshg">汇顾</option>
+										<option value="dslc">凌创</option>
+					</select>
+        		</div>
+				
+        		<label>加工时间:</label>
+        		<div class="startDate mleft20">
+								 <input type="text" value="" class="form-control branchItem1 bacImg"
+										id="searchDate" name="endDate"
+										style="cursor: pointer; background-color: #fff;" readonly
+										placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})">
+				</div>
+				
+				<input class="ifshow" id="color-input-red" class="chat-button-location-radio-input" type="checkbox" name="color-input-red" value="#f0544d" />
+				<label id="ifshow1" for="color-input-red"></label >
+				<label style="margin-left:30px">展现网格/营业厅</label>
+				<div class="searchExport">
+        		
+				<div>
+					<button id="searchBtn" type="button"
+						class="btn btn-orange submitBtn">查询</button>
+					<button id="exportBtn" type="button"
+						class="btn btn-orange resetBtn">导出</button>
+				</div>
+										
+        	</div>
+        	
+        </div>
+        <div class="b-tableDiv table-responsive"
+					style="overflow-y: auto;overflow-x: hidden;height:460px;width:160%;margin-left:15px;">
+					<div class="totalDiv" style="margin-bottom:10px;margin-left:15px;display:none;">
+						总共<span id="totalDate"></span>条记录
+					</div>
+					<table id="assessTable"
+						class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<th rowspan="2" style='line-height: 60px;'
+									data-field="k1">分公司</th>
+								<th rowspan="2" style='line-height: 60px;' class="hide wangge1"
+									data-field="k2">网格/营业厅</th>
+								<th rowspan="2" style='line-height: 60px;' class="hide wangge1"
+									data-field="k3">综合转化率(上月)</th>
+								<th colspan="5"  class="text-center wangge">考核项</th>
+								<th colspan="4"  class="text-center">日激活</th>
+								<th colspan="5"  class="text-center">72小时转化</th>
+								<th colspan="5"  class="text-center">当日转化</th>
+								<th colspan="7"  class="text-center wangge">月累计</th>
+								<th colspan="6"  class="text-center wangge1 hide">月累计</th>
+								<th colspan="2"  class="text-center">压单</th>
+							</tr>
+							<tr>
+								<th data-field="k3" class="wangge">综合转化率(上月)</th>
+								<th data-field="tdk5" class="wangge">当日转化</th>
+								<th data-field="k4" class="wangge">月累计增长</th>
+								<th data-field="k5" class="wangge">日激活完成</th>
+								<th data-field="t72k5" class="wangge">72小时转化率</th>
+								<th data-field="dk1">激活量目标(1日)</th>
+								<th data-field="dk2">实际完成量(1日)</th>
+								<th data-field="dk3">激活量缺口(1日)</th>
+								<th data-field="dk4">T+1激活量目标</th>
+								<th data-field="t72k1">派单量</th>
+								<th data-field="t72k2">激活量</th>
+								<th data-field="t72k3">激活率</th>
+								<th data-field="t72k4">转化量</th>
+								<th data-field="t72k5">转化率</th>
+								<th data-field="tdk1">派单量</th>
+								<th data-field="tdk2">激活量</th>
+								<th data-field="tdk3">激活率</th>
+								<th data-field="tdk4">转化量</th>
+								<th data-field="tdk5">转化率</th>
+								<th data-field="tmk1" class="wangge">派单量</th>
+								<th data-field="tmk2" class="wangge">激活量</th>
+								<th data-field="tmk3" class="wangge">激活率</th>
+								<th data-field="tmk4" class="wangge">转化量</th>
+								<th data-field="tmk7" class="wangge">首次充值大于等于50元</th>
+								<th data-field="tmk5" class="wangge">激活充值率</th>
+								<th data-field="tmk6" class="wangge">转化率</th>
+								<!--<th data-field="tmk7" class="wangge">转化率排名</th>-->
+								<!--点选网格时展现-->
+								<th data-field="tmk1" class="wangge1 hide">派单量</th>
+								<th data-field="tmk2" class="wangge1 hide">激活量</th>
+								<th data-field="tmk3" class="wangge1 hide">激活率</th>
+								<th data-field="tmk4" class="wangge1 hide">转化量</th>
+								<th data-field="tmk5" class="wangge1 hide">激活充值率</th>
+								<th data-field="tmk6" class="wangge1 hide">综合转化率</th>
+								<th data-field="pok1">累计压单</th>
+								<th data-field="pok2">3天内压单</th>
+							</tr>
+						</thead>
+					</table>
+				</div> 
+        </div>		
+</body>
+
+
+
+<!--bootstrap-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<!--bootstrap table-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+
+<!--控制导出按钮-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+<!--PC 时间插件 My97DatePicker -->
+<script type="text/javascript"
+	src="../js/plugins/My97DatePicker/WdatePicker.js"></script>
+<!-- layer 弹出层 -->
+<script type="text/javascript" src="../js/plugins/layui/layer/layer.js"></script>
+<script type="text/javascript" src="../../../js/common.js"></script>
+<!-- 调用本界面方法-->
+<script type="text/javascript" src="../js/assessmentReport.js"></script>
+</html>

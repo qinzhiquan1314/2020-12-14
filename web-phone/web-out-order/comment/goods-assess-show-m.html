@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>评价移动端</title>
+    <link rel="stylesheet" type="text/css" href="css/loaders.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/loading.css" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/hui.css" />
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $(".loading").addClass("loader-chanage")
+            $(".loading").fadeOut(300)
+        })
+    </script>
+    <style type="text/css">
+        .contaniner .detail .detail-article .talk li dl .picbox img {
+            width: 31%;
+            height: 43%;
+            min-height: 3em;
+            margin-right: 2%;
+            margin-bottom: 2%;
+        }
+        
+        .contaniner .detail .detail-article .talk li dl small {
+            font-size: 1em;
+            margin-top: 3%;
+            color: #999;
+        }
+        
+        .contaniner .detail .detail-article .talk li dl dd {
+            font-size: 1.1em;
+            margin-top: 8%;
+            margin-bottom: 8%;
+            color: #333;
+        }
+        
+        .contaniner .detail .seven {
+            width: 100%;
+            display: block;
+            background-color: #fff;
+            padding: 3% 5%;
+            margin-top: 2%;
+            color: #666;
+            font-size: 1.169em;
+            background-image: url();
+            background-repeat: no-repeat;
+            background-size: 2%;
+            background-position: 85%;
+        }
+        
+        .contaniner .detail .detail-article .talk time {
+            color: #999;
+            font-size: 0.4em;
+            margin-left: 3%;
+            /* margin-top: 1%; */
+        }
+        
+        .talk li dl small p {
+            display: inline;
+            color: #999999;
+        }
+        
+        .hui-tags {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .bandnum {
+            float: right;
+        }
+        
+        .goods {
+            font-size: 1.4rem !important;
+        }
+        
+        .goodsnum {
+            display: block !important;
+            font-size: 1.4rem !important;
+            max-width: 340px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<!--loading页开始-->
+<div class="loading">
+    <div class="loader">
+        <div class="loader-inner pacman">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+<!--loading页结束-->
+
+<body>
+    <header class="top-header fixed-header">
+        <!-- <a class="icona"> 
+        </a> -->
+        <h3 style="font-size:15px">商品评价</h3>
+        <!-- <a class="iconb">
+        </a> -->
+    </header>
+
+
+    <div class="contaniner fixed-contb" style="margin-top:40px">
+        <section class="detail">
+            <a href="#" class="seven" style="text-align:center">
+                <small id="goodRatio" style="padding-right:10%">好评率：0% </small>
+            </a>
+            <div style="padding:10px 15px;" id="tags1" class="hui-tags">
+                <div tagval="0" id="totalCount" class="hui-tags-active">全部(0)</div>
+                <div tagval="1" id="goodCount" class=" ">好评(0)</div>
+                <div tagval="2" id="middleCount">中评(0)</div>
+                <div tagval="3" id="badCount" class="">差评(0)</div>
+            </div>
+            <article class="detail-article">
+                <section class="talkbox">
+                    <ul class="talk">
+                    </ul>
+                </section>
+            </article>
+        </section>
+    </div>
+
+    <div id="refreshContainer" class="hui-refresh">
+        <div class="hui-refresh-icon"></div>
+        <div class="hui-refresh-content hui-list">
+            <ul id="list"></ul>
+        </div>
+    </div>
+    <script src="js/hui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="js/hui-refresh-load-more.js"></script>
+    <script src="js/goods-assess-show-m.js" type="text/javascript" charset="utf-8"></script>
+    </script>
+</body>
+
+</html>

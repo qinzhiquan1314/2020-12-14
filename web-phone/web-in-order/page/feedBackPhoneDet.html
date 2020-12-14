@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线反馈</title>
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--手机端  时间插件  -->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/mobiscroll/mobiscroll.custom-2.5.2.min.css">
+    <!-- 手机端加载等待 -->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+    <!--手机公共-->
+    <link rel="stylesheet" type="text/css" href="../../css/web-base.css">
+
+    <link rel="stylesheet" type="text/css" href="../css/order-list.css">
+    <!-- 手机自己 -->
+    <link rel="stylesheet" type="text/css" href="../css/feedBackPhone.css">
+
+    <!--【手机端专享】自适应必须放head里-->
+    <script type="text/javascript" src="../../js/init.js"></script>
+    <style>
+        .over{
+            position: fixed;
+            left:0; top:0;
+            width:100%;
+            z-index:100;
+        }
+
+        pre img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<!-- 标题 start -->
+
+<header class="txc">
+    <div class="cl fl"><i id="goBack" class="glyphicon glyphicon-chevron-left" onclick="goBack()" style="color: #fff"></i></div>
+    <div class="cr fr">&nbsp;</div>
+    <div class="cc">常见问题</div>
+</header>
+<div class="phoneDetBack txc">
+    <div id="content">
+        <div id="questionTitle"  style="font-size: 1.7rem;text-align:center;margin-top: 2%;"></div>
+        <pre id="detail" class="questionContent txl"
+             style="text-align:left;font-size: 1.2rem;font-family: '微软雅黑';
+             white-space: pre-wrap;margin-top: 2%;
+             word-wrap: break-word;
+             background-color: white;
+             border: none;" ></pre>
+    </div>
+    <div class="txc cursor" id="export">
+        <img src="../images/submit.png" style="width: 35%">
+        <div class="t3">下载</div>
+    </div>
+</div>
+
+<div class="over"></div><!--背景层-->
+<div class="logoImg amplifyImg"><!--注意：此处的amlifyImg不可少-->
+    <img/>
+</div>
+
+</body>
+<!--bootstrap-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+<!--bootstrap table-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+
+<!--公共部分-->
+<script type="text/javascript" src="../../../js/common/common.js"></script>
+<script type="text/javascript" src="../../../js/common/util.js"></script>
+<script type="text/javascript" src="/queryCenter/web-monitor/js/modal.js"></script>
+
+<!--【手机端专享】-->
+<script type="text/javascript" src="../../js/web-util.js"></script>
+
+<!--自己-->
+<script type="text/javascript" src="../js/feedBackPhoneDet.js"></script>
+</html>

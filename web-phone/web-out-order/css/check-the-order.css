@@ -1,0 +1,480 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.w,
+.header,
+.tab,
+.tab_con,
+.content,
+.banner {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f6f5f5;
+}
+.deletB {
+    position: relative;
+}
+em,
+i {
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    height: 2000px;
+    font-size: 5.33333333vw;
+    background-color: #f0eff2;
+}
+
+a {
+    text-decoration: none;
+}
+
+div .iconfont {
+    font-size: 0.9rem;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.header {
+    height: 22rem;
+    background-color: #ffffff;
+    position: relative;
+}
+.panel_2{
+    margin: 0 0 0
+}
+.header .title {
+    font-size: 2rem;
+    top: 2rem;
+    left: 6rem;
+    color: #ed6d02;
+    margin-top: 2rem;
+}
+
+.header img {
+    top: -0.1rem;
+    left: -4.5rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    padding: 5px;
+}
+
+.header .search {
+    top: 7.5rem;
+    left: 1rem;
+    outline: none;
+    border-radius: 0.5rem;
+    width: 89%;
+    height: 3.1rem;
+    font-size: 1.2rem;
+    text-indent: 4rem;
+    background-image: url(../../images/mine/search.png);
+    background-repeat: no-repeat;
+    background-size: 3rem 3rem;
+    border: none;
+}
+
+.header .text {
+    position: absolute;
+    top: 11.7rem;
+    left: 1rem;
+    outline: none;
+    border-radius: 0.5rem;
+    width: 89%;
+    height: 3.1rem;
+    text-indent: 0.5rem;
+    font-size: 1.2rem;
+    color: #c3c4c4;
+    background-color: rgb(247, 241, 241);
+    border: none;
+}
+
+
+.header .btn2 {
+    width: 50%;
+    height: 18%;
+    top: 73%;
+    left: 25%;
+    color: #fff;
+    padding: 0.4rem 3.5rem;
+    background-color: #f7b135;
+    border: solid 0.1rem #f7b135;
+    margin-left: 8rem;
+    border-radius: 0.7rem;
+    font-size: 1.5rem;
+}
+
+.tab {
+    height: 2.35rem;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.tab .tab_list {
+    position: absolute;
+    height: 2.05rem;
+}
+
+.tab .tab_list li {
+    list-style: none;
+    float: left;
+    font-size: 1.3rem;
+    color: #777676;
+    padding: 0 1.2rem 0 0.85rem;
+}
+
+.tab .active {
+    border-bottom: 3px solid red;
+}
+
+.tab_con .item {
+    display: none;
+}
+
+.content {
+    height: 500px;
+    position: relative;
+    background-color: #f0eff2;
+}
+
+.content span {
+    position: absolute;
+    top: 21.2rem;
+    left: 7.5rem;
+    font-size: 1.3rem;
+    color: #777676;
+}
+
+.content img {
+    position: absolute;
+    top: 9.5rem;
+    left: 11.8rem;
+    width: 12.5rem;
+    height: 12.5rem;
+}
+
+.banner {
+    height: 5.5rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    z-index: 999;
+    display: flex;
+    padding: 0.5rem;
+    border-top: 1px solid #cccccc;
+}
+
+.banner .item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner .item img {
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
+.banner .item p {
+    font-size: 1.2rem;
+    color: #666666;
+    margin-top: 0.3rem;
+}
+
+.banner .item1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner .item1 img {
+    width: 2.8rem;
+    height: 2.7rem;
+}
+
+.banner .item1 p {
+    font-size: 1.2rem;
+    color: #666666;
+    margin-top: 0.3rem;
+}
+
+.banner .item2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner .item2 img {
+    width: 2.8rem;
+    height: 2.7rem;
+}
+
+.banner .item2 p {
+    font-size: 1.2rem;
+    color: #666666;
+    margin-top: 0.3rem;
+}
+
+.listArea .line {
+    border-bottom: 0.1rem solid #f6f6f6;
+    /*2px*/
+    width: 95%;
+    margin: auto;
+}
+
+.z_head {
+    background-color: #fe9901;
+}
+
+.listArea {
+    overflow: hidden;
+    padding-top: 0.9rem;
+    /*18px;*/
+    /* background-color:#fbfaf8; */
+    min-height: 10rem;
+}
+
+.push-out {
+    height: 22rem;
+}
+
+.listArea .ul1 {
+    margin-bottom: 4rem;
+}
+
+.listArea ul {
+    margin: -0.4rem 0.8rem 0.9rem 0.8rem;
+    /*0 22px 18px 22px;*/
+    background-color: #f4f4f4;
+    border-radius: 1.1rem;
+    /*22px;*/
+    list-style: none;
+    border: 0.25rem solid #e1e0de;
+    /*5px solid #fff;*/
+    /* 	border-image-source:url(../../images/order/phone-line.png?v=722174303370);
+        border-image-width: 0 0 1.05rem 100%;0 0 21px 100%  top right bottom left */
+}
+
+.listArea ul li {
+    position: relative;
+    word-wrap: break-word;
+}
+
+.listArea ul .hh1 {
+    display: flex;
+    margin: 0.5rem 0.4rem 0.4rem 0.4rem;
+    background-color: #e5e5e5;
+    font-size: 0.8rem;
+}
+
+.listArea ul .hh1 .detail {
+    position: relative;
+}
+
+.listArea ul .hh1 .detail .sp1 {
+    line-height: 2.6rem;
+    color: #000000;
+    font-size: 1.3rem;
+}
+
+.listArea ul .hh1 .detail .sp2 {
+    line-height: 2.6rem;
+    color: #9a9a9a;
+    font-size: 1.1rem;
+}
+
+.listArea ul .hh1 img {
+    margin: 0.6rem 0.4rem 0.6rem 0.8rem;
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.listArea ul .hh2 {
+    height: 3rem;
+    margin: 0.5rem 0.4rem 0.4rem 0.4rem;
+    background-color: #ffffff;
+    font-size: 0.8rem;
+}
+
+.listArea ul .hh2 .de-hh2 {
+    position: relative;
+}
+
+.listArea ul .hh2 .de-hh2 .sp3 {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.6rem;
+    color: #000000;
+    font-size: 1.3rem;
+}
+
+.listArea ul .hh2 .de-hh2 .sp4 {
+    position: absolute;
+    left: 6.8rem;
+    line-height: 2.6rem;
+    font-size: 1.1rem;
+    color: #707070;
+}
+
+.listArea ul .hh3 {
+    height: 4rem;
+    margin: -0.2rem 0.4rem 0.4rem 0.4rem;
+    background-color: #ffffff;
+    font-size: 0.8rem;
+}
+
+.listArea ul .hh3 .de-hh3 {
+    position: relative;
+    line-height: 4rem;
+}
+
+.listArea ul .hh3 .de-hh3 .sp5 {
+    position: absolute;
+    left: 0.6rem;
+    color: #000;
+    font-size: 1.3rem;
+}
+
+.listArea ul .hh3 .de-hh3 .sp6 {
+    position: absolute;
+    left: 6.7rem;
+    font-size: 1.1rem;
+    color: #707070;
+}
+
+.listArea ul .hh4 {
+    height: 4rem;
+    margin: 0.6rem 0.4rem 0.4rem 0.4rem;
+    background-color: #ffffff;
+    font-size: 0.8rem;
+}
+
+.listArea ul .hh4 .de-hh4 {
+    position: relative;
+    line-height: 4rem;
+}
+
+.listArea ul .hh4 .de-hh4 .sp7 {
+    position: absolute;
+    left: 0.6rem;
+    font-size: 1.3rem;
+    color: #000000;
+}
+
+.listArea ul .hh4 .de-hh4 .sp8 {
+    position: absolute;
+    left: 6.8rem;
+    font-size: 1.1rem;
+    color: #707070;
+}
+
+.listArea ul .hh4 .de-hh4 .sp88 {
+    font-size: 1.1rem;
+    color: #707070;
+}
+
+.listArea ul .hh6 {
+    height: 4rem;
+    margin: 0.6rem 0.4rem 0.4rem 0.4rem;
+    font-size: 0.8rem;
+    background-color: #ffffff;
+}
+
+.listArea ul .hh6 .de-hh6 {
+    position: relative;
+}
+
+.listArea ul .hh6 .de-hh6 .sp11 {
+    position: absolute;
+    left: 0.6rem;
+    line-height: 4.3rem;
+    font-size: 1.3rem;
+    font-weight: 545;
+    color: #000;
+}
+
+.listArea ul .hh6 .de-hh6 .sp12 {
+    position: absolute;
+    left: 7.6rem;
+    line-height: 4.3rem;
+    color: #707070;
+    font-size: 1.1rem;
+}
+
+.listArea ul .hh6 .de-hh6 .btn1 {
+    float: right;
+    height: 2.8rem;
+    width: 8rem;
+    color: #fff;
+    padding: 0 0.5rem;
+    margin-top: 0.4rem;
+    margin-right: 1.1rem;
+    background-color: #f7b135;
+    border: solid 0.1rem #f7b135;
+    border-radius: 0.5rem;
+    font-size: 1.5em;
+}
+
+.listArea ul .hh6 .de-hh6 .btn2 {
+    float: right;
+    height: 2.8rem;
+    width: 8rem;
+    color: #fff;
+    padding: 0 0.5rem;
+    margin-top: 0.5rem;
+    margin-right: 1.1rem;
+    margin-bottom: 1rem;
+    background-color: #f7b135;
+    border: solid 0.1rem #f7b135;
+    border-radius: 0.5rem;
+    font-size: 1.5em;
+}
+
+.listArea ul .hh5 {
+    height: 5rem;
+    margin: -0.2rem 0.4rem 0.4rem 0.4rem;
+    font-size: 0.8rem;
+}
+
+.listArea ul .hh5 .de-hh5 {
+    position: relative;
+    line-height: 5rem;
+}
+
+.listArea ul .hh5 .de-hh5 .sp9 {
+    position: absolute;
+    left: 0.6rem;
+    font-weight: 545;
+    color: #000;
+    font-size: 1.3rem;
+}
+
+.listArea ul .hh5 .de-hh5 .sp10 {
+    position: absolute;
+    left: 6.8rem;
+    color: #707070;
+    font-size: 1.1rem;
+}

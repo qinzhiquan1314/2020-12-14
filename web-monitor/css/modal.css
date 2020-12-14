@@ -1,0 +1,360 @@
+/*echar*/
+body,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,ul,ol,li,form,button,input{
+	padding:0px;
+	margin:0px;
+	border:none;
+	list-style:none;
+	font-weight:normal;
+	font-family:'Verdana', 'SimHei', sans-serif;
+}
+/*�޸ĵ���Ŀ��*/
+.modal-dialog{
+	width: 90% !important;
+}
+.modal-backdrop {
+	filter: alpha(opacity=0)!important;
+	opacity: 0!important;
+}
+.modal_box_chart {
+	width:100%;
+	background-color: rgba(235, 238, 245, 1);
+	padding: 20px 10px;
+	border-radius: 8px;
+	height: 500px;
+	margin: 0px;
+	margin-top:10%;
+}
+.modal_box_left_chart{
+	width: 23%;
+	margin-left:20px;
+}
+.table_chart{
+	text-align: center;
+	font-size: 12px;
+}
+
+.table_header_chart>tr>th{
+	background-color: #7496ed;
+	font-weight: 500 !important;
+	text-align: center;
+	/* padding: 2px 5px; */
+	height:32px;
+	color:#ffffff;
+	font-size:14px;
+}
+.table_chart tbody>tr:nth-child(odd){
+	background-color:#ffffff;
+}
+.table_chart tbody>tr:nth-child(even){
+	background-color:#eae8f5;
+}
+.table_chart tbody>tr:nth-last-child(1){
+	background-color:#998ed0;
+	color:#ffffff;
+	font-size:13px;
+}
+.table_chart tbody>tr>td{
+	font-weight: 500 !important;
+	text-align: center !important;
+	/* padding: 2px 5px !important; */
+	height:32px;
+}
+.modal_foot{
+	cursor:pointer;
+	/* height:30px; */
+	font-size: 10px;
+	border-radius: 5px;
+	padding: 5px 5px;
+	background-color: #998ed0;
+	color: #ffffff;
+}
+.modal_box_right_chart{
+	width: 73%;
+	padding-top: 20px;
+}
+.modal_box_right_header_chart{
+	color:#e77191;
+	font-size:18px;
+	margin-left:60px;
+	margin-top:-3px;
+/* 	width: 70%;
+	text-align: center;
+	background-color: #F8B62D;
+	border-radius: 5px;
+	padding: 5px;
+	margin-left: 15%;
+	font-weight: 700; */
+}
+.modal_box_right_nav_chart{
+	/* padding: 15px 10% 5px; */
+	box-sizing: border-box;
+}
+.modal_chart_box_chart{
+	margin-top:10px;
+	margin-left: 10px;
+	height: 320px;	
+}
+/*table*/
+.modal-backdrop {
+	filter: alpha(opacity=0)!important;
+	opacity: 0!important;
+}
+.modal_box{
+	background-color:rgba(231,231,231,1); 
+	padding: 20px 10px 40px;
+	border-radius: 8px;
+	margin: auto;
+	margin-top:15%;
+}
+.modal_header_l{
+	color: #ffffff;
+	font-weight: 700;
+	background-color: #998ed0;
+	border-radius: 5px;
+	padding: 5px 5px;
+	font-size: 12px;
+	opacity: 1;
+}
+
+.modal_header_2{
+	margin-right: 20px;
+	width: 50px;
+	text-align: center;
+}
+
+.modal_header_r{
+	font-size: 10px;
+	border-radius: 5px;
+	padding: 5px 5px;
+	background-color: #998ed0;
+	cursor:pointer;
+	color: #ffffff;
+}
+.modal_table{
+	width: 100%;
+	font-size: 10px;
+	margin: 10px 0px;
+	/* overflow-y: auto;  */
+	height: 300px;
+	
+}
+
+.modal_table1{
+	width: 100%;
+	font-size: 10px;
+	margin: 10px 0px;
+	overflow-y: auto;
+	height: 350px;
+
+}
+
+.table_header{
+	background-color: #7496ed;
+	color: #ffffff;
+}
+.table_header th{
+	margin-right: 5px !important;
+	text-align: center;
+}
+.table_table tbody{
+	background-color: #FFFFFF !important;
+	border-bottom: 3px solid  #998ed0;
+	border-top: 3px solid  #eae8f5 !important;
+	color: #999999;
+}
+.table_box{
+	height: 20px;
+}
+
+.line_color{
+	display: inline-block;
+	background-color:  #eae8f5;
+	height: 3px;
+	margin: 10px 0px;
+	
+}
+.fixed-table-container thead th .th-inner{
+	padding: 2px 5px;
+}
+#table_chart   tbody>tr>td{
+	padding: 2px 3px !important;
+}
+/* .table tbody>tr>td{
+	padding: 2px 3px !important;
+} */
+/*.line_color .th-inner{
+	padding: 0px;
+	line-height: 0px;
+}*/
+/*�����ͣ��ʽ*/
+/*.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+	color:blue;
+	cursor: pointer;
+}*/
+/*�޸Ĺ�������ʽ*/
+.modal_table::-webkit-scrollbar {/*������������ʽ*/
+    width: 8px;     /*�߿�ֱ��Ӧ�����������ĳߴ�*/
+    height: 8px;
+}
+.modal_table::-webkit-scrollbar-thumb {/*����������С����*/
+    border-radius: 5px;
+   	background-color: #998ed0;
+   	position: fixed;
+   	bottom: 0;
+}
+.modal_table::-webkit-scrollbar-track {/*������������*/
+    border-radius: 5px;
+    background: rgba(0,0,0,0.1);
+}
+/*ie����*/
+ .select{
+-moz-user-select:none;/*���*/
+-webkit-user-select:none;/*webkit�����*/
+-ms-user-select:none;/*IE10*/
+-khtml-user-select:none;/*���������*/
+    user-select:none;
+    }
+  .modal-header{
+    cursor:move;
+ }
+ /*��ť��ʽ*/
+ .info_btn{
+	background-color: #7496ed;
+	color: #FFFFFF;
+	padding:2px 5px;
+}
+/* 样式修改 */
+.modal-content {
+	position: unset;
+}
+.closeImg {
+	display:block;
+	width:40px;
+	height:40px;
+	position:absolute;
+	top:-15px;
+	right: -15px; 
+	z-index: 10000;
+}
+.titleFlag {
+	float:left;
+	width:8px;
+	height:20px;
+	border-radius: 5px;
+	background-color: #e67090;
+	margin-left:30px;
+}
+#timeFlag {
+	margin-top:20px;
+	margin-left:30px;
+}
+.exportImg {
+	width:100px;
+	height:30px;
+	position: absolute;
+	top: 50px;
+	right: 50px;
+}
+.orderFlag {
+	width:20px;
+	height:8px;
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#74d8ef), to(#1d85ba));
+	background: -ms-linear-gradient(top, #74d8ef,  #1d85ba);
+/* 	background-color:#49afd5; */
+	border-radius: 5px;
+	margin-top:65px;
+	margin-left:30px;
+}
+.orderTitle {
+	display:block;
+	margin-top: -15px;
+    margin-left: 70px;
+}
+.outTimeFlag {
+	width:20px;
+	height:8px;
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fbb18a), to(#f573a1));
+	background: -ms-linear-gradient(top, #fbb18a,  #f573a1);
+	border-radius: 5px;
+	margin-top: -13px;
+    margin-left: 150px;
+}
+.outTime {
+	display:block;
+	margin-top: -15px;
+    margin-left: 190px;
+}
+/* 表格的样式 */
+#table_b  tbody>tr:nth-child(odd) {
+	background-color:#ffffff;
+}
+#table_b  tbody>tr:nth-child(even) {
+	background-color:#eae8f5;
+}
+#table_b  tbody>tr:nth-child(odd) {
+	background-color:#ffffff;
+}
+#table_a  tbody>tr:nth-child(even){
+	background-color:#eae8f5;
+}
+#table_a  tbody>tr>td,#table_a>tbody>tr>th{
+	padding: 2px 3px !important;
+}
+#table_b  tbody>tr>td,#table_a>tbody>tr>th{
+	padding: 2px 3px !important;
+}
+.exportTable {
+	width:100px;
+	height:30px;
+	position: absolute;
+	top:20px;
+	right: 20px;
+}
+.bssSubscribe {
+	text-decoration: none;
+}
+ a:hover{
+	text-decoration:none;
+    cursor:pointer;
+    color:rgb(37, 239, 226); 
+}
+.aaa a:active {
+	text-decoration:none;
+}
+.aaa a {
+	text-decoration: none;
+}
+.checked {
+	color:rgb(37, 239, 226); 
+}
+#liabilityState  option,#liabilityStates option, #liabilityState1_on  option, #liabilityState11 option,#liabilityStates1 option,#liabilityState1_out  option
+,#chooseTable  option, #salesLine option, #branchOffice option{
+	display:block !important;
+}
+
+/* 0103日增加当日、当月、累计按钮样式 */
+.chooseDate {
+	display:inline-block;
+	height:37px;
+	width:225px;
+	line-height: 37px;
+	background-color:#4f53cf;
+	color:#7286d9;
+	font-size: 16px;
+	border-radius: 30px;
+	margin-left:10px;
+}
+.choose1{
+	width:30%;
+	text-align:center;
+	display:inline-block;
+}
+.pop_style{
+	width: 20%;
+	margin:16% auto;
+}
+
+.close {
+	font-size: 28px!important;
+}

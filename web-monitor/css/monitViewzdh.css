@@ -1,0 +1,298 @@
+@CHARSET "UTF-8";
+
+.iframe {
+	
+}
+
+.mleft {
+	font-family: 'Verdana', 'SimHei', sans-serif;
+	margin: 35px auto auto 100px;
+	width: 170px;
+	height: 100%;
+	min-height: 500px;
+	top: 50px;
+	float: left;
+}
+
+.lable_title {
+	font-weight: normal;
+	font-family: 'Verdana', 'SimHei', sans-serif;
+	color: #EB723B;
+}
+
+.mleft  li:first-of-type {
+	margin: 3px auto auto 0px;
+	border-radius: 10px 10px 0px 0px;
+	margin-left: -40px;
+}
+
+.mleft  li:last-of-type {
+	border-radius: 0px 0px 10px 10px;
+	margin-left: -40px;
+}
+
+.mleft ul li {
+	list-style: none;
+	color: #7E7977;
+	font-size: 18px;
+	width: 170px;
+	height: 34px;
+	background-color: #F8D9B8;
+	border-bottom: 1px solid #fff;
+	line-height: 34px;
+	padding-left: 20px;
+	margin-left: -40px;
+}
+
+.mleft ul li:hover {
+	cursor: pointer;
+}
+
+.mleft .active {
+	border-radius: 10px 10px 10px 10px;
+	color: #000;
+	background-color: #F8B62D;
+}
+
+.ywcheck {
+	width: 38px;
+	height: 33px;
+	margin: 0px 0px auto auto;
+	float: right;
+	background: #f39800;
+	algin: center;
+	/*background: #f39800 url('../images/qlc/jt.png') center no-repeat;*/
+}
+
+.ywcheck img {
+	margin: 14px 12px 14px 12px;
+}
+.ywcheck .imgshow {
+	/*margin: 14px 12px 14px 12px;*/
+	transform: rotate(0deg);
+}
+.ywcheck .imgclose {
+	/*margin: 14px 12px 14px 12px;*/
+	transform: rotate(90deg);
+}
+
+.cmain {
+	margin: 35px 60px auto auto;
+	width: 950px;
+	height: 100%;
+	min-height: 500px;
+	top: 50px;
+	float: right;
+}
+
+.data_title {
+	margin: 3px auto auto 0px;
+	font-size: 18px;
+	width: 430px;
+	height: 32px;
+	line-height: 32px;
+	padding-left: 10px;
+	border-radius: 10px 10px 10px 10px;
+	color: #000;
+	background-color: #F8B62D;
+}
+
+hr {
+	height: 5px;
+	background-color: #F8B62D;
+	border: 0px;
+}
+
+.dataTable {
+	margin: 15px auto auto 22px;
+	width: 160px;
+	height: 180px;
+	float: left;
+}
+
+.dataTable div {
+	background-color: #fff;
+	font-size: 16px;
+	color: #727272;
+	/*height: 30px;*/
+	line-height: 30px;
+	padding-left: 10px;
+	border-bottom: 1px solid #F0F0F0;
+	position: relative;
+}
+
+.dataTable .title {
+	background-color: #CACACA;
+	color: #000;
+	font-weight: bold;
+	height: 35px;
+	line-height: 35px;
+}
+
+.dataTable span {
+	cursor: pointer;  /*设置当鼠标悬浮在上边的时候显示小手*/
+	float: right;
+	margin-right: 20px;
+}
+
+/*点击后颜色变化css*/
+.spancolor {
+	cursor: pointer;  /*设置当鼠标悬浮在上边的时候显示小手*/
+	float: right;
+	margin-right: 20px;
+	color:#F8B62D;
+}
+
+.chart_title {
+	margin: 100px auto auto auto;
+	font-size: 18px;
+	width: 430px;
+	height: 32px;
+	line-height: 32px;
+	border-radius: 10px 10px 10px 10px;
+	color: #000;
+	text-align: center;
+	background-color: #F8B62D;
+}
+/*按小时按销售线展示 */
+.chartBtns {
+	margin: 15px auto auto auto;
+	font-size: 18px;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	color: #000;
+	text-align: center;
+}
+
+.chartBtns p {
+	display: inline-block;
+	margin: 0px auto auto 50px;
+	cursor: pointer;
+	border-radius: 10px 10px 10px 10px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	padding: 1px 10px 3px 10px;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #CACACA;
+	color: #000;
+}
+
+.chartBtns .pactive {
+	display: inline-block;
+	margin: 0px auto auto 50px;
+	cursor: pointer;
+	border-radius: 10px 10px 10px 10px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	padding: 1px 10px 3px 10px;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #F8B62D;
+	color: #fff;
+}
+
+/* 受理口径 */
+.chartBtns1 {
+	margin: 15px auto auto auto;
+	font-size: 18px;
+	/* width: 100%; */
+	height: 32px;
+	line-height: 32px;
+	color: #000;
+	text-align: center;
+	margin-top:-32px;
+	float:right;
+	margin-right:60px;
+}
+.chartBtns1 p {
+	display: inline-block;
+	margin: 0px auto auto 50px;
+	cursor: pointer;
+	border-radius: 10px 10px 10px 10px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	padding: 1px 10px 3px 10px;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #CACACA;
+	color: #000;
+}
+.chartBtns1 .pactive {
+	display: inline-block;
+	margin: 0px auto auto 50px;
+	cursor: pointer;
+	border-radius: 10px 10px 10px 10px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	padding: 1px 10px 3px 10px;
+	font-size: 16px;
+	font-weight: bold;
+	background-color: #F8B62D;
+	color: #fff;
+}
+
+.btna {
+	width: 76px;
+	height: 30px;
+	margin: 0px auto auto 40px;
+	background: url('../images/qlc/city.png') center no-repeat;
+	background-size: 100% 100%;
+}
+
+.btnactive {
+	width: 76px;
+	height: 30px;
+	margin: 0px auto auto 40px;
+	background: url('../images/qlc/cityActive.png');
+}
+
+.btnh {
+	width: 76px;
+	height: 30px;
+	background: url('../images/qlc/hour.png');
+}
+
+.btnhactive {
+	width: 76px;
+	height: 30px;
+	background: url('../images/qlc/hourActive.png');
+}
+
+.btnaexp {
+	width: 156px;
+	height: 30px;
+	background: url('../images/qlc/cityexp.png');
+}
+
+.btnhexp {
+	width: 156px;
+	height: 30px;
+	background: url('../images/qlc/hourexp.png');
+}
+.me-show{
+	display:block;
+}
+.me-hide{
+	display:none;
+}
+
+.sj{
+	position: absolute;
+	right: 5px;
+	top: 10px;
+	width:6px;
+	height:10px;
+}
+.trs{
+	transform:rotate(90deg);
+	-ms-transform:rotate(90deg); 	/* IE 9 */
+	-moz-transform:rotate(90deg); 	/* Firefox */
+	-webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+	-o-transform:rotate(90deg); 
+}

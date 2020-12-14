@@ -1,0 +1,99 @@
+{
+  "data": {
+    "bssSubscribeId": "1218032345641071",
+    "exTradeId": "201803270321404",
+    "productName": "电子预留单",
+    "jobInsts": [
+      {
+        "jobAction": "",
+        "jobCentent": "订单状态变更",
+        "staffTel": "66156606/66155344",
+        "jobState": "完成",
+        "jobOther": "",
+        "orderNum": "1803231505510087517",
+        "endDate": "2018-03-28 10:54",
+        "jobName": "结束",
+        "id": "5abb0400c25d3924cc36b20e",
+        "subOrderNum": "1803281054560584092",
+        "staffName": "值班电话",
+        "deleteState": 0,
+        "jobCode": "OC_orderEnd",
+        "commentState": "0",
+        "createDate": "2018-03-28 10:54",
+        "workInstId": "20180328519163270",
+        "sysCode": "订单中心"
+      },
+      {
+        "jobAction": "",
+        "jobCentent": "订单状态变更",
+        "staffTel": "66156606/66155344",
+        "jobState": "完成",
+        "jobOther": "",
+        "orderNum": "1803231505510087517",
+        "endDate": "2018-03-28 10:54",
+        "jobName": "竣工审核",
+        "id": "5abb0400c25d3924cc36b212",
+        "subOrderNum": "1803281054560584093",
+        "staffName": "值班电话",
+        "deleteState": 0,
+        "jobCode": "OC_orderFinishCheck",
+        "commentState": "0",
+        "createDate": "2018-03-28 10:54",
+        "workInstId": "20180328519163340",
+        "sysCode": "订单中心"
+      },
+      {
+        "staffCode": "yangsj",
+        "jobAction": "",
+        "jobCentent": "订单状态变更",
+        "staffTel": "66156606/66155344",
+        "jobState": "完成",
+        "jobOther": "",
+        "orderNum": "1803231505510087517",
+        "endDate": "2018-03-28 10:01",
+        "jobName": "订单质检",
+        "id": "5abaf79ac25d3924cc36a9c1",
+        "subOrderNum": "1803281002020582980",
+        "staffName": "值班电话",
+        "deleteState": 0,
+        "jobCode": "OC_orderCheck",
+        "commentState": "0",
+        "createDate": "2018-03-28 10:01",
+        "workInstId": "20180328518876360",
+        "sysCode": "订单中心"
+      }
+    ],
+    "member": [
+      {
+        "bssOrderId": "",
+        "bssSubscribeId": "",
+        "netTypeCode": "40",
+        "orderNum": "",
+        "serialNumber": "01015063553"
+      },
+      {
+        "bssOrderId": "",
+        "bssSubscribeId": "",
+        "netTypeCode": "40",
+        "orderNum": "",
+        "serialNumber": "01015063551"
+      },
+      {
+        "bssOrderId": "",
+        "bssSubscribeId": "",
+        "netTypeCode": "30",
+        "orderNum": "",
+        "serialNumber": "01015063552"
+      },
+      {
+        "bssOrderId": "",
+        "bssSubscribeId": "",
+        "netTypeCode": "50",
+        "orderNum": "",
+        "serialNumber": "18510729630"
+      }
+    ]
+  },
+  "state": 1,
+  "message": ""
+}

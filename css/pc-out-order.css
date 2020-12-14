@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+/***对外 pc 手机号验证   */
+
+/*** 6位验证码区域  start***/
+.pwd-box {
+    margin:0 auto;
+    width: 100%;
+    position: relative;
+    border: 1px solid #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    /* background-color:gold; */
+}
+
+.pwd-input {
+	position: fixed;
+    left: 0px;
+    /* top: 10px; */
+    top: -100px;
+    width: 100px;
+    height: 20px;
+    z-index: 20;
+    opacity: 0;
+    filter: alpha(opacity:0);
+	/*background-color: gold;
+	color: red;*/
+}
+
+.fake-box {
+	margin-left: 2px;
+}
+
+.fake-box p{
+	float: left;
+	display: block;
+	width: 55px;
+	height: 70px;
+	border: 2px solid #eee;
+	border-radius:10px;
+	text-align: center;
+	font-size: 46px;
+	background-color: #fff;
+}
+
+.fake-box .mg5 {
+	margin-left: 7px;
+}
+
+/*** 6位验证码区域  end ***/
+
+
+/*** 验证码 其它显示内容区  start ***/
+.messgeFont {
+	font-size: 22px;
+	color: #666;
+}
+
+.mb30 {
+	margin-bottom: 30px;
+}
+.mt30 {
+	margin-top: 30px;
+}
+.btn_getMess {
+	background-color: transparent;
+}
+/*** 验证码 其它显示内容区  end ***/
+
+
+

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情明细表(移网)</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css"
+          href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/multiselect/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/multiselect/css/jquery.multiselect.css"/>
+    <!--pc公共-->
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css">
+    <!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/flowChart.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/modal.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/monitView.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/orderFlowTable/orderFlowByDateYw.css"/>
+    <style type="text/css">
+        .condition {
+            display: none;
+        }
+
+        .branchItem1 {
+            display: inline-block;
+        }
+        #businessTypeClass {
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .ui-multiselect  {
+            padding: 6px 12px;
+            background-color: #fff;
+            height: 34px;
+            font-size: 14px;
+            color: #555;
+            float: left;
+            width: 200px !important;
+        }
+        .ui-multiselect span {
+            color: #555;
+            font-weight: 400;
+        }
+        .ui-multiselect-checkboxes label input {
+            top: 1px;
+        }
+        .ui-helper-reset span {
+            font-weight: 400;
+            font-size: 14px;
+            color:#555;
+        }
+        .ui-multiselect-checkboxes label input{
+            margin-right: 3px;
+        }
+    </style>
+
+</head>
+<body style="overflow-y: hidden">
+<!--导航-->
+<div id="Lcontainer">
+    <div id="Lnav">
+        <ul class="Lnav" style="width: 100%">
+            <li class="Lcheck" id="Lnav_text"></li>
+        </ul>
+    </div>
+    <div id="fakeLoader" style="opacity: 0.3;"></div>
+    <!-- <div id="maskLayer" class="maskLayer"></div>
+    <div class="maskWords">报表开发中。。。</div> -->
+    <div class="searchInfo" id="searchInfo">
+        <!--<div class="branchInfo condition" id="branchInfo">
+        </div>-->
+        <div class="orderInfo condition" id="orderInfo">
+            <label>订单来源:</label>
+            <ul class="orderSource">
+                <li class="searched">全部</li>
+                <li class="">集团商城</li>
+                <li class="">沃易售</li>
+                <li class="">第三方</li>
+                <li>线下实体（预留）</li>
+            </ul>
+        </div>
+        <!--订单来源-集团商城-->
+        <div class="internet" id="internet">
+            <label>集团商城:</label>
+            <ul class="interNet">
+                <li class="searched" value="">全部</li>
+                <li value="BOMO">营业厅微厅</li>
+                <li value="CCS">电子沃店</li>
+                <li value="DANGDANG">当当商城</li>
+                <li value="EMAL">网上商城</li>
+                <li value="ENG">英文商城</li>
+                <li value="GUMA">估吗平台</li>
+                <li value="MENG">英文手机商城</li>
+                <li value="MOBILE">手机商城</li>
+                <li value="O2M">码上购</li>
+                <li value="O2O">华盛O2O</li>
+                <li value="PAIPAI">拍拍商城</li>
+                <li value="PDD">拼多多商城</li>
+                <li value="PERIPHERY">省份商城</li>
+                <li value="PMALL">省份电商</li>
+                <li value="SKYLINE">社会化电商</li>
+                <li value="SMA">中小规模应用</li>
+                <li value="SSHS">助销系统</li>
+                <li value="TAOBAO">天猫商城</li>
+                <li value="ZXQY">中小企业</li>
+            </ul>
+            <div class="branchClass">
+                <span id="businessTypeClass">业务类型:</span>
+                <div class="selectBranch" style="margin-left: 47px">
+                    <select class="form-control branchItem1"  id="businessType">
+                        <option value="">请选择业务类型</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!--订单来源-沃易售-->
+        <div class="entityInfo" id="woYiSale">
+            <label>沃易售:</label>
+            <ul class="entityCanal">
+                <li class="searched" value="">全部</li>
+                <li value="A4">意向单</li>
+                <li value="A3">码销</li>
+                <li value="">行销（预留）</li>
+            </ul>
+        </div>
+        <!--订单来源-第三方-->
+        <div class="internet" id="thirdParty">
+            <label>第三方:</label>
+            <ul class="interNet">
+                <li class="searched" value="">全部</li>
+                <li value="A6">校园</li>
+                <li value="A1,A2,A5,A7">其他</li>
+            </ul>
+        </div>
+        <!--订单来源-线下实体(预留)-->
+        <div class="entityInfo" id="entityInfo">
+            <label>线下实体:</label>
+            <ul class="interNet">
+                <li class="searched" value="">全部</li>
+                <li value="">营业厅</li>
+                <li value="">社会渠道</li>
+            </ul>
+        </div>
+        <div class="businessInfo" id="businessInfo">
+            <div style="float: left;margin-top: 11px; font-weight: 700;font-size:16px">产品种类:</div>
+            <ul class="businessStyle">
+                <li class="searched" value1="">全部</li>
+                <li value1="2I">2I</li>
+                <li value1="2C">2C</li>
+            </ul>
+        </div>
+        <div class="serviceInfo condition" id="serviceInfo">
+            <div style="float: left;margin-top: 11px; font-weight: 700;font-size:16px">交付点类型:</div>
+            <ul class="businessStyle" style="margin-left: 13px">
+                <li class="searched" value1="">全部</li>
+                <li value1="00">物流上门</li>
+                <li value1="02">营业厅</li>
+                <li value1="03">综合网格</li>
+                <li value1="04">电商自有</li>
+                <li value1="05">电商交付2队</li>
+                <li value1="06">分公司团队</li>
+                <li value1="99">退单管理</li>
+                <li value1="999,,9999">其他</li>
+            </ul>
+        </div>
+        <div class="branchClass" id="productTypeBox">
+            <span style="float: left;margin-top: 17px; font-weight: 700;font-size:16px">产品类型:</span>
+            <div class="selectBranch" style="margin-left: 43px">
+                <select class="validate"  id='productType3' multiple="multiple"></select>
+            </div>
+        </div>
+        <div class="branchClass condition" id="sysCodeInfo">
+            <label>销售线:</label>
+            <div class="selectBranch">
+                <select class="form-control branchItem1" id="selectBranch" name="sysCode">
+                    <option value="">请选择归属销售线</option>
+                    <option value="市区">市区</option>
+                    <option value="近郊">近郊</option>
+                    <option value="远郊">远郊</option>
+                    <option value="部门中心">部门中心</option>
+                </select>
+            </div>
+            <div class="selectBranch">
+                <select class="form-control developItem" id="branchItem">
+                    <option value="">请选择市区部门</option>
+                    <option value="225">二区</option>
+                    <option value="226">三区</option>
+                    <option value="211">四区</option>
+                    <option value="212">五区</option>
+                    <option value="213">七区</option>
+                    <option value="214">八区</option>
+                </select>
+                <select class="form-control developItem" id="branchItem">
+                    <option value="">请选择近郊部门</option>
+                    <option value="217">通州</option>
+                    <option value="219">昌平</option>
+                    <option value="220">大兴</option>
+                    <option value="218">顺义</option>
+                    <option value="216">房山</option>
+                </select>
+                <select class="form-control developItem" id="branchItem">
+                    <option value="">请选择远郊部门</option>
+                    <option value="223">密云</option>
+                    <option value="221">怀柔</option>
+                    <option value="215">门头沟</option>
+                    <option value="222">平谷</option>
+                    <option value="224">延庆</option>
+                </select>
+                <select class="form-control developItem " id="branchItem">
+                    <option value="">请选择部门中心</option>
+                    <option value="227">重通局</option>
+                    <option value="11a0al">中台</option>
+                    <option value="11a01s">渠道中心</option>
+                    <option value="dkhzx">大客户中心</option>
+                    <option value="11a01q">客服中心</option>
+                    <option value="11a08x">其他</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="handleDate condition" id="dateInfo">
+        <label>处理日期:</label>
+        <span>来单日期：</span>
+        <div class="startDate">
+            <i class="fa"> <img
+                    onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                    src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                    style="float: right; right: 14px; margin: 5px 5px 4px 10px; position: absolute; width: 15px; height: 24px;">
+            </i> <input type="text" value="" class="form-control branchItem1"
+                        id="startDate" name="endDate"
+                        style="cursor: pointer; background-color: #fff;" readonly
+                        placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+        </div>
+        <span>激活日期：</span>
+        <div class="startDate">
+            <i class="fa"> <img
+                    onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                    src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                    style="float: right; right: 14px; margin: 5px 5px 4px 10px; position: absolute; width: 15px; height: 24px;">
+            </i> <input type="text" value="" class="form-control branchItem1"
+                        id="activateTime" name="activateTime"
+                        style="cursor: pointer; background-color: #fff;" readonly
+                        placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+        </div>
+        <span>退单日期：</span>
+        <div class="startDate">
+            <i class="fa"> <img
+                    onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                    src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                    style="float: right; right: 14px; margin: 5px 5px 4px 10px; position: absolute; width: 15px; height: 24px;">
+            </i> <input type="text" value="" class="form-control branchItem1"
+                        id="statusDate" name="statusDate"
+                        style="cursor: pointer; background-color: #fff;" readonly
+                        placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+        </div>
+    </div>
+    <div class="form-group searchExp">
+        <div class="text-right">
+            <button id="searchBtn" type="button"
+                    class="btn btn-orange submitBtn">查询
+            </button>
+            <button id="exportBtn" type="button"
+                    class="btn btn-orange resetBtn">导出
+            </button>
+            <span id="historySearch" class="hisSearch">历史查询</span>
+        </div>
+    </div>
+</div>
+<div class="b-tableDiv table-responsive"
+     style="overflow-y: hidden;">
+    <div class="totalDiv" style="margin-bottom:10px;margin-left:15px;display:none">
+        总共<span id="totalDate"></span>条记录
+    </div>
+    <table id="orderFlowTable"
+           class="table table-striped table-bordered table-hover">
+    </table>
+</div>
+<!-- 历史查询弹出表格 -->
+<div class="modal fade bs-example-modal-lg historyCommentTable"
+     tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document" style="width: 50% !important;">
+        <div class="modal-content modal_box">
+            <!--头部-->
+            <div class="clearfix">
+                <div class="modal_header_l fl">历史查询</div>
+            </div>
+            <!--table样式-->
+            <div class="modal_table tableStyle">
+                <!--<table id="table" class="table table-bordered" >-->
+                <table class="table table_table table-bordered  historyTable" style="table-layout: fixed;">
+                    <thead class="table_header">
+                    <tr>
+                        <th data-field="create_date">创建时间</th>
+                        <th data-field="file_name">报表文件名称</th>
+                        <th data-field="flag">处理状态</th>
+                        <th data-field="opration" data-formatter="oprationFormatter"
+                        >操作
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal_foot fr close_table" id="close_table">收起图表</div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+<!--bootstrap-->
+<script type="text/javascript"
+        src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript"
+        src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<!--bootstrap table-->
+<script type="text/javascript"
+        src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript"
+        src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript"
+        src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+
+<!--控制导出按钮-->
+<script type="text/javascript"
+        src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+<!--PC 时间插件 My97DatePicker -->
+<script type="text/javascript"
+        src="../../../js/plugins/My97DatePicker/WdatePicker.js"></script>
+<!-- layer 弹出层 -->
+<script type="text/javascript" src="../../../js/plugins/layui/layer/layer.js"></script>
+<!--控制导出功能-->
+<script type="text/javascript"
+        src="../../../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script type="text/javascript"
+        src="../../js/plugins/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/modal.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+<!--多选下拉框-->
+<script type="text/javascript" src="../../../js/plugins/multiselect/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/multiselect/js/jquery.multiselect.js"></script>
+<!-- 调用本界面方法-->
+<script type="text/javascript" src="../../js/orderFlowTable/orderlistDetailNewYw.js"></script>
+</html>

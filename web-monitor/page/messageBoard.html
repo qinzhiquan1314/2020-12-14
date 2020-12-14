@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css"
+          href="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--pc公共-->
+    <link rel="stylesheet" type="text/css" href="/css/base.css">
+
+    <link rel="stylesheet" type="text/css" href="/queryCenter/web-monitor/css/flowChart.css" />
+    <link rel="stylesheet" type="text/css" href="/queryCenter/web-monitor/css/modal.css" />
+    <link rel="stylesheet" type="text/css" href="/queryCenter/web-monitor/css/monitView.css" />
+    <link rel="stylesheet" type="text/css" href="../css/feedBack.css" />
+</head>
+<body>
+<div id="Lcontainer">
+    <!--导航-->
+    <div id="Lnav">
+        <ul class="Lnav" style="width: 100%;">
+            <li class="Lcheck" id="Lnav_text">在线反馈</li>
+        </ul>
+    </div>
+    <div class="messageBody">
+        <div class="messageTitleDiv"><div class="messageTitle">留言板</div></div>
+        <div style="padding-top: 30px">
+            <span class="must">*</span><label>问题分类:</label>
+            <div class="selectBranch">
+                <select class="form-control branchItem1" id="secondLevel" name="secondLevel">
+                    <option value="">请选择二级分类</option>
+                    <option value="t1">订单实时查询</option>
+                    <option value="t2">看板中心-看板中心使用方法</option>
+                    <option value="t3">看板中心-全流程监控总览页</option>
+                    <option value="t4">看板中心-场景化流程监控页</option>
+                    <option value="t5">统计及重点指标页</option>
+                </select>
+            </div>
+        </div>
+        <div style="padding-top: 15px; position: absolute">
+            <span class="must place1">*</span><label class="place1">问题描述：</label>
+            <div class="inputText">
+                <textarea id="questionDescript" style="width:800px;height:150px;border: 1px solid #ccc;border-radius: 4px;"></textarea>
+            </div>
+        </div>
+        <div style="padding-top: 190px">
+            <span class="must">*</span><label>提问人:</label>
+            <div class="selectBranch1">
+                <input type="text" value="" class="form-control" id="questioner" name="keyDate"
+                       style="background-color: #fff;">
+            </div>
+            <span class="must">*</span><label>提问人手机号码:</label>
+            <div class="selectBranch" style="width: 283px!important;">
+                <input type="text" value="" class="form-control" id="questionerNum" name="keyDate"
+                       style="background-color: #fff;">
+            </div>
+        </div>
+        <div style="padding-top: 15px">
+            <span class="must">*</span><label>归属单位:</label>
+            <div class="selectBranch">
+                <select class="form-control branchItem1" id="belongTo" name="belongTo">
+                    <option value="">请选择归属单位</option>
+                    <option value="301">总部市场部</option>
+                    <option value="302">总部政企部</option>
+                    <option value="303">总部客服部</option>
+                    <option value="304">总部网发部</option>
+                    <option value="305">总部网运部</option>
+                    <option value="306">总部大数据项目组</option>
+
+                    <option value="201">信息化部</option>
+                    <option value="202">运营支撑中心</option>
+                    <option value="203">渠道中心</option>
+                    <option value="204">大客户中心</option>
+                    <option value="205">政企创新中心</option>
+                    <option value="206">客服中心</option>
+                    <option value="207">网络交付中心</option>
+
+                    <option value="102">二区分公司</option>
+                    <option value="103">三区分公司</option>
+                    <option value="104">四区分公司</option>
+                    <option value="105">五区分公司</option>
+                    <option value="107">七区分公司</option>
+                    <option value="108">八区分公司</option>
+                    <option value="110">通州分公司</option>
+                    <option value="111">昌平分公司</option>
+                    <option value="112">大兴分公司</option>
+                    <option value="113">顺义分公司</option>
+                    <option value="114">房山分公司</option>
+                    <option value="115">密云分公司</option>
+                    <option value="116">怀柔分公司</option>
+                    <option value="117">门头沟分公司</option>
+                    <option value="118">平谷分公司</option>
+                    <option value="119">延庆分公司</option>
+
+                    <option value="120">重通局</option>
+                    <option value="999">其他</option>
+                </select>
+            </div>
+        </div>
+        <div style="padding-top: 30px;position: absolute;cursor: pointer;" id="submit">
+            <img src="/queryCenter/web-monitor/images/feedBack/submit.png" style="width: 121px;height: 30px;margin-left: 480px;">
+            <div class="submit">提交</div>
+        </div>
+
+        <!-- 提交成功提示框 -->
+        <div class="submitSucess">
+            <img src="/queryCenter/web-monitor/images/feedBack/accept.png" style="width: 63px;height: 63px;margin-top: 40px;">
+            <div style="font-size: 24px;color:#fa7a07; margin-top: 15px;">您的问题已收到，我们将尽快回复</div>
+        </div>
+    </div>
+</div>
+</body>
+<!--bootstrap-->
+<script type="text/javascript" src="/queryCenter/web-monitor/js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/queryCenter/web-monitor/js/plugins/BootBox/bootbox.min.js"></script>
+<script type="text/javascript" src="/queryCenter/web-monitor/js/plugins/ztree/jquery.ztree.core.js"></script>
+
+<script type="text/javascript" src="/queryCenter/web-monitor/js/common.js"></script>
+
+
+<script type="text/javascript" src="../js/messageBoard.js"></script>
+</html>

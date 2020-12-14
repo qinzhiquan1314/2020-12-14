@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>我的评价</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+	<!--bootstrap插件-->
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+	<!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+	<!--pc公共-->
+	<link rel="stylesheet" type="text/css" href="../../../css/base.css">
+	
+	<!-- pc端样式统一风格，一般都写在base.css中即可，本页特殊设置写在本页即可  -->
+	  <style>
+		  html,body{height:100%;}
+		  body {
+			  /* filter:progid:DXImageTransform.Microsoft.gradient(enabled='ture',GradientType='1',StartColorStr=#85000000,EndColorstr=#85000000); */
+			  background-color: #fae1c3;
+			  color: #333;
+			  font-family:'SimHei';
+		  }
+
+		  /* 五星评价 start */
+		  .pc-assess {
+
+		  }
+
+		  .pc-assess .bb2 {
+			  border-bottom: 1px solid #bbb;
+		  }
+		  .pc-assess .mgt16 {
+			  margin-top: 16px;
+		  }
+		  .pc-assess .a-row {
+			  font-size: 16px;
+			  color: #333;
+			  height: 50px;
+			  line-height: 50px;
+			  margin-left: 35px;
+			  margin-right: 38px;
+		  }
+		  .pc-assess .row-left {
+			  float: left;
+			  /* width:36%; */
+			  /* margin-left: 36px; */
+		  }
+		  .pc-assess .row-right{
+			  float: right;
+			  /* margin-right: 36px; */
+			  color: #333;
+		  }
+		  .pc-assess .row-right .ratyWidth {
+			  width: 170px;
+		  }
+		  .pc-assess .row-right .fontWidth {
+			  width: 60px;
+		  }
+		  .pc-assess .row-right img{
+			  height: 24px;
+			  width: 24px;
+			  margin-top: -6px;
+		  }
+		  /* 五星评价 end */
+
+		  .pc-assess .a-textarea {
+			  height: 200px;
+			  width: 85%;
+			  display: table;
+			  vertical-align: middle;
+			  line-height: 120%;
+			  font-size: 18px;
+			  color: #323232;
+			  padding: 20px;
+			  margin: 20px auto;
+			  border: 0px solid #fff;
+		  }
+
+		  .pc-assess .btn-group {
+			  margin-top:10px;
+			  margin-bottom: 10px;
+		  }
+
+		  .pc-assess .btn-group .btt{
+			  display: block;
+			  font-size: 20px;
+			  height: 50px;
+			  padding: 0 13px;
+			  text-align: center;
+			  line-height: 50px;
+			  /* margin: 0 20px; */
+		  }
+
+		  /* .pc-assess .btn-group .assessReset{
+              border: 1px solid #666666;
+              color: #333;
+              margin-left: 185px;
+              margin-right: 10px;
+              text-decoration: none;
+           } */
+
+		  .assessSubmit{
+			  display: block;
+			  width: 200px;
+			  border: 1px solid #7F7F7F;
+			  color: #fff;
+			  background-color: #7F7F7F;
+			  text-decoration: none;
+			  border-radius: 10px;
+			  position: absolute;
+			  left: 50%;
+			  transform: translateX(73%);
+
+		  }
+		  .assessSubmitcurr {
+			  border: 1px solid #f3780c !important;
+			  color: #fff;
+			  background-color: #f3780c !important;
+		  }
+		  .z_num{
+			  right: 53px;
+			  font-size: 16px;
+			  color: #333;
+			  bottom: 0;
+		  }
+		  /*---增加评价部分--strat-- */
+		  .z_evaluation{
+			  width:100%;
+			  height:80px;
+			  /* line-height: 6rem; */
+		  }
+		  .z_veap{
+			  width: 85%;
+			  display: table;
+			  vertical-align: middle;
+			  height: 100%;
+			  margin: auto;
+		  }
+		  .z_veapsp1{
+			  width: 16px;
+			  height: 2px;
+			  display: table-cell;
+			  vertical-align: middle;
+		  }
+		  /* 横线 */
+		  .z_veapsp1>div{
+			  width:100%;
+			  height:2px;
+			  background: #333;
+		  }
+
+		  .z_veapsp2{
+			  width: 50px;
+			  text-align: center;
+			  font-size: 20px;
+			  color: #333;
+			  display: table-cell;
+			  vertical-align: middle;
+		  }
+		  /*改版样式*/
+		  .mgl{
+			  margin-left: 2px;
+		  }
+
+		  .z_veapsp1{
+			  width: 2rem;
+		  }
+		  .assessHeader {
+			  position: relative;
+			  width: 70%;
+			  margin: 0 15% 40px;
+		  }
+		  .assessHeader img {
+			  display: inline-block;
+			  width: 18px;
+			  height: 18px;
+			  margin: 0 6px;
+
+		  }
+		  .assessHeader-li {
+			  color: #333;
+			  font-size: 12px;
+		  }
+		  .assessHeader-li-img {
+			  width: 100%;
+			  display: flex;
+			  flex-wrap: wrap;
+			  justify-content: space-between;
+		  }
+		  .assessHeader-li .assessHeader-li-txt {
+			  margin-top: 10px;
+			  letter-spacing :0.2rem;
+			  padding-left: 10px;
+			  font-size: 16px;
+			  position: absolute;
+		  }
+		  .assessConheader {
+			  width: 85%;
+			  font-size: 1rem;
+			  line-height: 1.3rem;
+			  color: #333;
+			  margin: 15px 15% 0;
+			  letter-spacing:1px;
+		  }
+		  .assessCon {
+			  width: 70%;
+			  margin: 15px 15% 15px;
+		  }
+		  .assessCon-header{
+			  position: relative;
+			  padding-left: 22px;
+			  color: #333;
+			  font-size: 1rem;
+			  letter-spacing :0.1rem;
+
+		  }
+		  .assessCon-header img{
+			  width: 12px;
+			  height: 12px;
+			  position: absolute;
+			  top: 8px;
+			  left: 2px;
+		  }
+		  .assessCon-garden {
+			  float: right;
+			  font-size: 16px;
+
+		  }
+		  .assessCon-con {
+			  margin-top: 2px;
+			  margin-left: 2px;
+
+		  }
+		  .assessCon-con {
+			  display: flex;
+			  flex-wrap: wrap;
+			  justify-content: space-between;
+		  }
+		  .assessCon-con img{
+			  width: 18px;
+			  height: 18px;
+		  }
+		  .btn_search {
+			  background-color: #DDDDDD;
+		  }
+		  .relte {
+			  position: relative;
+		  }
+		  .assessHeader-li-txt1{
+			  top: 15px;
+			  left: -10px;
+		  }
+		  .assessHeader-li-txt2{
+			  top: 15px;
+			  left: 10px;
+		  }
+		  .assessHeader-li-txt3{
+			  top: 15px;
+			  left: 6px;
+		  }
+	  </style>
+  </head>
+  
+  <body>
+  	
+	<div class="pc-assess">
+	   <div class="z_evaluation">
+	        <div class="z_veap">
+	           <div class="z_veapsp1"><div><!-- 横线 --></div></div>
+	           <div class="z_veapsp2 font-space-2px">满意度示意图</div>
+	           <div class="z_veapsp1"><div><!-- 横线 --></div></div>
+	        </div>
+	    </div>
+		<form  id="submitForm">
+			<ul class="assessHeader clearfix">
+				<li class="assessHeader-li">
+					<div class="assessHeader-li-img">
+						<span class="relte">
+							<img src="../../images/order/star_yellow.png" alt="" style="margin-left: 0px">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<span class="assessHeader-li-txt assessHeader-li-txt1">不满意</span>
+						</span>
+						<span class="relte">
+							<img src="../../images/order/star_yellow.png" alt="">
+						    <img src="../../images/order/star_yellow.png" alt="">
+							<span class="assessHeader-li-txt assessHeader-li-txt2">一般</span>
+						</span>
+						<span class="relte">
+							<img src="../../images/order/star_yellow.png" alt="">
+							<img src="../../images/order/star_yellow.png" alt="" style="margin-right: 0px">
+							<span class="assessHeader-li-txt assessHeader-li-txt3">满意</span>
+						</span>
+
+					</div>
+
+				</li>
+			</ul>
+			<div class="assessConheader">请对本次服务进行评价，非常感谢！</div>
+			<div class="assessCon">
+				<div class="assessCon-header">
+					<img src="../../images/order/round.png" alt="">
+					<span>订购商品满意度</span>
+					<span class="assessCon-garden" id="shopping-star"></span>
+				</div>
+				<ul class="assessCon-con" id="assessStar-shopping">
+					<li data-star="1"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="2"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="3"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="4"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+					<li data-star="5"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+					<li data-star="6"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+					<li data-star="7"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="8"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="9"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="10"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				</ul>
+			</div>
+			<div class="assessCon">
+				<div class="assessCon-header">
+					<img src="../../images/order/round.png" alt="">
+					<span id="onsiteComment">上门速度满意度</span>
+					<span class="assessCon-garden" id="cell-star"></span>
+				</div>
+				<ul class="assessCon-con" id="assessStar-cell">
+					<li data-star="1"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="2"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="3"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="4"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+					<li data-star="5"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+					<li data-star="6"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+					<li data-star="7"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="8"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="9"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="10"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				</ul>
+			</div>
+			<div class="assessCon">
+				<div class="assessCon-header">
+					<img src="../../images/order/round.png" alt="">
+					<span>服务态度满意度</span>
+					<span class="assessCon-garden" id="service-star"></span>
+				</div>
+				<ul class="assessCon-con" id="assessStar-service">
+					<li data-star="1"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="2"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="3"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="4"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+					<li data-star="5"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+					<li data-star="6"><img src="../../images/order/star_yellow_empty.png" alt=""  ></li>
+					<li data-star="7"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="8"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="9"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+					<li data-star="10"><img src="../../images/order/star_yellow_empty.png" alt="" ></li>
+				</ul>
+			</div>
+  			<div class="ps-relative txc">
+				<textarea class="a-textarea bg-grey" id="comment" name="comment" readonly>无评价内容</textarea>
+  			</div>
+		</form>
+		
+	</div>
+	<!-- 核心插件 start-->
+	<!--[if lt IE 9]>
+	<script>
+	(function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();
+	</script>
+	<script src="../../../js/plugins/respond.min.js"></script>
+	<script src="../../../js/plugins/echarts/js/html5shiv.js"></script>
+	<script src="../../../js/plugins/excanvas.min.js"></script>
+	<![endif]-->
+			
+	<!--bootstrap-->
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- layer 弹出层 -->
+	<script type="text/javascript" src="../../../js/plugins/layui/layer/layer.js"></script>
+	
+	<!-- 表单  -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery.form.js"></script>
+		
+	<!-- 表单验证 -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/messages_zh.min.js"></script>
+	
+	<!-- 加载等待插件 -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+	
+	<!-- 五角星评价 -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery.raty.min.js"></script>
+	
+	<!--公共部分-->
+	<script type="text/javascript" src="../../../js/common/common.js"></script>
+	<script type="text/javascript" src="../../../js/common/util.js"></script>
+	
+	<!-- 核心插件 end-->  
+	
+	<!--自己-->
+	<script type="text/javascript" src="../js/order-assess-show.js"></script>
+	  
+  </body>
+</html>

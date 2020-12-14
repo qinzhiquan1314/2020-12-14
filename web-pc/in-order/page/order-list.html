@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>订单查询</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css?v=91001203129">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css?v=91001203129">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css?v=91001203129">
+    <!--pc公共-->
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css?v=91001203129">
+    <!-- pc端样式统一风格，一般都写在base.css中即可，本页特殊设置写在本页即可  -->
+    <style type="text/css">
+        .panelB {
+            position: relative;
+        }
+        
+        .container {
+            margin-bottom: 20px;
+        }
+        
+        .adBtm img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .floatFrame {
+            z-index: 11;
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            float: right;
+            top: 129px;
+            right: 150px;
+        }
+        
+        .fixed-table-container {
+            border: none;
+            text-align: left;
+        }
+        
+        thead tr th {
+            text-align: center;
+        }
+        
+        tbody tr td {
+            text-align: left !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="headBox">
+        <img class="headImg" src=" ../../../images/order/pc-top.png?v=91002627187?v=91001203129" />
+    </div>
+
+    <div class="panelB">
+        <div class="container" style="width:100%;">
+            <!-- style="width:100%;" class里ie不起作用-->
+            <!-- title start -->
+            <div class="title">订单查询</div>
+            <!-- title end -->
+
+            <ul class="nav nav-tabs">
+                <li class="active change">
+                    <a href="javascript:void(0);" div-id="id1">订单号查询</a>
+                </li>
+                <li class="change">
+                    <a href="javascript:void(0);" div-id="id2">业务号码查询</a>
+                </li>
+                <li class="change">
+                    <a href="javascript:void(0);" div-id="id4">身份证查询</a>
+                </li>
+                <li class="change">
+                    <a href="javascript:void(0);" div-id="id3">工号查询</a>
+                </li>
+                <li class="change">
+                    <a href="javascript:void(0);" div-id="id5">联系电话查询</a>
+                </li>
+            </ul>
+
+            <!-- search start -->
+            <form action="javascript:;" id="searchForm" class="form-horizontal">
+                <div class="form-body">
+                    <!-- 隐藏块1 订单类型+订单号查询  start-->
+                    <div id="id1" style="overflow:hidden;">
+                        <div class="row">
+                            <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group">
+                    <label class="col-sm-4 col-md-5 control-label">受理渠道：</label>
+                    <div class="col-sm-8 col-md-7">
+                      <select class="form-control" id="orderType" name="orderType">
+                        <option value="">----请选择----</option>
+                        <option value="1">线上受理</option>
+                        <option value="2">营业厅受理</option>
+                        <option value="3">意向单查询</option>
+                      </select>
+                    </div>
+                  </div>
+                </div> -->
+
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-md-5 control-label">订单号：</label>
+                                    <div class="col-sm-8 col-md-7">
+                                        <input type="text" value="" class="form-control" id="orderNum" name="orderNum" placeholder="请输入订单号" checkType="null" error-message="请输入订单号" datavalue="请输入订单号" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <!-- <label class="col-sm-4 col-md-5 control-label">客户名称：</label>
+                        <div class="col-sm-8 col-md-7">
+                          <input  type="text" value="" class="form-control" id="cn1" name="cn1" placeholder="请输入客户名称（选填）" datavalue="请输入客户名称（选填）"/>
+                        </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-right searchRow">
+                            <button type="submit" class="btn btn-orange submitBtn" id="in_orderNumSearch">查询</button>
+                            <button type="button" class="btn btn-orange resetBtn z_resetBtn1">重置</button>
+                        </div>
+
+                    </div>
+                    <!-- 隐藏块1 订单类型+订单号查询  end-->
+                    <!-- 隐藏块2 业务号码查询  start-->
+                    <div id="id2" style="display: none;overflow:hidden;">
+                        <div class="row" style="overflow:hidden;">
+                            <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class=" col-lg-4 col-sm-4 col-md-5 control-label" style="padding-right:0px;">宽带/快线/专线号码：</label>
+                                    <div class="col-lg-6 col-sm-6 col-md-5">
+                                        <input type="text" value="" class="form-control" id="accNum" name="accNum" checkType="null" error-message="请输入宽带/快线/专线号码" placeholder="请输入宽带/快线/专线号码" datavalue="请输入宽带/快线/专线号码" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-lg-4 col-sm-4 col-md-5 control-label" style="padding-right:0px;">手机号码：</label>
+                                    <div class="col-lg-8 col-sm-8 col-md-7">
+                                        <input type="text" value="" class="form-control" id="serialNumber" name="serialNumber" checkType="null" error-message="请输入手机号码" placeholder="请输入手机号码" datavalue="请输入手机号码" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-lg-4 col-sm-4 col-md-5 control-label" style="padding-right:0px;">固定电话：</label>
+                                    <div class="col-lg-8 col-sm-8 col-md-7">
+                                        <input type="text" value="" class="form-control" id="teleNum" name="teleNum" checkType="null" error-message="请输入固话号码（请加010）" placeholder="请输入固话号码（请加010）" datavalue="请输入固话号码（请加010）" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" style="position:relative;"> -->
+                            <div class="service-info">请选择任一栏输入即可查询</div>
+                            <!-- </div> -->
+
+                            <!--   <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                      <label class="col-sm-4 col-md-5 control-label">客户名称：</label>
+                      <div class="col-sm-8 col-md-7">
+                        <input  type="text" value="" class="form-control" id="cn2" name="cn2" placeholder="请输入客户名称（选填）" datavalue="请输入客户名称（选填）"/>
+                      </div>
+                    </div>
+                  </div> -->
+
+                        </div>
+
+                        <div class="text-right searchRow">
+                            <button type="submit" id="in_serialNumberSearch" class="btn btn-orange submitBtn">查询</button>
+                            <button type="button" class="btn btn-orange resetBtn z_resetBtn2">重置</button>
+                        </div>
+                    </div>
+                    <!-- 隐藏块2 业务号码查询  end-->
+                    <!-- 隐藏块4 身份证号码查询  start-->
+                    <div id="id4" style="display: none;overflow:hidden;">
+                        <div class="row" style="overflow:hidden;">
+                            <div class="col-sm-4 col-md-5 control-label">
+                                <div class="form-group">
+                                    <label class=" col-lg-4 col-sm-4 col-md-5 control-label" style="padding-right:0px;">身份证号码：</label>
+                                    <div class="col-lg-8 col-sm-8 col-md-7">
+                                        <input type="text" value="" class="form-control" id="credentialCode" name="credentialCode" checkType="null" error-message="请输入身份证号码" placeholder="请输入身份证号码" datavalue="请输入身份证号码" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--  <div class="col-sm-4 col-md-5 control-label">
+                   <div class="form-group">
+                     <label class="col-lg-4 col-sm-4 col-md-5 control-label" style="padding-right:0px;">客户名称：</label>
+                     <div class="col-lg-8 col-sm-8 col-md-7">
+                       <input  type="text" value="" class="form-control" id="customerName" name="customerName" placeholder="请输入客户名称" datavalue="请输入客户名称" />
+                     </div>
+                   </div>
+                 </div>   -->
+
+                        </div>
+
+                        <div class="text-right searchRow">
+                            <button type="submit" id="in_credentialCodeSearch" class="btn btn-orange submitBtn">查询</button>
+                            <button type="button" class="btn btn-orange resetBtn z_resetBtn4">重置</button>
+                        </div>
+                    </div>
+                    <!-- 隐藏块4 身份证号码查询  end-->
+                    <!-- 隐藏块3 下单时间+受理人工号查询  start-->
+                    <div id="id3" style="display: none;overflow:hidden;">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-md-5 control-label">下单时间：</label>
+                                    <div class="col-sm-8 col-md-7">
+                                        <i class="fa">
+                                            <img onclick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d',skin:'twoer'})"
+                                                src="../../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                                style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                                        </i>
+                                        <!-- <input  type="text" value="" class="form-control" id="startAcceptDate" name="startAcceptDate" style="cursor: pointer;background-color: #f6f8fa;" readonly placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'endAcceptDate\',{d:-30});}||%y-#{%M-6}',maxDate:'#F{$dp.$D(\'endAcceptDate\')}',skin:'twoer'})"></div> -->
+
+                                        <input type="text" value="" initFunc="getBeforeDate('yyyy-mm-dd')" class="form-control" checkType="null" error-message="请选择下单时间" id="startAcceptDate" name="startAcceptDate" style="cursor: pointer;background-color: #f6f8fa;" readonly placeholder="请选择下单时间"
+                                            datavalue="请选择下单时间" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-#{%M-6}',maxDate:'%y-YM-%d',skin:'twoer'})"></div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-md-1 control-label">至</label>
+                                    <div class="col-sm-8 col-md-7">
+                                        <i class="fa">
+										<img onclick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d',skin:'twoer'})"
+											 src="../../../js/plugins/My97DatePicker/skin/datePicker.gif"
+											 style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+									</i>
+                                        <input type="text" value="" initFunc="getCurrentDate('yyyy-mm-dd')" class="form-control" checkType="null" error-message="请选择下单时间" id="endAcceptDate" name="endAcceptDate" style="cursor: pointer;background-color: #f6f8fa;" readonly placeholder="请选择下单时间"
+                                            datavalue="请选择下单时间" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'startAcceptDate\')}',maxDate:'#F{$dp.$D(\'startAcceptDate\',{d:+30});}',skin:'twoer'})"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-md-5 control-label">受理人工号：</label>
+                                    <div class="col-sm-8 col-md-7">
+                                        <input type="text" value="" class="form-control" id="exAcceptStaffid" name="exAcceptStaffid" checkType="checkrel" placeholder="请输入受理人工号（选填）" datavalue="请输入受理人工号（选填）" checkrel="customerName" error-message="受理人工号和客户名称至少输入一项方可查询!" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-md-5 control-label">客户名称：</label>
+                                    <div class="col-sm-8 col-md-7">
+                                        <input type="text" value="" class="form-control" id="customerName" name="customerName" checkType="checkrel" checkrel="exAcceptStaffid" placeholder="请输入客户名称（选填）" datavalue="请输入客户名称（选填）" error-messaage="受理人工号和客户名称至少输入一项方可查询!" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-info">受理人工号和客户名称至少输入一项方可查询</div>
+                        </div>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-orange submitBtn" id="in_exAcceptStaffidSearch">查询</button>
+                            <button type="button" class="btn btn-orange resetBtn z_resetBtn3">重置</button>
+                        </div>
+                    </div>
+                    <!-- 隐藏块3 下单时间+受理人工号查询  end-->
+                    <!-- 隐藏块5 下单时间  start-->
+                    <div id="id5" style="display: none;overflow:hidden;">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-md-5 control-label">下单时间：</label>
+                                    <div class="col-sm-8 col-md-7">
+                                        <i class="fa">
+										<img onclick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d',skin:'twoer'})"
+											 src="../../../js/plugins/My97DatePicker/skin/datePicker.gif"
+											 style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+									</i>
+                                        <!-- <input  type="text" value="" class="form-control" id="startAcceptDate" name="startAcceptDate" style="cursor: pointer;background-color: #f6f8fa;" readonly placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'endAcceptDate\',{d:-30});}||%y-#{%M-6}',maxDate:'#F{$dp.$D(\'endAcceptDate\')}',skin:'twoer'})"></div> -->
+
+                                        <input type="text" value="" initFunc="getBeforeDate('yyyy-mm-dd')" checkType="null" error-message="请选择下单时间!" class="form-control" id="placeOrderstartDate" name="placeOrderstartDate" style="cursor: pointer;background-color: #f6f8fa;" readonly placeholder="请选择下单时间"
+                                            datavalue="请选择下单时间" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-#{%M-6}',maxDate:'%y-YM-%d',skin:'twoer'})"></div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-md-1 control-label">至</label>
+                                    <div class="col-sm-8 col-md-7">
+                                        <i class="fa">
+										<img onclick="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d',skin:'twoer'})"
+											 src="../../../js/plugins/My97DatePicker/skin/datePicker.gif"
+											 style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+									</i>
+                                        <input type="text" value="" initFunc="getCurrentDate('yyyy-mm-dd')" checkType="null" error-message="请选择下单时间!" class="form-control" id="placeOrderendDate" name="placeOrderendDate" style="cursor: pointer;background-color: #f6f8fa;" readonly placeholder="请选择下单时间"
+                                            datavalue="请选择下单时间" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'placeOrderstartDate\')}',maxDate:'#F{$dp.$D(\'placeOrderstartDate\',{d:+30});}',skin:'twoer'})"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 col-md-5 control-label">联系电话：</label>
+                                    <div class="col-sm-8 col-md-7">
+                                        <input type="text" value="" class="form-control" id="placeOrderPhoneNumber" name="placeOrderPhoneNumber" checkType="null" error-message="请输入办理业务所留手机号!" placeholder="请输入办理业务所留手机号" datavalue="请输入办理业务所留手机号" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-orange submitBtn" id="in_placeOrderSearch">查询</button>
+                            <button type="button" class="btn btn-orange resetBtn z_resetBtn5">重置</button>
+                        </div>
+                    </div>
+                    <!-- 隐藏块5 下单时间  end-->
+                </div>
+
+
+            </form>
+
+            <!-- 浮动框 -->
+            <div class="floatFrame">
+                <img src="../images/background.png?v=91002627187?v=91001203129" style="width: 94px;margin-top: 18px;">
+                <img src="../images/feedback.png?v=91002627187?v=91001203129" style="width: 38px;margin-top: -130px;margin-left: 29px;">
+                <div style="margin-top: -55px;font-size: 12px;margin-left: 23px;font-weight: 500;">在线反馈</div>
+            </div>
+            <div id="zq_Search" style="cursor: pointer;">
+                <img style="position:absolute; width: 188px;height:94px;right:130px;top:0px;" src="../../../images/order/pczqza_03.png?v=91002627187?v=91001203129" />
+            </div>
+            <div class="b-tableDiv table-responsive" style="">
+                <table id="table" class="table table-striped table-bordered table-hover" data-toggle="table" data-method="post" data-content-type="application/x-www-form-urlencoded" data-query-params="queryParams" data-pagination="false" data-side-pagination="server"
+                    data-page-size="10" data-page-list="[5, 10, 20, 50 ]" data-show-refresh="false" data-show-toggle="false" data-show-pagination-switch="false" data-show-columns="false" data-search="false" data-search-align="left" data-sort-name="orderNum"
+                    data-sort-order="asc">
+                </table>
+            </div>
+            <!-- table end -->
+        </div>
+
+
+
+        <!-- 底部广告
+<div class="adBtm ">
+    <img src=" " id="adBtm " />
+</div> -->
+    </div>
+
+
+
+
+
+    <!-- 核心插件 start-->
+    <!--[if lt IE 9]>
+
+	<script>
+
+		(function(){if (!window.console || !console.firebug){var names = ["log ", "debug ", "info ", "warn ", "error ", "assert ", "dir ", "dirxml ", "group ", "groupEnd ", "time ", "timeEnd ", "count ", "trace ", "profile ", "profileEnd
+			"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):" "*/}}})();</script>
+
+	<script src="../../../js/plugins/respond.min.js "></script>
+	<script src="../../../js/plugins/html5shiv.js "></script>
+	<script src="../../../js/plugins/excanvas.min.js "></script>
+
+	<![endif]-->
+
+    <!--bootstrap-->
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js "></script>
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js "></script>
+    <!--bootstrap table-->
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.js "></script>
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js "></script>
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js "></script>
+    <!--控制导出按钮-->
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js "></script>
+    <!--控制导出功能-->
+    <!--bootstrap paginator-->
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js "></script>
+    <!-- layer 弹出层 -->
+    <script type="text/javascript" src="../../../js/plugins/layui/layer/layer.js "></script>
+    <script type="text/javascript" src="../../../web-monitor/js/plugins/jquery.cookie.js "></script>
+    <!-- 表单  -->
+    <script type="text/javascript" src="../../../js/plugins/jquery/jquery.form.js "></script>
+    <!-- 表单验证 -->
+    <script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/jquery.validate.min.js "></script>
+    <script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/messages_zh.min.js "></script>
+    <!-- 五角星评价 -->
+    <script type="text/javascript" src="../../../js/plugins/jquery/jquery.raty.min.js "></script>
+    <!--PC 时间插件 My97DatePicker -->
+    <script type="text/javascript" src="../../../js/plugins/My97DatePicker/WdatePicker.js "></script>
+    <!--公共部分-->
+    <script type="text/javascript" src="../../../js/common/common.js "></script>
+    <script type="text/javascript" src="../../../js/common/util.js "></script>
+    <!-- 核心插件 end-->
+    <!--自己-->
+    <script type="text/javascript" src="../js/order-list-new.js "></script>
+</body>
+
+</html>

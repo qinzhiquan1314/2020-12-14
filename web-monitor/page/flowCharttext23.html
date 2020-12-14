@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>全流程监控总览</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+<meta name=”renderer” content=”webkit|ie-comp|ie-stand” />
+
+<!--bootstrap插件-->
+<link rel="stylesheet" type="text/css"
+	href="../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+<!--pc公共-->
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/table23.css">
+<!--加载等待插件-->
+<link rel="stylesheet" type="text/css"  href="../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+<link rel="stylesheet" type="text/css" href="../css/flowCharttext.css" />
+<link rel="stylesheet" type="text/css" href="../css/modal.css" />
+<link rel="stylesheet" type="text/css" href="../css/monitViewzdh.css" />
+<style type="text/css">
+			
+	.b-tableDiv table>thead>tr>th{
+	font-size:10px;
+	}
+	.bootstrap-table .table thead>tr>th{
+	font-weight:700;
+	}
+	.fixed-table-pagination .pagination-detail, .fixed-table-pagination div.pagination{
+	margin-top:20px;
+	font-size:10px;
+	
+	}
+	.page-list .btn {
+	font-size:10px;
+	border-color:#fa7a07;
+	
+	padding:2px 6px;
+	
+	}
+	.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+	background-color:#fa7a07;
+	border-color:#fa7a07;
+	
+	
+	}
+	.btn-default:focus, .btn-default:hover{
+		border-color:#fa7a07;
+	}
+	.open>.dropdown-toggle.btn-default:hover{
+	border-color:#fa7a07;
+	}
+	.b-tableDiv table>thead>tr>th{
+	font-family:'Verdana', 'SimHei', sans-serif;
+	}
+	.th-inner{
+		text-align:center;
+		font-size:12px;
+	}
+	.table th, .table td { 
+		text-align: center;
+		vertical-align: middle!important;
+	}
+</style>
+</head>
+<body>
+<div class='me-content'>
+	<div id="Lcontainer">
+		<div class='logoBox fl'><img src="../images/stat/logo.png" class='logo'/></div>
+		<div id="Lnav" class='me-lnav'>
+			<ul class="Lnav">	
+				<li class="li1">全流程监控总览</li>
+				<li class="in li2">互联网化一站式交付全流程监控</li>
+				<li class="out li3">传统集中受理交付全流程监控</li>
+				<li class="Lcheck li4">统计及重点指标</li>
+				<li class="li5"></li>
+			</ul>
+		</div>
+		<!--内容切换-->
+		<ul class="tables">
+			<!-- 全流程监控总览 -->
+			<li class="">
+				<div class="iframe clearfix">
+					<div class="topText">
+						截至2018年10月11日 18:10，北京公司今日累计总订单量  <span class="textnub"> 43</span>，竣工订单量  <span class="textnub"> 4</span> ，超时订单量  <span class="textnub"> 1371</span> ，昨日总订单量  <span class="textnub"> 59</span>  。
+					</div>
+					<div class="mainLeft fl">
+						<ul>
+							<li class="tit" name="全部" id="all_business">
+								<img alt="" src="../images/stat/tit_bg_index.png" class="selectbg">
+								<span>全部</span>
+								<img alt="" src="../images/stat/down.png" class="selectdown" id="buttom1">
+							</li>
+							<div id="li2_4">
+								<li class="iselect1 tit" name="固网业务" type="li">
+									固网业务
+									<img alt="" src="../images/stat/down2.png" class="selectshow" id="li2img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+								<li class="iselect2 tit" name="融合业务" type="li">
+									融合业务
+									<img alt="" src="../images/stat/down2.png" class="selectshow1" id="li3img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+								<li class="iselect3 tit" name="快线业务" type="li">
+									快线业务
+									<img alt="" src="../images/stat/down2.png" class="selectshow1" id="li4img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+								<li class="iselect4 tit" name="专线业务" type="li">
+									专线业务
+									<img alt="" src="../images/stat/down2.png" class="selectshow1" id="li5img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+							</div>
+						</ul>
+						<ul class="selectP">
+							<li  class="tit" name="全部施工类型" id='all_work_type'>
+								<img alt="" src="../images/stat/tit_bg_index.png" class="selectbg">
+								<span>全部施工类型</span>
+								<img alt="" src="../images/stat/down.png" class="selectdown" id="buttom2">
+							</li>
+							<div id="li6_7">
+								<li class="iselect5 tit" name="装机服务" type="li">
+									装机服务
+									<img alt="" src="../images/stat/down2.png" class="selectshow" id="li6img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+								<li class="iselect6 tit" name="移机服务" type="li">
+									移机服务
+									<img alt="" src="../images/stat/down2.png" class="selectshow1" id="li7img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+							</div>
+						</ul>
+					</div>
+					<div class="mainRight fl">
+						<div class="selectTop">
+							<img src="../images/stat/small_icons_index.png">
+							北京公司今日累计
+						</div>
+						<div class="selectMain">
+						    <div class="selectBtn clearfix">
+						        <div class="btn1_bg">
+						            <img src="../images/index/btn_bg1.png" alt="" class="hide" id="btn_bg1">
+						            <img src="../images/index/btn_bg2.png" alt="" class="hide" id="btn_bg2">
+						            <img src="../images/index/btn_bg3.png" alt="" class="hide" id="btn_bg3">
+						            <img src="../images/index/btn_bg4.png" alt="" class="hide" id="btn_bg4">
+						            <img src="../images/index/btn_bg5.png" alt="" class="hide" id="btn_bg5">
+						            <img src="../images/index/btn_bg6.png" alt="" class="hide" id="btn_bg6">
+						            <div class="details">
+						            	<div id="btn_bg1_d" class='btn_bg1 hide'>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                    	<div class="top clearfix">
+						                        	<div class="top_l fl">互联网化来单：<span id="internet">192</span></div>
+						                         	<div class="top_r fl">其中一站式交付：<span id="one_stop">120</span></div>
+						                    	</div>
+						                    	<div class="bottom clearfix">
+						                        	<div class="text1 fl">沃易售 <span>1</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+						                        	<div class="text fl">集团商城 <span>1</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+						                        	<div class="text fl">北京网厅 <span>1</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+						                        	<div class="text fl">电话营销 <span>1</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+						                        	<div class="text fl">第三方合作 <span>1</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+						                        	<div class="text fl">其它 <span>1</span></div>
+						                    	</div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_right fl">
+						                    	<div class="top clearfix">
+						                        	<div class="top_l fl">线下实体来单：<span id="under_line">201</span></div>
+						                    	</div>
+						                    	<div class="bottom clearfix">
+						                        	<div class="text1 fl">营业厅 <span>2</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+						                        	<div class="text fl">社会渠道 <span>2</span></div>
+						                    	</div>
+						                	</div>
+						                </div>
+						                <div id="btn_bg2_d" class='btn_bg2 hide'>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">市支中心：<span id="bg2_city">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">客服中心：<span id="bg2_call">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">装维受理：<span id="bg2_install">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">营业厅：<span id="bg2_business_hall">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">社会渠道：<span id="bg2_society">12</span></div>
+						                	</div>
+						                </div>
+						                <div id="btn_bg3_d" class='btn_bg3   hide'>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">市区：<span id="bg3_city">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">近郊：<span id="bg3_suburbs">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">远郊：<span id="bg3_outskirts">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">重通局：<span id="bg3_important">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">其他：<span id="bg3_other">12</span></div>
+						                	</div>
+						                </div>
+						                <div id="btn_bg4_d" class=' btn_bg4  hide'>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">市区：<span id="bg4_city">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">近郊：<span id="bg4_suburbs">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">远郊：<span id="bg4_outskirts">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">重通局：<span id="bg4_important">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">其他：<span id="bg4_other">12</span></div>
+						                	</div>
+						                </div>
+						                <div id="btn_bg5_d" class='  btn_bg5 hide'>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">市区：<span id="bg5_city">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">近郊：<span id="bg5_suburbs">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">远郊：<span id="bg5_outskirts">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">重通局：<span id="bg5_important">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">其他：<span id="bg5_other">12</span></div>
+						                	</div>
+						                </div>
+						                <div id="btn_bg6_d" class='btn_bg6 hide'>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">前台注销：<span id="bg6_rception">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">装维退单：<span id="bg6_install">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">意向单取消：<span id="bg6_ord">12</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                        	<div class="context1 fl">线上订单取消：<span id="bg6_on_line">12</span></div>
+						                	</div>
+						                </div>
+						            </div>   
+						        </div>
+						        <div class="rightBtn clearfix staticPic">
+						            <div class="btn1 fl" id="btn1">
+						                <img src="../images/index/btn1.png" alt="" class="visible1" id="img1">
+						                <div class="nub" id="img1d">43</div>
+						            </div>
+						            <div class="btn2 fl" id="btn2">
+						                <img src="../images/index/btn2.png" alt="" class="visible1" id="img2">
+						                <div class="nub" id="imgd2">26</div>
+						            </div>
+						            <div class="btn3 fl" id="btn3">
+						                <img src="../images/index/btn3.png" alt="" class="visible1" id="img3">
+						                <div class="nub" id="imgd3">1002</div>
+						            </div>
+						            <div class="btn4 fl" id="btn4">
+						                <img src="../images/index/btn4.png" alt="" class="visible1" id="img4">
+						                <div class="nub" id="imgd4">10</div>
+						            </div>
+						            <div class="btn5 fl" id="btn5">
+						                <img src="../images/index/btn5.png" alt="" class="visible1" id="img5">
+						                <div class="nub" id="img5d">4</div>
+						            </div>
+						            <div class="btn6 fl" id="btn6">
+						                <img src="../images/index/btn6.png" alt="" class="visible1" id="img6">
+						                <div class="nub" id="imgd6">1</div>
+						            </div>
+						        </div>
+							</div>
+						</div>
+						<div class="selectBtm clearfix" id="barDateDiv">
+							<div class="btml fl">
+								<img src="../images/stat/small_icons_index.png">
+								订单量
+							</div>
+							<div class="btmr fr">
+								<span class="sl1 slcheck" id="select11">按销售线展示</span>
+								<span class="sl2 " id="select22">按销小时展示</span>
+								<span class="sl3 " id="select33">按销售线导出</span>
+								<span class="sl4 " id="select44">按小时导出</span>
+							</div>
+							<!-- 柱状图 -->
+							<div id='barTable' class='barTable'>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<!-- 互联网化一站式交付全流程监控 -->
+			<li>
+				<!--下拉框-->
+				<div class="choose">
+				<!-------改------->
+					<div class="chooseText">
+						截至2018年10月11日 18:10，北京公司今日累计总订单
+						量  <span class="textnub"> 43</span>，竣工订单量  <span class="textnub"> 4</span> ，超时订单量  <span class="textnub"> 1371</span> ，昨日总订单量  <span class="textnub"> 59</span>  。
+					</div>
+					<!-------改------->
+					<div id="chooseDiv" class="chooseDiv">
+						<div id="chooseDiv0" class="chooseDiv0">
+							<img src="../images/stat/select_bg21.png" class="chooseDivImg1"> 
+							<img src="../images/stat/up.png" class="chooseDivImg2"> 
+							<select id="liabilityState" class="liabilityState show">
+								<option value="">请选择属地分公司</option>
+								<option value="225">二区</option>
+								<option value="226">三区</option>
+								<option value="211">四区</option>
+								<option value="212">五区</option>
+								<option value="213">七区</option>
+								<option value="214">八区</option>
+								<option value="217">通州</option>
+								<option value="219">昌平</option>
+								<option value="220">大兴</option>
+								<option value="218">顺义</option>
+								<option value="216">房山</option>
+								<option value="223">密云</option>
+								<option value="221">怀柔</option>
+								<option value="215">门头沟</option>
+								<option value="222">平谷</option>
+								<option value="224">延庆</option>
+								<!-- <option value="dkhzx">大客户中心</option> -->
+								<!-- <option value="11a09h">电商部</option> -->
+								<!-- <option value="11a0al">市支中心</option>
+								<option value="11a01q">客服中心</option> -->
+								<option value="227">重通局</option>
+								<!-- <option value="cpzczx">产品支撑中心</option>
+								<option value="11a0a1">国际业务中心</option>
+								<option value="11a01r">集团客户</option>
+								<option value="11a01s">电子渠道</option> -->
+								<!-- <option value="11a03d">导航中心</option>
+								<option value="11a04h">宽带业务中心</option>
+								<option value="11a05l">互联互通部</option>
+								<option value="11a079">产创</option> -->
+								<option value="11a08x">其它</option>
+							</select>
+							<select id="liabilityStates" class="liabilityStates hide">
+								<option value="">请选择归属销售线</option>
+								<option value="225">二区</option>
+								<option value="226">三区</option>
+								<option value="211">四区</option>
+								<option value="212">五区</option>
+								<option value="213">七区</option>
+								<option value="214">八区</option>
+								<option value="217">通州</option>
+								<option value="219">昌平</option>
+								<option value="220">大兴</option>
+								<option value="218">顺义</option>
+								<option value="216">房山</option>
+								<option value="223">密云</option>
+								<option value="221">怀柔</option>
+								<option value="215">门头沟</option>
+								<option value="222">平谷</option>
+								<option value="224">延庆</option>
+								<option value="dkhzx">大客户中心</option>
+								<!-- <option value="11a09h">电商部</option> -->
+								<option value="11a0al">市支中心</option>
+								<option value="11a01q">客服中心</option>
+								<option value="227">重通局</option>
+								<!-- <option value="cpzczx">产品支撑中心</option> -->
+								<option value="11a0a1">国际业务中心</option>
+								<option value="11a01r">集团客户</option>
+								<option value="11a01s">电子渠道</option>
+								<!-- <option value="11a03d">导航中心</option>
+								<option value="11a04h">宽带业务中心</option>
+								<option value="11a05l">互联互通部</option>
+								<option value="11a079">产创</option> -->
+								<option value="11a08x">其它</option>
+							</select>
+						</div>
+						<!-------改------->
+						<div id="chooseDiv1" class="chooseDiv1">
+							<select id="liabilityState1" class="liabilityState1">
+								<option value="">全部施工类型</option>
+								<option value="">装机服务</option>
+								<option value="">移机服务</option>
+							</select>
+							<img src="../images/stat/select_bg22.png" class="chooseDivImg3"> 
+							<img src="../images/stat/up.png" class="chooseDivImg4">
+						</div>
+						<!-------改------->
+						<div id="chooseDiv2" class="chooseDiv2 fr">
+							<span class="sp1 spcheck" id="select1">属地</span>
+							<span class="sp2" id="select2">发展</span>
+						</div>
+					</div>
+					
+					
+					
+					
+				</div> 
+				<!--线上流程图-->
+				<div class="flowChartMain">
+					<div id="flowChart" style="width: 100%; height: 490px;" preserveAspectRatio="xMinYMin meet"></div>
+				</div>
+			</li>
+			<!-- 传统集中受理交付全流程监控 -->
+			<li>
+				<!--下拉框-->
+				<div class="choose">
+					<!-------改------->
+					<div class="chooseText">
+						截至2018年10月11日 18:10，北京公司今日累计总订单
+						量  <span class="textnub"> 43</span>，竣工订单量  <span class="textnub"> 4</span> ，超时订单量  <span class="textnub"> 1371</span> ，昨日总订单量  <span class="textnub"> 59</span>  。
+					</div>
+					<!-------改------->
+					<div id="chooseDiv" class="chooseDiv">
+						<div id="chooseDiv0" class="chooseDiv0">
+							<img src="../images/stat/select_bg21.png" class="chooseDivImg1"> 
+							<img src="../images/stat/up.png" class="chooseDivImg2"> 
+							<select id="liabilityState11" class="liabilityState show">
+								<option value="">请选择属地分公司</option>
+								<option value="225">二区</option>
+								<option value="226">三区</option>
+								<option value="211">四区</option>
+								<option value="212">五区</option>
+								<option value="213">七区</option>
+								<option value="214">八区</option>
+								<option value="217">通州</option>
+								<option value="219">昌平</option>
+								<option value="220">大兴</option>
+								<option value="218">顺义</option>
+								<option value="216">房山</option>
+								<option value="223">密云</option>
+								<option value="221">怀柔</option>
+								<option value="215">门头沟</option>
+								<option value="222">平谷</option>
+								<option value="224">延庆</option>
+								<!-- <option value="dkhzx">大客户中心</option>
+								<option value="11a09h">电商部</option>
+								<option value="11a0al">市支中心</option>
+								<option value="11a01q">客服中心</option> -->
+								<option value="227">重通局</option>
+								<!-- <option value="cpzczx">产品支撑中心</option>
+								<option value="11a0a1">国际业务中心</option>
+								<option value="11a01r">集团客户</option>
+								<option value="11a01s">电子渠道</option> -->
+								<!-- <option value="11a03d">导航中心</option>
+								<option value="11a04h">宽带业务中心</option>
+								<option value="11a05l">互联互通部</option>
+								<option value="11a079">产创</option> -->
+								<option value="11a08x">其它</option>
+							</select>
+							<select id="liabilityStates1" class="liabilityStates hide">
+								<option value="">请选择归属销售线</option>
+								<option value="225">二区</option>
+								<option value="226">三区</option>
+								<option value="211">四区</option>
+								<option value="212">五区</option>
+								<option value="213">七区</option>
+								<option value="214">八区</option>
+								<option value="217">通州</option>
+								<option value="219">昌平</option>
+								<option value="220">大兴</option>
+								<option value="218">顺义</option>
+								<option value="216">房山</option>
+								<option value="223">密云</option>
+								<option value="221">怀柔</option>
+								<option value="215">门头沟</option>
+								<option value="222">平谷</option>
+								<option value="224">延庆</option>
+								<option value="dkhzx">大客户中心</option>
+								<!-- <option value="11a09h">电商部</option> -->
+								<option value="11a0al">市支中心</option>
+								<option value="11a01q">客服中心</option>
+								<option value="227">重通局</option>
+								<!-- <option value="cpzczx">产品支撑中心</option> -->
+								<option value="11a0a1">国际业务中心</option>
+								<option value="11a01r">集团客户</option>
+								<option value="11a01s">电子渠道</option>
+								<!-- <option value="11a03d">导航中心</option>
+								<option value="11a04h">宽带业务中心</option>
+								<option value="11a05l">互联互通部</option>
+								<option value="11a079">产创</option> -->
+								<option value="11a08x">其它</option>
+							</select>
+						</div>
+						<!-------改------->
+						<div id="chooseDiv1" class="chooseDiv1">
+							<select id="liabilityState1" class="liabilityState1">
+								<option value="">全部施工类型</option>
+								<option value="">装机服务</option>
+								<option value="">移机服务</option>
+							</select>
+							<img src="../images/stat/select_bg22.png" class="chooseDivImg3"> 
+							<img src="../images/stat/up.png" class="chooseDivImg4">
+						</div>
+						<!-------改------->
+						<div id="chooseDiv2" class="chooseDiv2 fr">
+							<span class="sp1 spcheck" id="select3">属地</span>
+							<span class="sp2" id="select4">发展</span>
+						</div>
+					</div> 
+				</div>
+				<!--线下流程图-->
+				<div class="flowChartMain">
+					<div id="flowChart1" style="width: 100%; height: 490px;" preserveAspectRatio="xMinYMin meet"></div>
+				</div>
+			</li>
+			<!-- 统计及重点指标 -->
+			<li class='on'>
+				<div class="con clearfix">
+					<div class="conLeft fl">
+						<div class="conLeftTitle">
+							<div class="conLeftTitle1 fl">
+								<span class="sp1 spcheck">属地</span>
+								<span class="sp2">发展</span>
+							</div>
+							<div class="conLeftTitle2 fr">
+								<div class="conLeftTitle2sele">
+									<img src="../images/stat/select_bg1.png" class="conLeftTitle2img ">
+									<img src="../images/stat/up.png" class="conLeftTitle2img1">  
+									<select class='select4'>
+										<option value="">请选择报表</option>
+										<option value="1">订单统计表（属地）</option>
+										<option value="2">订单统计表（受理）</option>
+										<option value="3">订单统计表（发展）</option>
+										<option value="4">按订单来源统计表</option>
+										<option value="5">订单详情明细表</option> 
+										<option value="6">按分公司统计表（属地）</option>
+										<option value="7">按分公司统计表（发展）</option>
+										<option value="8">订单评价统计表（宽融合业务）</option>
+										<option value="9">订单评价统计表（移网业务）</option>
+										<option value="10">订单评价统计表（快线&专线业务）</option>
+										<option value="11">订单评价明细表（宽融融合业务）</option>
+										<option value="12">订单评价明细表（移网业务）</option>
+										<option value="13">订单评价明细表（快线&专线业务）</option>
+										<option value="14">重点监控指标（属地-日累计）</option>
+										<option value="15">重点监控指标（发展-日累计）</option>
+										<option value="16">重点监控指标（属地-月累计）</option>
+										<option value="17">重点监控指标（发展-月累计）</option>
+										<option value="18">退单原因统计表</option> 
+									</select>
+									<select id="liabilityStates" class="liabilityStates hide">
+										<option value="">请选择属地分公司</option>
+										<option value="225">二区</option>
+										<option value="226">三区</option>
+										<option value="211">四区</option>
+										<option value="212">五区</option>
+										<option value="213">七区</option>
+										<option value="214">八区</option>
+										<option value="217">通州</option>
+										<option value="219">昌平</option>
+										<option value="220">大兴</option>
+										<option value="218">顺义</option>
+										<option value="216">房山</option>
+										<option value="223">密云</option>
+										<option value="221">怀柔</option>
+										<option value="215">门头沟</option>
+										<option value="222">平谷</option>
+										<option value="224">延庆</option>
+										<option value="dkhzx">大客户中心</option>
+										<!-- <option value="11a09h">电商部</option> -->
+										<option value="11a0al">市支中心</option>
+										<option value="11a01q">客服中心</option>
+										<option value="227">重通局</option>
+										<!-- <option value="cpzczx">产品支撑中心</option> -->
+										<option value="11a0a1">国际业务中心</option>
+										<option value="11a01r">集团客户</option>
+										<option value="11a01s">电子渠道</option>
+										<!-- <option value="11a03d">导航中心</option>
+										<option value="11a04h">宽带业务中心</option>
+										<option value="11a05l">互联互通部</option>
+										<option value="11a079">产创</option> -->
+										<option value="11a08x">其它</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!-- table -->
+						<div class="conLeftTop">
+							<table class="tableStat"  id='tableStat'>
+							<thead class="">
+								<tr>
+									<th></th>
+									<th>今日值</th>
+									<th>本月累计</th>
+									<th>累计环比</th>
+								</tr>
+							</thead>
+							<tbody class="">
+								<tr>
+									<td>资源准确率</td>
+									<td>70%</td>
+									<td>65%</td>
+									<td>12%</td>
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 四种资源类退单量</td>
+									<td>70%</td>
+									<td>65%</td>
+									<td>12%</td>
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 工单总量</td>
+									<td>70%</td>
+									<td>65%</td>
+									<td>12%</td>
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 抢单总量</td>
+									<td>70%</td>
+									<td>65%</td>
+									<td>12%</td>
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 成功抢单总量</td>
+									<td>70%</td>
+									<td>65%</td>
+									<td>12%</td>
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 工单总量加意向单量</td>
+									<td>70%</td>
+									<td>65%</td>
+									<td>12%</td>
+								</tr>
+							</tbody>	
+						</table>
+						</div>
+						<!--雷达图开始  -->
+						<div class="conLeftBottom">
+							<div class="conLeftBottomtit">
+								<img src="../images/stat/small_icons.png" />
+								雷达图
+							</div>
+							<div class="conLeftBottomCon">
+								<div id='conLeftBottomCon1' class='conLeftBottomCon1'>
+								
+								</div>
+							</div>
+						</div>
+						<!--雷达图结束  -->
+					</div>
+					<div class="conRight fl">
+						<div class="conRightTitle clearfix">
+							<div class="conRightTitlesele fl">
+									<img src="../images/stat/select_bg2.png" class="conRightTitle2img">
+									<img src="../images/stat/up.png" class="conLeftTitle2img1">  
+									<select class='select5'>
+										<option value="">请选择归属销售线</option>
+										<option value="225">二区</option>
+										<option value="226">三区</option>
+										<option value="211">四区</option>
+										<option value="212">五区</option>
+										<option value="213">七区</option>
+										<option value="214">八区</option>
+										<option value="217">通州</option>
+										<option value="219">昌平</option>
+										<option value="220">大兴</option>
+										<option value="218">顺义</option>
+										<option value="216">房山</option>
+										<option value="223">密云</option>
+										<option value="221">怀柔</option>
+										<option value="215">门头沟</option>
+										<option value="222">平谷</option>
+										<option value="224">延庆</option>
+										<option value="dkhzx">大客户中心</option>
+										<!-- <option value="11a09h">电商部</option> -->
+										<option value="11a0al">市场支撑中心</option>
+										<option value="11a01q">客服中心</option>
+										<option value="227">重通局</option>
+										<!-- <option value="cpzczx">产品支撑中心</option> -->
+										<option value="11a0a1">国际业务中心</option>
+										<option value="11a01r">集团客户</option>
+										<option value="11a01s">电子渠道</option>
+										<option value="11a08x">其它</option>
+									</select>
+							</div>
+							<div class="conRightTitleseleDate fr">
+								数据日期:2018年10月25日
+							</div>
+						</div>
+						<div class="conRightCon1">
+							<div class="conLeftBottomtit" style='margin-bottom:10px;'>
+								<img src="../images/stat/small_icons.png" />
+								  近6个月趋势图
+							</div>
+							<!-- 折线图开始 -->
+							<div id='conRightCon1Top' class='conRightCon1Top'>
+								
+							</div>
+		
+						</div>
+						<div class="conRightCon2">
+							<div class="conLeftBottomtit" style='margin-top: 5px;'>
+								<img src="../images/stat/small_icons.png" />
+								  区域排名
+							</div>
+							<!-- 柱状图 -->
+							<div id='conRightCon2Top' class='conRightCon2Top'>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	</div>
+	<!--图表-->
+	<div class="modal fade bs-example-modal-lg " id="myModal_chart" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content modal_box_chart">
+				<div class="clearfix">
+					<div class="modal_box_left_chart fl">
+						<table id="table_chart" class="table_chart table-bordered"
+							data-toggle="table_chart">
+							<thead class="table_header_chart">
+								<tr>
+									<th data-field="developerAreaName">分公司</th>
+									<th data-field="aCount">订单量</th>
+									<th data-field="bCount">超时单量</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="modal_box_right_chart fl">
+						<p class="modal_box_right_header_chart">本环节销售线订单量/超时单量</p>
+						<div class="modal_box_right_nav_chart clearfix">
+							<div class="fl" id='timeFlag'>更新日期:2018年7月日5时35分</div>
+							<div class="modal_foot fr" id='chart_export'>数据导出</div>
+						</div>
+						<div class="modal_chart_box_chart">
+							<div id="modal_chart" style="height: 100%;"></div>
+						</div>
+						<div class="modal_foot fr" id="close_btn_chart">收起视图</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--表格-->
+	<!--a表格-->
+	<div class="modal fade bs-example-modal-lg " id="myModal_table_a"
+		tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content modal_box">
+				<!--头部-->
+				<div class="clearfix">
+					<div class="modal_header_l fl">全部订单明细</div>
+					<div class="modal_header_r fr table_export" id='table_export'>
+						导出数据</div>
+				</div>
+				<!--table样式-->
+				<div class="modal_table">
+					<!--<table id="table" class="table table-bordered" >-->
+					<table id="table_a" class="table table_table table-bordered">
+						<thead class="table_header">
+							<tr>
+								<th data-field="exTradeInmode">受理渠道</th>
+								<th data-field="bssSubscribeId">订单号(意向订单)</th>
+								<th data-field="lastJobWorkInstId">工单号</th>
+								<th data-field="prodCatalog">业务类型</th>
+								<th data-field="lastJobName">当前环节</th>
+								<th data-field="developAreaName">发展分公司</th>
+								<th data-field="areaNameName">属地分公司</th>
+								<th data-field="lastJobStaff">当前环节处理人</th>
+								<th data-field="lastJobStaffTel">当前环节处理人电话</th>
+								<th data-field="appointDate">预约时间</th>
+								<!--<th data-field="workStartDate">创建时间</th>-->
+								<th data-field="jobTime">环节时限</th>
+								<th data-field="overTime">超时时点</th>
+								<th data-field="warnLevel">告警级别</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="modal_foot fr" id="close_btn">收起图表</div>
+			</div>
+		</div>
+	</div>
+	<!--b表格-->
+	<div class="modal fade bs-example-modal-lg " id="myModal_table_b"
+		tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content modal_box">
+				<!--头部-->
+				<div class="clearfix">
+					<div class="modal_header_l fl">超时明细</div>
+					<div class="modal_header_r fr table_export" id='table_export'>
+						导出数据</div>
+				</div>
+				<!--table样式-->
+				<div class="modal_table">
+					<!--<table id="table" class="table table-bordered" >-->
+					<table id="table_b" class="table table_table table-bordered">
+						<thead class="table_header">
+							<tr>
+								<th data-field="exTradeInmode">受理渠道</th>
+								<th data-field="bssSubscribeId">订单号(意向订单)</th>
+								<th data-field="lastJobWorkInstId">工单号</th>
+								<th data-field="prodCatalog">业务类型</th>
+								<th data-field="lastJobName">当前环节</th>
+								<th data-field="developAreaName">发展分公司</th>
+								<th data-field="areaNameName">属地分公司</th>
+								<th data-field="lastJobStaff">当前环节处理人</th>
+								<th data-field="lastJobStaffTel">当前环节处理人电话</th>
+								<th data-field="appointDate">预约时间</th>
+								<!--<th data-field="workStartDate">创建时间</th>-->
+								<th data-field="jobTime">环节时限</th>
+								<th data-field="overTime">超时时点</th>
+								<th data-field="compareMinutes">超时分钟数</th>
+								<th data-field="warnLevel">告警级别</th>
+								<th data-field="warnLevel" data-formatter="actionFormatter"
+									data-width='80px'>触发短信</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="modal_foot fr" id="close_btn_b">收起图表</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!--bootstrap-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<!--bootstrap table-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+<!--PC 时间插件 My97DatePicker -->
+  		 <script type="text/javascript" src="../js/plugins/My97DatePicker/WdatePicker.js" ></script>
+<!--控制导出按钮-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+<!--控制导出功能-->
+<!--bootstrap paginator-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script type="text/javascript" src="../js/plugins/echarts3/echarts.js"></script>
+<!-- <script src="https://cdn.bootcss.com/echarts/3.8.4/echarts.js"></script> -->
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
+<script type="text/javascript" src="../js/flowChart.js"></script>
+<!---->
+
+<!-- <script type="text/javascript" src="../js/monitView.js"></script> -->
+<script type="text/javascript" src="../js/dateTable.js"></script>
+<!-- <script type="text/javascript" src="../js/table.js"></script> -->
+<script type="text/javascript" src="../js/test.js"></script>
+<!--[if lt IE 9]>
+	   <style type="text/css">
+	   .modal_box {
+	       background:transparent;
+	       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7fE7E7E7,endColorstr=#7fE7E7E7);
+	       zoom: 1;
+	   }
+	   .modal_box_chart {
+	       background:transparent;
+	       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7fE7E7E7,endColorstr=#7fE7E7E7);
+	       zoom: 1;
+	   }
+	   </style>
+	<![endif]-->
+<script type="text/javascript">
+$(document).on("change","#selectTable",function(){
+	var valueTable = $('#selectTable option:selected').val()
+	if(valueTable==1){
+		window.open('staticReport/orderStatic.html?typeTable=OrderStatisticInArea&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==2){
+		window.open('staticReport/orderStatic.html?typeTable=OrderStatisticInAccept&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==3){
+		window.open('staticReport/orderStatic.html?typeTable=OrderStatisticInDevelop&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')	
+	}
+	else if(valueTable==4){
+		window.open('staticReport/sourceOrd.html?typeTable=TradeSourceStatistic&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==5){
+		window.open('monitorReport/orderlistdetail.html?typeTable=orderDetail&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==6){
+		window.open('staticReport/branchStatic.html?typeTable=BranchCompanyStatisticInArea&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==7){
+		window.open('staticReport/branchStatic.html?typeTable=BranchCompanyStatisticInDevelop&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==8){
+		window.open('commentTable.html?typeTable=commentStatistic1&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==9){
+		window.open('commentTable.html?typeTable=commentStatistic2&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==10){
+		window.open('commentTable.html?typeTable=commentStatistic3&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==11){
+		window.open('commentTable.html?typeTable=commentDetail1&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==12){
+		window.open('commentTable.html?typeTable=commentDetail2&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')	
+	}
+	else if(valueTable==13){
+		window.open('commentTable.html?typeTable=commentDetail3&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==14){
+		window.open('monitorReport/monitortable.html?typeTable=monitorDayByArea&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==15){
+		window.open('monitorReport/monitortable.html?typeTable=monitorDayByDevelopArea&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==16){
+		window.open('monitorReport/monitortable.html?typeTable=monitorMonthByArea&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==17){
+		window.open('monitorReport/monitortable.html?typeTable=monitorMonthByDevelopArea&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+	else if(valueTable==18){
+		window.open('monitorReport/backcount.html?typeTable=orderBackDetail&userParam=CUpmqVgkWgGhWZOHRm5PXv7EvcZsiFKKjKM2W1Kq3U4%3D')
+	}
+})
+/* 雷达图开始 */
+	var radar = echarts.init(document.getElementById('conLeftBottomCon1'));
+	var optionRadar = {
+		   /*  title: {
+		        text: '基础雷达图'
+		    }, */
+		    tooltip: {},
+		    legend: {
+		    	show: true,         
+		        icon: 'rect',// 图例项的 icon。ECharts 提供的标记类型包括 'circle', 'rect', 'roundRect', 'triangle', 'diamond', 'pin', 'arrow'也可以通过 'image://url' 设置为图片，其中 url 为图片的链接，或者 dataURI。可以通过 'path://' 将图标设置为任意的矢量路径。         
+		        top : '2%', // 图例距离顶部边距
+		        left : '15%',
+		        data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+		    },  
+		    radar: {
+		        // shape: 'circle',
+		        name: {
+		            textStyle: {
+		                color: '#fff',
+		                backgroundColor: '',
+		                borderRadius: 3,
+		                padding: [3, 5]
+		           }
+		        },
+		        indicator: [
+		           { name: '资源准确率', max: 100},
+		           { name: '评价率', max: 100,axisLabel:{show:false}},
+		           { name: '竣工率', max: 100,axisLabel:{show:false}},
+		           { name: '按时履约率', max: 100,axisLabel:{show:false}},
+		           { name: '抢单率', max: 100,axisLabel:{show:false}},
+		           { name: '意向单转化率', max: 100,axisLabel:{show:false}},
+		           { name: '意向单匹配率', max: 100,axisLabel:{show:false}},
+		           { name: '意向单占比', max: 100,axisLabel:{show:false}},
+		           { name: '一次预约率', max: 100,axisLabel:{show:false}}
+		        ],
+		        axisLabel:{
+	                show:true,
+	                color:'#333',
+	                showMinLabel: false
+	            },
+		        nameGap: 8,     //名称距离雷达图位置
+		        
+		    },
+		    series: [
+		    	{
+                    name: '',
+                    type: 'radar',
+                    symbol: "none", // 去掉图表中各个图区域的边框线拐点
+		        data : [
+		            {
+		                value : [23, 15, 78, 35, 50, 19, 35, 59, 82],
+		                name : '指标整体值',
+		                icon: 'rect', 
+		                itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                	color: '#db9450'// 图表中各个图区域的边框线颜色
+                                },
+                            }
+                        },
+		               
+		
+		            },
+		             {
+		            	 value : [50, 19, 35, 59, 82, 23, 15, 78, 35],
+		                name : '公司指标值',
+		                icon: 'rect', 
+		                itemStyle: {
+                            normal: {
+                                lineStyle: {
+                                	color: '#42cdeb'// 图表中各个图区域的边框线颜色
+                                },
+                            }
+                        },
+		               
+		            }
+		        ]
+		    }]
+		};
+	radar.setOption(optionRadar, true);
+	
+/* 雷达图结束*/
+/*折线图开始  */
+var line = echarts.init(document.getElementById('conRightCon1Top'));
+var optionLine = {
+   /*  title: {
+        text: '折线图堆叠'
+    }, */
+    tooltip: {
+        trigger: 'axis'
+    },
+    //图例
+    /* legend: {
+        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+    }, */
+    grid: {
+        left: '1%',
+        right: '2%',
+        top:'3%',
+        bottom:'5%',
+        containLabel: true
+    },
+    /* toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    }, */
+    xAxis: {
+        type: 'category',
+        boundaryGap: true,
+        data: ['2018-4','2018-5','2018-6','2018-7','2018-8','2018-9'],
+        axisLabel  : {    // 轴线上的文字
+            textStyle: {
+                color: '#ffffff',
+                fontStyle: 'normal',
+                fontFamily: '微软雅黑'
+            },
+            rotate: 0,
+            margin: 10,
+            interval: 0
+        },
+        axisLine: { 
+            show: false, // X轴坐标线
+            lineStyle: {
+                color: '#ffffff',
+              	width: 1
+            }
+        },
+    },
+    yAxis: {
+        type: 'value',
+     	axisLine: {
+              show: true, // Y轴坐标线
+              lineStyle: {
+                  color: '#ffffff',
+                  width: 1
+              }
+         }
+    },
+    series: [
+        {	
+            name:'邮件营销',
+            type:'line',
+            stack: '总量',
+            color:['#1cbd1c'],
+            symbol:'circle',
+            symbolSize:10,
+            itemStyle : {
+				normal : {
+					lineStyle:{
+						color:'#1cbd1c'
+					}
+				}
+			},
+            data:[120, 132, 101, 134, 90, 230, 210],
+        },
+        {
+            name:'联盟广告',
+            type:'line',
+            stack: '总量',
+            color:['#db9a34'],
+            symbol:'circle',
+            symbolSize:10,
+            itemStyle : {
+				normal : {
+					lineStyle:{
+						color:'#db9a34'
+					}
+				}
+			},
+            data:[220, 182, 191, 234, 290, 330, 100]
+        },
+        {
+            name:'直接访问',
+            type:'line',
+            stack: '总量',
+            color:['#cddb34'],
+            symbol:'circle',
+            symbolSize:10,
+            itemStyle : {
+				normal : {
+					lineStyle:{
+						color:'#cddb34'
+					}
+				}
+			},
+            data:[320, 332, 301, 334, 390, 330, 320]
+        },
+    ]
+};
+line.setOption(optionLine,true);
+/*柱状图开始  */
+var bar4 = echarts.init(document.getElementById('conRightCon2Top'));
+var bar4X=["二区","三区","四区","五区","七区","八区","通州","昌平","大兴","顺义","房山","密云", "怀柔","门头沟","平谷","延庆","大客户中心","市支中心","客服中心","重通局","国际业务中心","集团客户","电子渠道","其它"]
+var optionBar = {
+        tooltip : {
+            // trigger: 'axis'
+        },
+        color: ['#5abfde'],  // 柱子颜色
+        legend: {  // 图例
+            show: false,
+          /*   data: ['访问量', '人数', '平均访问量'], */
+            textStyle: {
+                //color: '#aaaaaa'
+            },
+            right: '3%'
+        },
+        grid:{  // 可控制图标大小和位置  
+        	width:'100%',  // 宽 & 高
+//          height:'70%',
+        	width:'auto',
+        	height:'auto',
+            top: '30px', // 距离容器顶部
+            bottom: '60px',  // X轴位置距离容器底部
+            x:'50px',  // 距离容器X方向距离
+            borderColor:'transparent'
+        },
+    	xAxis : {
+			type : 'category',
+			data : bar4X,
+			nameTextStyle : {
+				fontSize : 8
+			},
+			axisLabel : {
+				interval : 0,
+				rotate : -60,
+				formatter : function(value, index) {
+					var rt = "";
+					for (var i = 0; i < value.length; i++) {
+						rt += value.substr(i, 1) + "\n";
+					}
+					rt = value;
+					return rt;
+				},
+				textStyle:{
+	                fontSize:10 // 让字体变大
+	            }
+				
+			},
+			axisLine: { 
+                show: true, // X轴坐标线
+                lineStyle: {
+                    color: '#ffffff',
+                  	width: 1
+                }
+            },	
+		},
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel  : {    // 轴线
+                    textStyle: {
+                        color: '#ffffff',
+                        fontStyle: 'normal',
+                        fontFamily: '微软雅黑'
+                    }
+                },
+                splitLine:{
+                    show: 'true',
+                    lineStyle: {
+                        color: '#5a66bd',
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    show: true, // Y轴坐标线
+                    lineStyle: {
+                        color: '#ffffff',
+                        width: 1
+                    }
+                }
+            },
+
+        ],
+        series : [
+            {
+                name:'订单量',
+                type:'bar',
+                barGap:0,//柱间距离
+                barWidth: 12,  //柱子宽度
+                itemStyle:{
+                	emphasis: {
+                        barBorderRadius: 4    //显示圆角
+                    },
+                    normal:{
+                    	barBorderRadius: 4,
+                        color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{   //颜色渐变
+                        	offset: 0,
+                            color: '#99d9ea'
+                        }, {
+                        	offset: 1,
+                            color: '#3fa7dc'
+                        }]),
+                        label: {
+                            show: true,      //开启显示
+                            position: 'top', //在上方显示
+                            textStyle: {     //数值样式
+                                color: '#ffffff',
+                                fontSize: 12
+                            }
+                        }
+     
+                    },
+                },
+                data:[320, 120, 301, 334,320, 332, 301, 334, 100, 330, 320,220, 332, 201, 334, 390, 330, 320,320, 132, 301, 334, 390, 330, 320]
+            },
+        ]
+      };	
+bar4.setOption(optionBar,true);
+//逻辑处理
+
+
+</script>
+</html>

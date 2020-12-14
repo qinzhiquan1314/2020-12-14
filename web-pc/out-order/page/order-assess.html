@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>订单评价</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+	<!--bootstrap插件-->
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+	<!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+	<!--pc公共-->
+	<link rel="stylesheet" type="text/css" href="../../../css/base.css">
+	
+	<!-- pc端样式统一风格，一般都写在base.css中即可，本页特殊设置写在本页即可  -->
+	<style>
+		html,body{height:100%;}
+		body {
+			/* filter:progid:DXImageTransform.Microsoft.gradient(enabled='ture',GradientType='1',StartColorStr=#85000000,EndColorstr=#85000000); */
+			background-color: #fae1c3;
+			color: #333;
+			font-family:'SimHei';
+		}
+
+		/* 五星评价 start */
+		.pc-assess {
+		
+		}
+		
+		.pc-assess .bb2 {
+			border-bottom: 1px solid #bbb;
+		}
+		.pc-assess .mgt16 {
+			margin-top: 16px;
+		}
+		.pc-assess .a-row {
+		    font-size: 16px;
+		    color: #333;
+		    height: 50px;
+		    line-height: 50px;
+		    margin-left: 35px;
+		    margin-right: 38px;
+		}
+		.pc-assess .row-left {
+			float: left;
+			/* width:36%; */
+			/* margin-left: 36px; */
+		}
+		.pc-assess .row-right{
+			float: right;
+			/* margin-right: 36px; */
+			color: #333;
+		}
+		.pc-assess .row-right .ratyWidth {
+			width: 170px;
+		}
+		.pc-assess .row-right .fontWidth {
+			width: 60px;
+		}
+		.pc-assess .row-right img{ 
+			height: 24px;
+			width: 24px;
+			margin-top: -6px;
+		}
+		/* 五星评价 end */
+		
+		.pc-assess .a-textarea {
+		    height: 200px;
+		    width: 420px;
+		    line-height: 120%;
+		    font-size: 18px;
+		    color: #323232;
+		    padding: 20px;
+		    margin: 20px auto;
+		    border: 0px solid #fff;
+		}
+		
+		.pc-assess .btn-group {
+			margin-top:10px;
+			margin-bottom: 10px;
+		}
+		
+		.pc-assess .btn-group .btt{
+			display: block;
+	        font-size: 20px;
+		    width: 120px;
+		    height: 50px;
+		    text-align: center;
+		    line-height: 50px;
+		    /* margin: 0 20px; */
+		}
+		
+		/* .pc-assess .btn-group .assessReset{
+	        border: 1px solid #666666;
+	        color: #333;
+	        margin-left: 185px;
+	        margin-right: 10px;
+	        text-decoration: none;
+	 	} */
+		
+		.pc-assess .btn-group .assessSubmit{
+		   border: 1px solid #f3780c;
+		    color: #f3780c;
+		    text-decoration: none;
+		    margin-left: 185px;
+		}
+		.pc-assess .btn-group .assessReset:hover {
+			color: #6e6e6e;
+		}
+		
+		.pc-assess .btn-group .assessSubmit:hover {
+			color: #dc3f02;
+		}
+		
+		.z_num{
+			right: 53px;
+			font-size: 16px;
+			color: #333;
+			bottom: 0;
+		}
+	   /*---增加评价部分--strat-- */
+	   .z_evaluation{
+			width:100%;
+			height:80px;
+			/* line-height: 6rem; */
+		}
+		.z_veap{
+		    width: 85%;
+		    display: table;
+		    vertical-align: middle;
+		    height: 100%;
+		    margin: auto;
+		}
+		.z_veapsp1{
+			width: 16px;
+			height: 2px;
+			display: table-cell;
+			vertical-align: middle;
+		}
+		/* 横线 */
+		.z_veapsp1>div{
+			width:100%;
+			height:2px;
+			background: #333;
+		}
+		
+		.z_veapsp2{
+			width: 50px;
+			text-align: center;
+			font-size: 20px;
+			color: #333;
+			display: table-cell;
+			vertical-align: middle;
+		}
+		
+		/* 总体评价   */
+		.totalEval {
+		    height:40px; /* 设置高度 */
+		    text-align: center;
+		    display: table;
+		    margin: 0 auto 30px;
+		}
+		
+		.totalEval li{
+		    width: 130px;
+		    line-height: 40px;
+		    float: left;
+		    font-size: 14px;
+		    /* font-weight: bolder; */
+		    /* border-radius: 12px; */
+		    letter-spacing: 3px;
+		    display: table-cell;
+		    margin: 0 10px;
+		}
+		.evaluatep {
+			width: 130px;
+			background: #fae1c3;
+			color:#000;
+		}
+		.li-on {
+			background-color:#f7b135;
+			color:#fff;
+		}
+		.li-off {
+			background-color:#fff;
+			color:#333;
+		}
+		
+		.varea{
+			/* filter:progid:DXImageTransform.Microsoft.gradient(enabled='ture',GradientType='1',StartColorStr=#10ffffff,EndColorstr=#10ffffff);
+			background-color: rgba(255,255,255,0.5); */
+			/* padding: 20px; */
+			background-color: #fcf0e1;
+		}
+		/*---增加评价部分--end-- */
+		/*增加评价短信验证*/
+			.messageInfo  {
+				margin:0 auto;
+				margin-top:0.8rem;
+			    width: 92%;
+			    color:red;
+			    font-size: 20px;
+			}
+			.getCode{
+				margin:0 auto;
+				width: 100%;
+			}
+			.codeButton{
+				position: absolute;
+				height:33.6px;
+				right:27px;
+				top:3.2px;
+				color:#FFFFFF;
+				padding:9.6px 16px;
+				border-radius: 4px;
+				font-size:14.4px;
+				background-color:#f7b135;
+				z-index: 10;
+				text-align:center;
+				line-height:1.6px;
+			}
+			.codeInput{
+				width:90%;
+				height: 40px;
+				font-size: 16px;
+				border:1 px solid;
+				border-radius:8px;
+			    padding:0 16px;;	
+				margin-left:24px;
+				line-height:40px;
+			}
+		
+		
+	</style>
+  </head>
+  
+  <body>
+  	
+	<div class="pc-assess">
+	     <div class="messageInfo">
+	     请您根据办理业务所留业务号码<span id="phoneNum"></span>获取验证码后提交评价
+        </div>	 
+		<div class="z_evaluation">
+	        <div class="z_veap">
+	           <div class="z_veapsp1"><div><!-- 横线 --></div></div>
+	           <div class="z_veapsp2 font-space-2px">您对本次服务满意吗？</div>
+	           <div class="z_veapsp1"><div><!-- 横线 --></div></div>
+	        </div>
+	    </div>
+		<form  id="submitForm">
+			<ul class="totalEval"><!-- #menu 这个会有默认样式，不要使用 -->
+				<li id="3" class="li-on">好评</br><p class="evaluatep">(9-10分)</p></li>
+				<li id="2" class="li-off">中评</br><p class="evaluatep">(7-8分)</p></li>
+				<li id="1" class="li-off">差评</br><p class="evaluatep">(1-6分)</p></li>
+				<input type="hidden" id="extLevel4" name="extLevel4" value="3">
+			</ul>
+			
+			<div class="varea">
+				<div class="a-row">
+					<div class="row-left">产品评价</div>
+					<div class="row-right">
+						<div id="demo-service" class="fl ratyWidth"></div>
+					    <div id="hint-service" class="fl fontWidth"></div>
+					</div>
+				</div>
+				<div class="a-row">
+					<div class="row-left">上门服务</div>
+					<div class="row-right">
+						<div id="demo-fashion" class="fl ratyWidth"></div>
+					    <div id="hint-fashion" class="fl fontWidth"></div>
+					</div>
+				</div>
+				<div class="a-row">
+					<div class="row-left">施工速度</div>
+					<div class="row-right">
+						<div id="demo-construct" class="fl ratyWidth"></div>
+					    <div id="hint-construct" class="fl fontWidth"></div>
+					</div>
+				</div>
+				<div id="divWLFW" class="a-row dp-none">
+					<div class="row-left">物流服务</div>
+					<div class="row-right">
+						<div id="demo-extLevel1" class="fl ratyWidth"></div>
+					    <div id="hint-extLevel1" class="fl fontWidth"></div>
+					</div>
+				</div> 
+  			</div>
+  			
+    		
+  			<div class="ps-relative txc">
+				<textarea class="a-textarea" id="comment" name="comment" placeholder="亲，您的鼓励是我们用心服务的最大动力！&#13;&#10;(文字输入上限为100字)" onkeyup="countWord()">
+				</textarea>
+				<span class="z_num ps-absolute"><span id="textNum">0</span>/100</span>
+			</div>
+  			
+  			<!-- 按钮区 -->
+  			<div class="getCode" style="position:relative;">
+			   <input type="text"  id="codeInput" class="codeInput"  name="codeNumber" placeholder="验证码" datavalue="验证码">
+			   <input type="button" id="CodeBtn" class="codeButton"  value="获取验证码">
+			</div>
+  			<div class="btn-group">
+				<!-- <a href="javascript:;" class="assessReset btt fl">重置</a> -->
+				<a href="javascript:;" class="assessSubmit btt fl">提交评价</a>
+			</div>
+		</form>
+		
+	</div>  
+	<!-- 核心插件 start-->
+	<!--[if lt IE 9]>
+	<script>
+	(function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();
+	</script>
+	<script src="../../../js/plugins/respond.min.js"></script>
+	<script src="../../../js/plugins/echarts/js/html5shiv.js"></script>
+	<script src="../../../js/plugins/excanvas.min.js"></script>
+	<![endif]-->
+			
+	<!--bootstrap-->
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+	<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- layer 弹出层 -->
+	<script type="text/javascript" src="../../../js/plugins/layui/layer/layer.js"></script>
+	
+	<!-- 表单  -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery.form.js"></script>
+		
+	<!-- 表单验证 -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/messages_zh.min.js"></script>
+	
+	<!-- 加载等待插件 -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+	
+	<!-- 五角星评价 -->
+	<script type="text/javascript" src="../../../js/plugins/jquery/jquery.raty.min.js"></script>
+	
+	<!--公共部分-->
+	<script type="text/javascript" src="../../../js/common/common.js"></script>
+	<script type="text/javascript" src="../../../js/common/util.js"></script>
+	
+	<!-- 核心插件 end-->  
+	
+	<!--自己-->
+	<script type="text/javascript" src="../js/order-assess.js"></script>
+  </body>
+</html>

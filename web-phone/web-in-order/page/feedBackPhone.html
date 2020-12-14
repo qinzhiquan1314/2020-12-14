@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线反馈</title>
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--手机端  时间插件  -->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/mobiscroll/mobiscroll.custom-2.5.2.min.css">
+    <!-- 手机端加载等待 -->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+    <!--手机公共-->
+    <link rel="stylesheet" type="text/css" href="../../css/web-base.css">
+
+    <link rel="stylesheet" type="text/css" href="../css/order-list.css">
+    <!-- 手机自己 -->
+    <link rel="stylesheet" type="text/css" href="../css/feedBackPhone.css">
+
+    <!--【手机端专享】自适应必须放head里-->
+    <script type="text/javascript" src="../../js/init.js"></script>
+</head>
+<body>
+<!-- 标题 start -->
+
+<header class="txc">
+    <div class="cl fl"><i id="goBack" class="glyphicon glyphicon-chevron-left" onclick="goBack()" style="color: #fff"></i></div>
+    <div class="cr fr">&nbsp;</div>
+    <div class="cc">常见问题</div>
+</header>
+<!-- 标题 end -->
+
+<!-- 关键字模糊查询 -->
+<div class="searchBack">
+    <div class="p-input-group">
+        <div class="group-text" style="position: relative">
+            <input class="form-control bg2" type="text" id="keyWord" name="keyWord" placeholder="请输入关键字"/>
+            <div id="jobIm2"  class="hidden">
+                <img class="shanImg2" src="../../images/order/chuo1.png?v=924173923579">
+            </div>
+        </div>
+    </div>
+    <div id="commit" class="fr refuse trade">查询</div>
+</div>
+
+<!-- 下拉显示框 -->
+<div style="background-color: white;" class="show" id="titleLists">
+    <div class="ulWord cursor show trade" id="t1">
+        <img src="../images/block.png" class="fl block">
+        订单实时查询
+        <img src="../images/closeArrow.png" class="fr arrow1">
+    </div>
+    <ul id="ult1" class="hidden">
+    </ul>
+
+
+    <div class="ulWord cursor show trade" id="t2">
+        <img src="../images/block.png" class="fl block">
+        看板中心-看板中心使用方法
+        <img src="../images/closeArrow.png" class="fr arrow1">
+    </div>
+   <ul id="ult2" class="hidden">
+    </ul>
+
+    <div class="ulWord cursor show trade" id="t3">
+        <img src="../images/block.png" class="fl block">
+        看板中心-全流程监控总览页
+        <img src="../images/closeArrow.png" class="fr arrow1">
+    </div>
+    <ul id="ult3" class="hidden">
+    </ul>
+
+    <div class="ulWord cursor show trade" id="t4">
+        <img src="../images/block.png" class="fl block">
+        看板中心-场景化流程监控页
+        <img src="../images/closeArrow.png" class="fr arrow1">
+    </div>
+    <ul id="ult4" class="hidden">
+    </ul>
+
+    <div class="ulWord cursor show trade" id="t5">
+        <img src="../images/block.png" class="fl block">
+        看板中心-统计及重点指标页
+        <img src="../images/closeArrow.png" class="fr arrow1">
+    </div>
+    <ul id="ult5" class="hidden">
+    </ul>
+</div>
+<div class="contacts_text" id="contacts">
+    联系我们
+</div>
+
+
+<!-- 查询没有结果显示 -->
+<div style="padding-top: 9rem;padding-bottom: 12rem;" class="txc hidden" id="noResult">
+    <div class="t1" style="font-size: 2rem;">无结果</div>
+    <!--<div class="t2" style="font-size: 1rem;">如有需要请点击留言板按钮，详细描述您的问题</div>-->
+</div>
+
+<!-- 留言板按钮  以后要用-->
+<!--<div class="messageBtn cursor txc" id="messageBtn">
+    <img src="../images/messageBoard.png" style="width: 35%">
+    <div class="messageWord">留言板</div>
+</div>-->
+
+</body>
+<!--bootstrap-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+<!--bootstrap table-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+
+<!--公共部分-->
+<script type="text/javascript" src="../../../js/common/common.js"></script>
+<script type="text/javascript" src="../../../js/common/util.js"></script>
+<!--【手机端专享】-->
+<script type="text/javascript" src="../../js/web-util.js"></script>
+
+<!--自己-->
+<script type="text/javascript" src="../js/feedBackPhone.js"></script>
+</html>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>互联网化一站式交付全流程监控</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/multiselect/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/multiselect/css/jquery.multiselect.css"/>
+    <!--pc公共-->
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css">
+    <!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/flowChart.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/modal.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/monitView.css"/>
+    <style type="text/css">
+        .form-control-me{
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        #Lcontainer {
+            margin-top: 20px;
+        }
+        .searchInfo {
+            /*width: 90%;*/
+            margin-left: 100px;
+            position: relative;
+        }
+        label {
+            font-size: 16px;
+        }
+        .businessStyle li{
+            float: left;
+            margin-left:15px;
+            font-size: 16px;
+            margin-top: 13px;
+            padding: 0px 10px;
+            cursor:pointer;
+        }
+        .searched {
+            color: #ffffff ;
+            background-color:#f39800;
+            border-radius: 8px;
+            padding: 3px 10px;
+        }
+        .businessInfo  label{
+            margin-top: -10px;
+            padding-top: -10px;
+        }
+        .businessStyle {
+            display: inline-block;
+            overflow:hidden;
+            margin-left: 100px;
+        }
+        .handleDate {
+            margin-top: -10px;
+        }
+        .handleDate label{
+            margin-top:10px;
+            margin-left: 100px;
+        }
+
+        .handleDate span{
+            margin-left: 40px;
+            font-weight: normal;
+            font-size:16px;
+        }
+        .startDate {
+            width: 200px;
+            display: inline-block;
+            position: relative;
+        }
+        .selectBranch {
+            width: 200px;
+            display: inline-block;
+            margin-left: 26px;
+            margin-top: 5px;
+        }
+        .developItem {
+            display:none;
+        }
+        .searchExp {
+            display: inline-block;
+            float:right;
+        }
+        .ui-multiselect  {
+            padding: 6px 12px;
+            background-color: #fff;
+            margin-left: 16px;
+            height: 34px;
+            font-size: 14px;
+            color: #555;
+            float: left;
+            width: 200px !important;
+        }
+        .ui-multiselect span {
+            color: #555;
+            font-weight: 400;
+        }
+        .ui-multiselect-checkboxes label input {
+            top: 1px;
+        }
+        #productType3_ms {
+            margin-left: 88px;
+        }
+        .ui-helper-reset span {
+            font-weight: 400;
+            font-size: 14px;
+            color:#555;
+        }
+        .ui-multiselect-checkboxes label input{
+            margin-right: 3px;
+        }
+    </style>
+</head>
+<body style="overflow-y: hidden">
+<!--导航-->
+<div id="Lcontainer">
+    <div id="Lnav">
+        <ul class="Lnav" style="width: 100%">
+            <li class="Lcheck" id="Lnav_text">互联网化一站式交付全流程监控</li>
+        </ul>
+    </div>
+    <div class="clearfix" style="margin-top: 20px">
+        <div class="searchInfo fl" id="searchInfo">
+            <div class="serviceInfo condition" style="position: relative">
+                <label style="position: absolute; top: 15px;">分类口径:</label>
+                <ul class="businessStyle" id="caliber">
+                    <li id="calibersd" class="searched" value="1">属地口径</li>
+                    <li id="caliberfz" value="2">发展口径</li>
+                </ul>
+            </div>
+            <div class="serviceInfo condition" id="serviceType" style="position: relative">
+                <label style="position: absolute; top: 15px;">服务类型:</label>
+                <ul class="businessStyle" >
+                    <li id="serviceTypeAll" class="searched"  value="all">全部</li>
+                    <li id="serviceTypezj" value="1">装机</li>
+                    <li id="serviceTypeyj" value="0">移机</li>
+                </ul>
+            </div>
+        </div>
+        <div class="searchInfo fl">
+            <div class="branchClass" id="sysCodeInfo">
+                <label>销售线:</label>
+                <div class="selectBranch">
+                    <select class="form-control selectBranch" id="selectBranch" name="sysCode">
+                        <option value="">请选择归属销售线</option>
+                        <option value="市区">市区</option>
+                        <option value="近郊">近郊</option>
+                        <option value="远郊">远郊</option>
+                        <option value="部门中心">部门中心</option>
+                    </select>
+                </div>
+                <div class="selectBranch">
+                    <select class="form-control developItem" id="dependenciessq" data-value="市区">
+                        <option value="">请选择市区部门</option>
+                        <option value="2">二区</option>
+                        <option value="3">三区</option>
+                        <option value="4">四区</option>
+                        <option value="5">五区</option>
+                        <option value="7">七区</option>
+                        <option value="8">八区</option>
+                    </select>
+                    <select class="form-control developItem" id="dependenciesjj" data-value="近郊">
+                        <option value="">请选择近郊部门</option>
+                        <option value="802">通州</option>
+                        <option value="801">昌平</option>
+                        <option value="804">大兴</option>
+                        <option value="806">顺义</option>
+                        <option value="803">房山</option>
+                    </select>
+                    <select class="form-control developItem" id="dependenciesyj" data-value="远郊">
+                        <option value="">请选择远郊部门</option>
+                        <option value="809">密云</option>
+                        <option value="808">怀柔</option>
+                        <option value="805">门头沟</option>
+                        <option value="807">平谷</option>
+                        <option value="810">延庆</option>
+                    </select>
+                    <select class="form-control developItem" id="dependencieszx" data-value="部门中心">
+                        <option value="">请选择部门中心</option>
+                        <option value="10">重通局</option>
+                        <option value="9999">其他</option>
+                    </select>
+                    <select class="form-control developItem" id="developsq" data-value="市区">
+                        <option value="">请选择市区部门</option>
+                        <option value="225">二区</option>
+                        <option value="226">三区</option>
+                        <option value="211">四区</option>
+                        <option value="212">五区</option>
+                        <option value="213">七区</option>
+                        <option value="214">八区</option>
+                    </select>
+                    <select class="form-control developItem" id="developjj" data-value="近郊">
+                        <option value="">请选择近郊部门</option>
+                        <option value="217">通州</option>
+                        <option value="219">昌平</option>
+                        <option value="220">大兴</option>
+                        <option value="218">顺义</option>
+                        <option value="216">房山</option>
+                    </select>
+                    <select class="form-control developItem" id="developyj" data-value="远郊">
+                        <option value="">请选择远郊部门</option>
+                        <option value="223">密云</option>
+                        <option value="221">怀柔</option>
+                        <option value="215">门头沟</option>
+                        <option value="222">平谷</option>
+                        <option value="224">延庆</option>
+                    </select>
+                    <select class="form-control developItem" id="developzx" data-value="部门中心">
+                        <option value="">请选择部门中心</option>
+                        <option value="227">重通局</option>
+                        <option value="11a0al">中台</option>
+                        <option value="11a01s">渠道中心</option>
+                        <option value="dkhzx">大客户中心</option>
+                        <option value="11a01q">客服中心</option>
+                        <option value="11a08x">其他</option>
+                    </select>
+                </div>
+            </div>
+            <div class="branchClass" id="grid">
+                <label>网&nbsp;&nbsp;&nbsp;格:</label>
+                <div class="selectBranch" style="margin-left: 11px">
+                    <select class="form-control-me" style="margin-left: 41px;" id="gridDependenciesAll">
+                        <option value="">全部属地分公司</option>
+                    </select>
+                </div>
+                <div class="selectBranch">
+                    <select class="form-control-me" style="margin-left: 16px;" id="gridInfo">
+                        <option value="">请选择网格</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="handleDate condition fl" id="dateInfo">
+            <label>来单日期:</label>
+            <span></span>
+            <div class="startDate">
+                <i class="fa"> <img
+                        onclick="WdatePicker({dateFmt:'yyyy-MM-dd',
+                     maxDate:'#F{$dp.$D(\'dueDate\')||\'2020-10-01\'}'
+                    })"
+                        src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                        style="float: right; right: 14px; margin: 5px 5px 4px 10px; position: absolute; width: 15px; height: 24px;">
+                </i> <input type="text" value="" class="form-control-me branchItem1"
+                            id="startDate" name="startDate"
+                            style="cursor: pointer; background-color: #fff;" readonly
+                            placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',
+                        minDate:'#F{$dp.$D(\'endDate\',{d:-30})}',
+                        maxDate:'#F{\'%y-%M-%d\'}'
+                        })">
+            </div>
+            －
+            <div class="startDate" style="margin-top: 15px">
+                <i class="fa"> <img
+                        onclick="WdatePicker({dateFmt:'yyyy-MM-dd',
+                    maxDate:'#F{$dp.$D(\'dueDate\')||\'2020-10-01\'}'
+                    })"
+                        src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                        style="float: right; right: 14px; margin: 5px 5px 4px 10px; position: absolute; width: 15px; height: 24px;">
+                </i> <input type="text" value="" class="form-control-me branchItem1"
+                            id="endDate" name="endDate"
+                            style="cursor: pointer; background-color: #fff;" readonly
+                            placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',
+                        minDate:'#F{$dp.$D(\'startDate\')}',maxDate:'#F{$dp.$D(\'startDate\',{d:30})||\'%y-%M-%d\'}'
+
+                        })">
+            </div>
+        </div>
+
+
+    </div>
+    <div class="clearfix" style="position: relative;height: 44px;">
+        <div class="searchInfo" id="productTypeBox">
+            <label style="position:absolute; top:11px;left: -2px;width: 100px;">产品类型:</label>
+            <div class="selectBranch" style="width: auto;">
+                <select class="validate"  id='productType3' multiple="multiple"></select>
+               <!-- <select class="validate hide"  id='productType1' multiple="multiple"></select>
+                <select class="validate hide"  id='productType2' multiple="multiple"></select>
+                <select class="validate hide"  id='productType3' multiple="multiple"></select>-->
+            </div>
+        </div>
+        <div class="form-group" style="position: absolute;top: 9px; right: 63px">
+            <div class="text-right">
+                <button id="searchBtn" type="button" class="btn btn-orange submitBtn">查询</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flowChartMain"  style="padding: 10px 80px 0px;box-sizing: border-box;margin-bottom: 20px;">
+    <div id="flowChart"  style="width: 100%; height: 520px; padding: 0 39px; border: 3px solid #0F4FA4;border-radius: 15px"></div>
+</div>
+<!--图表-->
+<div class="modal fade bs-example-modal-lg " id="myModal_chart" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content modal_box_chart">
+            <div class="clearfix">
+                <img class="closeImg" id="close_btn_chart" src="../../images/stat/close.png">
+                <div class="modal_box_left_chart fl">
+                    <table id="table_chart" class="table_chart table-bordered"
+                           data-toggle="table_chart">
+                        <thead class="table_header_chart">
+                        <tr>
+                            <th data-field="developerAreaName">分公司</th>
+                            <th data-field="a_count">订单量</th>
+                            <th data-field="b_count">超时单量</th>
+                            <th data-field="time_out">超时占比</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="modal_box_right_chart fl">
+                    <div class="titleFlag"></div>
+                    <p class="modal_box_right_header_chart">本环节销售线订单量/超时单量</p>
+                    <div class="modal_box_right_nav_chart clearfix">
+                        <div class="fl" id='timeFlag'>更新日期:2018年7月日5时35分</div>
+                        <img class="exportImg" id="chart_export_fordate" alt="" src="../../images/stat/btn3.png">
+                        <div class="orderFlag"></div>
+                        <span class="orderTitle">订单量</span>
+                        <div class="outTimeFlag"></div>
+                        <span class="outTime">超时单量</span>
+                    </div>
+                    <div class="modal_chart_box_chart">
+                        <div id="modal_chart" style="height: 100%;"></div>
+                    </div>
+                    <!-- <div class="modal_foot fr" id="close_btn_chart">收起视图</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--表格-->
+<div class="modal fade bs-example-modal-lg " id="myModal_table_a"
+     tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content modal_box">
+            <!--头部-->
+            <div class="clearfix">
+                <div class="modal_header_l fl">全部订单明细</div>
+                <div class="modal_header_l1 fl">当前页面仅展现2000条以内数据，超出内容请导出查询。</div>
+                <img class="exportTable table_export_fordate" id="table_export_fordate" alt="" src="../../images/stat/btn3.png">
+                <!-- <div class="modal_header_r fr table_export" id='table_export'>
+                    导出数据</div> -->
+                <img class="closeImg" id="close_btn" src="../../images/stat/close.png">
+            </div>
+            <!--table样式-->
+            <div class="modal_table">
+                <!--<table id="table" class="table table-bordered" >-->
+                <table id="table_a" class="table table_table table-bordered" data-height="300">
+                    <thead class="table_header">
+                    <tr>
+                        <th data-field="exTradeInmode">受理渠道</th>
+                         <th data-field="exTradeId">渠道订单号</th>     
+                        <th data-field="lastJobWorkInstId">工单号</th>
+                        <th data-field="secondLevel">产品类型</th>
+                        <th data-field="productName">产品名称</th>
+                        <th data-field="lastJobName">当前环节</th>
+                        <th data-field="developAreaName">发展分公司</th>
+                        <th data-field="areaNameName">属地分公司</th>
+                        <th data-field="integratedName">网格名称&nbsp;</th>
+                        <th data-field="lastJobStaff">当前环节处理人</th>
+                        <th data-field="lastJobStaffTel">当前环节处理人电话</th>
+                        <th data-field="acceptDate">下单时间</th>
+                        <th data-field="workStartDate">当前监控节点开始时间</th>
+                        <th data-field="appointDate">预约时间</th>
+                        <!--<th data-field="workStartDate">创建时间</th>-->
+                        <th data-field="jobTime">环节时限</th>
+                        <th data-field="overTime">超时时点</th>
+                        <th data-field="warnLevelName">告警级别</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- <div class="modal_foot fr" id="close_btn">收起图表</div> -->
+        </div>
+    </div>
+</div>
+<!--b表格-->
+<div class="modal fade bs-example-modal-lg " id="myModal_table_b" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content modal_box">
+            <!--头部-->
+            <div class="clearfix">
+                <div class="modal_header_l fl">超时明细</div>
+                <div class="modal_header_l1 fl">当前页面仅展现2000条以内数据，超出内容请导出查询。</div>
+                <img class="exportTable table_export_fordate" id="table_export_fordate" alt="" src="../../images/stat/btn3.png">
+                <!-- <div class="modal_header_r fr table_export" id='table_export'>
+                    导出数据</div> -->
+                <img class="closeImg" id="close_btn_b" src="../../images/stat/close.png">
+            </div>
+            <!--table样式-->
+            <div class="modal_table">
+                <!--<table id="table" class="table table-bordered" >-->
+                <table id="table_b" class="table table_table table-bordered" data-height="300">
+                    <thead class="table_header">
+                    <tr>
+                        <th data-field="exTradeInmode">受理渠道</th>
+                         <th data-field="exTradeId">渠道订单号</th>     
+                        <th data-field="lastJobWorkInstId">工单号</th>
+                        <th data-field="secondLevel">产品类型</th>
+                        <th data-field="productName">产品名称</th>
+                        <th data-field="lastJobName">当前环节</th>
+                        <th data-field="developAreaName">发展分公司</th>
+                        <th data-field="areaNameName">属地分公司</th>
+                        <th data-field="integratedName">网格名称&nbsp;</th>
+                        <th data-field="lastJobStaff">当前环节处理人</th>
+                        <th data-field="lastJobStaffTel">当前环节处理人电话</th>
+                        <th data-field="acceptDate">下单时间</th>
+                        <th data-field="workStartDate">当前监控节点开始时间</th>
+                        <th data-field="appointDate">预约时间</th>
+                        <!--<th data-field="workStartDate">创建时间</th>-->
+                        <th data-field="jobTime">环节时限</th>
+                        <th data-field="overTime">超时时点</th>
+                        <th data-field="compareMinutes">超时分钟数</th>
+                        <th data-field="warnLevelName">告警级别</th>
+                        <th data-field="warnLevel" data-formatter="actionFormatter"
+                            data-width='80px'>触发短信
+                        </th>
+                        <!-- jinfd添加 -->
+                        <th data-field="levelSendCount">当前告警级别发送次数</th>
+                        <th data-field="linkSendCount">当前环节发送次数</th>
+                        <!-- 添加结束 -->
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- <div class="modal_foot fr" id="close_btn_b">收起图表</div> -->
+        </div>
+    </div>
+</div>
+</body>
+<!--bootstrap-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<!--bootstrap table-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+<!--控制导出按钮-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+<!--PC 时间插件 My97DatePicker -->
+<script type="text/javascript" src="../../../js/plugins/My97DatePicker/WdatePicker.js"></script>
+<!-- layer 弹出层 -->
+<script type="text/javascript" src="../../../js/plugins/layui/layer/layer.js"></script>
+<!--多选下拉框-->
+<script type="text/javascript" src="../../../js/plugins/multiselect/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../../js/plugins/multiselect/js/jquery.multiselect.js"></script>
+<!--控制导出功能-->
+<script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script type="text/javascript" src="../../js/plugins/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/modal.js"></script>
+<script type="text/javascript" src="../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+<script type="text/javascript">
+    var workCatalog = 0;    // 0:线上  1:线下
+</script>
+<!-- 调用本界面方法-->
+<script type="text/javascript" src="../../js/flowBox/traditionFlow.js"></script>
+<script type="text/javascript">
+    // 产品类型一
+    function productTypeFn(){
+        var options = ''
+        var arr = []
+        $('#productType3').multiselect({
+            header: true,
+            height: 175,
+            minWidth: 200,
+            classes: '',
+            checkAllText: '选中全部',
+            uncheckAllText: '取消全选',
+            noneSelectedText: '',
+            selectedText: '# 选中',
+            selectedList: 0,
+            show: null,
+            hide: null,
+            autoOpen: false,
+            multiple: true,
+            position: {},
+            appendTo: "body",
+            menuWidth:null
+        });
+        /*var arr = ['all']
+        $('#productType').val(arr);*/
+        $('#productType3').multiselect("refresh");
+        var data={}
+        $.ajax({
+            type: 'post',
+            url : getOutUrl(getRootPath_web(), "/product/findFourLevel?flag=1&userParam="+locHref),
+            dataType: 'json',
+            data: data,
+            cache: false,
+            success: function(data) {
+                if(data.state=='1'){
+                    var arrData =data.rows
+                    for (var i=0;i<arrData.length;i++) {
+                        options = '<option  checked  value=' +arrData[i].secondLevel+ '>' +arrData[i].secondLevel+ '</option>'
+                        $('#productType3').append(options)
+                    }
+                    $('#productType3').multiselect("refresh");
+                    /* $('#productType3').val(arr)
+                     $('#productType3').multiselect("refresh");
+                     $('#productType_ms > span:nth-child(2)').text('全部产品类型')*/
+                }
+            }
+        });
+    }
+    productTypeFn()
+    // 处理第一个联动  获取val值  firstLevelVal.indexOf('all') != -1 &&
+    $('#productType').change(function(){
+        var firstLevelVal = $('#productType').val()
+        /*firstLevelVal.splice(firstLevelVal.indexOf('all'),1)
+        $('#productType').val(firstLevelVal);
+        $('#productType').multiselect("refresh")*/
+        if(firstLevelVal) {
+            $('#productType1').multiselect({
+                header: true,
+                height: 175,
+                minWidth: 200,
+                classes: '',
+                checkAllText: '选中全部',
+                uncheckAllText: '取消全选',
+                noneSelectedText: '',
+                selectedText: '# 选中',
+                selectedList: 3,
+                show: null,
+                hide: null,
+                autoOpen: false,
+                multiple: true,
+                position: {},
+                appendTo: "body",
+                menuWidth:null
+            });
+            $('#productType1').empty()
+            $('#productType1_ms').removeClass('hide')
+            $('#productType2_ms').addClass('hide')
+            $('#productType3_ms').addClass('hide')
+            var data={firstLevel:firstLevelVal.join(',')}
+            $.ajax({
+                type: 'post',
+                url : getOutUrl(getRootPath_web(), "/product/findSecondLevel?firsts="+firstLevelVal.join(',')+'&userParam='+locHref),
+                dataType: 'json',
+                data: data,
+                cache: false,
+                success: function(data) {
+                    if(data.state=='1'){
+                        for (var i=0;i<data.rows.length;i++) {
+                            options1 = '<option value=' +data.rows[i].secondLevel+ '>' +data.rows[i].secondLevel+ '</option>'
+                            $('#productType1').append(options1)
+                        }
+                        $('#productType1').multiselect("refresh");
+                    }
+                }
+            });
+
+        }else {
+            $('#productType1_ms').addClass('hide')
+            $('#productType2_ms').addClass('hide')
+            $('#productType3_ms').addClass('hide')
+        }
+    });
+    // 处理第二个联动
+    $('#productType1').change(function(){
+        var secondLevelVal = $('#productType1').val()
+        if(secondLevelVal) {
+            var options2 =''
+            $('#productType2').multiselect({
+                header: true,
+                height: 175,
+                minWidth: 200,
+                classes: '',
+                checkAllText: '选中全部',
+                uncheckAllText: '取消全选',
+                noneSelectedText: '',
+                selectedText: '# 选中',
+                selectedList: 3,
+                show: null,
+                hide: null,
+                autoOpen: false,
+                multiple: true,
+                position: {},
+                appendTo: "body",
+                menuWidth:null
+            });
+            $('#productType2').empty()
+            $('#productType1').removeClass('hide')
+            $('#productType2').removeClass('hide')
+            $('#productType1_ms').removeClass('hide')
+            $('#productType2_ms').removeClass('hide')
+            $('#productType3_ms').addClass('hide')
+            var data={secondLevel:secondLevelVal.join(',')}
+            $.ajax({
+                type: 'post',
+                url : getOutUrl(getRootPath_web(), "/product/findThreeLevel?seconds="+secondLevelVal.join(',')+'&userParam='+locHref),
+                dataType: 'json',
+                data: data,
+                cache: false,
+                success: function(data) {
+                    if(data.state=='1'){
+                        for (var i=0;i<data.rows.length;i++) {
+                            options2 = '<option value=' +data.rows[i].threeLevel + '>' +data.rows[i].threeLevel + '</option>'
+                            $('#productType2').append(options2)
+                        }
+                        $('#productType2').multiselect("refresh");
+                    }
+                }
+            });
+        } else {
+            $('#productType1_ms').removeClass('hide')
+            $('#productType2_ms').addClass('hide')
+            $('#productType3_ms').addClass('hide')
+        }
+
+    });
+    // 第3个联动
+    $('#productType2').change(function(){
+        var threeLevelVal  = $('#productType2').val()
+        if (threeLevelVal) {
+            var options3 =''
+            $('#productType3').multiselect({
+                header: true,
+                height: 175,
+                minWidth: 200,
+                classes: '',
+                checkAllText: '选中全部',
+                uncheckAllText: '取消全选',
+                noneSelectedText: '',
+                selectedText: '# 选中',
+                selectedList: 3,
+                show: null,
+                hide: null,
+                autoOpen: false,
+                multiple: true,
+                position: {},
+                appendTo: "body",
+                menuWidth:null
+            });
+            $('#productType3').empty()
+            $('#productType1').removeClass('hide')
+            $('#productType2').removeClass('hide')
+            $('#productType3').removeClass('hide')
+            $('#productType1_ms').removeClass('hide')
+            $('#productType2_ms').removeClass('hide')
+            $('#productType3_ms').removeClass('hide')
+            var data={threeLevel:threeLevelVal.join(',')}
+            $.ajax({
+                type: 'post',
+                url : getOutUrl(getRootPath_web(), "/product/findFourLevel?threes="+threeLevelVal.join(',')+'&userParam='+locHref),
+                dataType: 'json',
+                data: data,
+                cache: false,
+                success: function(data) {
+                    if(data.state=='1'){
+                        for (var i=0;i<data.rows.length;i++) {
+                            options3 = '<option value=' +data.rows[i].secondLevel  + '>' +data.rows[i].secondLevel  + '</option>'
+                            $('#productType3').append(options3)
+                        }
+                        $('#productType3').multiselect("refresh");
+
+                    }
+                }
+            });
+        }else {
+            $('#productType3_ms').addClass('hide')
+        }
+
+    });
+</script>
+</html>

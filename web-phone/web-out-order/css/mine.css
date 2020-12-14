@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.w,
+.header,
+.header .tab,
+.banner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.content {
+    height: 500px;
+    position: relative;
+    background-color: #f0eff2;
+}
+
+.content img {
+    position: absolute;
+    top: 9.5rem;
+    left: 11.8rem;
+    width: 12.5rem;
+    height: 12.5rem;
+}
+
+.content span {
+    position: absolute;
+    top: 21.2rem;
+    left: 8.9rem;
+    font-size: 1.3rem;
+    color: #777676;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-size: 5.33333333vw;
+    background-color: #f0eff2;
+}
+
+a {
+    text-decoration: none;
+}
+
+div .iconfont {
+    font-size: 0.9rem;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    height: 22rem;
+    background-image: url(../../images/mine/topbg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+}
+
+.header .part-one {
+    position: relative;
+    padding-bottom: 0.6rem;
+    height: 8.1rem;
+    margin: 0 0.75rem 0.5rem 0rem;
+}
+
+.header .part-one .profile {
+    position: absolute;
+    top: 7rem;
+    left: 1.6rem;
+}
+
+.header .part-one .profile img {
+    width: 6rem;
+    height: 6rem;
+}
+
+.header .part-one .name {
+    position: absolute;
+    top: 7.2rem;
+    left: 8.2rem;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.header .part-one .set-up {
+    position: absolute;
+    top: 10rem;
+    left: 8rem;
+    font-size: 5.5rem;
+    color: #ffffff;
+    width: 10rem;
+    height: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid transparent;
+    border-radius: 5rem;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.header .part-one input {
+    position: absolute;
+    top: 8.9rem;
+    right: 1rem;
+    width: 9rem;
+    height: 3rem;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid transparent;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    text-indent: 1.8rem;
+    background-image: url(../../images/mine/search.png);
+    background-repeat: no-repeat;
+    background-size: 3rem 3rem;
+}
+
+.header .tab {
+    position: relative;
+}
+
+.header .tab .tab_list {
+    float: left;
+    height: 10rem;
+    width: 50rem;
+    position: absolute;
+    top: 6rem;
+    left: 5rem;
+}
+
+.header .tab .tab_list .li1 {
+    position: absolute;
+    top: 2rem;
+    left: -4rem;
+    font-size: 1.4rem;
+    color: #ffffff;
+    border-right: 1px solid #ffffff;
+    padding-right: 1rem;
+}
+
+.header .tab .tab_list .li2 {
+    position: absolute;
+    top: 2rem;
+    left: 7rem;
+    color: #ffffff;
+    font-size: 1.4rem;
+    border-right: 1px solid #ffffff;
+    padding-right: 1rem;
+}
+
+.header .tab .tab_list .last {
+    position: absolute;
+    top: 2rem;
+    left: 19rem;
+    color: #ffffff;
+    font-size: 1.4rem;
+    border-right: none;
+    padding-left: 1rem;
+}
+
+.header .tab .active {
+    border-bottom: 3px solid red;
+    color: orange;
+}
+
+.banner {
+    height: 5.5rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    z-index: 999;
+    display: flex;
+    padding: 0.6rem;
+    border-top: 1px solid #cccccc;
+}
+
+.banner .item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner .item img {
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
+.banner .item p {
+    font-size: 1.3rem;
+    color: #666666;
+    margin-top: 0.2rem;
+}
+
+.banner .item1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner .item1 img {
+    width: 2.8rem;
+    height: 2.7rem;
+}
+
+.banner .item1 p {
+    font-size: 1.3rem;
+    color: #666666;
+    margin-top: 0.2rem;
+}
+
+.banner .item2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner .item2 img {
+    width: 2.8rem;
+    height: 2.7rem;
+}
+
+.banner .item2 p {
+    font-size: 1.3rem;
+    color: #666666;
+    margin-top: 0.2rem;
+}

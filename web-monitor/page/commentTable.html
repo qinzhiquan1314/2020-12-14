@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--pc公共-->
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+    <!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/flowChart.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/modal.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/commentReport/commentTable.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/monitView.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/orderFlowTable/orderFlowByDateYw.css"/>
+    <style type="text/css">
+
+    </style>
+</head>
+<body style="overflow-y: hidden">
+<div id="Lcontainer" class="wideCommentTable">
+    <!--导航-->
+    <div id="Lnav">
+        <ul class="Lnav">
+            <li id="tableHead" class="Lcheck chose"></li>
+        </ul>
+    </div>
+    <div id="fakeLoader" style="opacity: 0.3;"></div>
+    <ul class="tables">
+        <!-- 订单评价统计表（宽融业务） -->
+        <li name="ll" class="chose">
+            <form action="javascript:;" id="searchForm" class="form-horizontal">
+                <div class="form-body" style="margin:15px 0px;">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-md-5 control-label">竣工开始时间：</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <i class="fa">
+                                        <img onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                                             src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                             style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                                    </i>
+                                    <input type="text" value="" class="form-control  wideStartDate" id="wideStartDate"
+                                           name="wideStartDate" style="cursor: pointer;background-color: #fff;" readonly
+                                           placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-md-5 control-label">竣工结束时间：</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <i class="fa">
+                                        <img onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                                             src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                             style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                                    </i>
+                                    <input type="text" value="" class="form-control wideEndDate" id="wideEndDate"
+                                           name="wideEndDate" style="cursor: pointer;background-color: #fff;" readonly
+                                           placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <div class="text-right">
+                                    <button id="searchBtn" type="button" class="btn btn-orange submitBtn">查询</button>
+                                    <button id="exportBtn" type="button" class="btn btn-orange resetBtn commentExport">
+                                        导出
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+                        <a id="wideHistory" class="historySearch">历史查询</a>
+                    </div>
+                </div>
+            </form>
+            <!-- table start -->
+            <div class="b-tableDiv table-responsive"
+                 style="overflow-y:auto;overflow-x:auto; width: 200%;height :460px;">
+                <div class="totalDiv" style="margin-bottom:10px;margin-left:15px;display:none">
+                    总共<span class="totalDate"></span>条记录
+                </div>
+                <table id="wideTable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th rowspan="2" style='line-height:30px;' data-field="develop_area_name">属地</th>
+                        <th rowspan="2" style='line-height:30px;' data-field="sum_total">竣工量</th>
+                        <th colspan="4" class="text-center">评价类型</th>
+                        <th colspan="9" class="text-center">服务人员</th>
+                        <th rowspan="2" style='line-height:30px;' data-field="installed_time">装机时长</th>
+                        <th colspan="4" class="text-center">营业厅</th>
+                        <th colspan="3" class="text-center">客服热线</th>
+                        <th rowspan="2" style='line-height:30px;' data-field="website_and_app">网站及应用</th>
+                        <th colspan="4" class="text-center">产品质量</th>
+                        <th colspan="5" class="text-center">公司政策</th>
+                        <th rowspan="2" style='line-height:30px;' data-field="other_aspects_improvement">其他方面待改进</th>
+                    </tr>
+                    <tr>
+                        <th data-field="type_total">总计</th>
+                        <th data-field="type_good">满意</th>
+                        <th data-field="type_mid">及格</th>
+                        <th data-field="type_bad">不满意</th>
+
+                        <th data-field="service_total">总计</th>
+                        <th data-field="service_0">上门人员服务态度</th>
+                        <th data-field="service_1">上门人员的上门及时性</th>
+                        <th data-field="service_2">上门人员的技术水平</th>
+                        <th data-field="service_3">上门人员的服务行为</th>
+                        <th data-field="service_4">上门人员的收费合规性</th>
+                        <th data-field="service_5">上门人员未安装完成</th>
+                        <th data-field="service_6">上门人员的延伸服务</th>
+                        <th data-field="service_7">其他服务人员的服务态度/行为</th>
+
+                        <th data-field="hall_total">总计</th>
+                        <th data-field="hall_0">营业厅人员的服务/业务水平</th>
+                        <th data-field="hall_1">营业厅等待时长</th>
+                        <th data-field="hall_2">营业厅现场环境</th>
+
+                        <th data-field="hotline_total">总计</th>
+                        <th data-field="hotline_0">客服热线人员的服务/业务水平</th>
+                        <th data-field="hotline_1">客服热线等待时长</th>
+
+                        <th data-field="product_total">总计</th>
+                        <th data-field="product_0">语音质量</th>
+                        <th data-field="product_1">宽带质量</th>
+                        <th data-field="product_2">IPTV质量</th>
+
+                        <th data-field="policy_total">总计</th>
+                        <th data-field="policy_0">套餐种类</th>
+                        <th data-field="policy_1">资费</th>
+                        <th data-field="policy_2">光纤改造政策</th>
+                        <th data-field="policy_3">延伸服务</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- table end -->
+        </li>
+        <!-- 订单评价统计表（移网业务） -->
+        <li class="chose">
+            <form action="javascript:;" id="searchForm" class="form-horizontal">
+                <div class="searchInfo" id="searchInfo">
+                    <div class="orderInfo condition" id="orderInfo">
+                        <label>订单来源:</label>
+                        <ul class="orderSource">
+                            <li class="searched">全部</li>
+                            <li class="">集团商城</li>
+                            <li class="">沃易售</li>
+                            <li class="">第三方</li>
+                            <li>线下实体（预留）</li>
+                        </ul>
+                    </div>
+                    <div class="businessInfo" id="businessInfo">
+                        <div style="float: left;margin-top: 11px; font-weight: 700;font-size:16px">产品种类:</div>
+                        <ul class="businessStyle" style="margin-left: 12px">
+                            <li class="searched" value1="">全部</li>
+                            <li value1="2I">2I</li>
+                            <li value1="2C">2C</li>
+                        </ul>
+                    </div>
+                    <div class="handleDate condition" id="dateInfo">
+                        <label style="margin-left: 0px">竣工开始时间:</label>
+                        <div class="startDate">
+                            <i class="fa"> <img
+                                    onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                                    src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                    style="float: right; right: 14px; margin: 5px 5px 4px 10px; position: absolute; width: 15px; height: 24px;">
+                            </i> <input type="text" value="" class="form-control branchItem1"
+                                        id="mobileStartDate" name="startDate"
+                                        style="cursor: pointer; background-color: #fff;" readonly
+                                        placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                        </div>
+                        <label style="padding-left: 50px">竣工结束时间:</label>
+                        <div class="startDate">
+                            <i class="fa"> <img
+                                    onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                                    src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                    style="float: right; right: 14px; margin: 5px 5px 4px 10px; position: absolute; width: 15px; height: 24px;">
+                            </i> <input type="text" value="" class="form-control branchItem1"
+                                        id="mobileEndDate" name="endDate"
+                                        style="cursor: pointer; background-color: #fff;" readonly
+                                        placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                        </div>
+                    </div>
+                    <div class="branchClass condition" id="sysCodeInfo">
+                        <div class="form-group searchExp">
+                            <div class="text-right">
+                                <button id="searchBtn" type="button"
+                                        class="btn btn-orange submitBtn">查询
+                                </button>
+                                <button id="exportBtn" type="button"
+                                        class="btn btn-orange resetBtn commentExport">导出
+                                </button>
+                                <span id="historySearch" class="historySearch hisSearch">历史查询</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- table start -->
+            <div class="b-tableDiv table-responsive"
+                 style="overflow-y:auto;overflow-x:auto;height:460px;table-layout:fixed;">
+                <div class="totalDiv" style="margin-bottom:10px;margin-left:15px;display:none">
+                    总共<span class="totalDate"></span>条记录
+                </div>
+                <table id="mobileTable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th rowspan="2" style='line-height:30px;' data-field="area_name_name">属地分公司</th>
+                        <th rowspan="2" style='line-height:30px;' data-field="sum_total">竣工量</th>
+                        <th colspan="4" class="text-center">评价类型</th>
+                        <th colspan="4" class="text-center">服务人员</th>
+                        <th colspan="4" class="text-center">营业厅</th>
+                        <th rowspan="2" style='line-height:30px;' data-field="other">其他方面待改进</th>
+                    </tr>
+                    <tr>
+                        <th data-field="type_total">总计</th>
+                        <th data-field="type_good">好评</th>
+                        <th data-field="type_mid">中评</th>
+                        <th data-field="type_bad">差评</th>
+
+                        <th data-field="service_total">总计</th>
+                        <th data-field="service_1">上门交付人员服务态度</th>
+                        <th data-field="service_2">上门交付人员上门及时性</th>
+                        <th data-field="service_3">服务人员其他方面待改进</th>
+
+                        <th data-field="hall_total">总计</th>
+                        <th data-field="hall_1">营业厅人员的服务/业务水平</th>
+                        <th data-field="hall_2">营业厅等待时长</th>
+                        <th data-field="hall_3">营业厅其他方面待改进</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- table end -->
+            <div class="flowtest fakeParent">
+                <!-- 加载等待 -->
+                <div class="fakeloader"></div>
+            </div>
+        </li>
+        <!-- 订单评价统计表（快线&专线业务） -->
+        <li class="chose">
+            <form action="javascript:;" id="searchForm" class="form-horizontal">
+                <div class="form-body" style="margin:15px 0px;">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-md-5 control-label">竣工开始时间：</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <i class="fa">
+                                        <img onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                                             src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                             style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                                    </i>
+                                    <input type="text" value="" class="form-control" id="lineStartDate"
+                                           name="lineStartDate" style="cursor: pointer;background-color: #fff;" readonly
+                                           placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-md-5 control-label">竣工结束时间：</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <i class="fa">
+                                        <img onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                                             src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                             style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                                    </i>
+                                    <input type="text" value="" class="form-control wideEndDate" id="lineEndDate"
+                                           name="lineEndDate" style="cursor: pointer;background-color: #fff;" readonly
+                                           placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <div class="text-right">
+                                    <button id="searchBtn" type="button" class="btn btn-orange submitBtn">查询</button>
+                                    <button id="exportBtn" type="button" class="btn btn-orange resetBtn commentExport">
+                                        导出
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <a id="wideHistory" class="historySearch">历史查询</a>
+                    </div>
+                </div>
+            </form>
+            <!-- table start -->
+            <div class="b-tableDiv table-responsive"
+                 style="overflow-y:auto;overflow-x:auto;height:460px;table-layout:fixed;">
+                <div class="totalDiv" style="margin-bottom:10px;margin-left:15px;display:none">
+                    总共<span class="totalDate"></span>条记录
+                </div>
+                <table id="lineTable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th rowspan="2" style='line-height:30px;' data-field="develop_area_name">属地</th>
+                        <th rowspan="2" style='line-height:30px;' data-field="sum_total">竣工量</th>
+                        <th colspan="4" class="text-center">评价类型</th>
+                        <th colspan="6" class="text-center">产品评价</th>
+                        <th colspan="6" class="text-center">上门服务</th>
+                        <th colspan="6" class="text-center">施工速度</th>
+                    </tr>
+                    <tr>
+                        <th data-field="type_total">总计</th>
+                        <th data-field="type_good">好评</th>
+                        <th data-field="type_mid">中评</th>
+                        <th data-field="type_bad">差评</th>
+
+                        <th data-field="product_total">总计</th>
+                        <th data-field="product_5">5星</th>
+                        <th data-field="product_4">4星</th>
+                        <th data-field="product_3">3星</th>
+                        <th data-field="product_2">2星</th>
+                        <th data-field="product_1">1星</th>
+
+                        <th data-field="service_total">总计</th>
+                        <th data-field="service_5">5星</th>
+                        <th data-field="service_4">4星</th>
+                        <th data-field="service_3">3星</th>
+                        <th data-field="service_2">2星</th>
+                        <th data-field="service_1">1星</th>
+
+                        <th data-field="work_total">总计</th>
+                        <th data-field="work_5">5星</th>
+                        <th data-field="work_4">4星</th>
+                        <th data-field="work_3">3星</th>
+                        <th data-field="work_2">2星</th>
+                        <th data-field="work_1">1星</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- table end -->
+            <!-- div class="totalDiv">总共<span class="TotalData"></span>条记录</div> -->
+        </li>
+        <!--  评价明细（宽融业务） -->
+        <li class="chose">
+            <form action="javascript:;" id="searchForm" class="form-horizontal">
+                <div class="form-body" style="margin:15px 0px;">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-md-5 control-label">查询月份：</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <i class="fa">
+                                        <img onclick="WdatePicker({dateFmt:'yyyy-MM'})"
+                                             src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                             style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                                    </i>
+                                    <input type="text" value="" class="form-control" id="wideMouthDate"
+                                           name="wideMouthDate" style="cursor: pointer;background-color: #fff;" readonly
+                                           placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM'})">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <div class="text-right" style="float: right;">
+                                    <button id="searchBtn" type="button" class="btn btn-orange submitBtn">查询</button>
+                                    <button id="exportBtn" type="button" class="btn btn-orange resetBtn exportBtn">导出
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- table start -->
+            <div class="b-tableDiv table-responsive" style="overflow-y:auto;overflow-x:auto;width: 250%;height :460px;">
+                <div class="totalDiv" style="margin-bottom:10px;margin-left:15px;display:none">
+                    总共<span class="totalDate"></span>条记录
+                </div>
+                <table id="wideDetailTable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th data-field="order_num">序号</th>
+                        <th data-field="ex_trade_id">渠道订单号</th>
+                        <th data-field="bss_subscribe_id">bss订单号</th>
+                        <th data-field="accept_date">下单时间</th>
+
+                        <th data-field="product_name">产品名称</th>
+                        <th data-field="customer_name">客户名称</th>
+                        <th data-field="serial_number">业务号码</th>
+                        <th data-field="addr_name">装机地址</th>
+                        <th data-field="develop_area_name">所属分公司</th>
+                        <th data-field="ext_level4">整体评价</th>
+
+                        <th data-field="service_staff0">上门人员的服务态度</th>
+                        <th data-field="service_staff1">上门人员的上门及时性</th>
+                        <th data-field="service_staff2">上门人员的技术水平</th>
+                        <th data-field="service_staff3">上门人员的服务行为</th>
+                        <th data-field="service_staff4">上门人员的收费合规性</th>
+                        <th data-field="service_staff5">上门人员未安装完成</th>
+                        <th data-field="service_staff6">上门人员的延伸服务</th>
+                        <th data-field="service_staff7">其他服务人员的服务态度/行为</th>
+
+                        <th data-field="installed_time">装机时长</th>
+                        <th data-field="service_hall0">营业厅人员的服务/业务水平</th>
+                        <th data-field="service_hall1">营业厅等待时长</th>
+                        <th data-field="service_hall2">营业厅现场环境</th>
+
+                        <th data-field="service_hotline0">客服热线人员的服务/业务水平</th>
+                        <th data-field="service_hotline1">客服热线等待时长</th>
+
+                        <th data-field="website_and_app">网站及应用</th>
+                        <th data-field="product_quality0">语音质量</th>
+                        <th data-field="product_quality1">宽带质量</th>
+                        <th data-field="product_quality2">IPTV质量</th>
+
+                        <th data-field="corporate_policy0">套餐种类</th>
+                        <th data-field="corporate_policy1">资费</th>
+                        <th data-field="corporate_policy2">光纤改造政策</th>
+                        <th data-field="corporate_policy3">延伸服务</th>
+                        <th data-field="other_aspects_improvement">其他方面待改进</th>
+                        <th data-field="comment">评价内容</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- table end -->
+            <!-- <div class="totalDiv">总共<span class="TotalData"></span>条记录</div> -->
+        </li>
+        <!--  评价明细（移网业务） -->
+        <li class="chose">
+            <form action="javascript:;" id="searchForm" class="form-horizontal">
+                <div class="searchInfo" id="searchInfo">
+                    <div class="orderInfo condition" id="orderInfo">
+                        <label>订单来源:</label>
+                        <ul class="orderSource">
+                            <li class="searched">全部</li>
+                            <li class="">集团商城</li>
+                            <li class="">沃易售</li>
+                            <li class="">第三方</li>
+                            <li>线下实体（预留）</li>
+                        </ul>
+                    </div>
+                    <div class="businessInfo" id="businessInfo">
+                        <div style="float: left;margin-top: 11px; font-weight: 700;font-size:16px">产品种类:</div>
+                        <ul class="businessStyle" style="margin-left: 12px">
+                            <li class="searched" value1="2I,2C,2E">全部</li>
+                            <li value1="2I">2I</li>
+                            <li value1="2C">2C</li>
+                        </ul>
+                    </div>
+                    <div class="handleDate condition" id="dateInfo">
+                        <label style="margin-left: 0px">评价月份:</label>
+                        <div class="startDate">
+                            <i class="fa">
+                                <img onclick="WdatePicker({dateFmt:'yyyy-MM'})"
+                                     src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                     style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                            </i>
+                            <input type="text" value="" class="form-control" id="mobileMouthDate" name="mobileStartDate"
+                                   style="cursor: pointer;background-color: #fff;" readonly placeholder=""
+                                   onClick="WdatePicker({dateFmt:'yyyy-MM'})">
+                        </div>
+                    </div>
+                    <div class="branchClass condition" id="sysCodeInfo">
+                        <div class="form-group searchExp">
+                            <div class="text-right">
+                                <button id="searchBtn" type="button" class="btn btn-orange submitBtn">查询</button>
+                                <button id="exportBtn" type="button" class="btn btn-orange resetBtn exportBtn">导出
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- table start -->
+            <div class="b-tableDiv table-responsive"
+                 style="overflow-y:auto;overflow-x:auto;height:460px;table-layout:fixed;">
+                <div class="totalDiv" style="margin-bottom:10px;margin-left:15px;display:none">
+                    总共<span class="totalDate"></span>条记录
+                </div>
+                <table id="mobileDetailTable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <!--redmine 1287-->
+                        <!--<th data-field="order_num">序号</th>-->
+                        <th data-field="ex_trade_id">渠道订单号</th>
+                        <th data-field="accept_date">下单时间</th>
+                        <th data-field="activate_time">激活时间</th>
+                        <th data-field="create_date">评价时间</th>
+                        <th data-field="product_name">产品名称</th>
+                        <th data-field="customer_name">客户名称</th>
+                        <th data-field="serial_number">业务号码</th>
+                        <th data-field="addr_name">配送地址</th>
+                        <th data-field="area_name_name">所属分公司</th>
+                        <th data-field="point_name">所属交付点</th>
+                        <th data-field="staff_name">交付人员</th>
+                        <th data-field="ex_name">评价触点</th>
+                        <th data-field="avarage">订单满意度</th>
+                        <th data-field="order_satisfaction">订购商品满意度</th>
+                        <th data-field="speed_satisfaction">上门速度满意度</th>
+                        <th data-field="attitude_satisfaction">服务态度满意度</th>
+                        <!--                        <th data-field="ext_level4">整体评价</th>
+                                                <th data-field="service_staff0">上门交付人员服务态度</th>
+                                                <th data-field="service_staff1">上门交付人员上门及时性</th>
+                                                <th data-field="service_staff2">服务人员其他方面待改进</th>
+                                                <th data-field="service_hall0">营业厅人员的服务/业务水平</th>
+                                                <th data-field="service_hall1">营业厅等待时长</th>
+                                                <th data-field="service_hall2">营业厅其他方面待改进</th>
+                                                <th data-field="other_aspects_improvement">其他方面待改进</th>-->
+                        <th data-field="comment">评价内容</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- table end -->
+            <!-- <div class="totalDiv">总共<span class="TotalData"></span>条记录</div> -->
+        </li>
+        <!--  评价明细（快线&专线业务） -->
+        <li class="chose">
+            <form action="javascript:;" id="searchForm" class="form-horizontal">
+                <div class="form-body" style="margin:15px 0px;">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-md-5 control-label">查询月份：</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <i class="fa">
+                                        <img onclick="WdatePicker({dateFmt:'yyyy-MM'})"
+                                             src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                             style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                                    </i>
+                                    <input type="text" value="" class="form-control" id="lineMouthDate"
+                                           name="lineMouthDate" style="cursor: pointer;background-color: #fff;" readonly
+                                           placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM'})">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <div class="text-right" style="float: right;">
+                                    <button id="searchBtn" type="button" class="btn btn-orange submitBtn">查询</button>
+                                    <button id="exportBtn" type="button" class="btn btn-orange resetBtn exportBtn">导出
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- table start -->
+            <div class="b-tableDiv table-responsive"
+                 style="overflow-y:auto;overflow-x:auto;height:460px;table-layout:fixed;">
+                <div class="totalDiv" style="margin-bottom:10px;margin-left:15px;display:none">
+                    总共<span class="totalDate"></span>条记录
+                </div>
+                <table id="lineDetailTable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th data-field="order_num">序号</th>
+                        <th data-field="ex_trade_id">渠道订单号</th>
+                        <th data-field="bss_subscribe_id">bss订单号</th>
+                        <th data-field="accept_date">下单时间</th>
+
+                        <th data-field="product_name">产品名称</th>
+                        <th data-field="customer_name">客户名称</th>
+                        <th data-field="serial_number">业务号码</th>
+                        <th data-field="addr_name">装机地址</th>
+                        <th data-field="develop_area_name">所属分公司</th>
+                        <th data-field="ext_level4">整体评价</th>
+
+                        <th data-field="ext_level1">产品评价</th>
+                        <th data-field="ext_level2">上门服务</th>
+                        <th data-field="construct_level">施工速度</th>
+                        <th data-field="comment">评价内容</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- table end -->
+            <!--  <div class="totalDiv">总共<span class="TotalData"></span>条记录</div> -->
+        </li>
+        <!-- 建议明细 -->
+        <li class="chose">
+            <form action="javascript:;" id="searchForm" class="form-horizontal">
+                <div class="form-body" style="margin:15px 0px;">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-md-5 control-label">查询月份：</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <i class="fa">
+                                        <img onclick="WdatePicker({dateFmt:'yyyy-MM'})"
+                                             src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                             style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                                    </i>
+                                    <input type="text" value="" class="form-control" id="adviceMouthDate"
+                                           name="adviceMouthDate" style="cursor: pointer;background-color: #fff;"
+                                           readonly placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM'})">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <div class="text-right" style="float: right;">
+                                    <button id="searchBtn" type="button" class="btn btn-orange submitBtn">查询</button>
+                                    <button id="exportBtn" type="button" class="btn btn-orange resetBtn exportBtn">导出
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- table start -->
+            <div class="b-tableDiv table-responsive"
+                 style="overflow-y:auto;overflow-x:auto;height:460px;table-layout:fixed;">
+                <div class="totalDiv" style="margin-bottom:10px;margin-left:15px;display:none">
+                    总共<span class="totalDate"></span>条记录
+                </div>
+                <table id="adviceDetailTable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th data-field="order_num">序号</th>
+                        <th data-field="ex_trade_id">渠道订单号</th>
+                        <th data-field="bss_subscribe_id">bss订单号</th>
+                        <th data-field="accept_date">下单时间</th>
+
+                        <th data-field="product_name">产品名称</th>
+                        <th data-field="customer_name">客户名称</th>
+                        <th data-field="serial_number">业务号码</th>
+                        <th data-field="addr_name">装机地址</th>
+                        <th data-field="area_name_name">属地分公司</th>
+                        <th data-field="develop_area_name">发展分公司</th>
+                        <th data-field="comment">建议内容</th>
+
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- table end -->
+            <!-- <div class="totalDiv">总共<span class="TotalData"></span>条记录</div> -->
+        </li>
+        <!-- 订单中心乱序 -->
+        <li class="chose">
+            <form action="javascript:;" id="searchForm" class="form-horizontal">
+                <div class="form-body" style="margin:15px 0px;">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-md-5 control-label">竣工开始时间：</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <i class="fa">
+                                        <img onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                                             src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                             style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                                    </i>
+                                    <input type="text" value="" class="form-control" id="lineStartDate"
+                                           name="lineStartDate" style="cursor: pointer;background-color: #fff;" readonly
+                                           placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 col-md-5 control-label">竣工结束时间：</label>
+                                <div class="col-sm-8 col-md-7">
+                                    <i class="fa">
+                                        <img onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"
+                                             src="../../js/plugins/My97DatePicker/skin/datePicker.gif"
+                                             style="float: right;right:14px;margin:5px 5px 4px 10px;position: absolute;width: 15px;height: 24px;">
+                                    </i>
+                                    <input type="text" value="" class="form-control wideEndDate" id="lineEndDate"
+                                           name="lineEndDate" style="cursor: pointer;background-color: #fff;" readonly
+                                           placeholder="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <div class="text-right">
+                                    <button id="searchBtn" type="button" class="btn btn-orange submitBtn">查询</button>
+                                    <button id="exportBtn" type="button" class="btn btn-orange resetBtn commentExport">
+                                        导出
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <a id="wideHistory" class="historySearch">历史查询</a>
+                    </div>
+                </div>
+            </form>
+            <!-- table start -->
+            <div class="b-tableDiv table-responsive"
+                 style="overflow-y:auto;overflow-x:auto;height:460px;table-layout:fixed;">
+                <div class="totalDiv" style="margin-bottom:10px;margin-left:15px;display:none">
+                    总共<span class="totalDate"></span>条记录
+                </div>
+                <table id="ocOrderReservedTable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th data-field="index">序号</th>
+                        <th data-field="accept_date">来单日期</th>
+                        <th data-field="complete_date">竣工时间</th>
+                        <th data-field="ex_trade_id">外部订单号</th>
+
+                        <th data-field="order_num">R单号</th>
+                        <th data-field="job_code">当前环节</th>
+                        <th data-field="work_flag_name">当前所在监控节点</th>
+                        <th data-field="work_state_name">是否还在流程监控框中</th>
+
+
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- table end -->
+            <!-- <div class="totalDiv">总共<span class="TotalData"></span>条记录</div> -->
+        </li>
+    </ul>
+</div>
+
+<!-- 历史查询弹出表格 -->
+<div class="modal fade bs-example-modal-lg historyCommentTable"
+     tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document" style="width: 50% !important;">
+        <div class="modal-content modal_box">
+            <!--头部-->
+            <div class="clearfix">
+                <div class="modal_header_l fl">历史查询</div>
+            </div>
+            <!--table样式-->
+            <div class="modal_table tableStyle">
+                <!--<table id="table" class="table table-bordered" >-->
+                <table class="table table_table table-bordered  historyTable" style="table-layout: fixed;">
+                    <thead class="table_header">
+                    <tr>
+                        <th data-field="create_date">创建时间</th>
+                        <th data-field="file_name">报表文件名称</th>
+                        <th data-field="flag">处理状态</th>
+                        <th data-field="opration" data-formatter="oprationFormatter"
+                        >操作
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal_foot fr close_table" id="close_table">收起图表</div>
+        </div>
+    </div>
+</div>
+
+</body>
+<!--bootstrap-->
+<script type="text/javascript" src="../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+<!--bootstrap table-->
+<script type="text/javascript" src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+
+<!--控制导出按钮-->
+<script type="text/javascript" src="../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+
+<!--PC 时间插件 My97DatePicker -->
+<script type="text/javascript" src="../js/plugins/My97DatePicker/WdatePicker.js"></script>
+<!-- layer 弹出层 -->
+<script type="text/javascript" src="../../js/plugins/layui/layer/layer.js"></script>
+<!--控制导出功能-->
+<script type="text/javascript" src="../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+
+<script type="text/javascript" src="../js/plugins/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
+<script type="text/javascript" src="../js/flowChart.js"></script>
+<!-- 自己 -->
+<script type="text/javascript" src="../js/commentTable.js"></script>
+</html>

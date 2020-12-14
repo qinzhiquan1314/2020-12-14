@@ -1,0 +1,51 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #fff;
+	font-family: 'Verdana', 'SimHei', sans-serif;
+}
+
+.error_img {
+	width: 330px;
+	height: 100%;
+}
+
+.error_right {
+	display: inline-block;
+	text-align: center;
+}
+
+.error_load {
+	border: 1.5px solid #F9B52E;
+	margin-top: 10px;
+	color: #F9B52E;
+	background: #fff;
+	padding: 2px 15px;
+	border-radius: 5px;
+	font-weight: 500;
+	font-size: 22px;
+	letter-spacing: 5px;
+	outline: none!important;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 100px) and (max-width: 768px) {
+	.error {
+		position: absolute;
+		top: 7%;
+		left: 50%;
+		margin-left: -165px;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1920px) {
+	.error {
+		position: absolute;
+		top: 9%;
+		left: 40%;
+		margin-left: -165px;
+	}
+}

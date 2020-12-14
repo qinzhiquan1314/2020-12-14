@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+/*********对外 流转轨迹*********/
+
+.flowtop {
+    /* 240px */
+    margin: 1rem 2rem 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.flowtop p {
+	font-size: 1.5rem;/* 30px; */
+	color:#8b6d57;
+	position: absolute;
+	top: 3.5rem; /* 60px; */
+	left: 18%;/* 160px; */
+}
+.flowtop .t1 {
+	min-height: 2rem;
+	line-height: 2rem;
+	/* min-height: 3rem;
+	line-height: 3rem; */
+}
+.flowtop .t2 {
+	line-height: 1.5rem;
+	overflow: hidden;
+	padding-top: .3rem;
+	padding-bottom: .3rem;
+	padding-right: .6rem;
+	display: table;
+	/* vertical-align: middle; */
+	table-layout: fixed;
+	word-wrap: break-word;
+	width: 100%;
+}
+.flowtop .line {
+	border-bottom: 1px solid #ff6733;
+}
+
+.flowtop .t1 img {
+	width: .45rem;
+	height: .45rem;
+	position: absolute;
+	top: 0.7rem;
+}
+
+.flowtop .t1 .circle{
+    position: absolute;
+    background-color: red;
+    height: .5rem;
+    width: .5rem;
+    display: block;
+    border-radius: .5rem;
+    top: 1rem;
+    /* top: 50%;
+    transform: translateY(-50%); */
+}
+.flowtop .t1 .ft {
+	font-size: 1.1rem;
+	color:#ff6733;
+	padding-left: 1rem;
+}
+
+.flowtop .t2 .ll {
+	/* float: left; */
+	width: 6rem;
+	display: table-cell;
+}
+.flowtop .t2 .ll2 {
+	/* float: left; */
+	width: 11.5rem;
+	display: table-cell;
+}
+.flowtop .t2 .ft1 {
+	font-size: 1rem;
+	color: #a9a8a8;
+	
+}
+.flowtop .t2 .ft2 {
+	font-size: 1.1rem;
+	color: #000;
+	white-space:nowrap;
+}
+.flowtop .t2 .ft3 {
+	font-size: 1.1rem;
+	color:#000;
+	/* display: table-cell; */
+	/* vertical-align: middle; */
+	/* table-layout: fixed; */
+	/* word-wrap: break-word; */
+	/* width: 65%; */
+}
+
+.flowtop .showNetTypeCode {
+	color: #f00;
+	display: none;
+	font-size: 1.2rem;
+}
+
+.pd-left-10 {padding-left: .6rem;}
+.mg-top-10 {margin-top: .6rem;}
+.mg-bottom-10 {margin-bottom: .6rem;}
+

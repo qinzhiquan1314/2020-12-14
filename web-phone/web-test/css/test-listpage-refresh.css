@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+
+
+/*内容部分 start*/
+#listPage {
+	width:100%;
+	margin: 0 auto;
+	border: 1px solid olive;
+}
+.listPageWrap {
+	height:5rem; /* 100px/20px=2.5rem*/
+	line-height: 5rem; /* 100px/20px=2.5rem*/
+	width:90%;
+	margin: 0 auto;
+  		border-bottom: 1px solid gold;
+}
+.listPageWrap ul {
+	list-style: none;
+	font-size: 16px; /* 16px/20px=0.8rem*/
+	height: 100%;
+	margin: 0 10px;
+	
+}
+.listPageWrap li {
+	float: left;
+	margin:0 10px;
+}
+.listPageWrap li:hover {
+	background-color: #B22D2B;
+	color:red;
+}
+/*内容部分 end*/
+

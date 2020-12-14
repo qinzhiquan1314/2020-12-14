@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全流程监控总览</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name=”renderer” content=”webkit|ie-comp|ie-stand”/>
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css"
+          href="../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--pc公共-->
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+
+    <!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../css/zTreeStyle.css"/>
+    <link rel="stylesheet" type="text/css" href="../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/flowCharttext.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/modal.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/monitView.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/table23.css">
+    <style>
+        .iframe {
+            margin-top: 40px;
+        }
+
+        .li5 {
+            width: 85%;
+        }
+
+        .mainLeft {
+            /*height: 30%;*/
+        }
+
+        .show {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .divbox {
+            position: relative;
+            cursor: pointer;
+            width: 14.5%;
+            margin-right: 2%;
+        }
+
+        .divboxnum {
+            font-size: 20px;
+            color: #e4f4f1;
+            position: absolute;
+            top: 30px;
+            left: 20px;
+        }
+
+        .chooseColor {
+            color: rgb(37, 239, 226) !important;
+        }
+
+        .divboxcon {
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+<div class='me-content'>
+    <div id="Lcontainer">
+        <div class='logoBox fl'><img src="../images/stat/logo.png" class='logo'/></div>
+        <div id="Lnav" class='me-lnav'>
+            <ul class="Lnav">
+                <li id="overview" class="li1 Lcheck">全流程监控总览</li>
+                <li class="li5"></li>
+            </ul>
+        </div>
+        <ul class="tables">
+            <li class="on">
+                <div class="iframe clearfix">
+                    <div class="mainLeft fl">
+                        <ul class="selectA" id="selectA">
+                            <div id="li2_4">
+                            <a>
+                                <li class="tit" name="重点业务" id="iselect0" type="broadBand">
+                                    <img alt="" src="../images/stat/tit_bg_index.png" class="selectbg">
+                                    <span>重点业务</span>
+                                </li>
+                            </a>
+                            <li class="iselect1 tit chooseColor" data-name="5G" id="iselect1">
+                                <div class="cursor">5G</div>
+                                <img alt="" src="../images/stat/down2.png" class="selectshow">
+                            </li>
+                            <img src="../images/stat/lineIndex.png">
+                            <li class="iselect2 tit" data-name="kdxf">
+                                <div class="cursor">宽带续费</div>
+                                <img alt="" src="../images/stat/down2.png" class="selectshow1">
+                            </li>
+                                <img src="../images/stat/lineIndex.png">
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="mainRight fl">
+                        <div class="selectTop">
+                            <img src="../images/stat/small_icons_index.png">
+                            北京公司当年累计
+                        </div>
+                        <div class="con" id="conbox" style="padding-right: 0px">
+                            <!--宽带续约-->
+                            <!--续约 Rcontract 425783 299956 72794 207294 70.45% 110109-->
+                            <ul style="margin: 20px 0 0 0px;position: relative" class="clearfix hide divboxcon"
+                                id="kdxf">
+                                <li class="fl divbox" id="kdxf1" name="R1">
+                                    <img src="../images/newflow/kdyx1.png">
+                                    <div class="divboxnum">425783</div>
+                                </li>
+                                <li class="fl divbox" id="kdxf2">
+                                    <img src="../images/newflow/kdyx2.png">
+                                    <div class="divboxnum">299956</div>
+                                </li>
+                                <li class="fl divbox" id="kdxf3">
+                                    <img src="../images/newflow/kdyx3.png">
+                                    <div class="divboxnum">72794</div>
+                                </li>
+                                <li class="fl divbox" id="kdxf4">
+                                    <img src="../images/newflow/kdyx4.png">
+                                    <div class="divboxnum">207294</div>
+                                </li>
+                                <li class="fl divbox" id="kdxf5">
+                                    <img src="../images/newflow/kdyx5.png">
+                                    <div class="divboxnum">70.45%</div>
+                                </li>
+                                <li class="fl divbox" id="kdxf6">
+                                    <img src="../images/newflow/kdyx6.png">
+                                    <div class="divboxnum">110109</div>
+                                </li>
+                            </ul>
+                            <!--5g-->
+                            <!--5G 623004 503005 119999 517287 26081 79636-->
+                            <ul style="margin: 20px 0 0 0px;position: relative" class="clearfix show" id="5g">
+                                <li class="fl divbox" id="5g1">
+                                    <img src="../images/newflow/5g1.png">
+                                    <div class="divboxnum">623004</div>
+                                </li>
+                                <li class="fl divbox" id="5g2">
+                                    <img src="../images/newflow/5g2.png">
+                                    <div class="divboxnum">503005</div>
+                                </li>
+                                <li class="fl divbox" id="5g3">
+                                    <img src="../images/newflow/5g3.png">
+                                    <div class="divboxnum">119999</div>
+                                </li>
+                                <li class="fl divbox" id="5g4">
+                                    <img src="../images/newflow/5g4.png">
+                                    <div class="divboxnum">517287</div>
+                                </li>
+                                <li class="fl divbox" id="5g5">
+                                    <img src="../images/newflow/5g5.png">
+                                    <div class="divboxnum">26081</div>
+                                </li>
+                                <li class="fl divbox" id="5g6">
+                                    <img src="../images/newflow/5g6.png">
+                                    <div class="divboxnum">79636</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="selectBtm clearfix">
+                            <div class="clearfix">
+                                <div class="btml fl">
+                                    <img src="../images/stat/small_icons_index.png">
+                                    <span id="type_title">发展量</span>
+                                </div>
+                            </div>
+                            <!-- 柱状图 -->
+                            <div id='barTable' class='barTable' style="height: 250px;margin-top: 50px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<!--bootstrap-->
+<script type="text/javascript"
+        src="../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript"
+        src="../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<!--bootstrap table-->
+<script type="text/javascript"
+        src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript"
+        src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript"
+        src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+<!--PC 时间插件 My97DatePicker -->
+<script type="text/javascript" src="../js/plugins/My97DatePicker/WdatePicker.js"></script>
+<!--控制导出按钮-->
+<script type="text/javascript"
+        src="../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+<!--控制导出功能-->
+<!--bootstrap paginator-->
+<script type="text/javascript"
+        src="../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script type="text/javascript" src="../js/plugins/echarts3/echarts.js"></script>
+<script type="text/javascript" src="../js/plugins/BootBox/bootbox.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/echarts/3.8.4/echarts.js"></script> -->
+<script type="text/javascript" src="../js/plugins/ztree/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/flowChart.js"></script>
+<script type="text/javascript">
+    //echars 报表名称
+    var name;
+    //x轴显示
+    var barX;
+    var indexKey = "G1";
+    var indexType = "5G";
+    var totalAreaDate;
+
+    $(function () {
+        //初始化小项值
+        //datadealTotal(indexKey,indexType);
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    });
+
+
+
+    /**
+     * 根据选择类型判断报表x轴
+     * @param tableType
+     * @param data
+     */
+    function judgeEchars(indexKey) {
+        if (indexKey == "R1" || indexKey == "R2") { //19
+            /*barX = ["二区分公司", "三区分公司", "四区分公司", "五区分公司", "七区分公司", "八区分公司",
+                "通州分公司", "昌平分公司", "大兴分公司", "顺义分公司", "房山分公司", "密云分公司", "怀柔分公司",
+                "门头沟分公司", "平谷分公司", "延庆分公司", "大客户中心", "重通局", "其他"];*/
+            barX = ["二区", "三区", "四区", "五区", "七区", "八区",
+                "通州", "昌平", "大兴", "顺义", "房山", "密云", "怀柔",
+                "门头沟", "平谷", "延庆", "大客户中心", "重通局", "其他"];
+            if (indexKey == "R1") {
+                name = "累计到期用户";
+                totalAreaDate=[45761	,35852	,43479	,30139	,49485	,32942	,28556	,28084	,26934	,24032	,27430	,12523	,12211	,8879	,10820	,8428	,27	,114	,87];
+            } else {
+                name = "累计续约用户";
+                totalAreaDate=[31522	,25365	,29834	,19795	,33619	,23230	,19130	,20381	,18964	,16952	,20328	,9836	,9623	,6724	,7995	,6537	,16	,42	,63];
+            }
+        } else if (indexKey == "R3" || indexKey == "G2") { //2
+            barX = ["电子渠道", "客服中心"];
+            if (indexKey == "R3") {
+                name = "线上续约量";
+                totalAreaDate=[64533,	8261];
+            } else {
+                name = "其中：线上发展量";
+                totalAreaDate=[255789,	247216]
+            }
+        } else if (indexKey == "R4") { //4
+            barX = ["营业厅", "综合网格", "社会渠道", "其他"]
+            name = "线下续约量";
+            totalAreaDate=[129243	,56149	,21902	,19868]
+        } else if (indexKey == "R5") { //19
+          /*  barX = ["二区分公司", "三区分公司", "四区分公司", "五区分公司", "七区分公司", "八区分公司",
+                "通州分公司", "昌平分公司", "大兴分公司", "顺义分公司", "房山分公司", "密云分公司", "怀柔分公司",
+                "门头沟分公司", "平谷分公司", "延庆分公司", "大客户中心", "重通局", "北京市公司大帐"];*/
+            barX = ["二区", "三区", "四区", "五区", "七区", "八区",
+                "通州", "昌平", "大兴", "顺义", "房山", "密云", "怀柔",
+                "门头沟", "平谷", "延庆", "大客户中心", "重通局", "其他"];
+            name = "续约率";
+            totalAreaDate=[68.88,	70.75,	68.62,	65.68,	67.94,	70.52,	66.99,	72.57,	70.41,	70.54,	74.11,	78.54,	78.81,	75.73,	73.89,	77.56,	59.26,	36.84,	72.41];
+        } else if (indexKey == "R6") { //15
+            barX = ["19年1月","19年2月","19年3月","19年4月","19年5月","19年6月","19年7月","19年8月","19年9月",
+            "19年10月","19年11月","19年12月","20年1月","20年2月","20年3月"];
+            name = "其中：中台办理量";
+            totalAreaDate=[4104,	2749,	2723,	2493,	3128,	2990,	2673,	3032,	5874,	6268,	6557,	10286,	16210,	50528,	43371]
+        } else if (indexKey == "G3") { //3
+            barX = ["营业厅", "综合网格", "社会渠道"];
+            name = "其中：线下发展量";
+            totalAreaDate=[85507	,10008	,8294];
+        } else if (indexKey == "G1" || indexKey == "G4" || indexKey == "G5" || indexKey == "G6") { //21
+            barX = ["二区", "三区", "四区", "五区", "七区", "八区",
+                "通州", "昌平", "大兴", "顺义", "房山", "密云", "怀柔", "门头沟", "平谷", "延庆",
+                "战客部", "渠道中心", "客服中心", "重通局", "其他"];
+            if (indexKey == "G1") {
+                name = "发展量";
+                totalAreaDate=[18390	,13632	,15745	,10604	,15634	,9516	,4847	,5991	,5121	,3122	,2908	,438	,649	,1589	,503	,566	,587	,255789	,247216	,142,	10015];
+            } else if (indexKey == "G4") {
+                name = "5G升级包";
+                totalAreaDate=[7549,	6041,	4732,	4278,	6715,	3072,	1148,	1149,	1748,	390,	1174,	144,	115,	189,	207,	204,	364,	237094,	234944,	0,	6030];
+            } else if (indexKey == "G5") {
+                name = "新发展用户";
+                totalAreaDate=[2508,	1999,	2885,	2067,	2382,	1942,	894,	1906,	1132,	821,	567,	153,	299,	369,	199,	204,	73,	4946,	545,	137,	53];
+            } else {
+                name = "套餐迁转";
+                totalAreaDate=[8333,	5592,	8128,	4259,	6537,	4502,	2805,	2936,	2241,	1911,	1167,	141,	235,	1031,	97,	158,	150,	13749,	11727,	5,	3932];
+            }
+        }
+    }
+
+    //获取小项值
+    function datadealTotal(indexKey, indexType) {
+        $.ajax({
+            type: 'post',
+            url: getOutUrl(getRootPath_web(), "/sceneMonitor/queryIndexTotal?userParam" + getUrlParam("userParam") + '&indexType=' + indexType),
+            dataType: 'json',
+            async: false,
+            data: {
+                "indexType": indexType
+            },
+            success: function (data) {
+                console.log(data.num1);
+                if (indexType == "Rcontract") {
+                    $("#kdxf1 .divboxnum").html(data.num1);
+                    $("#kdxf2 .divboxnum").html(data.num2);
+                    $("#kdxf3 .divboxnum").html(data.num3);
+                    $("#kdxf4 .divboxnum").html(data.num4);
+                    $("#kdxf5 .divboxnum").html(data.num5);
+                    $("#kdxf6 .divboxnum").html(data.num6);
+                }else {
+                    $("#5g1 .divboxnum").html(data.num1);
+                    $("#5g2 .divboxnum").html(data.num1);
+                    $("#5g3 .divboxnum").html(data.num1);
+                    $("#5g4 .divboxnum").html(data.num1);
+                    $("#5g5 .divboxnum").html(data.num1);
+                    $("#5g6 .divboxnum").html(data.num1);
+                }
+                totalAreaDate = data.data;
+            }
+        });
+    }
+
+    //获取echars值
+    function datadealdetail(indexKey, indexType) {
+        $.ajax({
+            type: 'post',
+            url: getOutUrl(getRootPath_web(), "/sceneMonitor/queryIndexDetail?userParam" + getUrlParam("userParam") + '&indexKey='
+                + indexKey + '&indexType=' + indexType),
+            dataType: 'json',
+            async: false,
+            data: {
+                "indexKey": indexKey,
+                "indexType": indexType
+            },
+            success: function (data) {
+                totalAreaDate = data.data;
+            }
+        });
+    }
+
+    $('#selectA li').click(function () {
+        $(this).addClass('chooseColor').siblings('li').removeClass('chooseColor')
+        if ($(this).attr('data-name') == 'kdxf') {
+            $('#kdxf').addClass('show').removeClass('hide')
+            $('#5g').removeClass('show').addClass('hide')
+            $("#type_title").text('累计到期用户')
+            indexType = "Rcontract";
+            indexKey = "R1";
+            judgeEchars(indexKey);
+            //获取后台echars数据
+            //datadealdetail(indexKey,indexType);
+            bar1(totalAreaDate);
+        } else if ($(this).attr('data-name') == '5G') {
+            $('#5g').addClass('show').removeClass('hide')
+            $('#kdxf').removeClass('show').addClass('hide')
+            $("#type_title").text('发展量')
+            indexType = "5G";
+            indexKey = "G1";
+            judgeEchars(indexKey);
+            //获取后台echars数据
+            //datadealdetail(indexKey,indexType);
+            bar1(totalAreaDate);
+        }
+
+    })
+
+
+    // 宽带续费： 累计到期用户、累计续约用户、线上续约量、线下续约量、续约率、其中：中台办理量
+    $('#kdxf1').click(function () {
+        indexKey = "R1";
+        $("#type_title").text('累计到期用户')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    $('#kdxf2').click(function () {
+        indexKey = "R2";
+        $("#type_title").text('累计续约用户')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    $('#kdxf3').click(function () {
+        indexKey = "R3";
+        $("#type_title").text('线上续约量')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    $('#kdxf4').click(function () {
+        indexKey = "R4";
+        $("#type_title").text('线下续约量')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    $('#kdxf5').click(function () {
+        indexKey = "R5";
+        $("#type_title").text('续约率')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    $('#kdxf6').click(function () {
+        indexKey = "R6";
+        $("#type_title").text('中台办理量')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    // 5G：发展量、线上发展量、线下发展量、5G升级包、新发展用户、套餐迁转
+    $('#5g1').click(function () {
+        indexKey = "G1";
+        $("#type_title").text('发展量')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    $('#5g2').click(function () {
+        indexKey = "G2";
+        $("#type_title").text('线上发展量')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    $('#5g3').click(function () {
+        indexKey = "G3";
+        $("#type_title").text('线下发展量')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    $('#5g4').click(function () {
+        indexKey = "G4";
+        $("#type_title").text('5G升级包')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    $('#5g5').click(function () {
+        indexKey = "G5";
+        $("#type_title").text('新发展用户')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+    $('#5g6').click(function () {
+        indexKey = "G6";
+        $("#type_title").text('套餐迁转')
+        judgeEchars(indexKey);
+        //获取后台echars数据
+        //datadealdetail(indexKey,indexType);
+        bar1(totalAreaDate);
+    })
+
+
+
+    //echar 简单柱状（颜色渐变）
+    function bar1(data) {
+        //echars 柱状图对象
+        var bar = echarts.init(document.getElementById('barTable'));
+        //柱状宽度
+        var barWidth = 24;
+        console.log(name);
+        console.log("进入了echars！");
+        console.log(barX);
+        var formatterData = '{b}<br />\
+		    	<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#99d9ea"></span>\
+		    	{a}：{c}单<br />';
+
+        var formatterSeries = '{c}';
+        var yAxisName = "单位：单";
+        if (indexKey =="R5") {
+             formatterSeries = '{c}%';
+             yAxisName = "单位：%";
+            formatterData = '{b}<br />\
+    	<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:#99d9ea"></span>\
+    	{a}：{c}%<br />';
+        }
+        var option = {
+            tooltip: {formatter:formatterData},
+            color: ['#5abfde'],  // 柱子颜色
+            legend: {  // 图例
+                show: false,
+                textStyle: {},
+                right: '3%'
+            },
+            grid: {  // 可控制图标大小和位置
+                width: 'auto',  // 宽 & 高
+                height: 'auto',
+                top: '30px', // 距离容器顶部
+                bottom: '80px',  // X轴位置距离容器底部
+                x: '80px',  // 距离容器X方向距离
+                y:'20px',
+                x2: 5,
+                borderColor: 'transparent',
+            },
+            xAxis: {
+                type: 'category',
+                data: barX,
+                nameTextStyle: {
+                    fontSize: 8
+                },
+                axisLabel: {
+                    interval: 0,
+                    rotate: 60,
+                    formatter: function (value, index) {
+                        var rt = "";
+                        for (var i = 0; i < value.length; i++) {
+                            rt += value.substr(i, 1) + "\n";
+                        }
+                        rt = value;
+                        return rt;
+                    },
+                    textStyle: {
+                        fontSize: 10 // 让字体变大
+                    }
+                },
+                axisLine: {
+                    show: true, // X轴坐标线
+                    lineStyle: {
+                        color: '#ffffff',
+                        width: 1,
+                    }
+                },
+            },
+            yAxis: [
+
+                {
+                    name:yAxisName,
+                    type: 'value',
+                    axisLabel: {    // 轴线
+                        textStyle: {
+                            color: '#ffffff',
+                            fontStyle: 'normal',
+                            fontFamily: '微软雅黑'
+                        }
+                    },
+                    splitLine: {
+                        show: 'true',
+                        lineStyle: {
+                            color: '#5a66bd',
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLine: {
+                        show: true, // Y轴坐标线
+
+                        lineStyle: {
+                            color: '#ffffff',
+                            width: 1
+                        }
+                    }
+                },
+            ],
+            series: [
+                {
+                    name: name,
+                    type: 'bar',
+                    barGap: 0,//柱间距离
+                    barWidth: barWidth,  //柱子宽度
+                    itemStyle: {
+                        emphasis: {
+                            barBorderRadius: 4    //显示圆角
+                        },
+                        normal: {
+                            barBorderRadius: 4,
+                            color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{   //颜色渐变
+                                offset: 0,
+                                color: '#99d9ea'
+                            }, {
+                                offset: 1,
+                                color: '#3fa7dc'
+                            }]),
+                            label: {
+                                show: true,      //开启显示
+                                position: 'top', //在上方显示
+                                textStyle: {     //数值样式
+                                    color: '#ffffff',
+                                    fontSize: 12
+                                },
+                                formatter:formatterSeries
+                            }
+                        },
+                    },
+                    data: data
+                },
+            ]
+        };
+        bar.setOption(option, true);
+    }
+</script>
+
+
+</html>

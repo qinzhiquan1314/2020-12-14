@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+/*** 6位验证码区域  start***/
+.pwd-box {
+	padding: 0 3.7rem; /* 0 58px; */
+	/* width: 100%; */
+	position: relative;
+	border-radius: 0.7rem; /* 14px; */
+	overflow: hidden;
+	/* background-color: ghostwhite;*/
+}
+.fake-box p{
+	float: left;
+	display: block;
+    width: 15%;
+	height: 5.35rem; /* 107px; */
+	line-height: 5.35rem; /* 107px; */
+	border: 0.1rem solid #eee;
+	border-radius: 0.5rem; /* 10px; */
+	text-align: center;
+	font-size: 3rem; /* 60px; */
+	background-color: #fff;
+}
+.fake-box .mglr {
+	/* margin:0 0.25rem; */
+	margin-left: 0.3rem;
+}
+
+/* 真正使用*/
+.pwd-input{
+	position:absolute;
+	left:0px;
+	top:-100px;
+	width: 5rem; 
+	height: 1rem;
+	z-index:20;
+	opacity: 0;
+	filter:alpha(opacity:0);
+}
+
+/*调试使用
+.pwd-input{
+	position:absolute;
+	left:0px;
+	top:100px;
+	width: 5rem;
+	height: 1rem;
+	z-index:20;
+	background-color: gold;
+	color: red;
+}*/
+
+/*** 6位验证码区域  end ***/
+
+
+/*** 其它显示内容区  start ***/
+.messgeFont {
+	font-size: 1.3rem; /* 26px; */
+	color: #9d9d9d;
+}
+
+.showserialNum {
+	/* margin: 5.5rem 0 2.3rem 3.8rem; */ /* 110px 0 46px 60px; */
+	margin: 4rem 0 2.3rem 3.8rem;
+}
+
+.getMessage {
+	margin: 3rem 4.5rem; /* 60px 62px; */
+}
+
+.btn_getMess {
+	background-color: transparent;
+}
+.text-color {
+	color:#fd6b00
+} 
+/*** 其它显示内容区  end ***/
+
+
+
+

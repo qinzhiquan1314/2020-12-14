@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>全流程监控总览</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name=”renderer” content=”webkit|ie-comp|ie-stand” />
+<!--bootstrap插件-->
+<link rel="stylesheet" type="text/css"
+	href="../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+<!--pc公共-->
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+
+<!--加载等待插件-->
+<link rel="stylesheet" type="text/css"  href="../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+<link rel="stylesheet" type="text/css" href="../css/flowCharttext.css" />
+<link rel="stylesheet" type="text/css" href="../css/modal.css" />
+<link rel="stylesheet" type="text/css" href="../css/monitView.css" />
+<link rel="stylesheet" type="text/css" href="../css/table23.css">
+<style type="text/css">	
+	.b-tableDiv table>thead>tr>th{
+	font-size:10px;
+	}
+	.bootstrap-table .table thead>tr>th{
+	font-weight:700;
+	}
+	.fixed-table-pagination .pagination-detail, .fixed-table-pagination div.pagination{
+	margin-top:20px;
+	font-size:10px;
+	}
+	.page-list .btn {
+	font-size:10px;
+	border-color:#fa7a07;
+	
+	padding:2px 6px;
+	
+	}
+	.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+	background-color:#fa7a07;
+	border-color:#fa7a07;
+	
+	
+	}
+	.btn-default:focus, .btn-default:hover{
+		border-color:#fa7a07;
+	}
+	.open>.dropdown-toggle.btn-default:hover{
+	border-color:#fa7a07;
+	}
+	.b-tableDiv table>thead>tr>th{
+	font-family:'Verdana', 'SimHei', sans-serif;
+	}
+  #table_a  .th-inner{
+		text-align:center;
+		font-size:12px;
+	} 
+  #table_b  .th-inner{
+		text-align:center;
+		font-size:12px;
+	} 
+	.table th, .table td { 
+		text-align: center;
+		vertical-align: middle!important;
+	}
+</style>
+</head>
+<body>
+<div class='me-content'>
+	<div id="Lcontainer">
+		<div class='logoBox fl'><img src="../images/stat/logo.png" class='logo'/></div>
+		<div id="Lnav" class='me-lnav'>
+			<ul class="Lnav">	
+				<li class="li1 Lcheck">全流程监控总览</li>
+				<li class="in li2">互联网化一站式交付全流程监控</li>
+				<li class="out li3">传统集中受理交付全流程监控</li>
+				<li class="li4">统计及重点指标</li>
+				<li class="li5"></li>
+			</ul>
+		</div>
+		<!--内容切换-->
+		<!--内容切换-->
+		<ul class="tables">
+			<!-- 全流程监控总览 -->
+			<li class="on">
+				<div class="iframe clearfix">
+					<div class="topText">
+						<span id='datatag'>截至-年-月-日 -:-，北京公司今日累计总订单量</span>
+						<span class="textnub" id="total_ord_num">-</span>，
+						竣工订单量  <span class="textnub" id="finish_num">-</span> ，
+						超时订单量  <span class="textnub" id="out_time_num">-</span> ，
+						昨日总订单量  <span class="textnub" id="last_day_num">-</span>  。
+					</div>
+					<div class="mainLeft fl">
+						<ul class="selectA">
+							<a>
+							<li class="tit" name="监控业务类型" id="iselect0" type="all">
+								<img alt="" src="../images/stat/tit_bg_index.png" class="selectbg">
+								<span>监控业务类型</span>
+							</li>
+							</a>
+							<div id="li2_4">
+								<li class="iselect1 tit" name="融合业务" type="CP" id="iselect1">
+									<div class="cursor">融合业务</div>
+									<img alt="" src="../images/stat/down2.png" class="selectshow" id="li3img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+								<li class="iselect2 tit" name="单宽业务" type="40" id="iselect2">
+									<div class="cursor">单宽业务</div>
+									<img alt="" src="../images/stat/down2.png" class="selectshow1" id="li2img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+								<li class="iselect3 tit" name="专线业务（云/光）" type="67" id="iselect3">
+									<div class="cursor">专线业务（云/光）</div>
+									<img alt="" src="../images/stat/down2.png" class="selectshow1" id="li5img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+								<li class="iselect4 tit" name="快线业务（云/光）" type="41" id="iselect4">
+									<div class="cursor">快线业务（云/光）</div>
+									<img alt="" src="../images/stat/down2.png" class="selectshow1" id="li4img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+							</div>
+						</ul>
+						<!--<ul class="selectP">
+							<a>
+							<li  class="tit" name="全部" id='iselect5' type="all">
+								<img alt="" src="../images/stat/tit_bg_index.png" class="selectbg">
+								<span>全部</span>
+							</li>
+							</a>
+							<div id="li6_7">
+								<li class="iselect5 tit" name="装机" type="1" id='iselect6'>
+									<div class="cursor">装机</div>
+									<img alt="" src="../images/stat/down2.png" class="selectshow" id="li6img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+								<li class="iselect6 tit" name="移机" type="0" id='iselect7'>
+									<div class="cursor">移机</div>
+									<img alt="" src="../images/stat/down2.png" class="selectshow1" id="li7img">
+								</li>
+								<img src="../images/stat/lineIndex.png">
+							</div>
+						</ul>-->
+					</div>
+					<div class="mainRight fl">
+						<div class="selectTop">
+							<img src="../images/stat/small_icons_index.png">
+							北京公司今日累计
+						</div>
+						<div class="selectMain">
+						    <div class="selectBtn clearfix">
+						        <div class="btn1_bg">
+						            <img src="../images/index/btn_bg1.png" alt="" class="show" id="btn_bg1" type="pic1">
+						            <img src="../images/index/btn_bg2.png" alt="" class="hide" id="btn_bg2" type="pic1">
+						            <img src="../images/index/btn_bg3.png" alt="" class="hide" id="btn_bg3" type="pic1">
+						            <img src="../images/index/btn_bg4.png" alt="" class="hide" id="btn_bg4" type="pic1">
+						            <img src="../images/index/btn_bg5.png" alt="" class="hide" id="btn_bg5" type="pic1">
+						            <img src="../images/index/btn_bg6.png" alt="" class="hide" id="btn_bg6" type="pic1">
+						            <div class="details">
+						            	<div id="btn_bg1_d" class='btn_bg1 show clearfix' type="det">
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_left fl">
+						                    	<div class="top clearfix">
+						                        	<div class="top_l fl">互联网化来单：<span id="bg1_internet" class="cursor" type="btn_detail" name="互联网化来单">--</span></div>
+						                         	<div class="top_r fl">其中一站式交付：<span id="bg1_one_stop" class="cursor" type="btn_detail" name="其中一站式交付">--</span></div>
+						                    	</div>
+						                    	<div class="bottom clearfix">
+						                        	<div class="text1 fl">沃易售 <span id="bg1_wo" type="btn_detail" name="沃易售" class="cursor">--</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+													<div class="text fl">北京网厅 <span id="bg1_inter" type="btn_detail" name="北京网厅" class="cursor">--</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+													<div class="text fl">集团商城 <span id="bg1_shop" type="btn_detail" name="集团商城" class="cursor">--</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+						                        	<div class="text fl">电话营销 <span id="bg1_call" type="btn_detail" name="电话营销" class="cursor">--</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+						                        	<div class="text fl">第三方合作 <span id="bg1_three" type="btn_detail" name="第三方合作" class="cursor">--</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+						                        	<div class="text fl">其它 <span id="bg1_other" type="btn_detail" name="其他" class="cursor">--</span></div>
+						                    	</div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details_right fl">
+						                    	<div class="top clearfix">
+						                        	<div class="top_l fl">线下实体来单：<span id="bg1_under_line" type="btn_detail" name="线下实体来单" class="cursor">--</span></div>
+						                    	</div>
+						                    	<div class="bottom clearfix">
+						                        	<div class="rtext1 fl">营业厅 <span id="bg1_business_hall" type="btn_detail" name="营业厅" class="cursor">--</span></div>
+						                        	<img src="../images/stat/line2_06.png" alt="" class="fl">
+						                        	<div class="rtext fl">社会渠道 <span id="bg1_society" type="btn_detail" name="社会渠道" class="cursor">--</span></div>
+						                    	</div>
+						                	</div>
+						                </div>
+						                <div id="btn_bg2_d" class='btn_bg2 hide clearfix' type="det">
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">中台受理：<span id="bg2_city1" type="btn_detail" name="中台受理" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">电话营销：<span id="bg2_call" type="btn_detail" name="电话营销" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">装维行销：<span id="bg2_install" type="btn_detail" name="装维行销" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">营业厅：<span id="bg2_business_hall" type="btn_detail" name="营业厅" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">社会渠道：<span id="bg2_society" type="btn_detail" name="社会渠道" class="cursor">--</span></div>
+						                	</div>
+						                </div>
+						                <div id="btn_bg3_d" class='btn_bg3   hide clearfix' type="det">
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">市区：<span id="bg3_city" type="btn_detail" name="市区" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">近郊：<span id="bg3_suburbs" type="btn_detail" name="近郊" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">远郊：<span id="bg3_outskirts" type="btn_detail" name="远郊" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">重通局：<span id="bg3_important" type="btn_detail" name="重通局" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">其他：<span id="bg3_other" type="btn_detail" name="其他" class="cursor">--</span></div>
+						                	</div>
+						                </div>
+						                <div id="btn_bg4_d" class=' btn_bg4  hide clearfix' type="det">
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">市区：<span id="bg4_city" type="btn_detail" name="市区" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">近郊：<span id="bg4_suburbs" type="btn_detail" name="近郊" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">远郊：<span id="bg4_outskirts" type="btn_detail" name="远郊" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">重通局：<span id="bg4_important" type="btn_detail" name="重通局" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">其他：<span id="bg4_other" type="btn_detail" name="其他" class="cursor">--</span></div>
+						                	</div>
+						                </div>
+						                <div id="btn_bg5_d" class='  btn_bg5 hide clearfix' type="det">
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">市区：<span id="bg5_city" type="btn_detail" name="市区" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">近郊：<span id="bg5_suburbs" type="btn_detail" name="近郊" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">远郊：<span id="bg5_outskirts" type="btn_detail" name="远郊" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">重通局：<span id="bg5_important" type="btn_detail" name="重通局" class="cursor">--</span></div>
+						                	</div>
+						                	<!-- <img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">其他：<span id="bg5_other" type="btn_detail" name="其他">12</span></div>
+						                	</div> -->
+						                </div>
+						                <div id="btn_bg6_d" class='btn_bg6 hide clearfix' type="det">
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">前台注销：<span id="bg6_rception" type="btn_detail" name="前台注销" class="cursor">--</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">中台处理退单：<span id="bg6_install" type="btn_detail" name="中台处理退单" class="cursor">--</span></div>
+						                	</div>
+						                	<!--<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">意向单取消：<span id="bg6_ord" type="btn_detail" name="意向单取消" class="cursor">&#45;&#45;</span></div>
+						                	</div>
+						                	<img src="../images/stat/line1_03.png" alt="" class="fl">
+						                	<div class="details2 fl">
+						                        	<div class="context1 fl">线上订单取消：<span id="bg6_on_line" type="btn_detail" name="线上订单取消" class="cursor">&#45;&#45;</span></div>
+						                	</div>-->
+						                </div>
+						            </div>   
+						        </div>
+						        <div class="rightBtn clearfix staticPic">
+						        	<a>
+						            <div class="btn1 fl" id="btn1" name="今日订单量">
+						                <img src="../images/index/btn1.png" alt="" class="hidden1" id="img1" >
+						                <div class="nub num cursor" id="img1d" title="今日各触点来单总量" >--</div>
+						            </div>
+						            </a>
+						            <a>
+						            <div class="btn2 fl" id="btn2" name="今日受理量">
+						                <img src="../images/index/btn2.png" alt="" class="visible1" id="img2" type="pic2">
+						                <div class="nub1 num cursor" id="img2d" title="今日受理订单总量 ">--</div>
+						            </div>
+						            </a>
+						            <a>
+						            <div class="btn3 fl" id="btn3" name="累计在途量">
+						                <img src="../images/index/btn3.png" alt="" class="visible1" id="img3" type="pic2">
+						                <div class="nub num cursor"  id="img3d" title="当前在途工单量">--</div>
+						            </div>
+						            </a>
+						            <a>
+						            <div class="btn4 fl" id="btn4" name="累计超时量">
+						                <img src="../images/index/btn4.png" alt="" class="visible1" id="img4" type="pic2">
+						                <div class="nub num cursor" id="img4d" title="当前超时工单量">--</div>
+						            </div>
+						            </a>
+						            <a>
+						            <div class="btn5 fl" id="btn5" name="今日竣工量">
+						                <img src="../images/index/btn5.png" alt="" class="visible1" id="img5" type="pic2">
+						                <div class="nub1 num cursor" id="img5d" title="今日竣工工单量">--</div>
+						            </div>
+						            </a>
+						            <a>
+						            <div class="btn6 fl" id="btn6" name="今日撤单量">
+						                <img src="../images/index/btn6.png" alt="" class="visible1" id="img6" type="pic2">
+						                <div class="nub1 num cursor" id="img6d" title="今日撤单量">--</div>
+						            </div>
+						            </a>
+						        </div>
+							</div>
+						</div>
+						<div class="selectBtm clearfix" >
+							<div class="clearfix">
+								<div class="btml fl" >
+									<img src="../images/stat/small_icons_index.png">
+									<span id="type_title" >今日订单量</span>
+								</div>
+								<div class="btmr fr">
+									<span class="sl1 slcheck cursor" id="select11">按销售线展示</span>
+									<span class="sl2 cursor" id="select22">按小时展示</span>
+									<span class="sl3 cursor" id="select33">按销售线导出</span>
+									<span class="sl4  cursor" id="select44">按小时导出</span>
+								</div>
+							</div>
+							<!-- 柱状图 -->
+							<div id='barTable' class='barTable'>
+							</div>
+							<div id="chooseDiv3_on" class="chooseDiv3 fl">
+								<span class="so1 spcheck cursor" id="select6" type="all" >全部</span>
+								<span class="so2 cursor" id="select7" type="1">装机</span>
+								<span class="so3 cursor" id="select8" type="0">移机</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<!-- 互联网化一站式交付全流程监控 -->
+			<li>
+				<!--下拉框-->
+				<div class="choose">
+				<!-------改------->
+					<!-- <div class="chooseText">
+						截至2018年10月11日 18:10，北京公司今日累计总订单量  <span class="textnub"> 43</span>，竣工订单量  <span class="textnub"> 4</span> ，超时订单量  <span class="textnub"> 1371</span> ，昨日总订单量  <span class="textnub"> 59</span>  。
+					</div> -->
+					<!-------改------->
+					<div class="chooseText">
+						<span id='datatag1'>截至-年-月-日 -:-，北京公司今日累计意向单</span>
+						<span class="textnub" id="total_ord_num1">-</span>，
+						竣工意向单  <span class="textnub" id="finish_num1">-</span> ，
+						超时意向单  <span class="textnub" id="out_time_num1">-</span> ，
+						昨日意向单  <span class="textnub" id="last_day_num1">-</span>  。
+					</div>
+					<div id="chooseDiv" class="chooseDiv">
+						<div id="chooseDiv0" class="chooseDiv0">
+							<img src="../images/stat/select_bg21.png" class="chooseDivImg1"> 
+							<img src="../images/stat/up.png" class="chooseDivImg2"> 
+							<select id="liabilityState" class="liabilityState show">
+								<option value="">请选择属地分公司</option>
+								<option value="2">二区</option>
+								<option value="3">三区</option>
+								<option value="4">四区</option>
+								<option value="5">五区</option>
+								<option value="7">七区</option>
+								<option value="8">八区</option>
+								<option value="802">通州</option>
+								<option value="801">昌平</option>
+								<option value="804">大兴</option>
+								<option value="806">顺义</option>
+								<option value="803">房山</option>
+								<option value="809">密云</option>
+								<option value="808">怀柔</option>
+								<option value="805">门头沟</option>
+								<option value="807">平谷</option>
+								<option value="810">延庆</option>
+								<!-- <option value="dkhzx">大客户中心</option> -->
+								<!-- <option value="11a09h">电商部</option> -->
+								<!-- <option value="11a0al">市支中心</option>
+								<option value="11a01q">客服中心</option> -->
+								<option value="10">重通局</option>
+								<!-- <option value="cpzczx">产品支撑中心</option>
+								<option value="11a0a1">国际业务中心</option>
+								<option value="11a01r">集团客户</option>
+								<option value="11a01s">电子渠道</option> -->
+								<!-- <option value="11a03d">导航中心</option>
+								<option value="11a04h">宽带业务中心</option>
+								<option value="11a05l">互联互通部</option>
+								<option value="11a079">产创</option> -->
+								<option value="9999">其它</option>
+							</select>
+							<select id="liabilityStates" class="liabilityStates hide">
+								<option value="">请选择归属销售线</option>
+								<option value="225">二区</option>
+								<option value="226">三区</option>
+								<option value="211">四区</option>
+								<option value="212">五区</option>
+								<option value="213">七区</option>
+								<option value="214">八区</option>
+								<option value="217">通州</option>
+								<option value="219">昌平</option>
+								<option value="220">大兴</option>
+								<option value="218">顺义</option>
+								<option value="216">房山</option>
+								<option value="223">密云</option>
+								<option value="221">怀柔</option>
+								<option value="215">门头沟</option>
+								<option value="222">平谷</option>
+								<option value="224">延庆</option>
+								<option value="227">重通局</option>
+								<option value="11a0al">中台</option>
+								<option value="11a01s">渠道中心</option>
+								<option value="dkhzx">大客户中心</option>
+
+								<!-- <option value="11a09h">电商部</option> -->
+
+								<option value="11a01q">客服中心</option>
+
+								<!-- <option value="cpzczx">产品支撑中心</option> -->
+								<!-- <option value="11a0a1">国际业务中心</option>
+								<option value="11a01r">集团客户</option>
+								 -->
+								<!-- <option value="11a03d">导航中心</option>
+								<option value="11a04h">宽带业务中心</option>
+								<option value="11a05l">互联互通部</option>
+								<option value="11a079">产创</option> -->
+								<option value="11a08x">其它</option>
+							</select>
+						</div>
+						<!-------改------->
+						<div id="chooseDiv1_on" class="chooseDiv1">
+							<select id="liabilityState1_on" class="liabilityState1">
+								<option value="all">全部</option>
+								<option value="1">装机</option>
+								<option value="0">移机</option>
+							</select>
+							<img src="../images/stat/select_bg22.png" class="chooseDivImg3"> 
+							<img src="../images/stat/up.png" class="chooseDivImg4">
+						</div>
+						<!-------改------->
+						<div id="chooseDiv2_on" class="chooseDiv2 fr">
+							<span class="sp1 spcheck" id="select1" data-id='1'>属地</span>
+							<span class="sp2" id="select2" data-id='2'>发展</span>
+						</div>
+					</div>
+				</div> 
+				<!--线上流程图-->
+				<div class="flowChartMain">
+					<div id="flowChart" style="width: 100%; height: 490px;" preserveAspectRatio="xMinYMin meet"></div>
+				</div>                                                                                                                                                                                                                                                                                                                                                     
+				<div class="box_height"></div>
+				<div class="hidden" id='on_data'></div>
+				
+			</li>
+			<!-- 传统集中受理交付全流程监控 -->
+			<li>
+				<!--下拉框-->
+				<div class="choose">
+					<!-------改------->
+					<!-- <div class="chooseText">
+						截至2018年10月11日 18:10，北京公司今日累计总订单量  <span class="textnub"> 43</span>，竣工订单量  <span class="textnub"> 4</span> ，超时订单量  <span class="textnub"> 1371</span> ，昨日总订单量  <span class="textnub"> 59</span>  。
+					</div> -->
+					<!-------改------->
+					<div class="chooseText">
+						<span id='datatag2'>截至-年-月-日 -:-，北京公司今日累计总订单量</span>
+						<span class="textnub" id="total_ord_num2">-</span>，
+						竣工订单量  <span class="textnub" id="finish_num2">-</span> ，
+						超时订单量  <span class="textnub" id="out_time_num2">-</span> ，
+						昨日总订单量  <span class="textnub" id="last_day_num2">-</span>  。
+					</div>
+					<div id="chooseDiv" class="chooseDiv">
+						<div id="chooseDiv0" class="chooseDiv0">
+							<img src="../images/stat/select_bg21.png" class="chooseDivImg1"> 
+							<img src="../images/stat/up.png" class="chooseDivImg2"> 
+							<select id="liabilityState11" class="liabilityState show">
+								<option value="">请选择属地分公司</option>
+								<option value="2">二区</option>
+								<option value="3">三区</option>
+								<option value="4">四区</option>
+								<option value="5">五区</option>
+								<option value="7">七区</option>
+								<option value="8">八区</option>
+								<option value="802">通州</option>
+								<option value="801">昌平</option>
+								<option value="804">大兴</option>
+								<option value="806">顺义</option>
+								<option value="803">房山</option>
+								<option value="809">密云</option>
+								<option value="808">怀柔</option>
+								<option value="805">门头沟</option>
+								<option value="807">平谷</option>
+								<option value="810">延庆</option>
+								<!-- <option value="dkhzx">大客户中心</option>
+								<option value="11a09h">电商部</option>
+								<option value="11a0al">市支中心</option>
+								<option value="11a01q">客服中心</option> -->
+								<option value="10">重通局</option>
+								<!-- <option value="cpzczx">产品支撑中心</option>
+								<option value="11a0a1">国际业务中心</option>
+								<option value="11a01r">集团客户</option>
+								<option value="11a01s">电子渠道</option> -->
+								<!-- <option value="11a03d">导航中心</option>
+								<option value="11a04h">宽带业务中心</option>
+								<option value="11a05l">互联互通部</option>
+								<option value="11a079">产创</option> -->
+								<option value="9999">其它</option>
+							</select>
+							<select id="liabilityStates1" class="liabilityStates hide">
+								<option value="">请选择归属销售线</option>
+								<option value="225">二区</option>
+								<option value="226">三区</option>
+								<option value="211">四区</option>
+								<option value="212">五区</option>
+								<option value="213">七区</option>
+								<option value="214">八区</option>
+								<option value="217">通州</option>
+								<option value="219">昌平</option>
+								<option value="220">大兴</option>
+								<option value="218">顺义</option>
+								<option value="216">房山</option>
+								<option value="223">密云</option>
+								<option value="221">怀柔</option>
+								<option value="215">门头沟</option>
+								<option value="222">平谷</option>
+								<option value="224">延庆</option>
+								<option value="227">重通局</option>
+								<option value="11a0al">中台</option>
+								<option value="11a01s">渠道中心</option>
+								<option value="dkhzx">大客户中心</option>
+
+								<!-- <option value="11a09h">电商部</option> -->
+
+								<option value="11a01q">客服中心</option>
+
+								<!-- <option value="cpzczx">产品支撑中心</option> -->
+								<!-- <option value="11a0a1">国际业务中心</option>
+								<option value="11a01r">集团客户</option> -->
+
+								<!-- <option value="11a03d">导航中心</option>
+								<option value="11a04h">宽带业务中心</option>
+								<option value="11a05l">互联互通部</option>
+								<option value="11a079">产创</option> -->
+								<option value="11a08x">其它</option>
+							</select>
+						</div>
+						<!-------改------->
+						<div id="chooseDiv1" class="chooseDiv1">
+							<select id="liabilityState1_out" class="liabilityState1">
+								<option value="all">全部</option>
+								<option value="1">装机</option>
+								<option value="0">移机</option>
+							</select>
+							<img src="../images/stat/select_bg22.png" class="chooseDivImg3"> 
+							<img src="../images/stat/up.png" class="chooseDivImg4">
+						</div>
+						<!-------改------->
+						<div id="chooseDiv2" class="chooseDiv2 fr">
+							<span class="sp1 spcheck" id="select3" data-id='0'>属地</span>
+							<span class="sp2" id="select4"  data-id='1'>发展</span>
+						</div>
+					</div> 
+				</div>
+				<!--线下流程图-->
+				<div class="flowChartMain">
+					<div id="flowChart1" style="width: 100%; height: 490px;" preserveAspectRatio="xMinYMin meet"></div>
+				</div>
+				<div class="box_height"></div>
+				<div class="hidden" id='out_data'></div>
+			</li>
+			<!-- 统计及重点指标 -->
+				<li class=''>
+				<div class="con clearfix">
+					<div class="conLeft fl">
+						<div class="conLeftTitle">
+							<div class="conLeftTitle1 fl">
+								<div class="sp1 spcheck fl" id='tab4Possession'>属地</div>
+								<div class="sp2 fr" id='tab4Bevelop'>发展</div>
+							</div>
+							<div class="conLeftTitle2 fr">
+								<div class="conLeftTitle2sele">
+									<img src="../images/stat/select_bg2.png" class="conLeftTitle2img ">
+									<img src="../images/stat/up.png" class="conLeftTitle2img1">  
+									<select id="chooseTable" class='select4'>
+										<option value="">请选择报表</option>
+										<option value="15">重点监控指标（属地口径日累计）</option>
+										<option value="17">重点监控指标（属地口径月累计）</option>
+										<option value="16">重点监控指标（发展口径日累计）</option>
+										<option value="18">重点监控指标（发展口径月累计）</option>
+										<option value="6">按分公司统计表（属地）</option>
+										<option value="7">按分公司统计表（发展）</option>
+										<option value="4">按订单来源统计表</option>
+										<option value="19">退单原因统计表</option> 
+										<option value="1">订单统计表（属地）</option>
+										<option value="2">订单统计表（受理）</option>
+										<option value="3">订单统计表（发展）</option>
+										<option value="5">订单详情明细表</option> 	
+										<option value="8">订单评价统计表（宽融业务）</option>
+										<option value="9">订单评价统计表（移网业务）</option>
+										<option value="10">订单评价统计表（快线&专线）</option>
+										<option value="11">订单评价明细表（宽融业务）</option>
+										<option value="12">订单评价明细表（移网业务）</option>
+										<option value="13">订单评价明细表（快线&专线）</option>
+										<option value="14">订单建议明细表</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!-- table -->
+						<div class="conLeftTop">
+						    <table class="tableStat"  id='tableStat'>
+							<thead class="">
+								<tr>
+									<th data-field="name"></th>
+									<th data-field="day_data" >今日值</th>
+									<th data-field="month_data" >本月累计</th>
+									<th data-field="rate" >累计环比</th>
+								</tr>
+							</thead>
+							<!-- <tbody class="" id='develop'>
+								<tr>
+									<td>资源准确率</td>
+									
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 四种资源类退单量</td>
+									
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 工单总量</td>
+									
+								</tr>
+								<tr>
+									<td>抢单率</td>
+									
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; -成功抢单量</td>
+									
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 工单总量加意向单量</td>
+									
+								</tr>
+								<tr>
+									<td>按时履约率</td>
+									
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 按时上门施工总量</td>
+									
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 上门施工量</td>
+									
+								</tr>
+								
+								
+								<tr>
+									<td>平均装机时长</td>
+									
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; -时长总量（单位：小时）</td>
+									
+								</tr>
+								<tr>
+									<td>评价率</td>
+									
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 评价工单量</td>
+									
+								</tr>
+								<tr>
+									<td>&nbsp;&nbsp; - 竣工单量</td>
+									
+								</tr>
+							</tbody>	 -->
+						</table> 
+						</div>
+						<!--雷达图开始  -->
+						<div class="conLeftBottom">
+							<div class="conLeftBottomtit">
+								<img src="../images/stat/small_icons.png" />
+								雷达图
+							</div>
+							<div class="conLeftBottomCon">
+								<div id='conLeftBottomCon1' class='conLeftBottomCon1'>
+								
+								</div>
+							</div>
+						</div>
+						<!--雷达图结束  -->
+					</div>
+					<div class="conRight fl">
+						<div class="conRightTitle clearfix">
+							<div class="conRightTitlesele fl">
+									<img src="../images/stat/select_bg2.png" class="conRightTitle2img">
+									<img src="../images/stat/up.png" class="conLeftTitle2img1">  
+									<select  id="salesLine"  class='select5 hide' >
+										<option value="">请选择归属销售线</option>
+										<option value="225">二区</option>
+										<option value="226">三区</option>
+										<option value="211">四区</option>
+										<option value="212">五区</option>
+										<option value="213">七区</option>
+										<option value="214">八区</option>
+										<option value="217">通州</option>
+										<option value="219">昌平</option>
+										<option value="220">大兴</option>
+										<option value="218">顺义</option>
+										<option value="216">房山</option>
+										<option value="223">密云</option>
+										<option value="221">怀柔</option>
+										<option value="215">门头沟</option>
+										<option value="222">平谷</option>
+										<option value="224">延庆</option>
+										<option value="227">重通局</option>
+										<option value="11a0al">中台</option>
+										<option value="11a01s">渠道中心</option>
+										<option value="dkhzx">大客户中心</option>
+								        <option value="11a01q">客服中心</option>
+									    <option value="11a08x">其它</option>
+									</select>
+									<select id="branchOffice" class="select5 show">
+										<option value="">请选择属地分公司</option>
+										<option value="2">二区</option>
+										<option value="3">三区</option>
+										<option value="4">四区</option>
+										<option value="5">五区</option>
+										<option value="7">七区</option>
+										<option value="8">八区</option>
+										<option value="802">通州</option>
+										<option value="801">昌平</option>
+										<option value="804">大兴</option>
+										<option value="806">顺义</option>
+										<option value="803">房山</option>
+										<option value="809">密云</option>
+										<option value="808">怀柔</option>
+										<option value="805">门头沟</option>
+										<option value="807">平谷</option>
+										<option value="810">延庆</option>
+										<option value="10">重通局</option>
+										<option value="9999">其它</option>
+									</select>
+							</div>
+							<div class="conRightTitleseleDate fr">
+								数据日期:<span id="dateYear">2018</span>年<span id="dateMouth">10</span>月<span id="dateDate">25</span>日
+							</div>
+						</div>
+						<div class="conRightCon1">
+							<div class="conLeftBottomtit">
+								<img src="../images/stat/small_icons.png" />
+								  近6个月趋势图
+							</div>
+							<!-- 折线图开始 -->
+							<div id='conRightCon1Top' class='conRightCon1Top'>
+								
+							</div>
+		
+						</div>
+						<div class="conRightCon2">
+							<div class="conLeftBottomtit" style='margin-top: 13px;'>
+								<img src="../images/stat/small_icons.png" />
+								 <!--  区域排名 --><span id="areaName"></span>
+							</div>
+							<!-- 柱状图 -->
+							<div id='conRightCon2Top' class='conRightCon2Top'>
+								
+							</div>
+						</div>
+					</div>
+				
+				
+				<div style='height:640px;'></div>
+			</li>
+		</ul>
+	</div>
+</div>
+	<!--图表-->
+	<div class="modal fade bs-example-modal-lg " id="myModal_chart" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content modal_box_chart">
+				<div class="clearfix">
+				  <img class="closeImg"  id="close_btn_chart" src="../images/stat/close.png">
+					<div class="modal_box_left_chart fl">
+						<table id="table_chart" class="table_chart table-bordered" 
+							data-toggle="table_chart">
+							<thead class="table_header_chart">
+								<tr>
+									<th data-field="developerAreaName">分公司</th>
+									<th data-field="aCount">订单量</th>
+									<th data-field="bCount">超时单量</th>
+									<th data-field="timeOut">超时占比</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="modal_box_right_chart fl">
+					<div class="titleFlag"></div>
+					<p class="modal_box_right_header_chart">本环节销售线订单量/超时单量</p>
+						<div class="modal_box_right_nav_chart clearfix">
+							<div class="fl" id='timeFlag'>更新日期:2018年7月日5时35分</div>
+							 <img class="exportImg" id="chart_export" alt="" src="../images/stat/btn3.png">
+							  <div class="orderFlag"></div>
+							  <span class="orderTitle">订单量</span>
+							  <div class="outTimeFlag"></div>
+							  <span class="outTime">超时单量</span>
+						</div>
+						<div class="modal_chart_box_chart">
+							<div id="modal_chart" style="height: 100%;"></div>
+						</div>
+						<!-- <div class="modal_foot fr" id="close_btn_chart">收起视图</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--表格-->
+	<!--a表格-->
+	<div class="modal fade bs-example-modal-lg " id="myModal_table_a"
+		tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content modal_box">
+				<!--头部-->
+				<div class="clearfix">
+					<div class="modal_header_l fl">全部订单明细</div>
+					<img class="exportTable table_export" id="table_export" alt="" src="../images/stat/btn3.png">
+					<!-- <div class="modal_header_r fr table_export" id='table_export'>
+						导出数据</div> -->
+					<img class="closeImg"  id="close_btn" src="../images/stat/close.png">
+				</div>
+				<!--table样式-->
+				<div class="modal_table">
+					<!--<table id="table" class="table table-bordered" >-->
+					<table id="table_a" class="table table_table table-bordered">
+						<thead class="table_header">
+							<tr>
+								<th data-field="exTradeInmode">受理渠道</th>
+								<th data-field="bssSubscribeId">订单号(意向订单)</th>
+								<th data-field="lastJobWorkInstId">工单号</th>
+								<th data-field="prodCatalog">业务类型</th>
+								<th data-field="lastJobName">当前环节</th>
+								<th data-field="developAreaName">发展分公司</th>
+								<th data-field="areaNameName">属地分公司</th>
+								<th data-field="lastJobStaff">当前环节处理人</th>
+								<th data-field="lastJobStaffTel">当前环节处理人电话</th>
+								<th data-field="appointDate">预约时间</th>
+								<!--<th data-field="workStartDate">创建时间</th>-->
+								<th data-field="jobTime">环节时限</th>
+								<th data-field="overTime">超时时点</th>
+								<th data-field="warnLevel">告警级别</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<!-- <div class="modal_foot fr" id="close_btn">收起图表</div> -->
+			</div>
+		</div>
+	</div>
+	<!--b表格-->
+	<div class="modal fade bs-example-modal-lg " id="myModal_table_b"
+		tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content modal_box">
+				<!--头部-->
+				<div class="clearfix">
+					<div class="modal_header_l fl">超时明细</div>
+					<img class="exportTable table_export" id="table_export" alt="" src="../images/stat/btn3.png">
+					<!-- <div class="modal_header_r fr table_export" id='table_export'>
+						导出数据</div> -->
+					<img class="closeImg"  id="close_btn_b" src="../images/stat/close.png">
+				</div>
+				<!--table样式-->
+				<div class="modal_table">
+					<!--<table id="table" class="table table-bordered" >-->
+					<table id="table_b" class="table table_table table-bordered">
+						<thead class="table_header">
+							<tr>
+								<th data-field="exTradeInmode">受理渠道</th>
+								<th data-field="bssSubscribeId">订单号(意向订单)</th>
+								<th data-field="lastJobWorkInstId">工单号</th>
+								<th data-field="prodCatalog">业务类型</th>
+								<th data-field="lastJobName">当前环节</th>
+								<th data-field="developAreaName">发展分公司</th>
+								<th data-field="areaNameName">属地分公司</th>
+								<th data-field="lastJobStaff">当前环节处理人</th>
+								<th data-field="lastJobStaffTel">当前环节处理人电话</th>
+								<th data-field="appointDate">预约时间</th>
+								<!--<th data-field="workStartDate">创建时间</th>-->
+								<th data-field="jobTime">环节时限</th>
+								<th data-field="overTime">超时时点</th>
+								<th data-field="compareMinutes">超时分钟数</th>
+								<th data-field="warnLevel">告警级别</th>
+								<th data-field="warnLevel" data-formatter="actionFormatter"
+									data-width='80px'>触发短信</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<!-- <div class="modal_foot fr" id="close_btn_b">收起图表</div> -->
+			</div>
+		</div>
+	</div>
+</body>
+<!--bootstrap-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<!--bootstrap table-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+<!--PC 时间插件 My97DatePicker -->
+  		 <script type="text/javascript" src="../js/plugins/My97DatePicker/WdatePicker.js" ></script>
+<!--控制导出按钮-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+<!--控制导出功能-->
+<!--bootstrap paginator-->
+<script type="text/javascript"
+	src="../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script type="text/javascript" src="../js/plugins/echarts3/echarts.js"></script>
+<!-- <script src="https://cdn.bootcss.com/echarts/3.8.4/echarts.js"></script> -->
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/flowChart.js"></script>
+<script type="text/javascript" src="../js/modal.js"></script>
+<script type="text/javascript" src="../js/staticMonitor.js"></script>
+<!---->
+
+<!-- <script type="text/javascript" src="../js/monitView.js"></script> -->
+<script type="text/javascript" src="../js/dateTable.js"></script>
+<!-- <script type="text/javascript" src="../js/table.js"></script> -->
+<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript">
+//更改之后的报表链接
+var userParam = window.location.href.substr(window.location.href.indexOf("?")+1);
+$(document).on("change","#chooseTable",function(e){
+	e.preventDefault();
+	e.stopPropagation();
+	var valueTable = $('#chooseTable option:selected').val()
+	if(valueTable==1){
+		window.open('staticReport/orderStatic.html?typeTable=OrderStatisticInArea&userParam='+userParam)
+	}
+	else if(valueTable==2){
+		window.open('staticReport/orderStatic.html?typeTable=OrderStatisticInAccept&userParam='+userParam)
+	}
+	else if(valueTable==3){
+		window.open('staticReport/orderStatic.html?typeTable=OrderStatisticInDevelop&userParam='+userParam)	
+	}
+	else if(valueTable==4){
+		window.open('staticReport/sourceOrd.html?typeTable=TradeSourceStatistic&userParam='+userParam)
+	}
+	else if(valueTable==5){
+		window.open('monitorReport/orderlistdetail.html?typeTable=orderDetail&userParam='+userParam)
+	}
+	else if(valueTable==6){
+		window.open('staticReport/branchStatic.html?typeTable=BranchCompanyStatisticInArea&userParam='+userParam)
+	}
+	else if(valueTable==7){
+		window.open('staticReport/branchStatic.html?typeTable=BranchCompanyStatisticInDevelop&userParam='+userParam)
+	}
+	else if(valueTable==8){
+		window.open('commentTable.html?typeTable=commentStatistic1&userParam='+userParam)
+	}
+	else if(valueTable==9){
+		window.open('commentTable.html?typeTable=commentStatistic2&userParam='+userParam)
+	}
+	else if(valueTable==10){
+		window.open('commentTable.html?typeTable=commentStatistic3&userParam='+userParam)
+	}
+	else if(valueTable==11){
+		window.open('commentTable.html?typeTable=commentDetail1&userParam='+userParam)
+	}
+	else if(valueTable==12){
+		window.open('commentTable.html?typeTable=commentDetail2&userParam='+userParam)	
+	}
+	else if(valueTable==13){
+		window.open('commentTable.html?typeTable=commentDetail3&userParam='+userParam)
+	}
+	else if(valueTable==14){
+		window.open('commentTable.html?typeTable=commentDetail4&userParam='+userParam)
+	}
+	else if(valueTable==15){
+		window.open('monitorReport/monitortable.html?typeTable=monitorDayByArea&userParam='+userParam)
+	}
+	else if(valueTable==16){
+		window.open('monitorReport/monitortable.html?typeTable=monitorDayByDevelopArea&userParam='+userParam)
+	}
+	else if(valueTable==17){
+		window.open('monitorReport/monitortable.html?typeTable=monitorMonthByArea&userParam='+userParam)
+	}
+	else if(valueTable==18){
+		window.open('monitorReport/monitortable.html?typeTable=monitorMonthByDevelopArea&userParam='+userParam)
+	}
+	else if(valueTable==19){
+		window.open('monitorReport/backcount.html?typeTable=orderBackDetail&userParam='+userParam)
+	}
+})
+</script>
+<!--[if lt IE 9]>
+	   <style type="text/css">
+	   .modal_box {
+	       background:transparent;
+	       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7fE7E7E7,endColorstr=#7fE7E7E7);
+	       zoom: 1;
+	   }
+	   .modal_box_chart {
+	       background:transparent;
+	       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7fE7E7E7,endColorstr=#7fE7E7E7);
+	       zoom: 1;
+	   }
+	   </style>
+	<![endif]-->
+	
+
+</html>

@@ -1,0 +1,609 @@
+@CHARSET "UTF-8";
+
+/* 筛选条件样式开始 */
+.searchInfo {
+    width: 90%;
+    margin-left: 100px;
+    position: relative;
+}
+.branchSearch,.interNet,.orderSource,.entityCanal{
+    display: inline-block;
+    overflow:hidden;
+    margin-left:80px;
+}
+label {
+    font-size: 16px;
+}
+.branchInfo label{
+    position: absolute;
+    left: 0px;
+    top: 10px;
+}
+.orderInfo label{
+    position: absolute;
+    left: 0px;
+    top: 48px;
+}
+.internet,.entityInfo{
+    display:none;
+}
+.internet label,.entityInfo label{
+    position: absolute;
+    left: 0px;
+    top: 85px;
+}
+.branchSearch li,.orderSource li,.interNet li,.entityCanal li,.businessStyle li{
+    float: left;
+    margin-left:15px;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 0px 10px;
+    cursor:pointer;
+}
+.searched {
+    color: #ffffff ;
+    background-color:#f39800;
+    border-radius: 8px;
+    padding: 3px 10px;
+}
+.businessInfo  label{
+    margin-top: -10px;
+    padding-top: -10px;
+}
+.businessStyle {
+    display: inline-block;
+    overflow:hidden;
+    margin-left: 5px;
+}
+.handleDate label{
+    margin-top:10px;
+}
+.handleDate span{
+    margin-left: 26px;
+    font-weight: normal;
+    font-family: 'Verdana', 'SimHei', sans-serif;
+    font-size:16px;
+}
+.startDate {
+    width: 200px;
+    display: inline-block;
+    position: relative;
+}
+.selectBranch {
+    width: 200px;
+    display: inline-block;
+    margin-left: 40px;
+    margin-top:10px;
+}
+.branchItem,.developItem {
+    display:none;
+}
+.searchExp {
+    display: inline-block;
+    float:right;
+}
+.hisSearch {
+    cursor:pointer;
+}
+/* 筛选条件样式结束 */
+
+.iframe {
+    font-family: 'Verdana', 'SimHei', sans-serif;
+    margin-top: 10px;
+    outline: none;
+    width: 100%;
+    height: 670px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.mleft {
+    font-family: 'Verdana', 'SimHei', sans-serif;
+    margin: 15px auto auto 1%;
+    width: 15%;
+    min-height: 500px;
+    top: 50px;
+    float: left;
+}
+
+.lable_title {
+    font-weight: normal;
+    font-family: 'Verdana', 'SimHei', sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.mleft li:first-of-type {
+    margin: 3px auto auto 1%;
+    color: #3D5BBB;
+    padding-left: 12%;
+    text-align: left;
+    margin-left: 1%;
+    margin-bottom: 20px;
+    font-weight: bold;
+    background-image: url(../images/stat/tit_bg_index.png);
+}
+
+
+.mleft li:last-of-type {
+    margin-left: 1%;
+}
+
+.mleft ul li {
+    list-style: none;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    width: 100%;
+    height: 41px;
+    text-align: center;
+    background-size: 100% 100%;
+    background-color: rgba(255, 255, 255, 0);
+    line-height: 41px;
+    margin-left: 1%;
+    margin-bottom: 25px;
+}
+
+.mleft ul li:hover {
+    cursor: pointer;
+}
+
+.mleft .active {
+    /* border-radius: 10px 10px 10px 10px; */
+    /* color: #000; */
+    /* background-color: #F8B62D; */
+}
+
+.ywcheck {
+    top: 0%;
+    right: 5%;
+    float: right;
+    algin: center;
+}
+
+.ywcheck img {
+    margin: 14px 12px 14px 12px;
+}
+
+.ywcheck .imgshow {
+    /*margin: 14px 12px 14px 12px;*/
+    transform: rotate(0deg);
+}
+
+.ywcheck .imgclose {
+    /*margin: 14px 12px 14px 12px;*/
+    transform: rotate(90deg);
+}
+
+.cmain {
+    margin: 15px 60px auto 1%;
+    width: 65%;
+    min-height: 500px;
+    top: 50px;
+    float: left;
+}
+
+.data_title {
+    margin: 3px auto auto 0px;
+    font-size: 18px;
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 25px;
+    color: rgb(255, 255, 255);
+}
+
+hr {
+    height: 5px;
+    background-color: #F8B62D;
+    border: 0px;
+}
+
+.dataTable {
+    margin: 15px auto auto 2%;
+    width: 15%;
+    height: 180px;
+    float: left;
+}
+
+.dataTable div {
+
+    font-size: 22px;
+    /*height: 30px;*/
+    line-height: 30px;
+    padding-left: 10px;
+    /* border-bottom: 1px solid #F0F0F0; */
+    /* position: relative; */
+}
+
+.dataTable .title {
+    background-color: rgba(255, 255, 255, 0);
+    color: #000;
+    /* font-weight: bold; */
+    height: 35px;
+    line-height: 35px;
+    font-size: medium;
+}
+
+.dataTable span {
+    cursor: pointer; /*设置当鼠标悬浮在上边的时候显示小手*/
+    float: right;
+    margin-right: 20px;
+}
+
+/*点击后颜色变化css*/
+.spancolor {
+    cursor: pointer; /*设置当鼠标悬浮在上边的时候显示小手*/
+    float: right;
+    margin-right: 20px;
+    color: #F8B62D;
+}
+
+.chart_title {
+    margin-left: 16px;
+    font-size: 18px;
+    line-height: 32px;
+    color: rgb(255, 255, 255);
+}
+
+/*按小时按销售线展示 */
+.chartBtns {
+    margin: 15px auto auto auto;
+    font-size: 18px;
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    color: #000;
+    text-align: center;
+}
+
+.chartBtns p {
+    display: inline-block;
+    margin: 0px auto auto 50px;
+    cursor: pointer;
+    border-radius: 10px 10px 10px 10px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    padding: 1px 10px 3px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #CACACA;
+    color: #000;
+}
+
+.chartBtns .pactive {
+    display: inline-block;
+    margin: 0px auto auto 50px;
+    cursor: pointer;
+    border-radius: 10px 10px 10px 10px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    padding: 1px 10px 3px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #F8B62D;
+    color: #fff;
+}
+
+/* 受理口径 */
+.chartBtns1 {
+    margin: 15px auto auto auto;
+    font-size: 18px;
+    /* width: 100%; */
+    height: 32px;
+    line-height: 32px;
+    color: #000;
+    text-align: center;
+    margin-top: -32px;
+    float: right;
+    margin-right: 60px;
+}
+
+.chartBtns1 p {
+    display: inline-block;
+    margin: 0px auto auto 50px;
+    cursor: pointer;
+    border-radius: 10px 10px 10px 10px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    padding: 1px 10px 3px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #CACACA;
+    color: #000;
+}
+
+.chartBtns1 .pactive {
+    display: inline-block;
+    margin: 0px auto auto 50px;
+    cursor: pointer;
+    border-radius: 10px 10px 10px 10px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    padding: 1px 10px 3px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #F8B62D;
+    color: #fff;
+}
+
+.btna {
+    width: 76px;
+    height: 30px;
+    margin: 0px auto auto 40px;
+    background: url('../images/qlc/city.png') center no-repeat;
+    background-size: 100% 100%;
+}
+
+.btnactive {
+    width: 76px;
+    height: 30px;
+    margin: 0px auto auto 40px;
+    background: url('../images/qlc/cityActive.png');
+}
+
+.btnh {
+    width: 76px;
+    height: 30px;
+    background: url('../images/qlc/hour.png');
+}
+
+.btnhactive {
+    width: 76px;
+    height: 30px;
+    background: url('../images/qlc/hourActive.png');
+}
+
+.btnaexp {
+    width: 156px;
+    height: 30px;
+    background: url('../images/qlc/cityexp.png');
+}
+
+.btnhexp {
+    width: 156px;
+    height: 30px;
+    background: url('../images/qlc/hourexp.png');
+}
+
+.me-show {
+    display: block;
+}
+
+.me-hide {
+    display: none;
+}
+
+.sj {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    width: 6px;
+    height: 10px;
+}
+
+.trs {
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -moz-transform: rotate(90deg); /* Firefox */
+    -webkit-transform: rotate(90deg); /* Safari 和 Chrome */
+    -o-transform: rotate(90deg);
+}
+
+/*标题显示语句 */
+.titleClass {
+    margin: 15px auto 0px 1%;
+    width: 100%;
+    height: 25px;
+}
+
+/*标题数据*/
+.totalcount {
+    background: #4352B5;
+    border-radius: 3px;
+    color: #00FFFD;
+    padding: 3px;
+}
+
+.conRightTitle1 {
+    height: 37px;
+    width: 50%;
+    float: right;
+    background: url(../images/stat/select_bg_index.png) no-repeat;
+    background-size: 100% 100%;
+    line-height: 37px;
+    color: #7286d9;
+    font-size: 16px;
+}
+
+.sp3 {
+    width: 26%;
+    text-align: center;
+}
+
+.sp4 {
+    width: 24%;
+    text-align: center;
+}
+
+
+/*字体颜色*/
+.fontColor1 {
+    color: rgb(255, 255, 255) !important;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei";
+}
+
+.clearfix {
+    overflow: hidden;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden1 {
+    visibility: hidden;
+}
+
+.selectMain {
+    width: 100%;
+    margin-top: 2.5%;
+}
+
+.selectBtn {
+    height: 174px;
+    /*background: url("images/btn_bg1.png") no-repeat;*/
+    position: relative;
+}
+
+.selectBtn
+.btn1, .btn2, .btn3, .btn4, .btn5 {
+    margin-right: 2.5%;
+    position: relative;
+    width: 14.5%;
+}
+
+.selectBtn .btn6 {
+    position: relative;
+    width: 14.5%;
+}
+
+.btn1 img {
+    width: 100%;
+    height: auto;
+}
+
+.btn2 img {
+    width: 100%;
+    height: auto;
+}
+
+.btn3 img {
+    width: 100%;
+    height: auto;
+}
+
+.btn4 img {
+    width: 100%;
+    height: auto;
+}
+
+.btn5 img {
+    width: 100%;
+    height: auto;
+}
+
+.btn6 img {
+    width: 100%;
+    height: auto;
+}
+
+.selectBtn .nub {
+    position: absolute;
+    top: 28px;
+    left: 25px;
+    color: #e4f4f1;
+    font-size: 24px;
+}
+
+.btn1_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.btn1_bg > img {
+    width: 100%;
+    height: auto;
+}
+
+.details {
+    position: absolute;
+    top: 77px;
+    left: 0;
+    padding: 17px 23px;
+}
+
+.details .details_left {
+    padding: 0 150px 0 18px;
+}
+
+.top {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.top .top_l {
+    padding-right: 22px;
+}
+
+.bottom {
+    padding-top: 18px;
+    color: #ffffff;
+}
+
+.bottom .text {
+    color: #e9ecfb;
+    font-size: 14px;
+    padding: 0 25px;
+}
+
+.bottom .text1 {
+    color: #e9ecfb;
+    font-size: 14px;
+    padding-right: 25px;
+}
+
+.bottom img {
+    padding-top: 2px;
+}
+
+.details .details_right {
+    padding-left: 18px;
+}
+.searchInfoE {
+    width: 90%;
+    margin-left: 100px;
+    position: relative;
+}
+
+.businessInfo  label{
+    margin-top: -10px;
+    padding-top: -10px;
+}
+.businessStyle {
+    display: inline-block;
+    overflow:hidden;
+    margin-left: 5px;
+}
+.businessStyle li{
+    float: left;
+    margin-left:15px;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 0px 10px;
+    cursor:pointer;
+}
+.searched {
+    color: #ffffff ;
+    background-color:#f39800;
+    border-radius: 8px;
+    padding: 3px 10px;
+}
+

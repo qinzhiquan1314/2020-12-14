@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/web-base.css">
+    <link rel="stylesheet" type="text/css" href="../css/order-search-validate-new.css">
+    <!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+
+    <style  type="text/css">
+        .panel_2 #sendMessage:hover{
+            color:#fff;
+            background-color:#f7b135;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/check-the-order.css">
+    <script src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/common/util.js"></script>
+    <script type="text/javascript" src="../../../js/plugins/layui/layer/mobile/layer.js"></script>
+    <script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
+    <script type="text/javascript" src="../js/jweixin-1.3.2.js"></script>
+    <script src="../js/mine.js"></script>
+    <script src="../js/cheack-the-order.js"></script>
+
+    <script type="text/javascript" src="../../js/init.js"></script>
+
+    <title>订单查询</title>
+</head>
+
+<body>
+<div class="header">
+    <section class="panel_2">
+        <form action="javascript:;" id="searchForm" class="form-horizontal" method="post">
+            <!--隐藏块1  联系电话查询  start-->
+            <div class="row_2" id="id1">
+                <div class="title">
+                    <img src="../../images/mine/pc-wddd.png" alt=""> 查订单
+                </div>
+                <div class="input-group_2  deletB">
+                    <input name="phoneNum" id="phoneNum"  type="text" placeholder="请输入办理业务时所留的手机号码" class="search form-control2 input_2" checkType="null,checkPhoneNum" error-message="请输入办理业务时所留的手机号码"
+                           checkPhoneNum-error-message="您的手机号码有误，请重填">
+                </div>
+                <hr>
+                <div class="input-group_2" style="position:relative;">
+                    <input id="codeNumber" name="codeNumber" oninput="if(value.length>6)value=value.slice(0,6)" type="text" placeholder="请输入验证码" class="form-control2 input_2" error-message="请输入验证码" checkType="null">
+                    <input type="button" class="bg-orange" id="sendMessage" value="获取短信验证码">
+                </div>
+                <input type="button" class="btn2" id="queryButton" value="查询"></div>
+            </div>
+        </form>
+    </section>
+    <!--        <div>-->
+    <!--            <input class="search" id="serialNumber" ype="search" placeholder="请输入办理业务时所留的手机号码" checkType="null,checkPhoneNum" error-message="请输入联系电话或业务号码"></input>-->
+    <!--        </div>-->
+
+    <!--        <div>-->
+    <!--            <input class="text" type="text" id="code" placeholder="请输入验证码" oninput="if(value.length>6)value=value.slice(0,6)">-->
+    <!--            <input type="button" class="btn1" id="sendMessage" value="获取短信验证码"></div>-->
+    <!--            <input type="button" class="btn2" id="queryButton" value="查询"></div>-->
+    <!--        </div>-->
+</div>
+<div class="tab">
+    <div class="tab_list">
+        <li class="li1">联电订单(0)</li>
+        <li class="li2">业务号码订单(0)</li>
+        <li class="last">政企报障订单(0)</li>
+    </div>
+</div>
+<div class="content" style="display: block">
+    <img src="../../images/mine/dd.png" alt="">
+    <span>点击查订单，可帮家人查询订单状态</span>
+</div>
+<div id="result">
+    <div id="resultPhoneNumber" style="display: none">
+
+    </div>
+    <div id="resultSerialNumber" style="display: none">
+
+    </div>
+    <div id="resultTrouble" style="display: none">
+
+    </div>
+</div>
+<div id="model" style="display: none">
+    <div class="listArea fakeParent" newResult="true">
+        <!-- 固定区域，如果不设置fakeParent，则会整个浏览器窗口大小为加载区域 -->
+        <ul>
+            <li class="hh1">
+                <img src="../../images/order/sj-dd-1.png" alt="">
+                <div class="detail">
+                    <span class="sp1">订单编号:</span>
+                    <span class="sp2"></span>
+                </div>
+            </li>
+            <li class="hh2">
+                <div class="de-hh2">
+                    <span class="sp3">产品名称：</span>
+                    <span class="sp4"></span>
+                </div>
+            </li>
+            <li class="hh3">
+                <div class="de-hh3">
+                    <span class="sp5">客户名称：</span>
+                    <span class="sp6"></span>
+                </div>
+            </li>
+            <li class="hh4">
+                <div class="de-hh4">
+                    <span class="sp7">装机地址：</span>
+                    <span class="sp8"></span>
+                </div>
+            </li>
+            <li class="hh6">
+                <div class="de-hh6">
+                    <span class="sp11">订单状态:</span>
+                    <span class="sp12"></span>
+                    <button class="btn1"></button>
+                    <button class="btn2"></button>
+                </div>
+            </li>
+            <li class="hh5">
+                <div class="de-hh5">
+                    <span class="sp9">下单时间:</span>
+                    <span class="sp10"></span>
+                </div>
+            </li>
+        </ul>
+
+        <div class="fakeloader"></div>
+        <!-- 加载等待旋转图 -->
+    </div>
+</div>
+<div id="trouble-model" style="display: none">
+    <div class="listArea fakeParent" newResult="true">
+        <!-- 固定区域，如果不设置fakeParent，则会整个浏览器窗口大小为加载区域 -->
+        <ul>
+            <li class="hh1">
+                <img src="../../images/order/sj-dd-1.png" alt="">
+                <div class="detail">
+                    <span class="sp1" style="float: left">故障受理单号:</span>
+                    <span class="sp2" style="float: left"></span>
+                </div>
+            </li>
+            <li class="hh3">
+                <div class="de-hh3">
+                    <span class="sp5">客户名称：</span>
+                    <span class="sp6"></span>
+                </div>
+            </li>
+            <li class="hh2">
+                <div class="de-hh2">
+                    <span class="sp3">业务号码：</span>
+                    <span class="sp4"></span>
+                </div>
+            </li>
+            <li class="hh6">
+                <div class="de-hh6">
+                    <span class="sp11">故障单状态:</span>
+                    <span class="sp12"></span>
+                    <button class="btn1"></button>
+                    <button class="btn2" style="width: 8em"></button>
+                </div>
+            </li>
+            <li class="hh4">
+                <div class="de-hh4">
+                    <span class="sp88" style="position: absolute;left: 0.6rem;"></span>
+                </div>
+            </li>
+            <li class="hh5">
+                <div class="de-hh5">
+                    <span class="sp9">受理时间:</span>
+                    <span class="sp10"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="banner">
+    <a href="#" class="item" id="troubleHyperLink">
+        <img src="../../images/mine/repair.png">
+        <p>修障查询</p>
+    </a>
+    <a href="#" class="item1" id="customerLink">
+        <img src="../../images/mine/online.png">
+        <p>在线客服</p>
+    </a>
+    <a href="#" class="item2" id="myLink">
+        <img src="../../images/mine/mine.png">
+        <p>我的</p>
+    </a>
+</div>
+</body>
+
+</html>

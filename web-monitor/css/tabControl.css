@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    width: 100vw;
+    height: 50vw;
+}
+
+.content {
+    height: 50vw;
+    display: flex;
+}
+
+.box a:visited {
+    color: #ffffff;
+}
+
+.active {
+    color: #F00078 !important;
+}
+
+.passive {
+    color: #ffffff !important;
+}
+
+.cebian {
+    position: absolute;
+}
+
+.titleimg {
+    margin-top: 5vw;
+    width: 14vw;
+    margin-left: 2vw;
+}
+
+.titleimg1 {
+    margin-top: 10vw;
+    width: 14vw;
+    margin-left: 2vw;
+}
+
+.titlesize {
+    font-size: 1.5vw;
+    margin-top: -2.3vw;
+    ;
+    margin-left: 3vw;
+    color: #fff;
+}
+
+.size1 {
+    font-size: 1.5vw;
+    margin-top: 1vw;
+    margin-left: 4vw;
+    color: #fff;
+    cursor: pointer;
+}
+
+.kuanrong {
+    position: absolute;
+}
+
+.imgs0 {
+    margin-top: 4.3vw;
+    width: 32vw;
+    margin-left: 27vw;
+    position: absolute;
+}
+
+.yiwang {
+    position: absolute;
+}
+
+.imgs1 {
+    margin-top: 4.3vw;
+    width: 32vw;
+    margin-left: 62vw;
+    position: absolute;
+}
+
+.zhengqi {
+    position: absolute;
+}
+
+.imgs11 {
+    margin-top: 27vw;
+    width: 32vw;
+    margin-left: 27vw;
+    position: absolute;
+}
+
+.imgs111 {
+    margin-top: 27vw;
+    width: 32vw;
+    margin-left: 62vw;
+    position: absolute;
+}
+
+.box11 {
+    /* background: red; */
+    width: 28vw;
+    margin-left: 30vw;
+    margin-top: 7vw;
+    height: 16vw;
+    overflow: auto;
+    position: absolute;
+}
+
+.box22 {
+    /* background: red; */
+    width: 28vw;
+    margin-left: 65vw;
+    margin-top: 7vw;
+    height: 16vw;
+    overflow: auto;
+    position: absolute;
+}
+
+.box33 {
+    width: 28vw;
+    margin-left: 30vw;
+    margin-top: 30vw;
+    height: 16vw;
+    overflow: auto;
+    position: absolute;
+}
+
+.box44 {
+    width: 28vw;
+    margin-left: 65vw;
+    margin-top: 30vw;
+    height: 16vw;
+    overflow: auto;
+    position: absolute;
+}
+
+.qinni {
+    font-size: 1.3vw;
+    color: #ffffff;
+    margin: 2vh 0;
+    cursor: pointer;
+}
+
+.ahref {
+    text-decoration: none;
+    color: #ffffff !important
+}
+
+.box11::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 10px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+
+.box11::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px #0AD7F5;
+    background: #0AD7F5;
+}
+
+.box11::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px #8291CA;
+    border-radius: 10px;
+    background: #8291CA;
+}
+
+.box22::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 10px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+
+.box22::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px #0AD7F5;
+    background: #0AD7F5;
+}
+
+.box22::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px #8291CA;
+    border-radius: 10px;
+    background: #8291CA;
+}
+
+.box33::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 10px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+
+.box33::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px #0AD7F5;
+    background: #0AD7F5;
+}
+
+.box33::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px #8291CA;
+    border-radius: 10px;
+    background: #8291CA;
+}
+
+.box44::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 10px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+
+.box44::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px #0AD7F5;
+    background: #0AD7F5;
+}
+
+.box44::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px #8291CA;
+    border-radius: 10px;
+    background: #8291CA;
+}

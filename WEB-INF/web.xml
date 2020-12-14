@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>QueryCenterRest</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:spring/spring-context.xml,classpath:spring/spring-shiro.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.properties</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring/spring-mvc-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<!-- <url-pattern>/*</url-pattern> -->
+		<url-pattern>/web-pc/out-order/page/*</url-pattern>
+		<url-pattern>/web-phone/web-out-order/page/*</url-pattern>
+		<url-pattern>/web-pc/in-order/page/*</url-pattern>
+		<url-pattern>/web-phone/web-in-order/page/*</url-pattern>
+		<url-pattern>/web-monitor/page/*</url-pattern>
+
+		<url-pattern>/trade/sendMessage</url-pattern>
+		<url-pattern>/trade/queryOrder</url-pattern>
+		<url-pattern>/trade/commonPicture</url-pattern>
+		<url-pattern>/process/queryProcess</url-pattern>
+		<url-pattern>/evaluation/submitEvaluation</url-pattern>
+		<url-pattern>/evaluation/queryEvaluation</url-pattern>
+
+		<url-pattern>/monitor/*</url-pattern>
+		<url-pattern>/report/*</url-pattern>
+		<url-pattern>/reportdetail/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>jwtFilter</filter-name>
+		<filter-class>com.asiainfo.querycenter.filter.JWTFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>jwtFilter</filter-name>
+		<url-pattern>/newtrade/*</url-pattern>
+		<url-pattern>/web-phone/web-out-order/new-page/*</url-pattern>
+		<url-pattern>/web-pc/out-order/new-page/*</url-pattern>
+	</filter-mapping>
+	<!-- 设置html5权限校验 -->
+	<filter>
+		<filter-name>Html5AuthorizeFilter</filter-name>
+		<filter-class>com.asiainfo.querycenter.filter.Html5AuthorizeFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Html5AuthorizeFilter</filter-name>
+		<url-pattern>/web-pc/out-order/page/*</url-pattern>
+		<url-pattern>/web-phone/web-out-order/page/*</url-pattern>
+		<url-pattern>/web-pc/in-order/page/*</url-pattern>
+		<url-pattern>/web-phone/web-in-order/page/*</url-pattern>
+		<url-pattern>/trade/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 设置监控流程权限校验 -->
+	<filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>targetBeanName</param-name>
+            <param-value>shiroFilter</param-value>
+        </init-param>
+    </filter>
+	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/web-monitor/page/*</url-pattern>
+		<url-pattern>/monitor/*</url-pattern>
+		<url-pattern>/sceneMonitor/*</url-pattern>		
+		<url-pattern>/report/*</url-pattern>
+		<url-pattern>/reportdetail/*</url-pattern>
+		<url-pattern>/login</url-pattern>
+	</filter-mapping>
+
+
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>login.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

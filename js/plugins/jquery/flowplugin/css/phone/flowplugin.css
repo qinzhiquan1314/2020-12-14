@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+
+/*-------------
+ * 
+ * 手机换算rem
+ * ------------*/
+
+*{padding:0;margin:0;}
+
+body,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,ul,ol,li,form,button,input{
+	padding:0px;margin:0px;
+	border:none;list-style:none;
+	font-weight:normal;
+	/*font-family:'Verdana', 'Microsoft YaHei', sans-serif;*/
+	font-family:'Verdana', 'SimHei', sans-serif;
+}
+body{
+	background-color: #f6f6f6;
+}
+/*字体颜色*/
+.fc-orange {color: #ff9833;}
+.fc-grey {color: #9a4e05;}
+
+
+/* flow start */
+.flowSwrap {
+	position: relative;
+	margin: 1rem 2rem;
+	background-color: #fff;
+}
+
+.flowCell {
+	padding: 2rem 4%;
+	overflow: hidden;
+	/* position: relative; */
+	z-index: 20;
+	display: table;
+	word-wrap: break-word;
+	table-layout: fixed;
+	width: 93%;
+}
+.cell-left {
+    width: 190px;
+    padding-right: 28px;
+    text-align: right;
+    display: table-cell; 
+    vertical-align:middle;
+    /*background-color: goldenrod;*/
+}
+.cell-right {
+    padding-left: 1.6rem;
+    text-align: left;
+    display: table-cell;
+    vertical-align:middle;
+    /*background-color:green;*/
+}
+.cell-center {
+    /* height: 5rem; */
+    width: 2.75rem;
+    display: table-cell;
+    vertical-align:middle;
+    /*background-color: azure;*/
+    text-align: center;
+}
+.cell-left .t1 {
+	font-size: 1.2rem;
+}
+.cell-left .t2 {
+	font-size: .9rem;
+}
+
+.cell-right .t1_start {
+	font-size: 1.4rem;
+}
+.cell-right .t1 {
+	font-size: 1.3rem;
+}
+.cell-right .t2 {
+	font-size: 1rem;
+	margin-top: 0.01rem;
+}
+.cell-right .t2 a {
+	color:#337ab7;
+	text-decoration:underline;
+}
+.cell-right .t3 {
+	font-size: 1.2rem;
+	color:#666666;
+	margin-top: 0.5rem;
+}
+
+/* 必须设置宽高，画线使用 */
+.cell-center img {
+	width:2.75rem;
+	height:2.8rem;
+}
+
+.flow-line {
+	width: 2px;
+	background-color: #9a4e05;
+	z-index: 10;
+}
+
+/*  flow  end */

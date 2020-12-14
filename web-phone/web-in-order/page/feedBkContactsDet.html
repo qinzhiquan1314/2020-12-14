@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<meta charset="UTF-8" name="format-detection" content="telephone=no">-->
+    <meta name="format-detection" charset="UTF-8" content="telephone=yes"/>
+    <title>在线反馈联系人</title>
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+
+    <!--手机公共-->
+    <link rel="stylesheet" type="text/css" href="../../css/web-base.css">
+
+    <link rel="stylesheet" type="text/css" href="../css/order-list.css">
+    <!-- 手机自己 -->
+    <link rel="stylesheet" type="text/css" href="../css/feedBackPhone.css">
+    <style>
+        .pis {
+            margin-top: 5rem;
+        }
+
+        .t4 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 1.7rem;
+            position: relative;
+            bottom: 3.4rem;
+        }
+        th{
+            font-size: 2.0rem;
+        }
+        td{
+            font-size: 1.8rem;
+            height: 3.8rem;
+        }
+
+        .fixed-table-container tbody td .th-inner, .fixed-table-container thead th .th-inner{
+            padding: 30px!important;
+        }
+    </style>
+</head>
+<body>
+<header class="txc">
+    <div class="cl fl">
+        <img class="backImg" id="backWechat" alt="" src="../images/back.png">
+        <i>&nbsp;</i>
+    </div>
+    <div class="cr fr">&nbsp;</div>
+    <div class="cc" style="font-size: 47px">在线反馈</div>
+</header>
+<!-- 联系电话-查看 -->
+<div class="b-tableDiv table-responsive" style="overflow-y: hidden;overflow-x: hidden;
+        height:auto;width:80%; margin: auto;margin-top: 50px">
+    <table id="table" class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+            <th data-field="branch" class="text-center">分公司</th>
+            <th data-field="contact" class="text-center">联系人</th>
+            <th data-field="phone_num" class="text-center">联系方式</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+<div class="txc cursor pis" id="return">
+    <img src="../images/submit.png" style="width: 35%">
+    <div class="t4">返回</div>
+</div>
+</body>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript"
+        src="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<!--bootstrap-->
+<script type="text/javascript"
+        src="/queryCenter/web-monitor/js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript"
+        src="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<!--bootstrap table-->
+<script type="text/javascript"
+        src="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+<script type="text/javascript"
+        src="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="/queryCenter/web-monitor/js/common.js"></script>
+<script type="text/javascript" src="../js/feedBkContactsDet.js"></script>
+</html>

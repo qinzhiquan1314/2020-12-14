@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>订单查询</title>
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--加载等待插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+    <!--手机端  时间插件  -->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/mobiscroll/mobiscroll.custom-2.5.2.min.css">
+    <!--swiper3轮播-->
+    <link rel="stylesheet" href="../../../js/plugins/swiper/swiper-3.4.2.min.css" />
+
+    <!--自己-->
+    <link rel="stylesheet" type="text/css" href="../css/mine-list.css">
+    <link rel="stylesheet" type="text/css" href="../../css/web-base.css">
+
+
+    <link rel="stylesheet" href="../css/mine.css">
+    <script type="text/javascript" src="../../js/init.js"></script>
+
+    <script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="../../../js/plugins/layui/layer/mobile/layer.js"></script>
+    <script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
+    <script type="text/javascript" src="../js/jweixin-1.3.2.js"></script>
+    <script type="text/javascript" src="../js/mine.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="part-one">
+            <div class="profile">
+                <img src="../../images/mine/null.png" alt="">
+            </div>
+            <div class="name" id="serialNumberShow">
+
+            </div>
+            <div id="accountInfo" style="display: none">
+                <button class="set-up">
+                    账号设置
+                </button>
+            </div>
+            <div class="search-box">
+                <input type="button" id="queryOrderButton" style="font-size: larger" value="查订单">
+            </div>
+        </div>
+        <div class="tab">
+            <div class="tab_list">
+                <li class="li1">联电订单(0)</li>
+                <li class="li2">业务号码订单(0)</li>
+                <li class="last">政企报障订单(0)</li>
+            </div>
+        </div>
+    </div>
+    <div class="push-out"></div>
+    <div class="fakeloader"></div>
+    <div class="content" style="display: none">
+        <img src="../../images/mine/dd.png" alt="">
+        <span>根据当前号码，没有查询到订单！</span>
+    </div>
+    <!-- 加载等待旋转图 -->
+    <div id="result">
+        <div id="resultPhoneNumber" style="display: none">
+
+        </div>
+        <div id="resultSerialNumber" style="display: none">
+
+        </div>
+        <div id="resultTrouble" style="display: none">
+
+        </div>
+    </div>
+    <div id="model" style="display: none">
+        <div class="listArea fakeParent" newResult="true">
+            <!-- 固定区域，如果不设置fakeParent，则会整个浏览器窗口大小为加载区域 -->
+            <ul>
+                <li class="hh1">
+                    <img src="../../images/order/sj-dd-1.png" alt="">
+                    <div class="detail">
+                        <span class="sp1">订单编号:</span>
+                        <span class="sp2"></span>
+                    </div>
+                </li>
+                <li class="hh2">
+                    <div class="de-hh2">
+                        <span class="sp3">产品名称：</span>
+                        <span class="sp4"></span>
+                    </div>
+                </li>
+                <li class="hh3">
+                    <div class="de-hh3">
+                        <span class="sp5">客户名称：</span>
+                        <span class="sp6"></span>
+                    </div>
+                </li>
+                <li class="hh4">
+                    <div class="de-hh4">
+                        <span class="sp7">装机地址：</span>
+                        <span class="sp8"></span>
+                    </div>
+                </li>
+                <li class="hh6">
+                    <div class="de-hh6">
+                        <span class="sp11">订单状态:</span>
+                        <span class="sp12"></span>
+                        <button class="btn1"></button>
+                        <button class="btn2"></button>
+                    </div>
+                </li>
+                <li class="hh5">
+                    <div class="de-hh5">
+                        <span class="sp9">下单时间:</span>
+                        <span class="sp10"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="trouble-model" style="display: none">
+        <div class="listArea fakeParent" newResult="true">
+            <!-- 固定区域，如果不设置fakeParent，则会整个浏览器窗口大小为加载区域 -->
+            <ul>
+                <li class="hh1">
+                    <img src="../../images/order/sj-dd-1.png" alt="">
+                    <div class="detail">
+                        <span class="sp1" style="float: left">故障受理单号:</span>
+                        <span class="sp2" style="float: left"></span>
+                    </div>
+                </li>
+                <li class="hh3">
+                    <div class="de-hh3">
+                        <span class="sp5">客户名称：</span>
+                        <span class="sp6"></span>
+                    </div>
+                </li>
+                <li class="hh2">
+                    <div class="de-hh2">
+                        <span class="sp3">业务号码：</span>
+                        <span class="sp4"></span>
+                    </div>
+                </li>
+                <li class="hh6">
+                    <div class="de-hh6">
+                        <span class="sp11">故障单状态:</span>
+                        <span class="sp12"></span>
+                        <button class="btn1"></button>
+                        <button class="btn2" style="width: 8em"></button>
+                    </div>
+                </li>
+                <li class="hh4">
+                    <div class="de-hh4">
+                        <span class="sp88" style="position: absolute;left: 0.6rem;"></span>
+                    </div>
+                </li>
+                <li class="hh5">
+                    <div class="de-hh5">
+                        <span class="sp9">受理时间:</span>
+                        <span class="sp10"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--列表区域 end -->
+
+    <div class="banner">
+        <a href="#" class="item" id="troubleHyperLink">
+            <img src="../../images/mine/repair.png">
+            <p>修障查询</p>
+        </a>
+        <a href="#" class="item1" id="customerLink">
+            <img src="../../images/mine/online.png">
+            <p>在线客服</p>
+        </a>
+        <a href="#" class="item2" id="myLink">
+            <img src="../../images/mine/mine.png">
+            <p>我的</p>
+        </a>
+    </div>
+
+</body>
+
+</html>

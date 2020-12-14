@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name=”renderer” content=”webkit|ie-comp|ie-stand” />
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: #fff url("../images/login/bg.png") no-repeat fixed center;
+            position: relative;
+            font-family: "Microsoft YaHei";
+            background-size: 100% 113%;
+        }
+        .clearfix{
+            overflow: hidden;
+        }
+        .fl{
+            float: left;
+        }
+        .login{
+            position: absolute;
+            top: 220px;
+            left: 65%;
+        }
+        .username,.password,.nub{
+            position: relative;
+            padding-bottom: 12px;
+        }
+        .username input{
+            height: 38px;
+            width: 236px;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+        .username img{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .password input{
+            height: 38px;
+            width: 236px;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+        .password img{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .nub input{
+            height: 38px;
+            width: 145px;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+        .nub img{
+            position: absolute;
+            right: 0px;
+            top: 7px;
+            float: left;
+        }
+        .select{
+            color: #ffffff;
+            font-size: 14px;
+            padding-bottom: 17px;
+        }
+        .select input{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin: 0;
+        }
+        .btn{
+            color: #ffffff;
+            font-size: 18px;
+            position: relative;
+            cursor: pointer;
+        }
+        .btn span{
+            position: absolute;
+            top: 43%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        input[type='checkbox']{
+            display: none;
+        }
+        .scheck{
+            width: 21px;
+            height: 21px;
+            background: url("../images/login/check.png") no-repeat left;
+            padding-left: 30px;
+        }
+        .check{
+            background: url("../images/login/check1.png") no-repeat left;
+        }
+        .one{
+            padding-right: 55px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <div class="username">
+            <input type="text" placeholder="用户名" id="username">
+            <img src="../images/login/user.png" alt="">
+        </div>
+        <div class="password">
+            <input type="password" placeholder="密码" id="password">
+            <img src="../images/login/password.png" alt="">
+        </div>
+        <div class="nub">
+            <input type="hidden" id="crossId">
+            <input type="text" placeholder="验证码" id="number">
+            <img src="" id="authPic" alt="" >
+        </div>
+        <div class="select">
+            <label class="one scheck" id="chk1"><input type="checkbox">记住用户名</label>
+            <label class="scheck" id="chk2"><input type="checkbox">记住密码</label>
+        </div>
+        <div class="btn">
+            <img src="../images/login/btn_bg.png" alt="">
+            <span>登 录</span>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="../js/plugins/jquery.cookie.js"></script>
+    <script>
+        $(function () {
+           $("#authPic").click(function (event){
+        	   reloadAuthCode();
+           });
+           $(".scheck").click(function (event) {
+               if ($(this).hasClass("check")){
+                   $(this).removeClass("check");
+                   event.preventDefault();
+               }else{
+                   $(this).addClass("check");
+                   event.preventDefault();
+               }
+           });
+           $("#username").focus(function () {
+               $(this).attr("placeholder","");
+           }).blur(function () {
+               if ($(this).val()==""){
+                   $(this).attr("placeholder","用户名");
+               }
+           });
+            $("#password").focus(function () {
+                $(this).attr("placeholder","");
+            }).blur(function () {
+                if ($(this).val()==""){
+                    $(this).attr("placeholder","密码");
+                }
+            });
+            $("#number").focus(function () {
+                $(this).attr("placeholder","");
+            }).blur(function () {
+                if ($(this).val()==""){
+                    $(this).attr("placeholder","验证码");
+                }
+            });
+            
+            //用户名、密码cookie保存
+            if($.cookie("username")){
+                $('#username').val($.cookie("username"));
+                $('#password').val($.cookie("password"));
+                if($.cookie("chk1")=="true"){
+                	$('#chk1').addClass("check");
+                }
+                if($.cookie("chk2")=="true"){
+                	$('#chk2').addClass("check");
+                }
+            }
+
+           $(".btn").click(function () {
+               var username = $("#username").val();
+               var password = $("#password").val();
+               var authCode = $("#number").val();
+               var crossId = $("#crossId").val();
+               if (username == "" || password == "" || number == "") {
+                   alert("用户名、密码和验证码不能为空！");
+                   return false;
+               }
+               var data = {
+                   username: username,
+                   password:password,
+                   authCode:authCode,
+                   crossId:crossId
+               }
+               $.ajax({
+                   url:"/queryCenter/login",
+                   type: "post",
+                   dataType: "json",
+                   data:data,
+                   success: function (data) {
+						if(data.state!='1'){
+							alert(data.message);
+							reloadAuthCode();
+						}else{
+
+			                var chk1 = $('#chk1').hasClass('check');
+			                var chk2 = $('#chk2').hasClass('check');
+			                var username = $('#username').val();
+			                var password = $('#password').val();
+			                $.cookie("chk1", chk1, {expires:30});
+			                $.cookie('chk2', chk2, {expires:30});
+			                $.cookie("username", (chk1?username:""), {expires:30});
+			                $.cookie('password',(chk2?password:""), {expires:30});
+			                
+							var userParam = data.userParam;
+							$(location).attr('href', '/queryCenter/web-monitor/page/flowChart.html?'+encodeURIComponent(userParam));
+						}
+                   }
+               });
+           });
+           
+		  reloadAuthCode();
+			
+        });
+        
+        //获取验证码
+        function reloadAuthCode(){
+            $.ajax({
+                url:"/queryCenter/authCode",
+                type: "post",
+                dataType: "json",
+                data:"",
+                success: function (data) {
+					if(data.crossId!="undefined" && data.image!="undefined"){
+						$("#crossId").val(data.crossId);
+						$('#authPic').attr("src", "data:image/jpeg;base64,"+data.image);
+					}
+                }
+            });
+        };
+        
+    </script>
+</body>
+</html>

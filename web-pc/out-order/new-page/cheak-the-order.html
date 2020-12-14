@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>订单查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--swiper轮播-->
+    <link rel="stylesheet" href="../../../js/plugins/swiper2/idangerous.swiper.css" />
+    <!--pc公共-->
+    <link rel="stylesheet" type="text/css" href="../../../css/base.css">
+    <!-- pc端样式统一风格，一般都写在base.css中即可，本页特殊设置写在本页即可  -->
+</head>
+<style>
+    body {
+        background-color: #fbfaf8;
+    }
+    /*输入框置灰  */
+    
+    .colorchange {
+        background-color: #E0E0E0;
+    }
+    
+    .sp {
+        width: 1038px !important;
+    }
+    
+    #btn {
+        width: 150px;
+        height: 40px;
+        position: absolute;
+        top: -29px;
+        right: 10px;
+        padding: 6px 10px;
+        border-radius: 5px;
+        background-color: #f7b135;
+        text-indent: 30px;
+        font-size: 22px;
+        line-height: 24px;
+        color: #ffffff;
+    }
+    
+    .row_2 {
+        border-top: 2px solid #dddddd;
+        min-height: 0;
+    }
+    
+    .nav_top {
+        font-size: 18px;
+        color: #ef833d;
+    }
+    
+      .lis {
+        width: auto !important;
+          height: 50px !important;
+          line-height: 50px;
+        float: left;
+        padding: 0 15px 0 15px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        background-color: #fff;
+    }
+    .active {
+        border: 3px solid #eaeaea;
+        border-bottom: none !important;
+    }
+    
+    #queryButton {
+        width: 128px;
+        position: absolute;
+        top: 30px;
+        left: 700px;
+    }
+    
+    .sp {
+        background-color: #ffffff;
+        min-height: 350px !important;
+    }
+    .empty {
+       position: absolute;
+       left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .empty_pic {
+        background-image: url(../../../images/order/pc_emptydd.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 160px;
+        height: 160px;
+    }
+
+    .btn_2 {
+        height: 40px;
+        padding: 3px 40px;
+        font-size: 18px;
+    }
+    .btn_3 {
+        padding: 7px 40px;
+        font-size: 18px;
+        color: #FFFFFF;
+        padding: 6px 40px;
+        border-radius: 5px;
+    }
+</style>
+
+<body onload="bodyLoad(104)">
+    <div class="title_2">
+        <div class="title_22" style="position:relative;">查订单
+            <div id="kd_Search" style="cursor: pointer;">
+                <img style="position:absolute; width: 127px;height:36px;right:20px;top:0px;" src="../../../images/order/pckdxz_04.png" />
+            </div>
+        </div>
+    </div>
+    <div class="panel_2">
+        <div class="container" style="width:100%;padding:0;">
+            <!-- search start -->
+            <form action="javascript:;" id="searchForm" class="form-horizontal">
+                <div class="row_2 row1">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="input-group_2 mgb10 mgt30 width100">
+                                <input name="phoneNumber" id="phoneNumber" type="text" placeholder="请输入办理业务时所留的手机号码"
+                                       class="form-control2 none-shadow input_2" checkType="null,checkPhoneNum"
+                                       error-message="请输入办理业务时所留的手机号码"
+                                       checkPhoneNum-error-message="您的手机号码有误，请重填">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="input-group_2 mgb10 mgt30 width100 ps-relative">
+                                <input id="codeNumber" name="codeNumber" oninput="if(value.length>6)value=value.slice(0,6)"
+                                       type="text" placeholder="请输入验证码" class="form-control2 none-shadow input_2" error-message="请输入验证码"
+                                       checkType="null">
+                                <input type="button" class="bg-orange searchPhoneBtn" id="sendMessage" value="获取短信验证码">
+                            </div>
+                        </div>
+                        <div style="position: relative;">
+                            <button class="btn_2 bg-orange searchCredentialCodeBtn queryButton" id="queryButton">查询</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="">
+                        <div class="info-row">目前仅支持2018年5月25日后办理的宽带装移业务、移网业务以及部分专线类业务</div>
+                    </div>
+                    <div style="height:100px;"></div>
+                </div>
+            </form>
+            <!-- search end -->
+            <div class="nav_top" style="margin: 5px auto; padding: 0px; width: 1039px;">
+                <ul class="clearfix" id="uls" style="background-color:#fff;">
+                    <li class="active lis" data-index="0">
+                        联电订单
+                        <span>(0)</span>
+                    </li>
+                    <li class="lis"  data-index="1">
+                        业务号码订单
+                        <span>(0)</span>
+                    </li>
+                    <li class="lis"  data-index="2">
+                        政企报障订单
+                        <span>(0)</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel_2 sp" style="position: relative;" id="tableBoxCon">
+                <div class="container tableBox" style="width:100%;height:100%;display: none;" data-index="0">
+                    <!-- style="width:100%;" class里ie不起作用-->
+                    <!-- table start  table-striped   table-bordered -->
+                    <div class="tableDiv_2 table-responsive">
+                        <table id="table11" class="table table-hover" data-toggle="table" data-method="POST" data-content-type="application/x-www-form-urlencoded" data-query-params="queryParams" data-pagination="false" data-side-pagination="server" data-page-size="10" data-page-list="[5, 10, 20, 50 ]"
+                               data-show-refresh="false" data-show-toggle="false" data-show-pagination-switch="false" data-show-columns="false" data-search="false" data-search-align="left" data-sort-name="orderNum" data-sort-order="asc">
+                            <thead>
+                            <tr>
+                                <th class="text-center" data-field="exTradeId" data-sortable="false" data-formatter="orderListObj.numFormatter" data-width="120px">订单编号</th>
+                                <th class="text-center" data-field="productName" data-sortable="false">产品名称 </th>
+                                <th class="text-center" data-field="customerName" data-sortable="false">客户名称 </th>
+                                <!-- <th data-field="URL" data-sortable="false" data-visible="false">url</th> -->
+                                <th class="text-center" data-field="addrName" data-sortable="false" data-formatter="orderListObj.addFormatter" data-width="30%">
+                                    装机地址</th>
+                                <th class="text-center" data-field="acceptDate" data-sortable="false">下单时间</th>
+                                <th class="text-center" data-field="statusFlag" data-formatter="orderListObj.actionFormatter" data-events="actionEvents" data-width="160px">订单状态</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <!--<p class="txr finish showNetTypeCode">温馨提示：请您自发货起20天内激活号卡，过期将自动销户</p>-->
+                    </div>
+                    <!-- table end -->
+                </div>
+                <div class="container tableBox" style="width:100%;height:100%;display: none;" data-index="1">
+                    <!-- style="width:100%;" class里ie不起作用-->
+                    <!-- table start  table-striped   table-bordered -->
+                    <div class="tableDiv_2 table-responsive">
+                        <table id="table22" class="table table-hover" data-toggle="table" data-method="POST" data-content-type="application/x-www-form-urlencoded" data-query-params="queryParams" data-pagination="false" data-side-pagination="server" data-page-size="10" data-page-list="[5, 10, 20, 50 ]"
+                               data-show-refresh="false" data-show-toggle="false" data-show-pagination-switch="false" data-show-columns="false" data-search="false" data-search-align="left" data-sort-name="orderNum" data-sort-order="asc">
+                            <thead>
+                            <tr>
+                                <th class="text-center" data-field="exTradeId" data-sortable="false" data-formatter="orderListObj.numFormatter" data-width="120px">订单编号</th>
+                                <th class="text-center" data-field="productName" data-sortable="false">产品名称 </th>
+                                <th class="text-center" data-field="customerName" data-sortable="false">客户名称 </th>
+                                <!-- <th data-field="URL" data-sortable="false" data-visible="false">url</th> -->
+                                <th class="text-center" data-field="addrName" data-sortable="false" data-formatter="orderListObj.addFormatter" data-width="30%">
+                                    装机地址</th>
+                                <th class="text-center" data-field="acceptDate" data-sortable="false">下单时间</th>
+                                <th class="text-center" data-field="statusFlag" data-formatter="orderListObj.actionFormatter" data-events="actionEvents" data-width="160px">订单状态</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <!--<p class="txr finish showNetTypeCode">温馨提示：请您自发货起20天内激活号卡，过期将自动销户</p>-->
+                    </div>
+                    <!-- table end -->
+                </div>
+                <div class="container tableBox" style="width:100%;height:100%;display: none;" data-index="2">
+                    <!-- style="width:100%;" class里ie不起作用-->
+                    <!-- table start  table-striped   table-bordered -->
+                    <div class="tableDiv_2 table-responsive">
+                        <table id="table33" class="table table-hover" data-toggle="table" data-method="POST" data-content-type="application/x-www-form-urlencoded" data-query-params="queryParams" data-pagination="false" data-side-pagination="server" data-page-size="10" data-page-list="[5, 10, 20, 50 ]"
+                               data-show-refresh="false" data-show-toggle="false" data-show-pagination-switch="false" data-show-columns="false" data-search="false" data-search-align="left" data-sort-name="orderNum" data-sort-order="asc">
+                            <thead>
+                            <tr>
+                                <th class="text-center" data-field="exTradeId" data-sortable="false" data-formatter="orderListObj.numFormatter" data-width="120px">订单编号</th>
+                                <th class="text-center" data-field="productName" data-sortable="false">产品名称 </th>
+                                <th class="text-center" data-field="customerName" data-sortable="false">客户名称 </th>
+                                <!-- <th data-field="URL" data-sortable="false" data-visible="false">url</th> -->
+                                <th class="text-center" data-field="addrName" data-sortable="false" data-formatter="orderListObj.addFormatter" data-width="30%">
+                                    装机地址</th>
+                                <th class="text-center" data-field="acceptDate" data-sortable="false">下单时间</th>
+                                <th class="text-center" data-field="statusFlag" data-formatter="orderListObj.actionFormatter" data-events="actionEvents" data-width="160px">订单状态</th>
+                            </tr>
+                            </thead>
+                        </table>
+                        <!--<p class="txr finish showNetTypeCode">温馨提示：请您自发货起20天内激活号卡，过期将自动销户</p>-->
+                    </div>
+                    <!-- table end -->
+                </div>
+                <div class="empty">
+                    <div class="empty_pic"></div>
+                    <div>点击查订单，可帮家人查订单</div>
+                </div>
+                <button class="back_home bg-orange btn_3" style="position: absolute;bottom: 20px; right: 40px;">返回首页</button>
+            </div>
+            <!-- 广告 bottom start -->
+            <div class="advert-bottom width100 opacity-0">
+                <!--dp-none position-fiexd opacity-0-->
+                <div class="swiper-container swiper-containerA">
+                    <div id="swiper-wrapperA" class="swiper-wrapper">
+                        <!--<div class="swiper-slide"><img src="../../../images/banner/1.png"/></div>-->
+                    </div>
+                    <div class="pagination swiper-paginationA"></div>
+                </div>
+            </div>
+            <!-- 广告 bottom end -->
+        </div>
+    </div>
+   <!--[if lt IE 9]>
+	<script>
+	(function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();
+	</script>
+	<script src="../../../js/plugins/respond.min.js"></script>
+	<script src="../../../js/plugins/echarts/js/html5shiv.js"></script>
+	<script src="../../../js/plugins/excanvas.min.js"></script>
+	<![endif]-->
+
+        <!--bootstrap-->
+        <script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+        <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+        <!--bootstrap table-->
+        <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+        <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js">
+        </script>
+        <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+
+        <!-- swiper2 轮播插件 pc用2, 手机用3 -->
+        <script type="text/javascript" src="../../../js/plugins/swiper2/idangerous.swiper.min.js"></script>
+
+        <!-- layer 弹出层 -->
+        <script type="text/javascript" src="../../../js/plugins/layui/layer/layer.js"></script>
+
+        <!-- 表单  -->
+        <script type="text/javascript" src="../../../js/plugins/jquery/jquery.form.js"></script>
+
+        <!-- 表单验证 -->
+        <script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/jquery.validate.min.js">
+        </script>
+        <script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/messages_zh.min.js"></script>
+
+        <!--公共部分-->
+        <script type="text/javascript" src="../../../js/common/common.js"></script>
+        <script type="text/javascript" src="../../../js/common/util.js"></script>
+        <!-- 广告 -->
+        <script type="text/javascript" src="../../../js/common/out-advert.js"></script>
+
+        <!-- 核心插件 end-->
+        <!--自己-->
+        <script type="text/javascript" src="../new-js/order-list-table-new.js"></script>
+        <script type="text/javascript" src="../new-js/cheak-the-order.js"></script>
+</body>
+</html>

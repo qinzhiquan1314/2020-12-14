@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pc</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	
+	<!--bootstrap插件-->
+	<link rel="stylesheet" type="text/css" href="../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+	<!--pc公共-->
+	<link rel="stylesheet" type="text/css" href="../../css/base.css">
+	<!-- pc端样式统一风格，一般都写在base.css中即可，本页特殊设置写在本页即可  -->
+	
+  </head>
+  
+  <body>
+	<div class="panelA">
+	  	<div class="container" style="width:100%;"><!-- style="width:100%;" class里ie不起作用-->
+			<!-- title start -->
+			<div class="title">订单查询</div>
+			<!-- title end -->
+			
+			<ul class="nav nav-tabs">
+			  <li role="presentation" class="active"><a href="javascript:;" onclick="searchMethod(1)">方式一</a></li>
+			  <li role="presentation"><a href="javascript:;" onclick="searchMethod(2)">方式二</a></li>
+			</ul>
+
+			<!-- search start -->
+			<form action="javascript:;" id="searchForm" class="form-horizontal">
+	               <div class="form-body">
+	                     <div class="row row1">
+	                           <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+								    <div class="input-group a-input-group mgb10">
+									  <input type="text" id="phoneNum" name="phoneNum" class="form-control a-input" placeholder="请输入电话号码" datavalue="请输入电话号码">
+									  <span class="input-group-btn">
+								        <button class="btn btn-phone searchPhoneBtn" type="button"></button>
+								      </span>
+									</div>
+	                           </div>
+	                           <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 circleImg">
+	                           </div>
+	                           <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+	                               <div class="input-group a-input-group mgb10">
+									  <input type="text" id="ICard" name="ICard" class="form-control a-input" placeholder="请输入身份证号码" datavalue="请输入身份证号码">
+									  <span class="input-group-addon height100 span-person"></span>
+									</div>
+	                           </div>
+	                      </div>
+	                      <div class="row row2" style="display:none;">
+	                           <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+	                               <div class="input-group a-input-group mgb10">
+							      <input type="text" id="serialNumber" name="serialNumber"  class="form-control a-input" placeholder="请输入业务号码" datavalue="请输入业务号码">
+							      <span class="input-group-btn">
+							        <button class="btn btn-sssearch searchSerialNumberBtn" type="button"></button>
+							      </span>
+							    </div>
+	                           </div>
+	                      </div>
+	              	</div>
+                    <div class="text-right">
+                       <button type="button" class="btn btn-orange submitBtn">查询</button>
+                       <button type="button" class="btn btn-orange resetBtn">重置</button>
+                       <button type="button" class="btn btn-orange layerBtn">弹出框</button>
+                       <button type="button" class="btn btn-orange modelBtn">模态框</button>
+                    </div>
+            </form>
+            <!-- search end -->
+            
+            
+            <!-- table start -->
+            <div class="a-tableDivEmpty" style="display:none;"></div>
+            <div class="a-tableDiv table-responsive" style="display:block;">
+            	<table id="table" class="table table-bordered table-hover"
+		              data-toggle="table"
+		              data-method="post"
+		              data-content-type="application/x-www-form-urlencoded"
+		              data-query-params="queryParams"
+		              data-pagination="false"
+		              data-side-pagination="server"
+		              data-page-size="10"
+		              data-page-list="[5, 10, 20, 50 ]"
+		              data-show-refresh="false" 
+		              data-show-toggle="false"
+		              data-show-pagination-switch="false"
+		              data-show-columns="false"
+		              data-search="false"
+		              data-search-align="left"
+		              data-sort-name="MENUID"
+		              data-sort-order="asc"
+		               >
+		           <thead> 
+		           <tr> 
+		               <th data-field="MENUID" data-sortable="false" >菜单id</th> 
+		               <th data-field="PMENUID" data-sortable="false" >父菜单id</th>   			                																
+		               <th data-field="CAPTION" data-sortable="false">菜单名称 </th>
+		               <th data-field="URL" data-sortable="false" data-visible="false">url</th>
+		               <th data-field="operation" data-formatter="testTbObj.actionFormatter" data-events="actionEvents">操作</th>
+		           </tr>
+		           </thead>
+		       </table>	
+            </div>
+	        <!-- table end -->
+		</div>
+	</div>    
+	    
+	<!-- 模态框  start-->
+	<div class="bg-model-wrap"><!--初始隐藏-->
+		<div class="bg-model-cover"><!--底层遮盖区域-->
+			<div class="content" style="height:300px;width:600px;"><!--展示内容-->
+				<a href="javascript:;" class="bg-model-close"></a>
+				<!-- 这里写弹层内容 start -->
+				
+				<!-- 这里写弹层内容 end -->
+		　　   </div>
+		</div>
+	</div>
+    <!-- 模态框 end --> 	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	<!-- 核心插件 start-->
+
+	<!--[if lt IE 9]>
+	<script>
+	(function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();
+	</script>
+	<script src="../../js/plugins/respond.min.js"></script>
+	<script src="../../js/plugins/html5shiv.js"></script>
+	<script src="../../js/plugins/excanvas.min.js"></script>
+	<![endif]-->
+			
+	<!--bootstrap-->
+	<script type="text/javascript" src="../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+	<script type="text/javascript" src="../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!--bootstrap table-->
+	<script type="text/javascript" src="../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+	<script type="text/javascript" src="../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+	<script type="text/javascript" src="../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script><!--控制导出按钮-->
+	<script type="text/javascript" src="../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script><!--控制导出功能-->
+	
+	<!--bootstrap paginator-->
+	<script type="text/javascript" src="../../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+		
+	<!-- layer 弹出层 -->
+	<script type="text/javascript" src="../../js/plugins/layui/layer/layer.js"></script>
+	
+	<!-- 表单  -->
+	<script type="text/javascript" src="../../js/plugins/jquery/jquery.form.js"></script>
+		
+	<!-- 表单验证 -->
+	<script type="text/javascript" src="../../js/plugins/jquery/jquery-validation/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="../../js/plugins/jquery/jquery-validation/messages_zh.min.js"></script>
+	
+	<!-- 五角星评价 -->
+	<script type="text/javascript" src="../../js/plugins/jquery/jquery.raty.min.js"></script>
+	
+	<!--PC 时间插件 My97DatePicker -->
+	<script type="text/javascript" src="../../js/plugins/My97DatePicker/WdatePicker.js" ></script>
+	
+	<!--公共部分-->
+	<script type="text/javascript" src="../../js/common/common.js"></script>
+	<script type="text/javascript" src="../../js/common/util.js"></script>
+	
+	<!-- 核心插件 end-->  
+	
+	<!--自己-->
+	<script type="text/javascript" src="./js/test.js"></script>
+	  
+  </body>
+</html>

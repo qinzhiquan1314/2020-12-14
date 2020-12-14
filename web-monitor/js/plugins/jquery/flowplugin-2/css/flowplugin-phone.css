@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+
+/*-------------
+ * 
+ * 内部手机 - 换算rem 
+ * ------------*/
+
+*{padding:0;margin:0;}
+
+body,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,ul,ol,li,form,button,input{
+	padding:0px;margin:0px;
+	border:none;list-style:none;
+	font-weight:normal;
+	/*font-family:'Verdana', 'Microsoft YaHei', sans-serif;*/
+	font-family:'Verdana', 'SimHei', sans-serif;
+}
+body{
+	background-color: #f6f6f6;
+}
+/*字体颜色*/
+.fc-orange {color: #fd6b00;}
+.fc-grey {color: #c7670a;}
+
+.fc-open {color:#c7670a;}
+.fc-close {color:#565658;}
+
+/* flow start */
+.flowSwrap {
+	position: relative;
+	margin: 1rem 2rem;
+	/* width:720px; */
+	 background-color: #fff; 
+}
+
+.flowCell {
+	padding: 1.25rem 2% 1.25rem 5%;
+	overflow: hidden;
+	/* position: relative; */
+	z-index: 20;
+	display: table;
+	word-wrap: break-word;
+	table-layout: fixed;
+	width: 93%;
+}
+.cell-left {
+    width: 9.5rem;
+    padding-right: 1.4rem;
+    text-align: right;
+    display: table-cell; 
+    vertical-align:middle;
+    /*background-color: goldenrod;*/
+}
+.cell-right {
+    /* padding-left: 32px; */
+    text-align: left;
+    display: table-cell;
+    vertical-align:middle;
+    /*background-color:green;*/
+}
+.cell-center {
+    /* height:100px; */
+    width: 1.5rem;
+    display: table-cell;
+    vertical-align:top;
+    /* vertical-align:middle; */
+    /*background-color: azure;*/
+    overflow: hidden;
+}
+.cell-left .t1 {
+	font-size: 1.2rem;
+}
+.cell-left .t2 {
+	font-size: 0.9rem;
+}
+
+.cell-right .t1_start {
+	font-size: 1.2rem;
+	float: left;
+}
+.cell-right .t1 {
+	font-size: 1.2rem;
+	float: left;
+}
+.cell-right .t2 {
+	font-size: 0.7rem;
+	margin-top: 0.01rem;
+}
+.cell-right .t2 a {
+	color:#fd6b00;
+}
+.cell-right .t3 {
+	font-size: 0.8rem;
+	color: #666;
+	margin-top: 0.2rem;
+}
+
+/* 必须设置宽高，画线使用 */
+.cell-center img {
+	width: 0.5rem;
+	height: 0.5rem;
+}
+
+.flow-line {
+	width: 1px; /*不需要变rem*/
+	background-color: #eed9cc;
+	z-index: 10;
+}
+
+
+/* 抽屉 start*/
+
+.cell-right .drawer {
+	width: 1rem;
+	height: 1rem;
+	display: block;
+	float: left;
+	margin-left: 0.4rem;
+	margin-top: 0.3rem;
+	cursor: pointer;
+}
+.cell-right .span-open {
+	background: url(../../../../../web-phone/images/order/flow/f-open.png) no-repeat center;
+	background-size: 100% 100%;
+}
+.cell-right .span-close {
+	background: url(../../../../../web-phone/images/order/flow/f-close.png) no-repeat center;
+	background-size: 100% 100%;
+}
+
+.cell-right .draw-detail {
+	clear: both;
+	border: 0.5rem solid #fff2e3;
+	padding: 0.5rem 2% 0.5rem 0.7rem;
+	margin-top: 1.7rem;
+	/* width: 90%; */
+}
+
+.draw-detail-hide {
+	display: none;
+}
+/* 抽屉 end*/
+
+
+
+/*  flow  end */

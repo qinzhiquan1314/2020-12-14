@@ -1,0 +1,242 @@
+@charset "utf-8";
+
+.content{
+	float: left;
+	font-family: SimHei;
+	/*font-size: 1.3rem;*/
+	border-radius: 0.7rem;
+	background-color: #ffffff;
+	background-image: url("../../images/order/phone-line.png");
+	background-repeat: no-repeat;
+	background-position: center bottom; 
+	margin-bottom: 1rem!important;
+	margin-left: 2.5%!important;
+    width: 95%!important;
+	padding-bottom: 1rem;
+}
+
+.btn_search{
+	margin-bottom: 1rem;
+}
+
+.searchResult{
+	padding-top: 8rem;
+}
+
+/*.selectA{
+	height: 100%;
+    width: 100%;
+    padding-left: 5.6rem;
+    background-color: #ffffff!important;
+    inline-size: 29rem;
+    border-radius: 0.7rem;
+    padding-left: 5.6rem;
+    background: url(../../images/order/search2.png) no-repeat 9% 50%;
+    background-size: 2.15rem;
+	border: none;
+}*/
+
+
+.contentdiv1{
+	border-bottom: solid 0.1rem grey;
+	text-align:center;
+	text-align:right;
+}
+.contentdiv2{
+	border-bottom: solid 0.1rem grey;
+	text-align:center;
+	text-align:left;
+}
+
+/*列表区域 start*/
+
+.color-bule {
+	color: #64cbed;
+}
+
+.color-green {
+	color: #019c29;
+}
+
+.color-orange {
+	color: #fd6b00;
+}
+
+
+.listArea .line {
+	border-bottom: 0.1rem solid #f6f6f6; /*2px*/
+    width: 100%;
+}
+
+
+.listArea {
+	overflow: hidden;
+	margin-top: 0.9rem;/*18px;*/
+}
+.listArea ul {
+	margin: 0 1.1rem 0.9rem 1.1rem; /*0 22px 18px 22px;*/
+	background-color: #fff;
+	border-radius: 1.1rem;/*22px;*/
+	list-style: none;
+	border: 0.25rem solid #fff;/*5px solid #fff;*/
+	border-image-source:url(../../images/order/phone-line.png);
+	border-image-width: 0 0 1.05rem 100%;/*0 0 21px 100%  top right bottom left*/
+}
+
+.listArea ul li {
+	position: relative;
+	/*display: table;*/
+	table-layout: fixed;
+	word-wrap: break-word;
+} 
+
+.listArea .hh1 {
+	font-size: 1.5rem; /* 30px; */
+	color: #555;
+	line-height: 3.5rem; /* 70px; */
+	padding: 0 3.3rem; /* 24px; */
+}
+
+.listArea .hh2,.hh3 {
+	font-size: 1.3rem; /* 26px; */
+	color: #444;
+	line-height: 3.5rem; /* 70px; */
+	padding: 0 3.3rem; /* 24px; */
+}
+
+.listArea .hh4 {
+	font-size: 1.5rem; /* 30px; */
+	color: #444;
+	line-height: 3rem; /* 60px; */
+	padding-left: 3.3rem; /* 24px; */
+	margin: 1rem 0;/* 20px 0; */
+	width: 100%;
+}
+
+.listArea .hh4 .ra {
+	color: #9d9d9d;
+	margin-right: 4.3rem; /* 60px; */
+}
+.listArea .hh4 .rb {
+	border: 0.1rem solid #fd6b00;
+	border-radius: 1.5rem; /* 30px; */
+	height: 3rem; /* 60px; */
+	width: 10rem; /* 200px; */
+	text-align: center;
+	margin-right: 2.5rem; /* 24px; */
+	/* vertical-align:  middle; */
+	display: table;
+}
+.listArea .hh4 .rb a {
+	color:#fd6b00;
+}
+.listArea .hh4 .rb a:hover {
+	color:#fa4103;
+}
+.listArea .hh5 {
+	position: relative;
+	font-size: 1.5rem; /* 30px; */
+	color: #9d9d9d;
+	line-height: 120%;
+	padding-left: 3.3rem; /* 24px; */
+	padding-top: 1rem; /* 24px; */
+	padding-right: 2.5rem; /* 24px; */
+	width: 100%;
+	height: 47px;
+}
+
+.listArea .hh6 {
+	font-size: 1.3rem; /* 26px; */
+	color: #9d9d9d;
+	line-height: 4.5rem; /* 90px; */
+	padding: 0 2.5rem;
+	width: 100%;
+	height: 45px;
+}
+
+.listArea .hh5:before {
+	/* content:url(../../images/order/info1.png);
+	vertical-align:middle;
+	display:inline-block; */
+	
+	content: " ";
+	background: url(../../images/order/info1.png) center no-repeat;
+	background-size: 100% auto;
+	left: 1.5rem; /* 30px; */
+	top: 1rem; 
+	height: 1.55rem; /* 29px; */
+	width: 1.2rem; /* 24px; */
+	position: absolute;
+}
+
+.listArea .hh6 .fr {
+	position: relative;
+}
+.listArea .hh6 .fr:before {
+	/* content:url(../../images/order/info2.png);
+	vertical-align:middle;
+	display:inline-block;
+	padding-right: 0.5rem;
+	line-height: 4.5rem; */
+	
+    content: " ";
+    background: url(../../images/order/info2.png) center no-repeat;
+    background-size: 100% auto;
+    position: absolute;
+    left: -2rem; /* -40px; */
+    top: 1.45rem; /* 29px; */
+    height: 1.6rem; /* 29px; */
+    width: 1.6rem; /* 29px; */
+	
+}
+.a-div-tele{
+	margin: 2rem 1.2rem;
+	overflow: hidden;
+} 
+.service-info {
+    color: #B0B0B1;
+    font-size: 0.7rem;
+    position: absolute;
+    left: 1.5rem;
+    margin-top: -1.5rem;
+}
+
+.data-search{
+	height: 5rem;
+    width: 48% !important;
+    border: 0px solid #fff;
+    float: left;
+}
+
+.data-zhi{
+	height: 5rem;
+    width: 4% !important;
+    float: left;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.change{
+	width:25%;
+	text-align: center;
+}
+
+.nav>li>a{
+	padding: 10px 0px !important;
+	text-align: center;
+}
+/*列表区域 end*/
+/* 底部广告 */
+.adBtm{
+	position:fixed;
+	left:0;
+	bottom:0;
+}
+.adBtm img{
+	width:100%;
+}
+/* 沃易赚小程序添加返回页面 */
+.backImg {
+	display: none;
+	margin-top:-3px;
+}

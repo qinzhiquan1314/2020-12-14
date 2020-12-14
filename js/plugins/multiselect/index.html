@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/jquery.multiselect.css"/>
+		<style>
+            /*.dropdown-menu{
+                position: relative;
+                height: 200px;
+                width: 400px;
+                left: 0px;
+                top: -2px;
+               
+            }
+            .bootstrap-select.btn-group .dropdown-menu{
+                 position: relative;
+                 min-width: 400px !important;
+                 top: 32px;
+                 left: -400px;
+            }
+           
+            .bootstrap-select{
+                width: 400px;
+            }
+            .bootstrap-select>.dropdown-toggle{
+                width: 400px;
+               
+            }*/
+            .ui-multiselect{
+                padding: 6px 6px;
+                display: block;
+                margin-top: 10px;
+                color: #555;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        </style>
+	</head>
+	<body>
+		<div>
+			<select id='select_industry' multiple="multiple" class="validate">
+                     <option >你好</option>
+                     <option >你好</option>
+                     
+                     <option >你好</option>
+                     <option >你好</option>
+                     <option >你好</option>
+                     
+                     <option >你好</option>
+                     <option >你好</option>
+                     <option >你好</option>
+            </select>
+		</div>
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/jquery.multiselect.js"></script>
+		<script type="text/javascript">
+			$('#select_industry').multiselect({
+                header: true,
+                height: 175,
+                minWidth: 400,
+                classes: '',
+                checkAllText: '选中全部',
+                uncheckAllText: '取消全选',
+                noneSelectedText: '请勾选',
+                selectedText: '# 选中',
+                selectedList: 5,
+                show: null,      
+                hide: null,
+                autoOpen: false,
+                multiple: true,
+                position: {},
+                appendTo: "body",
+                menuWidth:null
+            });
+		</script>
+	</body>
+</html>

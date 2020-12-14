@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>订单实时查询</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <!--bootstrap插件-->
+  <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+  <!--手机端  时间插件  -->
+  <link rel="stylesheet" type="text/css" href="../../../js/plugins/mobiscroll/mobiscroll.custom-2.5.2.min.css">
+  <!-- 手机端加载等待 -->
+  <link rel="stylesheet" type="text/css" href="../../../js/plugins/jquery/fakeloader/css/fakeloader.min.css">
+  <!--手机公共-->
+  <link rel="stylesheet" type="text/css" href="../../css/web-base.css">
+  <!-- 手机自己 -->
+  <link rel="stylesheet" type="text/css" href="../css/order-list.css">
+
+
+  <!--【手机端专享】自适应必须放head里-->
+  <script type="text/javascript" src="../../js/init.js"></script>
+  
+  <!-- http://127.0.0.1:8083/QueryCenterWeb/web-phone/web-in-order/order-list-test.html -->
+  <style>
+    .floatFrame1{
+      z-index: 11;
+      width: 82px;
+      position: fixed;
+      float: right;
+      top: -2px;
+      right: -8px;
+    }
+    .change {
+      width: 20%;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- 标题 start -->
+
+  <header class="txc">
+    <div class="cl fl"> 
+    <img class="backImg"  id="backWechat"  alt="" src="../images/back.png">
+    <i>&nbsp;</i>
+    </div>
+    <div class="cr fr">&nbsp;</div>
+    <div class="cc">订单查询</div>
+    <img id="open_zqzasearch" style="cursor: pointer; position:absolute; width:55px;height:55px;right:75px;top:0px;" src="../../../images/order/zqza_04_03.png"/>
+  </header>
+  <!-- 标题 end -->
+
+  <ul class="nav nav-tabs">
+    <li class="change active"><a href="javascript:showDiv('id1')">订单号</a></li>
+    <li class="change"><a href="javascript:showDiv('id2')">业务号码</a></li>
+    <li class="change"><a href="javascript:showDiv('id4')">身份证</a></li>
+    <li class="change"><a href="javascript:showDiv('id3')">工号</a></li>
+    <li class="change"><a href="javascript:showDiv('id5')">联系电话</a></li>
+  </ul>
+
+  <form action="javascript:;" id="searchForm" class="form-horizontal">
+    <!-- 隐藏块1 订单类型+订单号查询  start-->
+    <div id="id1">
+
+     <!--  <div class="b-input-group">
+        <div class="group-text">
+          <select class="form-control b-select bg2" id="orderType" name="orderType" >
+            <option value="">受理渠道：</option>
+            <option value="1">线上受理</option>
+            <option value="2">营业厅受理</option>
+            <option value="3">意向单查询</option>
+          </select>
+        </div>
+      </div>
+ -->
+
+
+
+
+      <div class="b-input-group">
+        <div class="group-text">
+          <input class="form-control bg2" type="text" id="orderNum" name="orderNum" placeholder="请输入订单号" />
+        </div>
+      </div>
+
+     <!--  <div class="a-div">
+        <a href="javascript:showDiv('id2')" class="change">使用业务号码查询</a>
+      </div>
+      <div class="a-div">
+        <a href="javascript:showDiv('id3')" class="change">使用下单时间和受理人工号查询</a>
+      </div> -->
+
+      <div class="b-btn-group">
+        <button type="submit" class="btn btn_submit" id="in_orderNumSearch">查询</button>
+        <button type="button" class="btn btn_reset" id="resetBtn1">重置</button>
+      </div>
+
+    </div>
+    <!-- 隐藏块1 订单类型+订单号查询  end-->
+
+    <!-- 隐藏块2 业务号码查询  start-->
+    <div id="id2" style="display: none">
+
+      <div class="b-input-group">
+        <div class="group-text">
+          <input class="form-control bg2" type="text" id="accNum" name="accNum" placeholder="请输入宽带/快线/专线号码"/>
+         
+        </div>
+      </div>
+      <div class="b-input-group">
+        <div class="group-text">
+         <input class="form-control bg2" type="text" id="serialNumber" name="serialNumber" placeholder="请输入手机号码"/>
+        </div>
+      </div>
+      <div class="b-input-group">
+        <div class="group-text">
+          <input class="form-control bg2" type="text" id="teleNum" name="teleNum" placeholder="请输入固定号码" />
+        </div>
+      </div>
+      <div class="a-div-tele">
+      	<div class="service-info">固定电话号码请加010</div>
+	  </div>
+
+      <!-- <div class="a-div">
+        <a href="javascript:showDiv('id1')" class="change">使用订单类型和订单编号查询</a>
+      </div>
+      <div class="a-div">
+        <a href="javascript:showDiv('id3')" class="change">使用下单时间和受理人工号查询</a>
+      </div> -->
+
+      <div class="b-btn-group">
+        <button type="submit" class="btn btn_submit" id="in_serialNumberSearch">查询</button>
+        <button type="button" class="btn btn_reset" id="resetBtn2">重置</button>
+      </div>
+
+    </div>
+    <!-- 隐藏块2 业务号码查询  end-->
+
+
+ <!-- 隐藏块3 身份证号码查询  start-->
+    <div id="id4" style="display: none">
+
+      <div class="b-input-group">
+        <div class="group-text">
+          <input class="form-control bg2" type="text" id="credentialCode" name="credentialCode" placeholder="请输入身份证号码"/>
+         
+        </div>
+      </div>
+    
+     
+   
+
+      <!-- <div class="a-div">
+        <a href="javascript:showDiv('id1')" class="change">使用订单类型和订单编号查询</a>
+      </div>
+      <div class="a-div">
+        <a href="javascript:showDiv('id3')" class="change">使用下单时间和受理人工号查询</a>
+      </div> -->
+
+      <div class="b-btn-group">
+        <button type="submit" class="btn btn_submit" id="in_credentialCodeSearch">查询</button>
+        <button type="button" class="btn btn_reset" id="resetBtn4">重置</button>
+      </div>
+
+    </div>
+    <!-- 隐藏块2 身份证码查询  end-->
+
+
+
+
+
+
+
+
+    <!-- 隐藏块4 下单时间+受理人工号查询  start-->
+    <div id="id3" style="display: none">
+
+      <div class="b-input-group">
+        <div class="group-text data-search">
+          <input class="form-control bg2" id="startAcceptDate"  name="startAcceptDate" type="text" placeholder="请选择日期">
+        </div>
+
+        <div class="data-zhi"><span>至</span></div>
+        
+        <div class="group-text data-search">
+          <input class="form-control bg2" id="endAcceptDate"  name="endAcceptDate" type="text" placeholder="请选择日期">
+        </div>
+
+      </div>
+
+      <div class="b-input-group">
+        <div class="group-text">
+          <input class="form-control bg2" type="text" value=""  id="exAcceptStaffid" name="exAcceptStaffid" placeholder="请输入受理人工号"/>
+        </div>
+      </div>
+
+     <!--  <div class="a-div">
+        <a href="javascript:showDiv('id1')" class="change">使用订单类型和订单编号查询</a>
+      </div>
+      <div class="a-div">
+        <a href="javascript:showDiv('id2')" class="change">使用业务号码查询</a>
+      </div> -->
+
+      <div class="b-btn-group">
+        <button type="submit" class="btn btn_submit" id="in_exAcceptStaffidSearch">查询</button>
+        <button type="button" class="btn btn_reset" id="resetBtn3">重置</button>
+      </div>
+    </div>
+    <!-- 隐藏块4 下单时间+受理人工号查询  end-->
+    <!-- 隐藏块4 下单时间+受理人工号查询  start-->
+    <div id="id5" style="display: none">
+
+      <div class="b-input-group">
+        <div class="group-text data-search">
+          <input class="form-control bg2" id="placeOrderstartDate"  name="placeOrderstartDate" type="text" placeholder="请选择日期">
+        </div>
+
+        <div class="data-zhi"><span>至</span></div>
+
+        <div class="group-text data-search">
+          <input class="form-control bg2" id="placeOrderendDate"  name="placeOrderendDate" type="text" placeholder="请选择日期">
+        </div>
+
+      </div>
+
+      <div class="b-input-group">
+        <div class="group-text">
+          <input class="form-control bg2" type="text" value=""  id="placeOrderPhoneNumber" name="placeOrderPhoneNumber" placeholder="请输入办理业务所留手机号"/>
+        </div>
+      </div>
+
+      <!--  <div class="a-div">
+         <a href="javascript:showDiv('id1')" class="change">使用订单类型和订单编号查询</a>
+       </div>
+       <div class="a-div">
+         <a href="javascript:showDiv('id2')" class="change">使用业务号码查询</a>
+       </div> -->
+
+      <div class="b-btn-group">
+        <button type="submit" class="btn btn_submit" id="in_placeOrderSearch">查询</button>
+        <button type="button" class="btn btn_reset" id="resetBtn5">重置</button>
+      </div>
+    </div>
+    <!-- 隐藏块4 下单时间+受理人工号查询  end-->
+  </form>
+
+  </div>
+  <!-- search end -->
+
+
+  <!-- 浮动框 -->
+  <div class="floatFrame1"  id="floatFrame1" >
+    <img src="/queryCenter/web-pc/in-order/images/background.png" style="width: 60px"  >
+    <img src="/queryCenter/web-pc/in-order/images/feedback.png" style="width: 22px;position: absolute;top: 10px; right: 41px;">
+    <div style="position: absolute;top: 32px;font-size: 12px;right: 28px;font-weight: 500;" >在线反馈</div>
+  </div>
+
+    <!--<div style="position: relative;width: 45%;height: 75px;color: #fff;border-radius: 0.7rem;float: left;display: inline-block;padding: 6px 12px;
+    margin-bottom: 0;margin-left: 1.2rem;text-align: center;white-space: nowrap;vertical-align: middle;touch-action: manipulation;cursor: pointer;border: 1px solid #ddd;background-color: #fff;">
+      <img id="open_zqzasearch1" style="cursor: pointer; position:absolute; width:100px;height:62px;left:20%;top:2%" src="../../../images/order/zqza_03.png" />
+    </div>-->
+
+  <div class="listArea" id="listid">
+
+  	</div>
+	<section class="fakeParent" id="loader">
+	    <div class="fakeloader" ></div>
+	</section>
+	<!-- 底部广告 -->
+	<div class="adBtm">
+		<img src="" id="adBtm"/>
+	</div>
+
+  <!-- 核心插件 start-->
+
+  <!--[if lt IE 9]>
+  <script>
+  (function(){if (!window.console || !console.firebug){var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];window.console = {};for (var i = 0; i < names.length; ++i)window.console[names[i]] = function() {/*arguments.length>0?alert(JSON.stringify(arguments[0])):""*/}}})();</script>
+  <script src="../../../js/plugins/respond.min.js"></script>
+  <script src="../../../js/plugins/html5shiv.js"></script>
+  <script src="../../../js/plugins/excanvas.min.js"></script>
+  <![endif]-->
+
+  <!--bootstrap-->
+  <script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js" ></script>
+  <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+  <!--bootstrap table-->
+  <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.js"></script>
+  <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+  <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/bootstrap-table-export.min.js"></script>
+  <!--控制导出按钮-->
+  <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-table/tableExport.min.js"></script>
+  <!--控制导出功能-->
+
+  <!--bootstrap paginator-->
+  <script type="text/javascript" src="../../../js/plugins/bootstrap/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+
+  <!-- layer 弹出层 -->
+  <script type="text/javascript" src="../../../js/plugins/layui/layer/mobile/layer.js"></script>
+
+  <!-- 表单  -->
+  <script type="text/javascript" src="../../../js/plugins/jquery/jquery.form.js"></script>
+
+  <!-- 表单验证 -->
+  <script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="../../../js/plugins/jquery/jquery-validation/messages_zh.min.js"></script>
+
+  <!-- 五角星评价 -->
+  <script type="text/javascript" src="../../../js/plugins/jquery/jquery.raty.min.js"></script>
+
+  <!-- 手机端  时间插件  -->
+  <script type="text/javascript" src="../../../js/plugins/mobiscroll/mobiscroll.custom-2.5.2.min.js"></script>
+  <!-- 加载等待插件 -->
+  <script type="text/javascript" src="../../../js/plugins/jquery/fakeloader/js/fakeloader.min.js"></script>
+
+  <!--公共部分-->
+  <script type="text/javascript" src="../../../js/common/common.js"></script>
+  <script type="text/javascript" src="../../../js/common/util.js"></script>
+  <!--【手机端专享】-->
+  <script type="text/javascript" src="../../js/web-util.js"></script>
+  	
+  <!-- 核心插件 end-->
+  <!-- 沃易赚小程序 -->
+  <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.0.js"></script>
+  <script type="text/javascript" src="../js/jweixin-1.3.0.js"></script>
+  <!--自己-->
+  <script type="text/javascript" src="../js/order-list.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+/* 筛选条件样式开始 */
+.searchInfo {
+	width: 90%;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	margin-left: 100px;
+	position: relative;
+}
+
+.qryCon{
+	left:0px;
+}
+
+.qryCon2{
+	left:0px;
+	padding-top: 0px; 
+	padding-bottom: 6px; 
+}
+
+.qryCon label{
+	display: inline-block;
+	width: 90px;
+	font-size: 16px;
+	overflow:hidden;
+	margin-top: 3px;
+	padding-top: 0px;
+	vertical-align:top;
+}
+
+.qryCon ul{
+	display: inline-block;
+	overflow:hidden;
+	margin-left:8px;
+	margin-bottom:5px;
+	width:90%;
+}
+
+.qryCon ul li{
+	float: left;
+	margin:0px 0px 0px 15px;
+	font-size: 16px;
+	padding: 0px 10px 0px 10px;
+	cursor:pointer;
+}
+
+.qryCon2 label{
+	width: 90px;
+	font-size: 16px;
+	margin-top:6px;
+	vertical-align:top;
+}
+
+.qryCon2 span{
+	margin-left: 26px;
+	font-weight: normal;
+    font-family: 'Verdana', 'SimHei', sans-serif;
+    font-size:16px;
+}
+
+.qryCon2 div {
+	margin-left: 26px;
+	width: 200px;
+	display: inline-block;
+	position: relative;
+}
+
+
+.qryCon div.btnGrp, .qryCon2 div.btnGrp {
+	float: right;
+	margin-right: 80px;
+	width: 290px;
+	display: inline-block;
+	position: relative;
+}
+
+.qryCon div.btnGrp2, .qryCon2 div.btnGrp2 {
+	float: right;
+	margin-right: 80px;
+	width: 200px;
+	display: inline-block;
+	position: relative;
+}
+
+.qryCon div span, .qryCon2 div span {
+	cursor:pointer;
+}
+
+.datePic {
+	float: right; 
+	right: 14px; 
+	margin: 5px 5px 4px 10px; 
+	position: absolute; 
+	width: 15px; 
+	height: 24px;
+}
+
+.dateInput {
+	cursor: pointer; 
+	background-color: #fff;
+	/*display: inline-block;*/
+}
+
+.hiddenItem {
+	display: none;
+}
+.showItem{
+	display: inline-block;
+}
+		
+/* 表格样式开始 */
+.b-tableDiv table>thead>tr>th {
+	font-weight: 700;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: middle !important;
+}
+.b-tableDiv {
+	margin-top: 20px;
+}
+ .maskLayer {  
+        background-color:#9D9D9D;  
+        width: 100%;  
+        height: 100%;  
+        left: 0;  
+        top: 0;  
+        filter: alpha(opacity=50);  
+        opacity: 0.5;  
+        z-index: 1;  
+        position: absolute;  
+    }  
+   .maskWords {
+   		color: #000000;
+   		position: absolute;
+   		left: 40%;
+   		top: 60%;
+   		font-size:40px;
+   		z-index: 2;
+   }
+   .tableStyle {
+   		height: 300px;
+   		overflow-y: auto;  
+   }

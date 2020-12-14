@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线反馈</title>
+    <!--bootstrap插件-->
+    <link rel="stylesheet" type="text/css"
+          href="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap-table/bootstrap-table.min.css">
+    <!--pc公共-->
+    <link rel="stylesheet" type="text/css" href="/queryCenter/web-monitor/css/base.css">
+
+    <link rel="stylesheet" type="text/css" href="/queryCenter/web-monitor/css/flowChart.css" />
+    <link rel="stylesheet" type="text/css" href="/queryCenter/web-monitor/css/modal.css" />
+    <link rel="stylesheet" type="text/css" href="/queryCenter/web-monitor/css/monitView.css" />
+    <link rel="stylesheet" type="text/css" href="../css/feedBack.css" />
+    <style>
+        pre {
+            font-family: "微软雅黑";
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .over{
+            position: fixed;
+            left:0; top:0;
+            width:100%;
+            z-index:100;
+        }
+
+        .tempContainer {
+            position:fixed;
+            width:100%;
+            margin-right:0px;
+            margin-left:0px;
+            text-align:center;
+            z-index:101;
+        }
+
+        pre img {
+            display: block;
+            margin: 0 auto;
+        }
+
+
+        div{
+            font-family:"微软雅黑" !important;
+        }
+
+        span{
+            font-family:"微软雅黑" !important;
+        }
+
+        button{
+            font-family:"微软雅黑" !important;
+        }
+    </style>
+
+</head>
+<body>
+<div id="Lcontainer">
+    <!--导航-->
+    <div id="Lnav">
+        <ul class="Lnav" style="width: 100%;">
+            <li class="Lcheck" id="Lnav_text">在线反馈</li>
+            <li class="concat" id="concat_text">联系我们</li>
+        </ul>
+    </div>
+
+    <div>
+        <form action="javascript:;" id="searchForm" class="form-horizontal">
+            <div class="form-body" style="margin: 15px 0;position: relative;left: 41px;">
+                <div class="row">
+                    <div class="col-lg-5 col-md-8 col-sm-6 col-xs-12" style="width: 38%">
+                        <div class="form-group">
+                            <label class="col-sm-2 col-md-2  control-label" style="text-align: left;padding-left: 24px;width: auto">关键字：</label>
+                            <!--<div >关键字：</div>-->
+                            <div class="col-sm-4 col-md-6" style="width: 380px;">
+                                <input type="text" value="" class="form-control" id="keyDate" name="keyDate"
+                                       style=" background-color: #fff;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12">
+                        <div class="form-group">
+                            <div class="text-left">
+                                <button id="searchBtn" type="button"
+                                        class="btn btn-orange submitBtn">查询</button>
+                                <!--<button id="messageBoard" type="button"
+                                        class="btn btn-orange resetBtn">留言板</button>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- 问题明细弹框 -->
+        <div id="dateDetail" class="dateDetail">
+            <div class="close" id="close">×</div>
+            <div id="content" style="height: 88%">
+                <div id="questionTitle" class="questionTitle"
+                     style="text-align: center;margin-top: 1%;font-size: 24px;">看板中心的登录方式有哪些?</div>
+                <pre id="detail" class="questionContent" style="margin-top: 1%;font-size: 15px;margin-left: 60px;margin-right: 60px;"></pre>
+            </div>
+            <div id="downLoad" class="downLoad cursor">
+                <img src="/queryCenter/web-monitor/images/feedBack/download.png" >
+                <div class="downWord">下载</div>
+            </div>
+        </div>
+
+        <!--查询出结果 show-->
+        <div id="result" class="show result">
+            <ul>
+                <li style="height: 60px;">
+                    <span class="commonTitle">常见问题</span>
+                    <div class="exportAllBtn fr cursor" id="exportAllBtn">
+                        <img src="/queryCenter/web-monitor/images/feedBack/exportAll.png">
+                        <div class="exportAll">下载全部</div>
+                    </div>
+                </li>
+                <li style="height:50px" id="li2">
+                    <div style="padding-left: 2.5%;padding-right: 2.5%;width: 100%">
+                    <div class="btn1">
+                        <button id="t1" type="button" style="color: #fa7a07"
+                                class="btn btn-gray submitBtn">订单实时查询</button>
+                    </div>
+                    <div class="btn2">
+                        <button id="t2" type="button"
+                                class="btn btn-gray submitBtn">看板中心-看板中心使用方法</button>
+                    </div>
+                    <div class="btn3">
+                        <button id="t3" type="button"
+                                class="btn btn-gray submitBtn">看板中心-全流程监控总览页</button>
+                    </div>
+                    <div class="btn4">
+                        <button id="t4" type="button"
+                                class="btn btn-gray submitBtn">看板中心-场景化流程监控页</button>
+                    </div>
+                    <div class="btn5">
+                        <button id="t5" type="button"
+                                class="btn btn-gray submitBtn">看板中心-统计及重点指标页</button>
+                    </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!--没有查询出结果 hidden-->
+        <div id="noResult" class="hidden">
+            <div style="font-size: 24px;margin-top: 10%">无结果</div>
+            <!--<div style="font-size: 14px;margin-top: 2%">如果需要请点击
+                <span style="color: #fa7a07!important;">留言板</span>按钮，详细描述您的问题
+            </div>-->
+        </div>
+
+        <div class="over"></div><!--背景层-->
+        <div class="logoImg amplifyImg"><!--注意：此处的amlifyImg不可少-->
+            <img/>
+        </div>
+</div>
+</div>
+</body>
+<!--bootstrap-->
+<script type="text/javascript" src="/queryCenter/web-monitor/js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="/queryCenter/web-monitor/js/plugins/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/queryCenter/web-monitor/js/plugins/ztree/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="/queryCenter/web-monitor/js/common.js"></script>
+
+<script type="text/javascript" src="../js/feedBack.js"></script>
+</html>
