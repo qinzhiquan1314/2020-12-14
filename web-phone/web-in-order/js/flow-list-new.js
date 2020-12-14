@@ -398,3 +398,9 @@ $(".resetBtn").click(function () {
 
 // alert(data);
 }*/
+
+// 查看专员按钮
+$(".lookPersonBtn").click(function () {
+    alert('a')
+    event.preventDefault();
+});

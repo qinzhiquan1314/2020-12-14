@@ -20,7 +20,11 @@
 			drawerFun:function(){}// 回调函数
         }, opt);
 		
-		var flowHtml = '<div class="flowSwrap"><div class="hidden-line flow-line"></div></div>';
+		// var flowHtml = '<div class="flowSwrap"><div class="hidden-line flow-line"></div></div>';
+		var flowHtml =
+			'<div class="flowSwrap">' +
+			`<button class="lookPersonBtn" style="background-color:#fe9900;color: white;margin-left: 5%">查看专员位置</button>` +
+			'<div class="hidden-line flow-line"></div></div>';
         var cellHtml = '<div id="CELL_ID" class="flowCell"><div class="cell-center"></div><div class="cell-right"></div></div>';
         
         //组织流程内容区域
@@ -68,9 +72,9 @@
 								+ '<div class="draw-detail draw-detail-hide"></div>';
 								
 								console.log(item);
-				if(item.jobCode == "I9990"){
-					cellRightHtml += `<button style="background-color: ">查看专员位置</button>`
-				}
+				// if(item.jobCode == "I9990"){
+				// 	cellRightHtml += `<button class="lookPersonBtn" style="background-color:#fe9900;color: white">查看专员位置</button>`
+				// }
         		var $cellRight = $("#"+cell_id+" .cell-right")
 				$cellRight.append(cellRightHtml);
 				
