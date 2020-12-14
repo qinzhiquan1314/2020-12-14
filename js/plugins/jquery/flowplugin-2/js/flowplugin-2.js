@@ -12,6 +12,7 @@
 
 (function($){
 	$.fn.flowplugin = function(opt) {
+		console.log(opt);
 		opt = $.extend({
 			jsonDate:[],//json数据
 			imgPath:"img/", //img/f1.png
@@ -64,9 +65,16 @@
         		//右边内容 span元素 id="0" id="1" ...直接记录数组下标
         		var cellRightHtml = index ==0 ? '<p class="t1_start fc-close">' +v_time+ ' ' +v_name+ '</p>' : '<p class="t1 fc-close">' +v_time+ ' ' +v_name+ '</p>' ;
         		cellRightHtml = cellRightHtml + '<span id="' + index + '" class="drawer span-open"></span>'
-        						+ '<div class="draw-detail draw-detail-hide"></div>';
+								+ '<div class="draw-detail draw-detail-hide"></div>';
+								
+								console.log(item);
+				if(item.jobCode == "I9990"){
+					cellRightHtml += `<button style="background-color: ">查看专员位置</button>`
+				}
         		var $cellRight = $("#"+cell_id+" .cell-right")
-        		$cellRight.append(cellRightHtml);
+				$cellRight.append(cellRightHtml);
+				
+				
         		
         		/*$cellRight.on('click','span',function(event){// on 子元素span添加click事件
         			// 抽屉中内容

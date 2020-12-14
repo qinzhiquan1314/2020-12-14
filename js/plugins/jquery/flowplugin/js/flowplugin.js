@@ -76,6 +76,7 @@
                 $cellRight.append('<p class="t3">' + v_time + '</p>');
 
 
+
                 //字体颜色设置
                 //index == 0 ? $cellLeft.addClass("fc-orange") : $cellLeft.addClass("fc-grey");
                 index == 0 ? $cellRight.addClass("fc-orange") : $cellRight.addClass("fc-grey");
