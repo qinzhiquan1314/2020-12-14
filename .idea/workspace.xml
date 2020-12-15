@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37164eda-fcda-4b5f-b033-52bf204c86f3" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/plugins/jquery/flowplugin-2/js/flowplugin-2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/plugins/jquery/flowplugin-2/js/flowplugin-2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web-phone/web-in-order/js/flow-list-new.js" beforeDir="false" afterPath="$PROJECT_DIR$/web-phone/web-in-order/js/flow-list-new.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web-phone/web-in-order/page/flow-list-new.html" beforeDir="false" afterPath="$PROJECT_DIR$/web-phone/web-in-order/page/flow-list-new.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,17 +21,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-phone/web-in-order/page/flow-list-new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="206" column="73" selection-start-line="206" selection-start-column="73" selection-end-line="206" selection-end-column="73" />
+            <state relative-caret-position="142">
+              <caret line="49" column="81" selection-start-line="49" selection-start-column="81" selection-end-line="49" selection-end-column="81" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-phone/web-in-order/js/flow-list-new.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="405" column="3" lean-forward="true" selection-start-line="405" selection-start-column="3" selection-end-line="405" selection-end-column="3" />
+            <state relative-caret-position="35">
+              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -37,23 +39,41 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/plugins/jquery/flowplugin-2/js/flowplugin-2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="25" column="103" selection-start-line="25" selection-start-column="103" selection-end-line="25" selection-end-column="103" />
+            <state relative-caret-position="378">
+              <caret line="39" column="165" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="165" />
               <folding>
-                <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#IFRAME#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web-phone/web-in-order/page/map.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>查看专员</find>
+      <find>lookPersonBtn</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Administrator\Desktop\2020-12-14\2020-12-14</dir>
@@ -65,17 +85,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/web-phone/web-in-order/map.html" />
+        <option value="$PROJECT_DIR$/web-phone/web-in-order/page/map.html" />
+        <option value="$PROJECT_DIR$/js/plugins/jquery/flowplugin-2/js/flowplugin-2.js" />
         <option value="$PROJECT_DIR$/web-phone/web-in-order/page/flow-list-new.html" />
         <option value="$PROJECT_DIR$/web-phone/web-in-order/js/flow-list-new.js" />
-        <option value="$PROJECT_DIR$/js/plugins/jquery/flowplugin-2/js/flowplugin-2.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="13" />
-    <option name="y" value="92" />
-    <option name="width" value="1340" />
-    <option name="height" value="703" />
+    <option name="x" value="7" />
+    <option name="y" value="91" />
+    <option name="width" value="1354" />
+    <option name="height" value="713" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -122,10 +144,16 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../WebShop-master (2)/WebShop-master/vanfashion" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\2020-12-14\2020-12-14\web-phone\web-in-order\page" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -149,15 +177,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607954146539</updated>
-      <workItem from="1607954149679" duration="1875000" />
+      <workItem from="1607954149679" duration="8694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1875000" />
+    <option name="totallyTimeSpent" value="8694000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="92" width="1340" height="703" extended-state="0" />
+    <frame x="21" y="91" width="1340" height="713" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -184,29 +212,37 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web-phone/web-in-order/page/flow-list-new.html">
+    <entry file="file://$PROJECT_DIR$/web-phone/web-in-order/page/map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="206" column="73" selection-start-line="206" selection-start-column="73" selection-end-line="206" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web-phone/web-in-order/js/flow-list-new.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="405" column="3" lean-forward="true" selection-start-line="405" selection-start-column="3" selection-end-line="405" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="154">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/plugins/jquery/flowplugin-2/js/flowplugin-2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="25" column="103" selection-start-line="25" selection-start-column="103" selection-end-line="25" selection-end-column="103" />
+        <state relative-caret-position="378">
+          <caret line="39" column="165" lean-forward="true" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="165" />
           <folding>
-            <element signature="n#style#0;n#button#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#IFRAME#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-phone/web-in-order/page/flow-list-new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="49" column="81" selection-start-line="49" selection-start-column="81" selection-end-line="49" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web-phone/web-in-order/js/flow-list-new.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -6,9 +6,66 @@ $(document).ready(function () {
     $("#jobName").val('');
     //alert(1);
 
+
     //初始获取orderNum，加载表格
     flowObj.initTable();
+
+
+    // 查看专员按钮绑定事件
+    $(function(){
+        $(document).on('click','.lookPersonBtn',function(){
+            $("#mapIframe").toggle();
+            event.preventDefault();
+            /*需要注意的就是事件里边的$(this)指的就是被点击的元素而不是$(document)*/
+        })
+
+        $("#mapIframe").on("load", function(event){//判断 iframe是否加载完成  这一步很重要
+            $("body",this.contentDocument).click(function(){//添加点击事件
+                $("#mapIframeBig").animate({height:"100vh"});
+                $("header").hide();
+                $("section").hide()
+            });
+        });
+
+        $(function(){
+            pushHistory();
+            window.addEventListener("popstate", function(e) {
+                $("#mapIframeBig").animate({height:"0"});
+                $("header").show();
+                $("section").show()
+            }, false);
+            function pushHistory() {
+                var state = {
+                    title: "title",
+                url: "#"
+            };
+                window.history.pushState(state, "title", "#");
+            }
+        });
+
+
+
+
+
+
+    })
+
+
+
+    // mapIframe 地图绑定事件
+
+    // $(function(){
+    //     $(document).on('click','#mapIframe',function(){
+    //         alert('a')
+    //         event.preventDefault();
+    //         /*需要注意的就是事件里边的$(this)指的就是被点击的元素而不是$(document)*/
+    //     })
+    // })
 });
+
+function show_body_click(){
+    alert('aaa')
+}
 
 
 //外部URL去除回退按钮
@@ -399,8 +456,3 @@ $(".resetBtn").click(function () {
 // alert(data);
 }*/
 
-// 查看专员按钮
-$(".lookPersonBtn").click(function () {
-    alert('a')
-    event.preventDefault();
-});
