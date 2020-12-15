@@ -18,7 +18,48 @@
 			imgPath:"img/", //img/f1.png
 			imgType:"png", //图片后缀名
 			drawerFun:function(){}// 回调函数
-        }, opt);
+		}, opt);
+		
+		// //计算时间差
+		// timeFn(d1) {//di作为一个变量传进来
+		// 	//如果时间格式是正确的，那下面这一步转化时间格式就可以不用了
+		// 	let dateBegin = new Date(d1.replace(/-/g, "/"));//将-转化为/，使用new Date
+		// 	let dateEnd = new Date();//获取当前时间
+		// 	let dateDiff = dateEnd.getTime() - dateBegin.getTime();//时间差的毫秒数
+		// 	let dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));//计算出相差天数
+		// 	let leave1=dateDiff%(24*3600*1000) //计算天数后剩余的毫秒数
+		// 	let hours=Math.floor(leave1/(3600*1000))//计算出小时数
+		// 	//计算相差分钟数
+		// 	let leave2=leave1%(3600*1000) //计算小时数后剩余的毫秒数
+		// 	let minutes=Math.floor(leave2/(60*1000))//计算相差分钟数
+		// 	//计算相差秒数
+		// 	let leave3=leave2%(60*1000) //计算分钟数后剩余的毫秒数
+		// 	let seconds=Math.round(leave3/1000)
+		// 	minutes += 1
+		// 	minutes = (-minutes)<=0? 0: minutes
+		// 	let timeStr = -minutes + ':' + -seconds
+		// 	this.timeStr = timeStr
+		// 	this.timeS = (-minutes * 60) + (-seconds)
+		
+		// 	}
+
+		let dateStr = '2020-09-25 17:30'
+		var dt=new Date(dateStr.replace(/-/,"/"));//将传入的日期格式的字符串转换为date对象 兼容ie
+		// var dt=new Date(dateStr);//将传入的日期格式的字符串转换为date对象 非ie
+		var ndt=new Date(dt.getTime() - 30 * 60 * 1000);//将转换之后的时间减去30
+		console.log(ndt.valueOf())
+		console.log(new Date().valueOf());
+		var result={
+		year:parseInt(ndt.getFullYear()),
+		month:parseInt(ndt.getMonth()+1),
+		day:parseInt(ndt.getDay()),
+		hour:parseInt(ndt.getHours()),
+		minute:parseInt(ndt.getMinutes()),
+		second:parseInt(ndt.getSeconds())
+		}
+		console.log(result)
+		// return result;
+		
 		
 		// var flowHtml = '<div class="flowSwrap"><div class="hidden-line flow-line"></div></div>';
 		var flowHtml =
