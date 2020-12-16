@@ -14,18 +14,11 @@ $(document).ready(function () {
     // 查看专员按钮绑定事件
     $(function(){
         $(document).on('click','.lookPersonBtn',function(){
-            $("#mapIframe").toggle();
-            event.preventDefault();
-            /*需要注意的就是事件里边的$(this)指的就是被点击的元素而不是$(document)*/
+            $("#mapIframe").toggle(0,()=>{
+            });
         })
 
-        $("#mapIframe").on("load", function(event){//判断 iframe是否加载完成  这一步很重要
-            $("body",this.contentDocument).click(function(){//添加点击事件
-                $("#mapIframeBig").animate({height:"100vh"});
-                $("header").hide();
-                $("section").hide()
-            });
-        });
+
 
         $(function(){
             pushHistory();

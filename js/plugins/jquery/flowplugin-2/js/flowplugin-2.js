@@ -36,8 +36,15 @@
 		// 如果当前时间大于等于预约上门前30分钟 显示按钮 后续要增加判断订单是否结束
 		if( nowData >= ndt.valueOf() ){
 			btnStr = `<button class="lookPersonBtn" style="background-color:#fe9900;color: white;margin-left: 5%">查看专员位置</button>
-
-					<IFRAME id="mapIframe" style="background-color:#fe9900;color: white;margin-left: 5%;display: none" height=100 src="map.html" width=300></IFRAME>  `
+					<div id="mapIframe" style="background-color:#fe9900;color: white;margin: 5% 5% 0 5%;display: none" height=100>
+						<IFRAME src="map.html" width=300></IFRAME> 
+						<a style="float:right;background-color: #fe9900;color: #fff;" href="tel:13764567708">
+							<button style="background-color: #c0a16b;color: #fff;">
+							联系专员
+							</button>
+						</a>
+					</div>
+					 `
 		}
 
 		var flowHtml =

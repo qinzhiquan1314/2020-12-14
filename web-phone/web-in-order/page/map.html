@@ -7,9 +7,10 @@
 <body id="mapBody">
     <h1>百度地图页面</h1>
 </body>
+<script type="text/javascript" src="../../../js/plugins/bootstrap/jquery-1.12.1.min.js"></script>
 <script>
-    document.getElementById('mapBody').onclick = function(){
-
-    }
+   $('body').click(()=>{
+       $('#mapIframeBig', window.parent.document).animate({height:"100vh"});
+   })
 </script>
 </html>
