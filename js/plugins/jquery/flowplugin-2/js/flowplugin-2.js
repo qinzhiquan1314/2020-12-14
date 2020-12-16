@@ -11,16 +11,15 @@
  ----------------------------------*/
 
 (function($){
-	$.fn.flowplugin = function(opt) {
+	$.fn.flowplugin = function(opt, res) {
 		console.log(opt);
+		console.log( res );
 		opt = $.extend({
 			jsonDate:[],//json数据
 			imgPath:"img/", //img/f1.png
 			imgType:"png", //图片后缀名
 			drawerFun:function(){}// 回调函数
 		}, opt);
-
-		
 
 		let dateStr = '2020-09-25 17:30' //预约上门的时间
 		var dt=new Date(dateStr.replace(/-/,"/"));//将传入的日期格式的字符串转换为date对象 兼容ie
@@ -37,7 +36,11 @@
 		if( nowData >= ndt.valueOf() ){
 			btnStr = `<button class="lookPersonBtn" style="background-color:#fe9900;color: white;margin-left: 5%">查看专员位置</button>
 					<div id="mapIframe" style="background-color:#fe9900;color: white;margin: 5% 5% 0 5%;display: none" height=100>
-						<IFRAME src="map.html" width=300></IFRAME> 
+						<div id="iframeBox">
+							<div id="coverDiv" style="position: fixed;height: 154px;width: 300px;">&nbsp;</div>
+							<IFRAME height="154" width=300 id="iframeSelf" src="https://dtfw.bjunicom.com.cn:80/microservice-weix/rest/orderSchedule/openOneStaffPosition?address=${res.data.addrname}&phoneNumbe=${res.data.phoneNumbe}"></IFRAME> 
+							<!--<IFRAME id="iframeSelf" src="./map.html" width=300></IFRAME> -->
+						</div>
 						<a style="float:right;background-color: #fe9900;color: #fff;" href="tel:13764567708">
 							<button style="background-color: #c0a16b;color: #fff;">
 							联系专员
@@ -164,6 +167,56 @@
         	}
         	
         }
+
+		// 查看专员按钮事件
+		$(document).on('click','.lookPersonBtn',function(){
+			// 显示小地图
+			$("#mapIframe").toggle(0);
+		})
+
+		// 点击小地图事件
+		$(document).on('click','#coverDiv',function(){
+			// 改变大地图的地址
+			$('#mapIframeBig').attr('src',`https://dtfw.bjunicom.com.cn:80/microservice-weix/rest/orderSchedule/openOneStaffPosition?address=${res.data.addrname}&phoneNumbe=${res.data.phoneNumbe}`);
+			// $('#mapIframeBig').attr('src',`./map.html`);
+			// 显示大地图
+			$('#mapIframeBigBox').show(0,()=>{
+				$('#mapIframeBigBox').animate({height:"100vh"});
+			});
+
+			// 隐藏原来页面的东西
+			$('header').hide();
+			$('section').hide();
+		})
+
+		// 点击大地图中的返回按钮的事件
+		$(document).on('click','#backBtn',function(){
+			// 隐藏大地图
+			$('#mapIframeBigBox').animate({height:"0"},()=>{
+				$('#mapIframeBigBox').hide();
+				// 显示原来页面的东西
+				$('header').show();
+				$('section').show();
+			});
+
+		})
+
+		// 点击返回键缩小地图 是物理返回键不是页面的返回按钮
+		// $(function(){
+		// 	pushHistory();
+		// 	window.addEventListener("popstate", function(e) {
+		// 		$("#mapIframeBig").animate({height:"0"});
+		// 		$("header").show();
+		// 		$("section").show()
+		// 	}, false);
+		// 	function pushHistory() {
+		// 		var state = {
+		// 			title: "title",
+		// 			url: "#"
+		// 		};
+		// 		window.history.pushState(state, "title", "#");
+		// 	}
+		// });
         
         //抽屉内容
 		function drawerHtml(v) {

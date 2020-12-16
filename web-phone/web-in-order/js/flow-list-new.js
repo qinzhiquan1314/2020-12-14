@@ -6,59 +6,10 @@ $(document).ready(function () {
     $("#jobName").val('');
     //alert(1);
 
-
     //初始获取orderNum，加载表格
     flowObj.initTable();
-
-
-    // 查看专员按钮绑定事件
-    $(function(){
-        $(document).on('click','.lookPersonBtn',function(){
-            $("#mapIframe").toggle(0,()=>{
-            });
-        })
-
-
-
-        $(function(){
-            pushHistory();
-            window.addEventListener("popstate", function(e) {
-                $("#mapIframeBig").animate({height:"0"});
-                $("header").show();
-                $("section").show()
-            }, false);
-            function pushHistory() {
-                var state = {
-                    title: "title",
-                url: "#"
-            };
-                window.history.pushState(state, "title", "#");
-            }
-        });
-
-
-
-
-
-
-    })
-
-
-
-    // mapIframe 地图绑定事件
-
-    // $(function(){
-    //     $(document).on('click','#mapIframe',function(){
-    //         alert('a')
-    //         event.preventDefault();
-    //         /*需要注意的就是事件里边的$(this)指的就是被点击的元素而不是$(document)*/
-    //     })
-    // })
 });
 
-function show_body_click(){
-    alert('aaa')
-}
 
 
 //外部URL去除回退按钮
@@ -366,7 +317,9 @@ var flowObj = {
                     data: []
                 };
                 rdata.data = res.data.jobInsts;
-                flowObj.makeFlowArea(rdata);
+                // 增加携带res参数
+                // flowObj.makeFlowArea(rdata);
+                flowObj.makeFlowArea(rdata, res);
 
             }
             //未找到数据弹出提示框
@@ -386,15 +339,17 @@ var flowObj = {
         }
     },
 
-    
-    makeFlowArea: function (data) {
+
+    // 获取地图参数需要用到地址和电话参数 所有将所有返回值传过去
+    // makeFlowArea: function (data) {
+    makeFlowArea: function (data, res) {
         var opt = {
             "jsonDate": data, //json数据
             "imgPath": "../../../web-phone/images/order/flow/", //图片路径
             "imgType": "png" //图片类型
         };
 
-        $(".flowtest").flowplugin(opt);
+        $(".flowtest").flowplugin(opt, res);
 
         //单页面特殊处理广告位重新加载
         advertPosition();
